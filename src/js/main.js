@@ -71,7 +71,6 @@ function chatbotEnviarImagen(responseImg){
     imagen2.style.width = "250px";
     imagen2.style.borderRadius = "20px";
 
-
     // Creación del divisor para ambas imágenes
     var divisor = document.createElement('div');
     divisor.classList.add('divisor_imagenes');
@@ -101,7 +100,7 @@ function userEnviarMensaje(inputMsg){
     mensaje.style.backgroundColor = "aliceblue";
     mensaje.style.borderRadius = "20px";
 
-    mensaje.innerHTML = "<span style=" + "margin-top: 10px; padding: 10px;" + ">" + inputMsg + "</span>";
+    mensaje.innerHTML = "<span style=" + "margin-left: 10px; margin-top: 10px; padding: 10px;" + ">" + inputMsg + "</span>";
 
     mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
 

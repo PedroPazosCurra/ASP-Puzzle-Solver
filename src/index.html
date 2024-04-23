@@ -28,8 +28,8 @@
           <img src="https://economiacolaborativaudcderecho.wordpress.com/wp-content/uploads/2018/02/logo-udc-e1518280684389.png" style="margin: 20px;" class=" rounded-circle float-start img-thumbnail" width="75p">
           <div class="media-body">
             <h5 style="color: aliceblue">Bot resolutor</h5>
-            <div class="container text-center" style="border-radius: 20px; background-color:#afff7a; margin-left: 10px; width:fit-content;">
-              <span style="color: hotpink;">En línea</span>
+            <div class="container text-center" style="border-radius: 20px; background-color:green; margin-left: 10px; width:fit-content;">
+              <span style="color: white">En línea</span>
             </div>
 
           </div>
@@ -37,19 +37,25 @@
         </div>
 
         <!-- Recuadro de chat -->
-        <div id="chatContainer" class="container border overflow-auto" style="height:400px; background-color:#ffd5f6"></div>
+        <div id="chatContainer" class="container border overflow-auto" style="height:400px; background-color:#ffd5f6;"></div>
 
-        <!-- Entrada de texto -->
-        <div class="input-group" style="margin-top: 10px;">
-          
-          <input id="textbox" type="text" style="background-color:#ffd5f6;" class="form-control"/>
+        <!-- Recuadro de input -->
+        <div class="row">
+          <div class="input-group col-md-4" style="margin-top: 10px; background-color:#ffd5f6; border-radius: 32px;">
+            
+            <!--Input-->
+            <input class="form-control py-2 border-right-0 border"; id="textbox" type="search" placeholder="Escribe el estado de tu puzzle..." aria-label="Escribe el estado de tu puzzle..." 
+              style="border: none; outline: none; border-color: transparent; background-color: transparent;" />
 
-          <div class="input-group-append">
-            <button id="enviar_button" type=btton class="btn btn-primary" style="background-color:hotpink;">Enviar</button>
+            <!-- Botón enviar -->
+            <span class="input-group-append">
+              <button id="enviar_button" type="button" class="btn btn-outline-link rounded-circle botonEnviar" style="height:100%; width: 100%; color: hotpink; outline-color: hotpink;">
+                <i class="fa fa-solid fa-paper-plane"></i>
+              </button>
+            </span>
+
           </div>
-
         </div>
-
       </div>
 
       <br>

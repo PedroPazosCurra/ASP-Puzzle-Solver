@@ -42,3 +42,36 @@ html { overflow-y: scroll;}
   .divisor_imagenes .imagen-inicial { order: 1; }
   .divisor_imagenes .imagen-final { order: 3; }
 }
+
+.redondeado {
+  border-radius: 20px;
+}
+
+.botonEnviar {
+  border: none;
+  background-color: transparent;
+  outline-color: transparent;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+.botonEnviar:after {
+  content: "";
+  background: hotpink;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+.botonEnviar:active:after{
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
