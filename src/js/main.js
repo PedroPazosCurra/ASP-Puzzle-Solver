@@ -125,19 +125,28 @@ function procesaMensaje(mensaje){
 
 /* Ligar Listener al evento click en el botón ENVIAR
 */ 
-sendBtn.addEventListener('click', function(e){
+sendBtn.addEventListener('click', function(evento){
 
     let inputText = textBox.value;
 
-    if(inputText == ""){
-        // Pulsa el botón sin escribir - aviso por pantalla
+    if(inputText == ""){    // Pulsa el botón sin escribir - aviso por pantalla
+        
         alert("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
-    }else{
-        // El mensaje se imprime en el chat y se borra la caja de texto
+
+    }else{                  // El mensaje se envía, se borra el input y se envía al modelo
+        
         userEnviarMensaje(inputText);
         textBox.value = "";
-
-        // El mensaje se entrega al modelo para recibir una respuesta.
         procesaMensaje(inputText);
+
     }
+});
+
+textBox.addEventListener("keyup", function(evento){
+
+    if(evento.key === "Enter"){
+        document.getElementById('enviar_button').click();
+        evento.preventDefault();
+    }
+
 });
