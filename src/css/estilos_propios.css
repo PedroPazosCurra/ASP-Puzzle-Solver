@@ -1,0 +1,44 @@
+
+html { overflow-y: scroll;}
+
+
+
+.pie_de_pagina{
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  background-color: white;
+  color: black;
+  margin: 30px;
+}
+
+
+.divisor_imagenes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 100%;
+  margin: 10px;
+  padding: 5px;
+  background-color: hotpink;
+  border-radius: 20px;
+}
+
+.divisor_imagenes img {
+  margin: 10px;
+  border-radius: 20px;
+}
+
+/* Opciones para colapso por anchura, imágenes se enseñan en vertical */
+@media (max-width: 700px) {
+  .divisor_imagenes {
+    flex-direction: column;
+  }
+
+  /* Rotar la flecha si colapsa por anchura */
+  .divisor_imagenes .flecha { order: 2; transform: rotate(90deg); }
+  .divisor_imagenes .imagen-inicial { order: 1; }
+  .divisor_imagenes .imagen-final { order: 3; }
+}
