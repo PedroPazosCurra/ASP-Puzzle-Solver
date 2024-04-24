@@ -1,7 +1,7 @@
 var sendBtn = document.getElementById('enviar_button');
 var textBox = document.getElementById('textbox');
 var chatContainer = document.getElementById('chatContainer');
-var imgPrueba = "https://www.udc.es/export/sites/udc/identidadecorporativa/_galeria_imgs/logoUDC375x250.png_820558358.png"
+var imgPrueba = "../resources/img/logo_udc_horizontal.png";
 var imgFlecha = "../resources/img/flecha.png";
 
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
