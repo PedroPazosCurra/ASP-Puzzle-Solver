@@ -1,6 +1,6 @@
 
+/* Permite scroll */
 html { overflow-y: scroll;}
-
 
 
 .pie_de_pagina{
@@ -25,7 +25,6 @@ html { overflow-y: scroll;}
   background-color: hotpink;
   border-radius: 20px;
 }
-
 .divisor_imagenes img {
   margin: 10px;
   border-radius: 20px;
@@ -47,6 +46,7 @@ html { overflow-y: scroll;}
   border-radius: 20px;
 }
 
+/* Botón "Enviar Mensaje" */
 .botonEnviar {
   border: none;
   background-color: transparent;
@@ -74,4 +74,12 @@ html { overflow-y: scroll;}
   margin: 0;
   opacity: 1;
   transition: 0s
+}
+
+.circulo-online {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  margin-right: 5px;
 }

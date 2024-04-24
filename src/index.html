@@ -11,35 +11,45 @@
   </head>
   <body>
 
-    <!-- Global -->
+    <!-- GLOBAL -->
     <div class="container" style="border:1px solid palevioletred; max-width: fit-content;">
 
-      <!-- Titulo -->
+      <!-- Título -->
       <br>
       <h4 class="text-center" style="">Puzzle Solver Chatbot</h4>
-      <h6 class="text-center" style="">Trabajo de Fin de Grado, Pedro Pazos Curra, curso 23/24. Grado de Ingeniería Informática UDC</h6>
+      <h7 class="text-center" style="color: gray; margin: 0 auto; align-self: center; display: block;">Trabajo de Fin de Grado, Pedro Pazos Curra, curso 23/24</h7>
 
-      <!-- CHAT -->
-      <div class="container"
-            style="margin-top:50px;">
+      <!-- CHAT + INPUT -->
+      <div class="container" style="margin-top:50px; border-radius: 10px;">
 
-        <!-- Banner del Bot -->
-        <div class="media d-flex align-items-center" style="background-color:hotpink; height: 120px;">
-          <img src="../resources/img/logo_udc_horizontal.png" style="margin: 20px;" class=" rounded-circle float-start img-thumbnail" width="75p">
-          <div class="media-body">
-            <h5 style="color: aliceblue">Bot resolutor</h5>
-            <div class="container text-center" style="border-radius: 20px; background-color:green; margin-left: 10px; width:fit-content;">
-              <span style="color: white">En línea</span>
+        <!-- Banner + chat -->
+        <div class="container" style="max-height: 80%; width: 80%;">
+
+          <!-- Banner -->
+          <div class="media d-flex align-items-center" style="background-color:hotpink; height: 120px;">
+
+            <!-- Foto perfil -->
+            <img src="../resources/img/logo_udc_horizontal.png" style="margin: 20px;" class=" rounded-circle img-thumbnail" width="100p"; height="100p">
+            <div class="media-body">
+
+              <!-- Nombre Bot -->
+              <h5 style="color: white">Bot resolutor</h5>
+
+              <!-- "En línea" -->
+              <div class="container text-center" style="border-radius: 20px; background-color:transparent; margin-left: 10px; width:fit-content;">
+                <span class="circulo-online"></span>
+                <span style="color: white">En línea</span>
+              </div>
+
             </div>
 
           </div>
 
+          <!-- Chat -->
+          <div id="chatContainer" class="container border overflow-auto" style="height:400px; background-color:#ffd5f6;"></div>
         </div>
 
-        <!-- Recuadro de chat -->
-        <div id="chatContainer" class="container border overflow-auto" style="height:400px; background-color:#ffd5f6;"></div>
-
-        <!-- Recuadro de input -->
+        <!-- Input + Botón -->
         <div class="row">
           <div class="input-group col-md-4" style="margin-top: 10px; background-color:#ffd5f6; border-radius: 32px;">
             
