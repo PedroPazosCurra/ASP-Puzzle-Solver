@@ -7,7 +7,7 @@ var imgFlecha = "../resources/img/flecha.png";
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
 setTimeout(() => {
     chatbotEnviarMensaje("Hola, ¿en qué puedo ayudarte?");
-    chatbotEnviarImagenes(imgPrueba, imgPrueba);
+    chatbotEnviarImagenes(imgPrueba, "../resources/img/logo_fic.jpg");
     userEnviarMensaje("Mensaje de prueba Lorem Ipsum Dolor Sit Amet");
   }, "1000");
 
