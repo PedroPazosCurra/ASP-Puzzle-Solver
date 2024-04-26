@@ -1,13 +1,15 @@
+
+// Variables
 var sendBtn = document.getElementById('enviar_button');
 var textBox = document.getElementById('textbox');
 var chatContainer = document.getElementById('chatContainer');
-var imgPrueba = "../resources/img/logo_udc_horizontal.png";
-var imgFlecha = "../resources/img/flecha.png";
+var imgPrueba = "http://localhost:8080/img/logo_udc_horizontal.png";
+var imgFlecha = "http://localhost:8080/img/flecha.png";
 
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
 setTimeout(() => {
     chatbotEnviarMensaje("Hola, ¿en qué puedo ayudarte?");
-    chatbotEnviarImagenes(imgPrueba, "../resources/img/logo_fic.jpg");
+    chatbotEnviarImagenes(imgPrueba, "http://localhost:8080/img/logo_fic.jpg");
     userEnviarMensaje("Mensaje de prueba Lorem Ipsum Dolor Sit Amet");
   }, "1000");
 
@@ -16,7 +18,7 @@ setTimeout(() => {
   }, "1000");
 
 
-// Funciones
+//#################### Funciones ######################
 
 /* Función chatbotEnviarMensaje
 */ 
@@ -118,20 +120,26 @@ function userEnviarMensaje(inputMsg){
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-/* Función procesaMensaje
-*/
-function procesaMensaje(mensaje){    
-    
-    // Llamada a la API del LLM
-    
-    // Comprobación de respuesta, verificación y posible reenvío hasta resultado satisfactorio
+function procesaMensaje(mensaje){
 
-    // Envío al solver ASP
+    // Envía petición AJAX a backend Express
+    console.log(JSON.stringify({ "message": mensaje }));
 
-    // Envía imágenes de principio y final
-    // chatbotEnviarImagenes(startImg, endImg);
- 
+    fetch('/procesa-mensaje', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: mensaje })
+    })
+    .then(response => response.json())
+    .then(data => {
+      //responseDiv.textContent = data.processedMessage;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      //responseDiv.textContent = 'Error processing message.';
+    });
 }
+
 
 // Ligar Listener al evento click en el botón ENVIAR 
 sendBtn.addEventListener('click', function(evento){
@@ -146,6 +154,7 @@ sendBtn.addEventListener('click', function(evento){
         
         userEnviarMensaje(inputText);
         textBox.value = "";
+        evento.preventDefault();
         procesaMensaje(inputText);
 
     }
