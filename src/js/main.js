@@ -97,7 +97,7 @@ function chatbotEnviarImagenes(startImg, endImg){
 
 /* Función userEnviarMensaje
 */ 
-function userEnviarMensaje(inputMsg){
+async function userEnviarMensaje(inputMsg){
 
     // Creación de elemento mensaje
     var mensaje = document.createElement('div');
@@ -118,26 +118,19 @@ function userEnviarMensaje(inputMsg){
     // Añade mensaje y scroll hacia el último mensaje enviado
     chatContainer.appendChild(mensaje);
     chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-function procesaMensaje(mensaje){
 
     // Envía petición AJAX a backend Express
-    console.log(JSON.stringify({ "message": mensaje }));
-
-    fetch('/procesa-mensaje', {
+    const mensaje_procesado = await fetch('/procesa-mensaje', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: mensaje })
+      body: JSON.stringify({ message: inputMsg })
     })
-    .then(response => response.json())
-    .then(data => {
-      //responseDiv.textContent = data.processedMessage;
-    })
+    .then(response => response.json())    
     .catch(error => {
-      console.error('Error:', error);
-      //responseDiv.textContent = 'Error processing message.';
+      alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error)
     });
+
+    console.log("Mensaje procesado: ", mensaje_procesado);
 }
 
 
@@ -150,12 +143,11 @@ sendBtn.addEventListener('click', function(evento){
         
         alert("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
 
-    }else{                  // El mensaje se envía, se borra el input y se envía al modelo
+    }else{                  // El mensaje se envía y se borra el input 
         
         userEnviarMensaje(inputText);
         textBox.value = "";
         evento.preventDefault();
-        procesaMensaje(inputText);
 
     }
 });

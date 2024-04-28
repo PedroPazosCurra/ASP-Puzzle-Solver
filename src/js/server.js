@@ -2,24 +2,27 @@
   Server
 */
 
-//  Requerimientos y constantes
+//  Imports y variables
+const procesador = require("./procesaMensaje")
 const express = require('express');
 const cors = require('cors')
 var path = require('path');
 const app = express();
-const port = 8080;
 var router = express.Router();
+const port = 8080;
 
-// Módulos para funcionalidades extra
+
+// Módulos Express para funcionalidades extra
 app.use(express.json());
 app.use(cors());
+
+
+/*########################  Rutas  ##########################*/
 
 // Routing para elementos estáticos
 app.use('/img', express.static(path.join(__dirname, '../../resources/img')));
 app.use('/css',express.static(path.join(__dirname, '../css')));
 app.use('/js',express.static(__dirname));
-
-/*########################  Rutas  ##########################*/
 
 // Recibe GET a '/'
 app.get("/", function (req, res) {
@@ -34,14 +37,13 @@ app.get("/", function (req, res) {
 app.post('/procesa-mensaje', (req, res) => {
 
   // Coge mensaje del cuerpo del JSON + LOG
-  const message = req.body.message; 
-  console.log("LOG: POST /procesa-mensaje: \"%s\" ", message);
-
+  const msg = req.body.message; 
+  console.log("LOG: POST /procesa-mensaje: \"%s\" ", msg);
 
   // Implementa lógica para procesar el mensaje
   
   // Responde
-  res.json({message});
+  res.send(JSON.stringify(msg));
 });
 
 
@@ -54,6 +56,6 @@ app.listen(port, () => console.log(`Server escuchando en puerto ${port},      ht
       console.log('ERROR puerto :%d ocupado', port);   
     } 
     else {
-        console.log("ERROR ", err);   
+        console.log("ERROR no manejado: ", err);   
     } 
   });
