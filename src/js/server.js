@@ -48,4 +48,12 @@ app.post('/procesa-mensaje', (req, res) => {
 /*#################  Inicialización del server  ##################*/
 
 // Escuchar en el puerto
-app.listen(port, () => console.log(`Server escuchando en puerto ${port},      http://localhost:${port}`));
+app.listen(port, () => console.log(`Server escuchando en puerto ${port},      http://localhost:${port}`))
+  .on('error', function(err) {
+    if (err.code === 'EADDRINUSE') {
+      console.log('ERROR puerto :%d ocupado', port);   
+    } 
+    else {
+        console.log("ERROR ", err);   
+    } 
+  });
