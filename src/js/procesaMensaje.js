@@ -2,7 +2,7 @@ const { spawn } = require("child_process");
 
 /* Función procesaMensaje
 */
-async function procesaMensaje(mensaje){    
+async function procesaMensaje(mensaje, puzzle){    
     
 
 

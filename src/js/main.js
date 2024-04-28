@@ -129,7 +129,10 @@ async function userEnviarMensaje(inputMsg){
   const mensaje_procesado = await fetch('/procesa-mensaje', {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: inputMsg })
+    body: JSON.stringify({ 
+      message : inputMsg, 
+      puzzle : selectedPuzzle
+    })
   })
   .then(response => response.json())    
   .catch(error => {
@@ -150,9 +153,9 @@ sendBtn.addEventListener('click', function(evento){
     console.log(selectedPuzzle);
 
     if(inputText == ""){            // Input vacío -> aviso
-        
+    
       alert("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
-
+      
     }else{                  
 
       if(selectedPuzzle == "none"){  // Puzzle sin elegir -> aviso
@@ -169,7 +172,6 @@ sendBtn.addEventListener('click', function(evento){
         evento.preventDefault();
 
       }
-        
     }
 });
 

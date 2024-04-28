@@ -38,10 +38,11 @@ app.post('/procesa-mensaje', (req, res) => {
 
   // Coge mensaje del cuerpo del JSON + LOG
   const msg = req.body.message; 
-  console.log("LOG: POST /procesa-mensaje: \"%s\" ", msg);
+  const puzzle = req.body.puzzle;
+  console.log("LOG: POST /procesa-mensaje: \"%s\" para puzzle: %s ", msg, puzzle);
 
   // Se procesa el mensaje recibido
-  mensaje_procesado = procesador.procesaMensaje(msg)
+  mensaje_procesado = procesador.procesaMensaje(msg, puzzle)
   console.log("Respuesta del procesador: ", mensaje_procesado);
   
   // Responde con el mensaje procesado
