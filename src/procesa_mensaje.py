@@ -10,7 +10,7 @@ def procesa_mensaje(msg):
 
     # Envío al solver ASP
 
-    return msg
+    return "msg"
 
 if __name__ == "__main__":
 

@@ -40,9 +40,11 @@ app.post('/procesa-mensaje', (req, res) => {
   const msg = req.body.message; 
   console.log("LOG: POST /procesa-mensaje: \"%s\" ", msg);
 
-  // Implementa lógica para procesar el mensaje
+  // Se procesa el mensaje recibido
+  mensaje_procesado = procesador.procesaMensaje(msg)
+  console.log("Respuesta del procesador: ", mensaje_procesado);
   
-  // Responde
+  // Responde con el mensaje procesado
   res.send(JSON.stringify(msg));
 });
 

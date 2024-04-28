@@ -2,9 +2,11 @@
 // Variables
 var sendBtn = document.getElementById('enviar_button');
 var textBox = document.getElementById('textbox');
+var dropdownPuzzle = document.getElementById("dropdownPuzzle");
 var chatContainer = document.getElementById('chatContainer');
 var imgPrueba = "http://localhost:8080/img/logo_udc_horizontal.png";
 var imgFlecha = "http://localhost:8080/img/flecha.png";
+var selectedPuzzle = "";
 
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
 setTimeout(() => {
@@ -18,7 +20,7 @@ setTimeout(() => {
   }, "1000");
 
 
-//#################### Funciones ######################
+//########################   Funciones   ############################
 
 /* Función chatbotEnviarMensaje
 */ 
@@ -99,45 +101,48 @@ function chatbotEnviarImagenes(startImg, endImg){
 */ 
 async function userEnviarMensaje(inputMsg){
 
-    // Creación de elemento mensaje
-    var mensaje = document.createElement('div');
+  // Creación de elemento mensaje
+  var mensaje = document.createElement('div');
 
-    mensaje.classList.add('float-end');
-    mensaje.classList.add('shadow-sm');
-    mensaje.classList.add('w-50');
-    mensaje.style.margin = "10px";
-    mensaje.style.padding = "5px";
-    mensaje.style.backgroundColor = "aliceblue";
-    mensaje.style.borderRadius = "20px";
-    mensaje.innerHTML = '<p class="text-end" style="margin-right: 70px;">' + inputMsg + '</p>';
+  mensaje.classList.add('float-end');
+  mensaje.classList.add('shadow-sm');
+  mensaje.classList.add('w-50');
+  mensaje.style.margin = "10px";
+  mensaje.style.padding = "5px";
+  mensaje.style.backgroundColor = "aliceblue";
+  mensaje.style.borderRadius = "20px";
+  mensaje.innerHTML = '<p class="text-end" style="margin-right: 70px;">' + inputMsg + '</p>';
 
 
-    // Animación al entrar en chat
-    mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
+  // Animación al entrar en chat
+  mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
 
-    // Añade mensaje y scroll hacia el último mensaje enviado
-    chatContainer.appendChild(mensaje);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+  // Añade mensaje y scroll hacia el último mensaje enviado
+  chatContainer.appendChild(mensaje);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 
-    // Envía petición AJAX a backend Express
-    const mensaje_procesado = await fetch('/procesa-mensaje', {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: inputMsg })
-    })
-    .then(response => response.json())    
-    .catch(error => {
-      alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error)
-    });
+  // Envía petición AJAX a backend Express
+  const mensaje_procesado = await fetch('/procesa-mensaje', {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: inputMsg })
+  })
+  .then(response => response.json())    
+  .catch(error => {
+    alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error)
+  });
 
-    console.log("Mensaje procesado: ", mensaje_procesado);
+  console.log("Mensaje procesado: ", mensaje_procesado);
 }
 
 
-// Ligar Listener al evento click en el botón ENVIAR 
+//#############################   Eventos    ######################################
+
+// Click en el botón ENVIAR 
 sendBtn.addEventListener('click', function(evento){
 
     let inputText = textBox.value;
+    let selectedPuzzle = dropdownPuzzle.textContent.trim();
 
     if(inputText == ""){    // Pulsa el botón sin escribir - aviso por pantalla
         
@@ -145,14 +150,14 @@ sendBtn.addEventListener('click', function(evento){
 
     }else{                  // El mensaje se envía y se borra el input 
         
-        userEnviarMensaje(inputText);
+        userEnviarMensaje(inputText, selectedPuzzle);
         textBox.value = "";
         evento.preventDefault();
 
     }
 });
 
-// Si se pulsa enter en el input, se envía.
+// Enter en el input -> se envía el texto.
 textBox.addEventListener("keyup", function(evento){
 
     if(evento.key === "Enter"){
@@ -161,3 +166,12 @@ textBox.addEventListener("keyup", function(evento){
     }
 
 });
+
+// Click opción del dropdown -> se cambia el texto y variable selectedPuzzle
+function changeSelectedPuzzle(item) {
+  opcion = item.textContent.trim();
+  dropdownPuzzle.innerHTML = opcion;
+  selectedPuzzle = opcion;
+  console.log(selectedPuzzle);
+}
+
