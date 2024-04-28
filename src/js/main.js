@@ -1,14 +1,18 @@
 
 // Variables
 var sendBtn = document.getElementById('enviar_button');
-var textBox = document.getElementById('textbox');
+var textBox = document.getElementById('textbox'); 
 var dropdownPuzzle = document.getElementById("dropdownPuzzle");
 var chatContainer = document.getElementById('chatContainer');
 var imgPrueba = "http://localhost:8080/img/logo_udc_horizontal.png";
 var imgFlecha = "http://localhost:8080/img/flecha.png";
-var selectedPuzzle = "";
+var selectedPuzzle = "none";
 
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
+
+textBox.value = "";
+
+  // Ejemplos de mensajes
 setTimeout(() => {
     chatbotEnviarMensaje("Hola, ¿en qué puedo ayudarte?");
     chatbotEnviarImagenes(imgPrueba, "http://localhost:8080/img/logo_fic.jpg");
@@ -142,18 +146,30 @@ async function userEnviarMensaje(inputMsg){
 sendBtn.addEventListener('click', function(evento){
 
     let inputText = textBox.value;
-    let selectedPuzzle = dropdownPuzzle.textContent.trim();
 
-    if(inputText == ""){    // Pulsa el botón sin escribir - aviso por pantalla
-        
-        alert("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
+    console.log(selectedPuzzle);
 
-    }else{                  // El mensaje se envía y se borra el input 
+    if(inputText == ""){            // Input vacío -> aviso
         
+      alert("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
+
+    }else{                  
+
+      if(selectedPuzzle == "none"){  // Puzzle sin elegir -> aviso
+
+        alert("Selecciona un puzzle, por favor");
+        dropdownPuzzle.style.border="5px solid white";
+        dropdownPuzzle.style.transition = "border-color 0.5s ease-in-out";
+
+      }else{                        // El mensaje se envía y se borra el input 
+
+        dropdownPuzzle.style.border="5px transparent";
         userEnviarMensaje(inputText, selectedPuzzle);
         textBox.value = "";
         evento.preventDefault();
 
+      }
+        
     }
 });
 
