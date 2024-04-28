@@ -9,7 +9,7 @@ modelo = "Meta-Llama-3-8B-Instruct-Dolfin-v0.1"
 
 def procesa_mensaje(msg):
 
-    print("Llega al programa python con mensaje: " + msg)
+    #print("Llega al programa python con mensaje: " + msg)
 
     # Petición a la LLM (Actualmente, modelo pequeño para probar)
     payload = json.dumps({ "model": modelo, "prompt": prompt })
@@ -24,7 +24,9 @@ def procesa_mensaje(msg):
     # Comprobación de respuesta, verificación y posible reenvío hasta resultado satisfactorio
 
     # Envío al solver ASP
-    print(json_res[""])
+
+    print("[Prompt]  " +  prompt)
+    print("[Answer]  " + json_res['choices'][0]['text'])
     return "Placeholder para respuesta final"
 
 if __name__ == "__main__":
