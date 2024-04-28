@@ -21,27 +21,27 @@ app.use('/js',express.static(__dirname));
 
 /*########################  Rutas  ##########################*/
 
-// Recibe GET a /
+// Recibe GET a '/'
 app.get("/", function (req, res) {
 
-  console.log("Recibida petición GET a http://localhost:8080/");
-  console.log(__dirname);
+  // LOG + Envía html 
+  console.log("LOG: GET /");
   res.sendFile(path.join(__dirname, '../', 'index.html'));
 
 });
 
-// Recibe POST a /procesa-mensaje
+// Recibe POST a '/procesa-mensaje'
 app.post('/procesa-mensaje', (req, res) => {
 
-  console.log('LOG: POST /procesa-mensaje ${req}');
+  // Coge mensaje del cuerpo del JSON + LOG
+  const message = req.body.message; 
+  console.log("LOG: POST /procesa-mensaje: \"%s\" ", message);
 
-  const message = req.body.message; // Get the message from the request body
 
   // Implementa lógica para procesar el mensaje
   
-  //const processedMessage = "Processed message: " + message;
-  res.send("Llamada POST a procesa-mensaje");
-  //res.json({ processedMessage });
+  // Responde
+  res.json({message});
 });
 
 
