@@ -33,7 +33,7 @@ app.get("/", function (req, res) {
 // Recibe POST a /procesa-mensaje
 app.post('/procesa-mensaje', (req, res) => {
 
-  console.log("Llega procesa-mensaje al server");
+  console.log('LOG: POST /procesa-mensaje ${req}');
 
   const message = req.body.message; // Get the message from the request body
 
@@ -47,7 +47,5 @@ app.post('/procesa-mensaje', (req, res) => {
 
 /*#################  Inicialización del server  ##################*/
 
-console.log(path.join(__dirname, '../', 'index.html'));
-
 // Escuchar en el puerto
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+app.listen(port, () => console.log(`Server escuchando en puerto ${port},      http://localhost:${port}`));
