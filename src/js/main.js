@@ -126,20 +126,24 @@ async function userEnviarMensaje(inputMsg){
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
   // Envía petición AJAX a backend Express
-  const mensaje_procesado = await fetch('/procesa-mensaje', {
+  fetch('/procesa-mensaje', {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 
       message : inputMsg, 
       puzzle : selectedPuzzle
     })
-  })
-  .then(response => response.json())    
-  .catch(error => {
-    alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error)
-  });
+  }).then(response => { // Caso exitoso
 
-  console.log("Mensaje procesado: ", mensaje_procesado);
+    mensaje_procesado = response.json();
+    console.log("Mensaje procesado: ", mensaje_procesado);
+    chatbotEnviarMensaje(mensaje_procesado);
+
+  }).catch(error => {   // Caso de error
+
+    alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error)
+
+  });
 }
 
 
