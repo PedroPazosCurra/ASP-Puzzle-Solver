@@ -21,12 +21,33 @@ setTimeout(() => {
 
 //########################   Funciones de chat   ############################
 
+/* Función userEnviarMensaje
+*/ 
+function userEnviarMensaje(inputMsg){
+
+  // Se coloca el mensaje en el chat
+  var mensajeElemUser = creaMensaje("User", inputMsg);
+  enviaMensaje(mensajeElemUser);
+
+  chatbotEnviarMensaje(inputMsg);
+}
+
 /* Función chatbotEnviarMensaje
 */ 
-function chatbotEnviarMensaje(responseMsg){
-  var mensaje = creaMensaje("Bot");
-  enviaMensaje(mensaje);
-  actualizaMensaje(mensaje, responseMsg);
+async function chatbotEnviarMensaje(inputMsg){
+
+  // Mensaje de carga...
+  var mensajeElem = creaMensaje("Bot");
+  enviaMensaje(mensajeElem);
+
+  // Envía petición AJAX a backend Express
+  peticionProcesaMensaje(inputMsg).then((valor) => { 
+
+    // Recibe correctamente, actualiza el mensaje
+    actualizaMensaje(mensajeElem, valor);
+
+  });
+
 }
 
 /* Función chatbotEnviarImagenes
@@ -78,29 +99,6 @@ function chatbotEnviarImagenes(startImg, endImg){
     // Añade mensaje y scroll hacia el último mensaje enviado
     chatContainer.appendChild(mensaje);
     chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-/* Función userEnviarMensaje
-*/ 
-async function userEnviarMensaje(inputMsg){
-
-  // Se coloca el mensaje en el chat
-  var mensajeElemUser = creaMensaje("User", inputMsg);
-  enviaMensaje(mensajeElemUser);
-
-  // Mientras se recibe, mensaje de carga ...
-  var mensajeElemBot = creaMensaje("Bot");
-  enviaMensaje(mensajeElemBot);
-
-  // Envía petición AJAX a backend Express
-  peticionProcesaMensaje(inputMsg).then((valor) => { 
-
-    // Recibe correctamente, actualiza el mensaje
-    actualizaMensaje(mensajeElemBot, valor);
-
-  });
-
-
 }
 
 
