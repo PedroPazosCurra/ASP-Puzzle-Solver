@@ -20,12 +20,8 @@ app.use(cors());
 
 async function procesar(msg, puzzle){
 
-  var mensaje_procesado = await procesador.procesaMensaje(msg, puzzle);
-
-  console.log("Respuesta del procesador (asíncrono):", mensaje_procesado);
-
-  return mensaje_procesado;
-
+  // Llama a la función asíncrona externa procesaMensaje (espera por el valor)
+  return await procesador.procesaMensaje(msg, puzzle);
 }
 
 
@@ -52,10 +48,11 @@ app.post('/procesa-mensaje', (req, res) => {
   const msg = req.body.message; 
   const puzzle = req.body.puzzle;
   console.log("LOG: POST /procesa-mensaje: \"%s\" para puzzle: %s ", msg, puzzle);
+  console.log( "\tMensaje:\t%s\n\tPuzzle:\t\t%s\n", msg, puzzle);
 
   // Se procesa el mensaje recibido (nota: es asíncrono) y se responde
-  output = procesar(msg, puzzle).then((valor) => {
-    res.send(JSON.stringify(output));
+  procesar(msg, puzzle).then((valor) => {
+    res.send(JSON.stringify(valor));
   });
 
 });
@@ -64,7 +61,7 @@ app.post('/procesa-mensaje', (req, res) => {
 /*#################  Inicialización del server  ##################*/
 
 // Escuchar en el puerto
-app.listen(port, () => console.log(`Server escuchando en puerto ${port},      http://localhost:${port}`))
+app.listen(port, () => console.log(`LOG: Server escuchando en puerto ${port}\thttp://localhost:${port}`))
   .on('error', function(err) {
     if (err.code === 'EADDRINUSE') {
       console.log('ERROR puerto :%d ocupado', port);   

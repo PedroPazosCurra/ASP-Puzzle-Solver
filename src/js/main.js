@@ -9,45 +9,22 @@ var imgFlecha = "http://localhost:8080/img/flecha.png";
 var selectedPuzzle = "none";
 
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
-
 textBox.value = "";
 
-  // Ejemplos de mensajes
+// Ejemplos de mensajes
 setTimeout(() => {
     chatbotEnviarMensaje("Hola, ¿en qué puedo ayudarte?");
     chatbotEnviarImagenes(imgPrueba, "http://localhost:8080/img/logo_fic.jpg");
     userEnviarMensaje("Mensaje de prueba Lorem Ipsum Dolor Sit Amet");
   }, "1000");
 
-  setTimeout(() => {
-    chatbotEnviarMensaje("Mensaje de prueba");
-  }, "1000");
 
-
-//########################   Funciones   ############################
+//########################   Funciones de chat   ############################
 
 /* Función chatbotEnviarMensaje
 */ 
 function chatbotEnviarMensaje(responseMsg){
-
-    // Creación del elemento mensaje
-    var mensaje = document.createElement('div');
-    mensaje.classList.add('float-start');
-    mensaje.classList.add('shadow-sm');
-    mensaje.classList.add('w-50');
-    mensaje.style.margin = "10px";
-    mensaje.style.padding = "5px";
-    mensaje.style.width = "auto";
-    mensaje.style.backgroundColor = "hotpink";
-    mensaje.style.borderRadius = "20px";
-    mensaje.innerHTML = '<span style= "margin-left: 20px; padding: 20px; color: white;">' + responseMsg + '</span>';
-
-    // Animación al entrar en el chat
-    mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
-
-    // Añade mensaje y scroll hacia último mensaje enviado
-    chatContainer.appendChild(mensaje);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+  creaMensaje("Bot", responseMsg) 
 }
 
 /* Función chatbotEnviarImagenes
@@ -105,45 +82,76 @@ function chatbotEnviarImagenes(startImg, endImg){
 */ 
 async function userEnviarMensaje(inputMsg){
 
-  // Creación de elemento mensaje
-  var mensaje = document.createElement('div');
-
-  mensaje.classList.add('float-end');
-  mensaje.classList.add('shadow-sm');
-  mensaje.classList.add('w-50');
-  mensaje.style.margin = "10px";
-  mensaje.style.padding = "5px";
-  mensaje.style.backgroundColor = "aliceblue";
-  mensaje.style.borderRadius = "20px";
-  mensaje.innerHTML = '<p class="text-end" style="margin-right: 70px;">' + inputMsg + '</p>';
-
-
-  // Animación al entrar en chat
-  mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
-
-  // Añade mensaje y scroll hacia el último mensaje enviado
-  chatContainer.appendChild(mensaje);
-  chatContainer.scrollTop = chatContainer.scrollHeight;
+  // Se coloca el mensaje en el chat
+  creaMensaje("User", inputMsg);
 
   // Envía petición AJAX a backend Express
-  fetch('/procesa-mensaje', {
+  peticionProcesaMensaje(inputMsg).then((valor) => { 
+    chatbotEnviarMensaje(valor); 
+  });
+
+}
+
+
+//########################   Funciones auxiliares   ############################
+
+function creaMensaje(lado, msg){
+  
+  // Creación de elemento mensaje
+  var mensajeElem = document.createElement('div');
+
+  // Estilos comunes
+  mensajeElem.classList.add('shadow-sm');
+  mensajeElem.classList.add('w-50');
+  mensajeElem.style.margin = "10px";
+  mensajeElem.style.padding = "5px";
+  mensajeElem.style.width = "auto";
+  mensajeElem.style.borderRadius = "20px";
+
+  // Variaciones según lado
+  if (lado == "User"){
+
+    mensajeElem.classList.add('float-end');
+    mensajeElem.style.backgroundColor = "aliceblue";
+    mensajeElem.innerHTML = '<span class="text-end" style="margin: 20px;">' + msg + '</span>';
+
+  }
+  else if (lado == "Bot"){
+
+    mensajeElem.classList.add('float-start');
+    mensajeElem.style.backgroundColor = "hotpink";
+    mensajeElem.innerHTML = '<span class="text-start" style= "margin: 20px; padding: 20px; color: white;">' + msg + '</span>';
+
+  }
+
+  // Animación al entrar en el chat
+  mensajeElem.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
+
+  // Añade mensaje y scroll hacia último mensaje enviado
+  chatContainer.appendChild(mensajeElem);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
+}
+
+async function peticionProcesaMensaje(mensaje){
+
+  return fetch('/procesa-mensaje', {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ 
-      message : inputMsg, 
+    body: JSON.stringify({
+      message : mensaje,
       puzzle : selectedPuzzle
     })
   }).then(response => { // Caso exitoso
 
-    mensaje_procesado = response.json();
-    console.log("Mensaje procesado: ", mensaje_procesado);
-    chatbotEnviarMensaje(mensaje_procesado);
+    return response.json();
 
-  }).catch(error => {   // Caso de error
+  }).catch(error => {   // Caso de error -> Aviso
 
-    alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error)
+    alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error);
 
   });
+
 }
 
 
@@ -152,9 +160,7 @@ async function userEnviarMensaje(inputMsg){
 // Click en el botón ENVIAR 
 sendBtn.addEventListener('click', function(evento){
 
-    let inputText = textBox.value;
-
-    console.log(selectedPuzzle);
+    var inputText = textBox.value;
 
     if(inputText == ""){            // Input vacío -> aviso
     
@@ -194,6 +200,5 @@ function changeSelectedPuzzle(item) {
   opcion = item.textContent.trim();
   dropdownPuzzle.innerHTML = opcion;
   selectedPuzzle = opcion;
-  console.log(selectedPuzzle);
 }
 
