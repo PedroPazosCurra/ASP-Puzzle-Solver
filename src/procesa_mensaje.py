@@ -49,39 +49,24 @@ contexto = contexto_fewshot
 # Construcción de prompt completo
 prompt_w_context = contexto + prompt +"\nOutput: "
 
+#print("Llega al programa python con mensaje: " + msg)
 
-#################################    Funciones    ##############################################
+# Petición a la LLM (Actualmente, modelo pequeño para probar)
+payload = json.dumps({ "model": modelo, "prompt": prompt_w_context })
+headers = {
+'Content-Type': 'application/json',
+'Authorization': f"Bearer {AWANLLM_API_KEY}"
+}
 
-def procesa_mensaje(msg):
+response = requests.request("POST", url, headers=headers, data=payload)
+json_res = response.json()
+salida_llm = json_res['choices'][0]['text']
 
-    #print("Llega al programa python con mensaje: " + msg)
+# Comprobación de respuesta, verificación y posible reenvío hasta resultado satisfactorio
+#
 
-    # Petición a la LLM (Actualmente, modelo pequeño para probar)
-    payload = json.dumps({ "model": modelo, "prompt": prompt_w_context })
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': f"Bearer {AWANLLM_API_KEY}"
-    }
+# Envío al solver ASP
+#
 
-    response = requests.request("POST", url, headers=headers, data=payload)
-    json_res = response.json()
-    
-    # Comprobación de respuesta, verificación y posible reenvío hasta resultado satisfactorio
-    #
 
-    # Envío al solver ASP
-    #
-
-    # Logs para debug
-    print("[Context]  " + contexto)
-    print("[Prompt]  " +  prompt)
-    print("[Answer]  " + json_res['choices'][0]['text'])
-
-    return "Done"
-
-if __name__ == "__main__":
-
-    message = sys.stdin.readline().strip()
-    response = procesa_mensaje(message)
-    print("Hola?")
-    sys.stdout.write(response)
+print(salida_llm)
