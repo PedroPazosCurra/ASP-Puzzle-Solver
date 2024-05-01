@@ -72,15 +72,16 @@ def procesa_mensaje(msg):
     # Envío al solver ASP
     #
 
+    # Logs para debug
     print("[Context]  " + contexto)
     print("[Prompt]  " +  prompt)
     print("[Answer]  " + json_res['choices'][0]['text'])
 
-    #return "Placeholder para respuesta final"
     return "Done"
 
 if __name__ == "__main__":
 
     message = sys.stdin.readline().strip()
     response = procesa_mensaje(message)
+    print("Hola?")
     sys.stdout.write(response)
