@@ -9,9 +9,13 @@ modelo = "Meta-Llama-3-8B-Instruct-Dolfin-v0.1"
 url = "https://api.awanllm.com/v1/completions"
 
 # Prompts de prueba
-prompt_1 = "The bird is a pet"
-prompt_2 = "This house is purple"
-prompt_3 = "Blends tobacco is smoked at the fourth house."
+prompt_debug_1 = "The bird is a pet"
+prompt_debug_2 = "This house is purple"
+prompt_debug_3 = "Blends tobacco is smoked at the fourth house."
+
+# Prompt y puzzle recibidos por argumento
+prompt_usuario = sys.argv[1]
+puzzle_elegido = sys.argv[2]
 
 # Cadenas de contexto
 contexto_zeroshot = "You're a Natural Language to Answer Set Programming translator machine. You have to answer with only the result like the provided iterations and nothing more. Do not reply with a sentence, only with the output code. Don't explain the result and don't say anything else that the result.\n\
@@ -42,14 +46,12 @@ contexto_fewshot = "You're a Natural Language to Answer Set Programming translat
             Output: :- at(color, red, X), not at(drink, coffee, X).\n\
             Input: "
 
-# Pruebas usadas
-prompt = prompt_3
+# Variables usadas?
+prompt = prompt_usuario
 contexto = contexto_fewshot
 
 # Construcción de prompt completo
 prompt_w_context = contexto + prompt +"\nOutput: "
-
-#print("Llega al programa python con mensaje: " + msg)
 
 # Petición a la LLM (Actualmente, modelo pequeño para probar)
 payload = json.dumps({ "model": modelo, "prompt": prompt_w_context })
@@ -67,6 +69,11 @@ salida_llm = json_res['choices'][0]['text']
 
 # Envío al solver ASP
 #
+
+# Logs para debug
+#print("[Context]  " + contexto)
+#print("[Prompt]  " +  prompt)
+#print("[Answer]  " + json_res['choices'][0]['text'])
 
 
 print(salida_llm)

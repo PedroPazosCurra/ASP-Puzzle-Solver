@@ -13,9 +13,8 @@ textBox.value = "";
 
 // Ejemplos de mensajes
 setTimeout(() => {
-    chatbotEnviarMensaje("Hola, ¿en qué puedo ayudarte?");
+    chatbotEnviarMensajeNaive("Hola, ¿en qué puedo ayudarte?");
     chatbotEnviarImagenes(imgPrueba, "http://localhost:8080/img/logo_fic.jpg");
-    userEnviarMensaje("Mensaje de prueba Lorem Ipsum Dolor Sit Amet");
   }, "1000");
 
 
@@ -30,6 +29,20 @@ function userEnviarMensaje(inputMsg){
   enviaMensaje(mensajeElemUser);
 
   chatbotEnviarMensaje(inputMsg);
+}
+
+/* Función chatbotEnviarMensajeNaive
+
+  Envía un mensaje al chat sin procesarlo. Sirve para mensajes pre-programados del sistema (saludo, ayuda, ejemplos...)
+
+*/ 
+function chatbotEnviarMensajeNaive(inputMsg){
+
+  // Crea mensaje, lo actualiza y lo envía
+  var mensajeElem = creaMensaje("Bot");
+  enviaMensaje(mensajeElem);
+  actualizaMensaje(mensajeElem, inputMsg);
+
 }
 
 /* Función chatbotEnviarMensaje

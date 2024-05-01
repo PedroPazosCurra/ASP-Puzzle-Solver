@@ -5,16 +5,16 @@ var path = require('path');
 */
 async function procesaMensaje(mensaje, puzzle){  
 
-  const respuesta = await ejecutaScript(path.join(__dirname, '../procesa_mensaje.py'));
-  console.log('La salida de procesaMensaje.js es: ' + respuesta);
+  const respuesta = await ejecutaScript(path.join(__dirname, '../procesa_mensaje.py'), mensaje, puzzle);
   return(respuesta);
+  
 }
 
 /* Función asíncrona ejecutaScript
 */
-async function ejecutaScript(path, args) {
+async function ejecutaScript(path, mensaje, puzzle) {
 
-  const procesoPython = spawn('python', [path]);
+  const procesoPython = spawn('python', [path, mensaje, puzzle]);
 
   var data = '';
   procesoPython.stdout.on('data', (stdout) => {
