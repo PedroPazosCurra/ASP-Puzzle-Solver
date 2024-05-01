@@ -46,6 +46,9 @@ function chatbotEnviarMensajeNaive(inputMsg){
 }
 
 /* Función chatbotEnviarMensaje
+
+  Procesa un mensaje recibido en el chat y envía una respuesta en el lado del bot 
+
 */ 
 async function chatbotEnviarMensaje(inputMsg){
 
@@ -60,12 +63,19 @@ async function chatbotEnviarMensaje(inputMsg){
     actualizaMensaje(mensajeElem, valor);
 
   });
-
 }
 
 /* Función chatbotEnviarImagenes
+
+  Envía un mensaje al chat en el lado del bot conformado por una imagen de inicio y una imagen final
+
 */ 
 function chatbotEnviarImagenes(startImg, endImg){
+
+    // Contenedor para el mensaje
+    var mensajeContainer = document.createElement('div');
+    mensajeContainer.style.display = "flex";
+    mensajeContainer.style.flexDirection = "column";
 
     // Creación del elemento mensaje
     var mensaje = document.createElement('div');
@@ -105,12 +115,13 @@ function chatbotEnviarImagenes(startImg, endImg){
     divisor.appendChild(flecha);
     divisor.appendChild(imagen2);
     mensaje.appendChild(divisor);
+    mensajeContainer.appendChild(mensaje);
 
     // Animación del mensaje al entrar en el chat
     mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
 
     // Añade mensaje y scroll hacia el último mensaje enviado
-    chatContainer.appendChild(mensaje);
+    chatContainer.appendChild(mensajeContainer);
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
@@ -125,54 +136,68 @@ function chatbotEnviarImagenes(startImg, endImg){
 */
 function creaMensaje(lado, msg ){
 
+  // Contenedor para el mensaje
+  var mensajeContainer = document.createElement('div');
+  mensajeContainer.style.display = "flex";
+  mensajeContainer.style.flexDirection = "column";
 
-  mensajeElem = document.createElement('div');
+
+  // Elemento mensaje
+  var mensajeElem = document.createElement('div');
 
   // Estilos comunes
-  mensajeElem.classList.add('shadow-sm');
-  mensajeElem.classList.add('w-50');
+  mensajeElem.style.alignItems = "center"
   mensajeElem.style.margin = "10px";
-  mensajeElem.style.padding = "5px";
-  mensajeElem.style.width = "auto";
+  mensajeElem.style.padding = "10px";
+  mensajeElem.style.maxWidth = "70%";
+  mensajeElem.style.wordWrap = "break-word"
+  mensajeElem.style.display = "flex"
   mensajeElem.style.borderRadius = "20px";
   mensajeElem.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
 
   // Variaciones
   if (lado == "User"){      // Caso Usuario
 
-    mensajeElem.classList.add('float-end');
     mensajeElem.style.backgroundColor = "aliceblue";
-    mensajeElem.innerHTML = '<span class="text-end" style="margin: 20px; color: #6f5471">' + msg + '</span>';
+    mensajeElem.style.alignSelf = "flex-end";
+    mensajeElem.innerHTML = '<span class="text-end" style="color: #6f5471">' + msg + '</span>';
 
   }
   else if (lado == "Bot"){  // Caso Bot
                             // Nota: Por defecto, se dice que está cargando (esta función es síncrona !) Actualizar después de enviar.
 
-    mensajeElem.classList.add('float-start');
     mensajeElem.style.backgroundColor = "hotpink";
-    mensajeElem.innerHTML = '<span class="text-start" style= "margin: 20px; padding: 20px; color: #fdb7ff;">Cargando...</span>';
+    mensajeElem.style.alignSelf = "flex-start";
+    mensajeElem.innerHTML = '<span class="text-start" style= "color: #fdb7ff;">Cargando...</span>';
 
   }
-
-  return mensajeElem;
+  mensajeContainer.appendChild(mensajeElem);
+  return mensajeContainer;
 }
 
-function actualizaMensaje(elementoMensaje, msg){
+function actualizaMensaje(mensajeContainer, msg){
 
   try{
-    elementoMensaje.classList.add('float-start');
+
+    elementoMensaje = mensajeContainer.firstChild;
     elementoMensaje.style.backgroundColor = "hotpink";
-    elementoMensaje.innerHTML = '<span class="text-start" style= "margin: 20px; padding: 20px; color: #fef0ff;">'+ msg +'</span>';
+    elementoMensaje.innerHTML = '<span class="text-start" style= "color: #fef0ff;">'+ msg +'</span>';
     elementoMensaje.animate([{easing:"ease-in", opacity:0.4}, {opacity:1}], {duration:500});
   } catch(e){ console.error('ERROR CAPTURADO: actualizaMensaje()\n\t' + e)}
 }
 
+/*  Función enviaMensaje
+
+      Recibe un elemento mensaje y lo añade al contenedor de chat
+
+*/
 function enviaMensaje(elementoMensaje){
   try{
 
-  // Añade mensaje y scroll hacia último mensaje enviado
-  chatContainer.appendChild(elementoMensaje);
-  chatContainer.scrollTop = chatContainer.scrollHeight;
+    // Añade mensaje y scroll hacia último mensaje enviado
+    chatContainer.appendChild(elementoMensaje);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
   } catch(e){ console.error('ERROR CAPTURADO: enviaMensaje()\n\t' + e)}
 }
 
