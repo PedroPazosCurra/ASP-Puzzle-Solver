@@ -79,13 +79,12 @@ function chatbotEnviarImagenes(startImg, endImg){
 
     // Creación del elemento mensaje
     var mensaje = document.createElement('div');
-    mensaje.classList.add('w-60');
     mensaje.classList.add('float-start');
     mensaje.classList.add('shadow-sm');
     mensaje.style.margin = "10px";
     mensaje.style.padding = "5px";
     mensaje.style.width = "auto";
-    mensaje.style.maxWidth = "100%";
+    mensaje.style.maxWidth = "70%";
     mensaje.style.backgroundColor = "hotpink";
     mensaje.style.borderRadius = "20px";
 
@@ -93,7 +92,7 @@ function chatbotEnviarImagenes(startImg, endImg){
     var imagen1 = document.createElement('img');
     imagen1.classList.add('imagen-inicial');
     imagen1.src = startImg;
-    imagen1.style.width = "250px";
+    imagen1.style.width = "50%";
     imagen1.style.borderRadius = "20px";
 
     var flecha = document.createElement('img');
@@ -105,7 +104,7 @@ function chatbotEnviarImagenes(startImg, endImg){
     var imagen2 = document.createElement('img');
     imagen2.src = endImg;
     imagen2.classList.add('imagen-final');
-    imagen2.style.width = "250px";
+    imagen2.style.width = "50%";
     imagen2.style.borderRadius = "20px";
 
     // Creación del divisor para ambas imágenes
