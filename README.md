@@ -15,6 +15,12 @@ Este sistema, mediante una aproximación **neuro-simbólica**, simbiotiza la ág
 
 ![enter image description here](https://cdn.reludi.com/media/post-images/types-of-puzzle-games.jpg)  
 
+## Instalación
+
+**(temporal)** El programa hace uso de node.js, por lo que deberá ser ([instalado en el sistema](https://developer.ibm.com/tutorials/learn-nodejs-installing-node-nvm-and-vscode/)).
+
+En cuanto al programa, puedes ejecutarlo en Windows, Linux y Mac ejecutando sus respectivos archivos (Puzzle-Solver-Windows.bat, Puzzle-Solver-Linux.sh, Puzzle-Solver-Mac.sh, respectivamente).
+
 ## Documentación
 A disposición de quien lo considere de interés, dejo un enlace a la memoria del presente trabajo: (...)  
 
