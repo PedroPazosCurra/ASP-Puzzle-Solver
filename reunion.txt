@@ -1,0 +1,13 @@
+
+LLM tiene que sacar:
+
+    person()
+
+    housecolor(brit,red).
+    tobaccobrand(P.T).
+    beverage(P,B).
+    keepspet(P,M).
+    house(1..5).
+    neighbor(brit, swede).
+
+Filtrar la salida de LLM para que se lo pueda tragar el ASP.

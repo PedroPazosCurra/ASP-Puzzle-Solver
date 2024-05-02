@@ -17,13 +17,13 @@ prompt_debug_3 = "Blends tobacco is smoked at the fourth house."
 prompt_usuario = sys.argv[1]
 puzzle_elegido = sys.argv[2]
 
+
+
 # Cadenas de contexto
-contexto_zeroshot = "You're a Natural Language to Answer Set Programming translator machine. You have to answer with only the result like the provided iterations and nothing more. Do not reply with a sentence, only with the output code. Don't explain the result and don't say anything else that the result.\n\
+contexto_zeroshot = "I want to translate sentences to facts expressed as atomic logical predicates. Do not reply with a sentence, only with the logical atoms. Don't explain the result and don't say anything else than the result.\n\
             Input: "
 
-contexto_fewshot = "You're a Natural Language to Answer Set Programming translator machine. You have to answer with only the result like the provided iterations and nothing more. Do not reply with a sentence, only with the output code. Don't explain the result and don't say anything else that the result.\n \
-            Input: John is hungry.\n\
-            Output: hungry(john).\n\
+contexto_fewshot = "I want to translate sentences to facts expressed as atomic logical predicates. Do not reply with a sentence, only with the logical atoms. Don't explain the result and don't say anything else than the result.\n \
             Input: The house is blue.\n\
             Output: color(blue, house).\n\
             Input: The cat is a pet.\n\
