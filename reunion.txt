@@ -11,3 +11,11 @@ LLM tiene que sacar:
     neighbor(brit, swede).
 
 Filtrar la salida de LLM para que se lo pueda tragar el ASP.
+
+Comentarle al tutor:
+
+	Idea: para choice rules o entradas complejas, probar técnica de Chain of Thinking
+
+	Quitar los apócopes de nacionalidades (Norwegian -> nord) para que aprenda mejor porque no da ningún problema
+
+The state of my puzzle is the following: there are three houses. One of them is red, the other is blue and the other is yellow. In each one live a French, a Scottish and an Irish, respectively. In each house, each person has a pet, and the pets are a lizard, a camel and a dragon. The existing tobacco brands are Camel, Ducados and Marlboro. The beverages they drink are water, milk and wine.
