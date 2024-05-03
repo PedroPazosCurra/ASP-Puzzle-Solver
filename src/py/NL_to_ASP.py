@@ -9,11 +9,6 @@ AWANLLM_API_KEY = "cee74e0e-35c6-46b0-b4d5-071396a48e32"
 modelo = "Meta-Llama-3-8B-Instruct-Dolfin-v0.1"
 url = "https://api.awanllm.com/v1/completions"
 
-# Prompts de prueba
-prompt_debug_1 = "The bird is a pet"
-prompt_debug_2 = "This house is purple"
-prompt_debug_3 = "Blends tobacco is smoked at the fourth house."
-
 # Prompt y puzzle recibidos por argumento
 prompt_usuario = sys.argv[1]
 puzzle_elegido = sys.argv[2]
@@ -25,7 +20,7 @@ contexto_zeroshot = "### I want to translate sentences to facts expressed as ato
             Input: "
 
 # Leemos /resources/txt/contexto_einstein.txt para tener el contexto few-shot
-contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "resources/txt/contexto_einstein.txt"))
+contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_ASP.txt"))
 
 with open(contexto_path, 'r') as file:
     fewshot = file.read()

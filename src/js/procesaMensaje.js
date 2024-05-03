@@ -5,7 +5,7 @@ var path = require('path');
 */
 async function procesaMensaje(mensaje, puzzle){  
 
-  const respuesta = await ejecutaScript(path.join(__dirname, '../procesa_mensaje.py'), mensaje, puzzle);
+  const respuesta = await ejecutaScript(path.join(__dirname, '../py/NL_to_ASP.py'), mensaje, puzzle);
   return(respuesta);
   
 }

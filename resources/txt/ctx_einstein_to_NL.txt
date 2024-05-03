@@ -1,0 +1,47 @@
+person(brittish; norwegian; german; dane).\n\
+Output: In my puzzle there is a Brit, a Norwegian, a German and a Dane.\n\
+Input: person(swede; dane; norwegian).\n\
+Output: I have 3 people: a Swede, a Dane and a Norwegian.\n\
+Input: person(german; italian; brittish; spaniard; chinese).\n\
+Output: There are 5 people: a German, an Italian; a Brittish, a Spaniard and a Chinese.\n\
+Input: person(german; swede).\n\
+Output: There are only 2 people: one is a German, and the other one is from Sweden.\n\
+Input: person(german; french; nigerian).\n\
+Output: There are 3 man involved. One of them is from Germany, the other one is French and the last one is Nigerian.\n\
+Input: person(brit; japanese; albanese; norwegian).\n\
+Output: A Brittish, a Japanese, an Albanese and a Norwegian.\n\
+Input: color(red; white; blue; green; yellow).\n\
+Output: There are five house colours: red, white, blue, green and yellow.\n\
+Input: color(purple; cyan).\n\
+Output: This problem has a purple and a cyan house.\n\
+Input: color(white; beige; blue; red; green; orange).\n\
+Output: The houses come in 6 colours: white, beige, blue, red, green and orange.\n\
+Input: house(1..4). color(red; green; yellow; black).\n\
+Output: The problem I'm working with has 4 houses. One house is red, other one is green, other is yellow and the last is black.\n\
+Input: house(1..7).\n\
+Output: Seven houses.\n\
+Input: house(1..3).\n\
+Output: There are three houses.\n\
+Input: person(swede; dane; norwegian). house(1..3).\n\
+Output: There is a Swede, a Dane and a Norwegian. The puzzle has 3 houses.\n\
+Input: house(1..2). person(italian; rumanian).\n\
+Output: The puzzle has two houses. An Italian and a Rumanian live there.\n\ 
+Input: beverage(coffee; milk; beer).\n\
+Output: There are three drinks: coffee, milk and beer.\n\
+Input: beverage(water; tea; soda; whiskey).\n\
+Output: In this Einstein puzzle there are 4 different types of beverages: water, tea, soda and whiskey.\n\
+Input: beverage(tea; wine; beer; juice).\n\
+Output: The following drinks are present in the puzzle: tea, wine, beer and juice.\n\
+Input: house(1..10). beverage(water; tea; whisky; soda; juice; milk; coffee; horchata; gazpacho; beer). color(red; green; white; black; yellow; purple; grey; brown; blue; orange).\n\
+Output: The puzzle has ten houses. The drinks are water, tea, whiskey, soda, juice, milk, coffee, horchata, gazpacho and beer. Houses are painted red, green, white, black, yellow, purple, grey, brown, blue or orange. \n\
+Input: tobaccobrand(blends; pall; dunhill).\n\
+Output: The tobacco brands are Blends, Pall and Dunhill.\n\
+Input: person(spanish; chinese). tobaccobrand(blends; pall; dunhill). beverage(coffee; wine).\n\
+Output: There are a Spanish person and a Chinese one. There are also two tobacco brands: Marlboro and Blends. In addition, coffee and wine are being drunk.\n\
+Input: pet(dog; cat; raccoon).\n\
+Output: The pets that live in the houses are a dog, a cat and a raccoon.\n\
+Input: pet(horse; bird; fish; lizard).\n\
+Output: In this exercise there are the following pets: a horse, a bird, a fish and a lizard.\n\
+Input: beverage(coffee; milk). pet(dog; cat).\n\
+Output: The drinks and the pets are the following: coffee, milk, dog and cat.\n\
+Input: 
