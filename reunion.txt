@@ -18,4 +18,9 @@ Comentarle al tutor:
 
 	Quitar los apócopes de nacionalidades (Norwegian -> nord) para que aprenda mejor porque no da ningún problema
 
-The state of my puzzle is the following: there are three houses. One of them is red, the other is blue and the other is yellow. In each one live a French, a Scottish and an Irish, respectively. In each house, each person has a pet, and the pets are a lizard, a camel and a dragon. The existing tobacco brands are Camel, Ducados and Marlboro. The beverages they drink are water, milk and wine.
+    Se me ocurre producir redundancia: the brittish lives in a red house -> person(brit). color(red). housecolor(brit, red). 
+    Si no pueden hacerse dos declaraciones iguales, quitar redundancia con regex
+
+    Mantengo beverage(B), drinks(P,B). Si no está bien, puedo cambiarlo. Lo mismo con tobaccobrand y smokes
+
+The state of my puzzle is the following: there are three houses. One of them is red, the other is blue and the other is yellow. In each one live a French, a Scottish and an Irish, respectively. In each house, each person has a pet, and the pets are a lizard, a camel and a dragon. The existing tobacco brands are Camel, Ducados and Marlboro. The french drinks coffee, while the irish fancies drinking beer. The red house, where the french lives, is next to the blue house, where the scottish lives. The scottish smokes Bluem cigarettes.

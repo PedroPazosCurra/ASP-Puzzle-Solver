@@ -16,8 +16,7 @@ puzzle_elegido = sys.argv[2]
 
 
 # Cadenas de contexto
-contexto_zeroshot = "### I want to translate sentences to facts expressed as atomic logical predicates. Do not reply with a sentence, only with the logical atoms. Don't explain the result and don't say anything else than the result. Process only one iteration in each step. ###\n\
-            Input: "
+contexto_zeroshot = "### I want to translate sentences to facts expressed as atomic logical predicates. Do not reply with a sentence, only with the logical atoms. Don't explain the result and don't say anything else than the result. Process only one iteration in each step. ###\n"
 
 # Leemos /resources/txt/contexto_einstein.txt para tener el contexto few-shot
 contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_ASP.txt"))
@@ -42,8 +41,7 @@ headers = {
 }
 
 response = requests.request("POST", url, headers=headers, data=payload)
-json_res = response.json()
-salida_llm = json_res['choices'][0]['text']
+salida_llm = response.json()['choices'][0]['text']
 
 # Comprobación de respuesta, verificación y posible reenvío hasta resultado satisfactorio
 #
