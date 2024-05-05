@@ -3,11 +3,14 @@ import sys
 import requests
 import json
 from os import path
+import re
 
 # Constantes
 AWANLLM_API_KEY = "cee74e0e-35c6-46b0-b4d5-071396a48e32"
 modelo = "Meta-Llama-3-8B-Instruct-Dolfin-v0.1"
 url = "https://api.awanllm.com/v1/completions"
+ASP_REGEX = "([a-z]*\((([a-z]*(,\s)?)*|([a-z]*(;\s)?)*)\)\.)+"
+REINTENTOS_MAX = 5
 
 # Prompt y puzzle recibidos por argumento
 prompt_usuario = sys.argv[1]
@@ -33,26 +36,40 @@ contexto = contexto_fewshot
 # Construcción de prompt completo
 prompt_w_context = contexto + prompt +"\nOutput: "
 
-# Petición a la LLM (Actualmente, modelo pequeño para probar)
-payload = json.dumps({ "model": modelo, "prompt": prompt_w_context })
-headers = {
-'Content-Type': 'application/json',
-'Authorization': f"Bearer {AWANLLM_API_KEY}"
-}
+# Bucle para reintentar petición si salida incorrecta
+salida_valida = False
+intentos = 0
 
-response = requests.request("POST", url, headers=headers, data=payload)
-salida_llm = response.json()['choices'][0]['text']
+while (not salida_valida):
 
-# Comprobación de respuesta, verificación y posible reenvío hasta resultado satisfactorio
-#
+    # Petición a la LLM (Actualmente, modelo pequeño para probar)
+    payload = json.dumps({ "model": modelo, "prompt": prompt_w_context })
+    headers = {
+    'Content-Type': 'application/json',
+    'Authorization': f"Bearer {AWANLLM_API_KEY}"
+    }
+    response = requests.request("POST", url, headers=headers, data=payload)
+    salida_llm = response.json()['choices'][0]['text']
+
+    # Comprobación de respuesta mediante REGEX
+    if (re.search(ASP_REGEX, salida_llm) != None ):
+
+        salida_valida = True
+        print(salida_llm)
+
+    else:
+
+        intentos = intentos + 1
+        if intentos >= REINTENTOS_MAX:
+            print("Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.")
+            break
+
 
 # Envío al solver ASP
 #
+
 
 # Logs para debug
 #print("[Context]  " + contexto)
 #print("[Prompt]  " +  prompt)
 #print("[Answer]  " + json_res['choices'][0]['text'])
-
-
-print(salida_llm)

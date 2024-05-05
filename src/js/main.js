@@ -14,7 +14,7 @@ textBox.value = "";
 // Ejemplos de mensajes
 setTimeout(() => {
     chatbotEnviarMensajeNaive("Hola, ¿en qué puedo ayudarte?");
-    chatbotEnviarImagenes(imgPrueba, "http://localhost:8080/img/logo_fic.jpg");
+    //chatbotEnviarImagenes(imgPrueba, "http://localhost:8080/img/logo_fic.jpg");
   }, "1000");
 
 
