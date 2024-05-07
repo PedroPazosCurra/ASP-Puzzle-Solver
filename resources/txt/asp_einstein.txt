@@ -1,0 +1,32 @@
+% Predicados de tipo que hay que entrenar.
+
+
+% Predicados de relación
+% smokes(Person,Brand)
+smokes(brit,blends).
+drinks(swede,beer).
+neighbor(brit,swede).
+neighbor(dane,german).
+% drinks(Person, Beverage)
+% keepspet(Person,Pet)
+% housecolor(Person, Color)
+% neighbor(Person, Person')
+
+% Representación interna: el LLM no tiene por qué saberla
+type(house,V) :- house(V).
+type(color,V) :- color(V).
+type(pet,V) :- pet(V).
+type(beverage,V) :- beverage(V).
+type(tobacco,V) :- tobaccobrand(V).
+
+:- smokes(P,B), not has(P,tobacco,B).
+:- drinks(P,B), not has(P,beverage,B).
+:- keepspet(P,Q), not has(P,pet,Q).
+:- housecolor(P,C), not has(P,color,C).
+
+:- neighbor(P,P'), has(P,house,H), has(P',house,H'), H'!=H-1, H'!=H+1.
+
+1 { has(X,T,V): person(X) } 1 :- type(T,V).
+:- has(X,T,V), has(X,T,V'), V!=V'.
+
+% #show has/3.
