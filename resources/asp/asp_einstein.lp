@@ -13,11 +13,6 @@
 %       housecolor(P, C)
 %       neighbor(P, P')
 
-smokes(brit,blends).
-drinks(swede,beer).
-neighbor(brit,swede).
-neighbor(dane,german).
-
 
 % Representación interna: el LLM no tiene por qué saberla
 type(house,V) :- house(V).
@@ -36,4 +31,4 @@ type(tobacco,V) :- tobaccobrand(V).
 1 { has(X,T,V): person(X) } 1 :- type(T,V).
 :- has(X,T,V), has(X,T,V'), V!=V'.
 
-% #show has/3.
+#show has/3.

@@ -1,0 +1,5 @@
+
+ASP cortos
+
+    UNSAT:
+    hola(pedro). hola(pedra). :- hola(X), hola(Y), X!=Y.

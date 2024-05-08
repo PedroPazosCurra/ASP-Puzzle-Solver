@@ -238,7 +238,7 @@ sendBtn.addEventListener('click', function(evento){
       if(selectedPuzzle == "none"){  // Puzzle sin elegir -> aviso
 
         alert("Selecciona un puzzle, por favor");
-        dropdownPuzzle.style.border="5px solid white";
+        dropdownPuzzle.style.border="5px solid red";
         dropdownPuzzle.style.transition = "border-color 0.5s ease-in-out";
 
       }else{                        // El mensaje se envía y se borra el input 

@@ -30,9 +30,6 @@ async function ejecutaScript(path, mensaje, puzzle) {
   return new Promise((resolve, reject) => {
     procesoPython.on('close', (code) => {
 
-      // Debug
-      console.log(`LOG: Proceso hijo Python finaliza con cód. ${code}`);
-
       // Retorno con gestión de errores
       if(code === 0){ resolve(data) }
       else{ reject(new Error(`ERROR: Script de Python. (Cód: ${code})`)); }

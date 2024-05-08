@@ -15,30 +15,37 @@ from NL_to_ASP import NL_to_ASP
 # from ASP_to_NL import ASP_to_NL
 from resolver_ASP import resolver_ASP
 
-# Función auxiliar comprueba_error([estado, msg]) -> msg
-def comprueba_error(array_salida):
-
-    # Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end
-    if(array_salida[0] == 1):
-
-        return(array_salida[1])
-
-    else:
-        return array_salida[1]
-
+# Variables
+modelo_asp = [1, ""]
+answer_set = [1, ""]
+nl_salida = [1, ""]
 
 # Prompt y puzzle recibidos por argumento
 prompt_usuario = sys.argv[1]
 puzzle_elegido = sys.argv[2]
 
-# Pasa el NL a ASP
-modelo_asp = comprueba_error(NL_to_ASP(prompt_usuario, puzzle_elegido))
+# PROCESO: 1 -> 2 -> 3. Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end.
+#
+#       1 - NL_to_ASP(prompt, puzzle) ->    [estado, msg] 
+#       2 - resolver_ASP(modelo, puzzle) -> [estado, msg]
+#       3 - ASP_to_NL(answerset, puzzle) -> [estado, msg]
+#
 
-# Pasa el ASP a Answer Set (resuelve ASP)
-#answer_set = comprueba_error(resolver_ASP(modelo_asp, puzzle_elegido))
+# 1º - Pasa el mensaje del usuario a declaraciones ASP.
+modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido)
 
-# Pasa Answer Set a NL
-# ASP_to_NL(...)
+if (modelo_asp[0] == 0):
 
-# Devuelve al front-end
-print(modelo_asp)
+    # 2º - Pasa el ASP al solver para obtener el Answer Set solución.
+    answer_set = resolver_ASP(modelo_asp[1], puzzle_elegido)
+
+    print(answer_set[1])
+
+    #if(answer_set[0] == 0):
+
+        # 3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.
+    #    print(answer_set[1])
+        # nl_salida = ASP_to_NL(answer_set, puzzle_elegido)
+
+    #else: print(answer_set[1])
+else: print(modelo_asp)
