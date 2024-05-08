@@ -1,16 +1,23 @@
-% Predicados de tipo que hay que entrenar.
+% Predicados de tipo y de relación que se reciben de forma programática.
 
+%   Predicados de tipo
+%       tobaccobrand(B)
+%       beverage(B)
+%       pet(P)
+%       color(C)
 
-% Predicados de relación
-% smokes(Person,Brand)
+%   Predicados de relación
+%       smokes(P, B)
+%       drinks(P, B)
+%       keepspet(P, M)
+%       housecolor(P, C)
+%       neighbor(P, P')
+
 smokes(brit,blends).
 drinks(swede,beer).
 neighbor(brit,swede).
 neighbor(dane,german).
-% drinks(Person, Beverage)
-% keepspet(Person,Pet)
-% housecolor(Person, Color)
-% neighbor(Person, Person')
+
 
 % Representación interna: el LLM no tiene por qué saberla
 type(house,V) :- house(V).

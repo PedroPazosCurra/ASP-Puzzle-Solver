@@ -14,13 +14,18 @@ Filtrar la salida de LLM para que se lo pueda tragar el ASP.
 
 Comentarle al tutor:
 
-	Idea: para choice rules o entradas complejas, probar técnica de Chain of Thinking
+	Ideas: 
+        -   Para choice rules o entradas complejas, probar técnica de Chain of Thinking
+        -    En ASP, contar que para cada person(X) haya una casa, así no tener que declararlas. 
 
-	Quitar los apócopes de nacionalidades (Norwegian -> nord) para que aprenda mejor porque no da ningún problema
+    Cambios que hice frente a lo que dijimos:
+	    -   Quitar los apócopes de nacionalidades (Norwegian -> nord) para que aprenda mejor porque no da ningún problema
+        -   Mantengo beverage(B), drinks(P,B). Si no está bien, puedo cambiarlo. Lo mismo con tobaccobrand y smokes
 
-    Se me ocurre producir redundancia: the brittish lives in a red house -> person(brit). color(red). housecolor(brit, red). 
-    Si no pueden hacerse dos declaraciones iguales, quitar redundancia con regex
+    Se me ocurrió producir redundancia: the brittish lives in a red house -> person(brit). color(red). housecolor(brit, red). Funciona bien.
 
-    Mantengo beverage(B), drinks(P,B). Si no está bien, puedo cambiarlo. Lo mismo con tobaccobrand y smokes
+    Problemas: 
+        -   Relaciones compuestas "El fumador de Ducados es vecino del que vive en la casa verde"
 
+In my Einstein puzzle, there are five houses. The English lives in the Red house. The Spaniard owns the Dog. Coffee is drunk in the Green house. The ukranian drinks Tea. The green House is immediately to the right of the Ivory house. The Gold smoker owns Snails. Kools are smoked in the Yellow house. Milk is drunk in the middle house. The norwegian lives in the first house. The man who smokes Chesterfields lives in the house next to the man with the Fox. Kools are smoked in the house where the Horse is kept. The Strike smoker drinks Orange juice. The Japanese smokes parliaments. The Norwegian lives next to the Blue house.
 The state of my puzzle is the following: there are three houses. One of them is red, the other is blue and the other is yellow. In each one live a French, a Scottish and an Irish, respectively. In each house, each person has a pet, and the pets are a lizard, a camel and a dragon. The existing tobacco brands are Camel, Ducados and Marlboro. The french drinks coffee, while the irish fancies drinking beer. The red house, where the french lives, is next to the blue house, where the scottish lives. The scottish smokes Bluem cigarettes.

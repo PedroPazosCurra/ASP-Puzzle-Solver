@@ -5,7 +5,7 @@ var path = require('path');
 */
 async function procesaMensaje(mensaje, puzzle){  
 
-  const respuesta = await ejecutaScript(path.join(__dirname, '../py/NL_to_ASP.py'), mensaje, puzzle);
+  const respuesta = await ejecutaScript(path.join(__dirname, '../py/proceso.py'), mensaje, puzzle);
   return(respuesta);
   
 }
@@ -32,7 +32,6 @@ async function ejecutaScript(path, mensaje, puzzle) {
 
       // Debug
       console.log(`LOG: Proceso hijo Python finaliza con cód. ${code}`);
-      console.log('La salida del programa python es: ' + data);
 
       // Retorno con gestión de errores
       if(code === 0){ resolve(data) }
