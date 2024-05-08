@@ -1,5 +1,10 @@
 
 ASP cortos
 
-    UNSAT:
-    hola(pedro). hola(pedra). :- hola(X), hola(Y), X!=Y.
+    UNSAT: hola(pedro). hola(pedra). :- hola(X), hola(Y), X!=Y.
+
+
+LN:
+
+    There are three houses. In them live a spanish, an english and a chinese.
+    There are three houses. In them live a spanish, an english and a chinese. The spanish man house is painted red, while the englishman house is tainted blue. The house of the chinese is purple. A dog lives in the red house. The chinese loves to drink beer. The spanish, on the other hand, smokes Ducados.
