@@ -1,4 +1,8 @@
-# En este documento se lleva a cabo la tarea central de procesar el mensaje en lenguaje natural recibido del front-end
+# proceso.py
+#
+# Descripción:  En este documento se lleva a cabo la tarea central de procesar el
+#                mensaje en lenguaje natural recibido del front-end
+#
 
 # Imports
 import sys
@@ -11,6 +15,7 @@ from NL_to_ASP import NL_to_ASP
 # from ASP_to_NL import ASP_to_NL
 from resolver_ASP import resolver_ASP
 
+# Función auxiliar comprueba_error([estado, msg]) -> msg
 def comprueba_error(array_salida):
 
     # Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end

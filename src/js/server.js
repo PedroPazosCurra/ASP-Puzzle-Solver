@@ -1,5 +1,8 @@
 /*
   Server
+
+  Descripción:   Código encargado de manejar la interfaz del backend. Se encarga de abrir un puerto 
+                  para escuchar y recibir las peticiones HTTP del front-end.
 */
 
 //  Imports y variables
@@ -48,7 +51,6 @@ app.post('/procesa-mensaje', (req, res) => {
   const msg = req.body.message; 
   const puzzle = req.body.puzzle;
   console.log("LOG: POST /procesa-mensaje: \"%s\" para puzzle: %s ", msg, puzzle);
-  console.log( "\tMensaje:\t%s\n\tPuzzle:\t\t%s\n", msg, puzzle);
 
   // Se procesa el mensaje recibido (nota: es asíncrono) y se responde
   procesar(msg, puzzle).then((valor) => {

@@ -17,8 +17,14 @@ def NL_to_ASP(prompt, puzzle):
     # Contexto sin ejemplos (Zero-Shot)
     contexto_zeroshot = "### I want to translate sentences to facts expressed as atomic logical predicates. Do not reply with a sentence, only with the logical atoms. Don't explain the result and don't say anything else than the result. Process only one iteration in each step. ###\n"
 
-    # Leemos /resources/txt/contexto_einstein.txt para tener el contexto para few-shot learning
-    contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_ASP.txt"))
+    # Leemos /resources/txt/ctx... para tener el contexto para few-shot learning
+    match puzzle:
+        case "Einstein":
+                contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_ASP.txt"))
+        case _:
+            return([1, "En NL_to_ASP.py, se recibe un puzzle que no existe. Vigila que se esté pasando bien."])
+    
+
     with open(contexto_path, 'r') as file: fewshot = file.read()
 
     contexto_fewshot = contexto_zeroshot + fewshot
@@ -40,9 +46,11 @@ def NL_to_ASP(prompt, puzzle):
         response = requests.request("POST", url, headers=headers, data=payload)
         salida_llm = response.json()['choices'][0]['text']
 
-        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer \n)
+        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n' o 'Input')
         if (salida_llm.find("\\") != -1):
             salida_llm = salida_llm.split("\\", 1)[0].strip()
+        elif (salida_llm.find("Input") != -1):
+            salida_llm = salida_llm.split("Input", 1)[0].strip()
 
 
         # Comprobación de respuesta válida mediante REGEX con sintaxis ASP.

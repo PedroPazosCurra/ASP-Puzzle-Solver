@@ -8,7 +8,7 @@ reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resou
 
 # Función a exportar: resolver_ASP
 #
-#   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, resuelve 
+#   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un Answer Set con la solución
 def resolver_ASP(modelo, puzzle, clingo_args = []):
 
     cc = clingo.Control(clingo_args)
