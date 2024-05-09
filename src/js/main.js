@@ -167,7 +167,7 @@ function creaMensaje(lado, msg ){
 
     mensajeElem.style.backgroundColor = "hotpink";
     mensajeElem.style.alignSelf = "flex-start";
-    mensajeElem.innerHTML = '<span class="text-start" style= "color: #fdb7ff;">Cargando...</span>';
+    mensajeElem.innerHTML = '<span class="text-start" style= "color: #fdb7ff;"> Cargando... </span>';
 
   }
   mensajeContainer.appendChild(mensajeElem);
@@ -267,5 +267,13 @@ function changeSelectedPuzzle(item) {
   opcion = item.textContent.trim();
   dropdownPuzzle.innerHTML = opcion;
   selectedPuzzle = opcion;
+
+  //<div class="message-container" style="display: flex; flex-direction: column;">
+  elementoMensajeCambioPuzzle = document.createElement('div');
+  elementoMensajeCambioPuzzle.style.display = "flex";
+  elementoMensajeCambioPuzzle.style.flexDirection = "column";
+  elementoMensajeCambioPuzzle.innerHTML = '<span style = "align-self: center; margin: 20px; color: #89698b";>Puzzle seleccionado: ' + opcion + '</span>';
+  chatContainer.appendChild(elementoMensajeCambioPuzzle);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
