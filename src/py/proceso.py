@@ -12,7 +12,7 @@ from os import path
 import re
 import clingo
 from NL_to_ASP import NL_to_ASP
-# from ASP_to_NL import ASP_to_NL
+from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
 
 # Variables
@@ -39,13 +39,15 @@ if (modelo_asp[0] == 0):
     # 2º - Pasa el ASP al solver para obtener el Answer Set solución.
     answer_set = resolver_ASP(modelo_asp[1], puzzle_elegido)
 
-    print(answer_set[1])
-
-    #if(answer_set[0] == 0):
+    if(answer_set[0] == 0):
 
         # 3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.
-    #    print(answer_set[1])
-        # nl_salida = ASP_to_NL(answer_set, puzzle_elegido)
+        nl_salida = AS_to_NL(answer_set[1], puzzle_elegido)
 
-    #else: print(answer_set[1])
-else: print(modelo_asp)
+        if(nl_salida[0] == 0):
+
+            print("modelo ASP sacado: \n\f" + modelo_asp[1] + "\n Answer set resuelto: \n\f" + answer_set[1] + "Explicación LN: \n\f" + nl_salida[1])
+
+        else: print("modelo ASP sacado: \n\f" + modelo_asp[1] + "\n Answer set resuelto: \n\f" + answer_set[1] + "Explicación LN: \n\f" + nl_salida[1])
+    else: print("modelo ASP sacado: \n\f" + modelo_asp[1] + "\n Answer set resuelto: \n\f" + answer_set[1])
+else: print(modelo_asp[1])
