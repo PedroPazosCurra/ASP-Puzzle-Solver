@@ -20,7 +20,7 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
         case _:
             return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se esté pasando bien."])
 
-    # Se añade el modelo recibido de LLM + grounding
+    # Se añade el modelo recibido de LLM al código ASP + se hace grounding
     try:
         cc.add('base', [], modelo)
         cc.ground([("base",[])])
@@ -28,7 +28,7 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
     except:
         return([1, "Ha habido un problema en el grounding"])
 
-    # Si el programa no es SAT, se devuelve el error.
+    # Se devuelve el set si el programa es SAT y un error si no.
 
     solve_handle = cc.solve(yield_= True)
 

@@ -16,9 +16,10 @@ from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
 
 # Variables
-modelo_asp = [1, ""]
-answer_set = [1, ""]
-nl_salida = [1, ""]
+modelo_asp = ""
+answer_set = ""
+nl_salida = ""
+estado = 0
 
 # Prompt y puzzle recibidos por argumento
 prompt_usuario = sys.argv[1]
@@ -32,22 +33,31 @@ puzzle_elegido = sys.argv[2]
 #
 
 # 1º - Pasa el mensaje del usuario a declaraciones ASP.
-modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido)
+[estado, modelo_asp] = NL_to_ASP(prompt_usuario, puzzle_elegido)
 
-if (modelo_asp[0] == 0):
+## Fallo en LLM
+if (estado != 0):
+    print(modelo_asp)
+    exit(0)
 
-    # 2º - Pasa el ASP al solver para obtener el Answer Set solución.
-    answer_set = resolver_ASP(modelo_asp[1], puzzle_elegido)
 
-    if(answer_set[0] == 0):
+# 2º - Pasa el ASP al solver para obtener el Answer Set solución.
+[estado, answer_set] = resolver_ASP(modelo_asp, puzzle_elegido)
 
-        # 3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.
-        nl_salida = AS_to_NL(answer_set[1], puzzle_elegido)
+##   Fallo en ASP
+if(estado != 0):
+    print("modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set)
+    exit(0)
 
-        if(nl_salida[0] == 0):
 
-            print("modelo ASP sacado: \n\f" + modelo_asp[1] + "\n Answer set resuelto: \n\f" + answer_set[1] + "Explicación LN: \n\f" + nl_salida[1])
+# 3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.
+[estado, nl_salida] = AS_to_NL(answer_set, puzzle_elegido)
 
-        else: print("modelo ASP sacado: \n\f" + modelo_asp[1] + "\n Answer set resuelto: \n\f" + answer_set[1] + "Explicación LN: \n\f" + nl_salida[1])
-    else: print("modelo ASP sacado: \n\f" + modelo_asp[1] + "\n Answer set resuelto: \n\f" + answer_set[1])
-else: print(modelo_asp[1])
+##   Fallo en LLM
+if(estado != 0):
+    print("modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
+    exit(0)
+
+
+# Caso optimista: Todo OK
+print("modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
