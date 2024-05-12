@@ -32,7 +32,10 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
 
     solve_handle = cc.solve(yield_= True)
 
+    # En caso de que haya modelos, se toma el primero, preprocesado de answer set para separar los predicados por puntos y return.
     for model in solve_handle:
-        return([0, str(model)])
+
+        answer_sets = str(model).replace(" ", ". ") + "."
+        return([0, answer_sets])
 
     return([1, "El programa que he inferido en base a tu mensaje no es resoluble."])
