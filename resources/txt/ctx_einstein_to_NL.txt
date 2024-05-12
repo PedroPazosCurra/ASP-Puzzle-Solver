@@ -1,41 +1,41 @@
-Input: has(norwegian,house,3).\n\
-Output: The Norwegian person lives in the third house.\n\
-Input: has(brittish,house,1).\n\
-Output: The Brittish person lives in the house number 1.\n\
-Input: has(japanese,house,15).\n\
-Output: There's a japanese living in the 15th house.\n\
-Input: has(brittish,pet,dog).\n\
-Output: The person from Britain has a dog.\n\
-Input: has(nigerian,pet,horse).\n\
-Output: The nigerian is the owner of the horse.\n\
-Input: has(portuguese,pet,cat).\n\
-Output: The portuguese grows a cat.\n\
-Input: has(dane,pet,raccoon).\n\
-Output: The Dane has a raccoon as a pet.\n\
-Input: has(nigerian,pet,horse).\n\
-Output: The nigerian is the owner of the horse.\n\
-Input: has(scottish,color,green).\n\
-Output: The scottish's house is painted green.\n\
-Input: has(irish, color, blue).\n\
-Output: The house of the irish is blue.\n\
-Input: has(french,house,2). has(french,color,red).\n\
-Output: The house of the french  is the number 2 and is painted red.\n\
-Input: has(albanian,tobacco,camel).\n\
-Output: The Albanian smokes Camel cigarettes.\n\
-Input: has(afghan,tobacco,winston).\n\
-Output: The Afghan person's favourite brand of tobacco is Winston.\n\
-Input: has(italian,tobacco,marlboro).\n\
-Output: The Italian person is used to smoking Marlboro.\n\
-Input: has(brittish,beverage,milk).\n\
-Output: The brittish person drinks milk.\n\
-Input: has(palestinian,beverage,coffee).\n\
-Output: The palestinian person has coffee as a drink.\n\
-Input: has(russian,beverage,water). has(german,beverage,beer).\n\
-Output: The russian person drinks water and the german person deinks beer.\n\
-Input: has(swede,tobacco,camel). has(swede,beverage,milk). has(swede,pet,fish). has(swede,house,3).\n\
-Output: The Swede person smokes Camel, drinks mild, keeps a fish as pet and lives in the house number 3.\n\
-Input: has(albanian,house,3). has(chinese,pet,duck). has(english,tobacco,bluem). has(norwegian,color,blue). has(italian,beverage,lemonade).\n\
-Output: The Albanian lives in the house number 3. The Chines person owns a duck. The English neighbor smokes Bluem tobacco. The norwegian house is colored blue. The Italian drinks lemonade.\n\
-Input: has(argentinian,tobacco,palls). has(chilean,beverage,soda).\n\
-Output: The Argentinian smokes Palls tobacco and the Chilean drinks Soda.\n\
-Input: 
+INPUT: has(norwegian,house,3).
+OUTPUT: The Norwegian person lives in the third house.
+INPUT: has(brittish,house,1).
+OUTPUT: The Brittish person lives in the house number 1.
+INPUT: has(japanese,house,15).
+OUTPUT: There's a japanese living in the 15th house.
+INPUT: has(brittish,pet,dog).
+OUTPUT: The person from Britain has a dog.
+INPUT: has(nigerian,pet,horse).
+OUTPUT: The nigerian is the owner of the horse.
+INPUT: has(portuguese,pet,cat).
+OUTPUT: The portuguese grows a cat.
+INPUT: has(dane,pet,raccoon).
+OUTPUT: The Dane has a raccoon as a pet.
+INPUT: has(nigerian,pet,horse).
+OUTPUT: The nigerian is the owner of the horse.
+INPUT: has(scottish,color,green).
+OUTPUT: The scottish's house is painted green.
+INPUT: has(irish, color, blue).
+OUTPUT: The house of the irish is blue.
+INPUT: has(french,house,2). has(french,color,red).
+OUTPUT: The house of the french  is the number 2 and is painted red.
+INPUT: has(albanian,tobacco,camel).
+OUTPUT: The Albanian smokes Camel cigarettes.
+INPUT: has(afghan,tobacco,winston).
+OUTPUT: The Afghan person's favourite brand of tobacco is Winston.
+INPUT: has(italian,tobacco,marlboro).
+OUTPUT: The Italian person is used to smoking Marlboro.
+INPUT: has(brittish,beverage,milk).
+OUTPUT: The brittish person drinks milk.
+INPUT: has(palestinian,beverage,coffee).
+OUTPUT: The palestinian person has coffee as a drink.
+INPUT: has(russian,beverage,water). has(german,beverage,beer).
+OUTPUT: The russian person drinks water and the german person deinks beer.
+INPUT: has(swede,tobacco,camel). has(swede,beverage,milk). has(swede,pet,fish). has(swede,house,3).
+OUTPUT: The Swede person smokes Camel, drinks mild, keeps a fish as pet and lives in the house number 3.
+INPUT: has(albanian,house,3). has(chinese,pet,duck). has(english,tobacco,bluem). has(norwegian,color,blue). has(italian,beverage,lemonade).
+OUTPUT: The Albanian lives in the house number 3. The Chines person owns a duck. The English neighbor smokes Bluem tobacco. The norwegian house is colored blue. The Italian drinks lemonade.
+INPUT: has(argentinian,tobacco,palls). has(chilean,beverage,soda).
+OUTPUT: The Argentinian smokes Palls tobacco and the Chilean drinks Soda.
+INPUT: 

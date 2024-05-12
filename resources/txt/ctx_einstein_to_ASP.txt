@@ -1,81 +1,81 @@
-Input: In my puzzle there is a Brit, a Norwegian, a German and a Dane.\n\
-Output: person(brittish; norwegian; german; dane).\n\
-Input: I have 3 people: a Swede, a Dane and a Norwegian.\n\
-Output: person(swede; dane; norwegian).\n\
-Input: There are 5 people: a German, an Italian; a Brittish, a Spaniard and a Chinese.\n\
-Output: person(german; italian; brittish; spaniard; chinese).\n\
-Input: In my puzzle there are only 2 people: one is a German, and the other one is from Sweden.\n\
-Output: person(german; swede).\n\
-Input: Hello! I have a puzzle to resolve: There are 3 man involved. One of them is from Germany, the other one is French and the last one is Nigerian.\n\
-Output: person(german; french; nigerian).\n\
-Input: A Brittish, a Japanese, an Albanese and a Norwegian.\n\
-Output: person(brit; japanese; albanese; norwegian).\n\
-Input: There are five house colours: red, white, blue, green and yellow.\n\
-Output: color(red; white; blue; green; yellow).\n\
-Input: This problem has a purple and a cyan house.\n\
-Output: color(purple; cyan).\n\
-Input: The houses come in 6 colours: white, beige, blue, red, green and orange.\n\
-Output: color(white; beige; blue; red; green; orange).\n\
-Input: The problem I'm working with has 4 houses. One house is red, other one is green, other is yellow and the last is black.\n\
-Output: house(1..4). color(red; green; yellow; black).\n\
-Input: Seven houses.\n\
-Output: house(1..7).\n\
-Input: There are three houses.\n\
-Output: house(1..3).\n\
-Input: There is a Swede, a Dane and a Norwegian. The puzzle has 3 houses.\n\
-Output: person(swede; dane; norwegian). house(1..3).\n\
-Input: The puzzle has two houses. An Italian and a Rumanian live there.\n\
-Output: house(1..2). person(italian; rumanian). \n\
-Input: There are three drinks: coffee, milk and beer.\n\
-Output: beverage(coffee; milk; beer).\n\
-Input: In this Einstein puzzle there are 4 different types of beverages: water, tea, soda and whiskey.\n\
-Output: beverage(water; tea; soda; whiskey).\n\
-Input: The following drinks are present in the puzzle: tea, wine, beer and juice.\n\
-Output: beverage(tea; wine; beer; juice).\n\
-Input: The puzzle has ten houses. The drinks are water, tea, whiskey, soda, juice, milk, coffee, horchata, gazpacho and beer. Houses are painted red, green, white, black, yellow, purple, grey, brown, blue or orange. \n\
-Output: house(1..10). beverage(water; tea; whisky; soda; juice; milk; coffee; horchata; gazpacho; beer). color(red; green; white; black; yellow; purple; grey; brown; blue; orange).\n\
-Input: The tobacco brands are Blends, Pall and Dunhill.\n\
-Output: tobaccobrand(blends; pall; dunhill).\n\
-Input: There are a Spanish person and a Chinese one. There are also two tobacco brands: Marlboro and Blends. In addition, coffee and wine are being drunk.\n\
-Output: person(spanish; chinese). tobaccobrand(blends; pall; dunhill). beverage(coffee; wine).\n\
-Input: The pets that live in the houses are a dog, a cat and a raccoon.\n\
-Output: pet(dog; cat; raccoon).\n\
-Input: In this exercise there are the following pets: a horse, a bird, a fish and a lizard.\n\
-Output: pet(horse; bird; fish; lizard).\n\
-Input: The drinks and the pets are the following: coffee, milk, dog and cat.\n\
-Output: beverage(coffee; milk). pet(dog; cat).\n\
-Input: The brittish man lives in the red house.\n\
-Output: person(brittish). color(red). housecolor(brit, red).\n\
-Input: The norwegian lives in the house painted in purple.\n\
-Output: person(norwegian). color(purple). housecolor(norwegian, purple).\n\
-Input: The albanese kid lives in the black painted home.\n\
-Output: person(albanese). color(black). housecolor(albanese, black).\n\
-Input: In this puzzle there is a Congolese man whose house is painted yellow.\n\
-Output: person(congolese). color(yellow). housecolor(congolese, yellow).\n\
-Input: The Egyptian man drinks beer.\n\
-Output: person(egyptian). beverage(beer). drinks(egyptian, beer).\n\
-Input: The German individual's favourite drink is tea.\n\
-Output: person(german). beverage(tea). drinks(german, tea).\n\
-Input: The norwegian keeps a dog as pet.\n\
-Output: person(norwegian). pet(dog). keepspet(norwegian, dog).\n\
-Input: The irish person has a rabbit.\n\
-Output: person(irish). pet(rabbit). keepspet(irish, rabbit).\n\
-Input: The Dane grows a fish in his house\n\
-Output: person(dane). pet(fish). keepspet(dane, fish).\n\
-Input: The Spanish man has a cat in his house, and his house is painted blue.\n\
-Output: person(spanish). pet(cat). keepspet(spanish, cat). color(blue). housecolor(spanish, blue).\n\
-Input: The German smokes Dunhill cigarettes.\n\
-Output: person(german). tobaccobrand(dunhill). smokes(german, dunhill).\n\
-Input: The European lives next to the African.\n\
-Output: person(european). person(african). neighbor(european, african).\n\
-Input: The Spanish kid and the Chinese man are neighbors.\n\
-Output: person(spanish). person(chinese). neighbor(spanish, chinese).\n\
-Input: The Turkish and the Russian have adjacent residences.\n\
-Output: person(turkish). person(russian). neighbor(turkish, ).\n\
-Input: There is an irish whose favourite drink is tea and he has a horse. His house is colored beige and he smokes Ducados the whole day. He is the neighbor of a filipino old man. In this puzzle, there are only two houses.\n\
-Output: person(irish). beverage(tea). drinks(irish, tea). pet(horse). keepspet(irish, horse). housecolor(irish, beige). tobaccobrand(ducados). smokes(irish, ducados). person(filipino). neighbor(irish, filipino). house(1..2).\n\
-Input: In this puzzle there are three houses, and there are three people: one is Iranian, other is French and the last one is Portuguese. The Iranian lives next to the French. The portuguese smokes Marlboro, and the French smokes Winston. The house of the French man is white. The one of the Iranian is yellow, and the Portuguese home is blue.\n\
-Output: house(1..3). person(iranian; french; portuguese). person(iranian). person(french). neighbor(iranian, french). person(portuguese). tobaccobrand(marlboro). smokes(portuguese, marlboro). person(french). tobaccobrand(winston). smokes(french, winston). person(french). color(white). housecolor(french, white). person(iranian). color(yellow). housecolor(iranian, yellow). person(portuguese). color(blue). housecolor(portuguese, blue).\n\
-Input: There are 3 tobacco brands: Ducados, Camel and Bluem. There are also three drinks: coffee, water and tea.\n\
-Output: tobaccobrand( ducados; camel; bluem). beverage( coffee; water; tea).
-Input: 
+INPUT: In my puzzle there is a Brit, a Norwegian, a German and a Dane.
+OUTPUT: person(brittish; norwegian; german; dane).
+INPUT: I have 3 people: a Swede, a Dane and a Norwegian.
+OUTPUT: person(swede; dane; norwegian).
+INPUT: There are 5 people: a German, an Italian; a Brittish, a Spaniard and a Chinese.
+OUTPUT: person(german; italian; brittish; spaniard; chinese).
+INPUT: In my puzzle there are only 2 people: one is a German, and the other one is from Sweden.
+OUTPUT: person(german; swede).
+INPUT: Hello! I have a puzzle to resolve: There are 3 man involved. One of them is from Germany, the other one is French and the last one is Nigerian.
+OUTPUT: person(german; french; nigerian).
+INPUT: A Brittish, a Japanese, an Albanese and a Norwegian.
+OUTPUT: person(brit; japanese; albanese; norwegian).
+INPUT: There are five house colours: red, white, blue, green and yellow.
+OUTPUT: color(red; white; blue; green; yellow).
+INPUT: This problem has a purple and a cyan house.
+OUTPUT: color(purple; cyan).
+INPUT: The houses come in 6 colours: white, beige, blue, red, green and orange.
+OUTPUT: color(white; beige; blue; red; green; orange).
+INPUT: The problem I'm working with has 4 houses. One house is red, other one is green, other is yellow and the last is black.
+OUTPUT: house(1..4). color(red; green; yellow; black).
+INPUT: Seven houses.
+OUTPUT: house(1..7).
+INPUT: There are three houses.
+OUTPUT: house(1..3).
+INPUT: There is a Swede, a Dane and a Norwegian. The puzzle has 3 houses.
+OUTPUT: person(swede; dane; norwegian). house(1..3).
+INPUT: The puzzle has two houses. An Italian and a Rumanian live there.
+OUTPUT: house(1..2). person(italian; rumanian). 
+INPUT: There are three drinks: coffee, milk and beer.
+OUTPUT: beverage(coffee; milk; beer).
+INPUT: In this Einstein puzzle there are 4 different types of beverages: water, tea, soda and whiskey.
+OUTPUT: beverage(water; tea; soda; whiskey).
+INPUT: The following drinks are present in the puzzle: tea, wine, beer and juice.
+OUTPUT: beverage(tea; wine; beer; juice).
+INPUT: The puzzle has ten houses. The drinks are water, tea, whiskey, soda, juice, milk, coffee, horchata, gazpacho and beer. Houses are painted red, green, white, black, yellow, purple, grey, brown, blue or orange. 
+OUTPUT: house(1..10). beverage(water; tea; whisky; soda; juice; milk; coffee; horchata; gazpacho; beer). color(red; green; white; black; yellow; purple; grey; brown; blue; orange).
+INPUT: The tobacco brands are Blends, Pall and Dunhill.
+OUTPUT: tobaccobrand(blends; pall; dunhill).
+INPUT: There are a Spanish person and a Chinese one. There are also two tobacco brands: Marlboro and Blends. In addition, coffee and wine are being drunk.
+OUTPUT: person(spanish; chinese). tobaccobrand(blends; pall; dunhill). beverage(coffee; wine).
+INPUT: The pets that live in the houses are a dog, a cat and a raccoon.
+OUTPUT: pet(dog; cat; raccoon).
+INPUT: In this exercise there are the following pets: a horse, a bird, a fish and a lizard.
+OUTPUT: pet(horse; bird; fish; lizard).
+INPUT: The drinks and the pets are the following: coffee, milk, dog and cat.
+OUTPUT: beverage(coffee; milk). pet(dog; cat).
+INPUT: The brittish man lives in the red house.
+OUTPUT: person(brittish). color(red). housecolor(brit, red).
+INPUT: The norwegian lives in the house painted in purple.
+OUTPUT: person(norwegian). color(purple). housecolor(norwegian, purple).
+INPUT: The albanese kid lives in the black painted home.
+OUTPUT: person(albanese). color(black). housecolor(albanese, black).
+INPUT: In this puzzle there is a Congolese man whose house is painted yellow.
+OUTPUT: person(congolese). color(yellow). housecolor(congolese, yellow).
+INPUT: The Egyptian man drinks beer.
+OUTPUT: person(egyptian). beverage(beer). drinks(egyptian, beer).
+INPUT: The German individual's favourite drink is tea.
+OUTPUT: person(german). beverage(tea). drinks(german, tea).
+INPUT: The norwegian keeps a dog as pet.
+OUTPUT: person(norwegian). pet(dog). keepspet(norwegian, dog).
+INPUT: The irish person has a rabbit.
+OUTPUT: person(irish). pet(rabbit). keepspet(irish, rabbit).
+INPUT: The Dane grows a fish in his house
+OUTPUT: person(dane). pet(fish). keepspet(dane, fish).
+INPUT: The Spanish man has a cat in his house, and his house is painted blue.
+OUTPUT: person(spanish). pet(cat). keepspet(spanish, cat). color(blue). housecolor(spanish, blue).
+INPUT: The German smokes Dunhill cigarettes.
+OUTPUT: person(german). tobaccobrand(dunhill). smokes(german, dunhill).
+INPUT: The European lives next to the African.
+OUTPUT: person(european). person(african). neighbor(european, african).
+INPUT: The Spanish kid and the Chinese man are neighbors.
+OUTPUT: person(spanish). person(chinese). neighbor(spanish, chinese).
+INPUT: The Turkish and the Russian have adjacent residences.
+OUTPUT: person(turkish). person(russian). neighbor(turkish, ).
+INPUT: There is an irish whose favourite drink is tea and he has a horse. His house is colored beige and he smokes Ducados the whole day. He is the neighbor of a filipino old man. In this puzzle, there are only two houses.
+OUTPUT: person(irish). beverage(tea). drinks(irish, tea). pet(horse). keepspet(irish, horse). housecolor(irish, beige). tobaccobrand(ducados). smokes(irish, ducados). person(filipino). neighbor(irish, filipino). house(1..2).
+INPUT: In this puzzle there are three houses, and there are three people: one is Iranian, other is French and the last one is Portuguese. The Iranian lives next to the French. The portuguese smokes Marlboro, and the French smokes Winston. The house of the French man is white. The one of the Iranian is yellow, and the Portuguese home is blue.
+OUTPUT: house(1..3). person(iranian; french; portuguese). person(iranian). person(french). neighbor(iranian, french). person(portuguese). tobaccobrand(marlboro). smokes(portuguese, marlboro). person(french). tobaccobrand(winston). smokes(french, winston). person(french). color(white). housecolor(french, white). person(iranian). color(yellow). housecolor(iranian, yellow). person(portuguese). color(blue). housecolor(portuguese, blue).
+INPUT: There are 3 tobacco brands: Ducados, Camel and Bluem. There are also three drinks: coffee, water and tea.
+OUTPUT: tobaccobrand( ducados; camel; bluem). beverage( coffee; water; tea).
+INPUT: 
