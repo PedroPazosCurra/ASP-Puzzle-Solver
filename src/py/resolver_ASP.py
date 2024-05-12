@@ -18,7 +18,7 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
         case "Einstein":
             cc.load(reglas_einstein)
         case _:
-            return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se esté pasando bien."])
+            return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien."])
 
     # Se añade el modelo recibido de LLM al código ASP + se hace grounding
     try:
@@ -35,4 +35,4 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
     for model in solve_handle:
         return([0, str(model)])
 
-    return([1, "El programa lógico que he inferido en base a tu explicación no tiene solución."])
+    return([1, "El programa que he inferido en base a tu mensaje no es resoluble."])

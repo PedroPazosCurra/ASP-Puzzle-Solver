@@ -22,7 +22,7 @@ def NL_to_ASP(prompt, puzzle):
         case "Einstein":
                 contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_ASP.txt"))
         case _:
-            return([1, "En NL_to_ASP.py, se recibe un puzzle que no existe. Vigila que se esté pasando bien."])
+            return([1, "En NL_to_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien."])
     
 
     with open(contexto_path, 'r') as file: fewshot = file.read()

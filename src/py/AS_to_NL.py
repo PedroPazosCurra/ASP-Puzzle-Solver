@@ -21,7 +21,7 @@ def AS_to_NL(input_answer_set, puzzle_elegido):
         case "Einstein":
                 contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_NL.txt"))
         case _:
-            return([1, "En AS_to_NL.py, se recibe un puzzle que no existe. Vigila que se esté pasando bien."])
+            return([1, "En AS_to_NL.py, se recibe un puzzle que no existe. Vigila que se pase bien."])
     
 
     with open(contexto_path, 'r') as file: fewshot = file.read()
@@ -41,7 +41,7 @@ def AS_to_NL(input_answer_set, puzzle_elegido):
     salida_llm = response.json()['choices'][0]['text']
 
     if (salida_llm == ""):
-        return([1, "El puzzle tiene una solución y la he encontrado, pero no soy capaz de explicarla en lenguaje natural. El Answer Set encontrado, de todas formas, es: " + input_answer_set])
+        return([1, "El puzzle tiene una solucion y la he encontrado, pero no soy capaz de explicarla en lenguaje natural. El Answer Set encontrado, de todas formas, es: " + input_answer_set])
     else:
         return([0, salida_llm])
 

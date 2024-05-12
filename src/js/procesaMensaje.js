@@ -14,7 +14,7 @@ async function procesaMensaje(mensaje, puzzle){
 */
 async function ejecutaScript(path, mensaje, puzzle) {
 
-  const procesoPython = spawn('python', [path, mensaje, puzzle]);
+  const procesoPython = spawn('python', [path, mensaje, puzzle], {encoding: 'utf-8' });
 
   var data = '';
   procesoPython.stdout.on('data', (stdout) => {
@@ -36,7 +36,6 @@ async function ejecutaScript(path, mensaje, puzzle) {
 
     });
   });
-
 }
 
 module.exports = { procesaMensaje };

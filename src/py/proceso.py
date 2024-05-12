@@ -3,6 +3,7 @@
 # Descripción:  En este documento se lleva a cabo la tarea central de procesar el
 #                mensaje en lenguaje natural recibido del front-end
 #
+# -*- coding: utf-8 -*-
 
 # Imports
 import sys
