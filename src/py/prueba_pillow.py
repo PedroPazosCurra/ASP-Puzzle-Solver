@@ -43,7 +43,7 @@ def haz_casita(coordenadas, numero, persona, bebida, mascota, tabaco, color, tam
                 )
     
     # Escribe la persona
-    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + (d-b)/4*2),
+    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + (d-b)*0.5),
                 text = persona,
                 font= fuente,
                 stroke_width=2,
@@ -51,7 +51,7 @@ def haz_casita(coordenadas, numero, persona, bebida, mascota, tabaco, color, tam
                 )
     
     # Escribe la mascota
-    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + ((d-b)/4)*4),
+    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + (d-b)),
                 text = mascota,
                 font= fuente,
                 stroke_width=2,
@@ -59,7 +59,7 @@ def haz_casita(coordenadas, numero, persona, bebida, mascota, tabaco, color, tam
                 )
     
     # Escribe la bebida
-    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + ((d-b)/4)*6),
+    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + (d-b)*1.5),
                 text = bebida,
                 font= fuente,
                 stroke_width=2,
@@ -67,7 +67,7 @@ def haz_casita(coordenadas, numero, persona, bebida, mascota, tabaco, color, tam
                 )
     
     # Escribe el tabaco
-    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + ((d-b)/4)*8),
+    dibujo.text(xy = (a + (c-a)/2 - tamaño, d + (d-b)*2),
                 text = tabaco,
                 font= fuente,
                 stroke_width=2,
