@@ -79,7 +79,7 @@ def haz_casitas(casas):
     num_casas = len(casas)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_casas = (1.085**(-num_casas)) * 80
+    tamaño_casas = (1.1**(-num_casas)) * 80
 
     for i, casa in enumerate(casas):
 
