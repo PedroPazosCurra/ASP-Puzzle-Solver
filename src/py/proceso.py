@@ -9,7 +9,8 @@
 import sys
 import requests
 import json
-from os import path
+from os import path, remove
+from glob import glob
 import re
 import clingo
 from NL_to_ASP import NL_to_ASP
@@ -26,6 +27,11 @@ estado = 0
 # Prompt y puzzle recibidos por argumento
 prompt_usuario = sys.argv[1]
 puzzle_elegido = sys.argv[2]
+
+# Vacía la carpeta de salidas temporales del módulo de imagen usadas previamente
+carpeta_tmp = glob('..../resources/tmp/*')
+for imagen in carpeta_tmp:
+    remove(imagen)
 
 # PROCESO: 1 -> 2 -> 3. Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end.
 #

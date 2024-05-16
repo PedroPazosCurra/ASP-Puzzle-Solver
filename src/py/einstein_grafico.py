@@ -39,6 +39,7 @@ def dibuja_datos(dibujo, coordenadas, tamaño, array_datos):
                     stroke_fill= 'black'
                     )
 
+
 # Función auxiliar que dibuja una casa en determinadas coordenadas, tamaño, color y número. 
 def dibuja_casa(dibujo, coordenadas, tamaño, color = 'white', numero = ''):
 
@@ -68,7 +69,7 @@ def dibuja_casa(dibujo, coordenadas, tamaño, color = 'white', numero = ''):
                 stroke_width= int(tamaño * 0.1),
                 stroke_fill='black'
                 )
-    
+
 
 def representa_casa(coordenadas, persona, bebida, mascota, tabaco, tamaño, color = 'white', numero = ''):
 
@@ -103,14 +104,12 @@ def representa_estado_inicial(casas):
     # Ya tengo los datos filtrados por clave
     num_datos = len(dict_datos)
 
-
+    # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
     tamaño_datos = (1.1**(-num_datos)) * 80
 
     for i, par in enumerate(dict_datos.items()):
 
         clave, valor = par
-        print(clave)
-        print(valor)
 
         division_datos = (1000/(num_datos+ 1)) * (i + 1)
 
@@ -211,7 +210,6 @@ def einstein_grafico(answer_set):
             casas = np.append(casas, nueva_casa)
 
 
-
     # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número y representamos.
     casas = sorted(casas, key=lambda d: d['num'])
     representa_estado_inicial(casas).save("resources/tmp/estado_inicial_einstein.png")
@@ -306,8 +304,8 @@ casa10 = {
 #casas = [casa1, casa2, casa3, casa4, casa5, casa6]
 #casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9, casa10]
 
-as_prueba = "has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,tobacco,ducados). has(spanish,beverage,agua). has(english,house,2). has(english,color,blue). has(english,pet,giraffe). has(english,beverage,horchata)."
-einstein_grafico(as_prueba)
+#as_prueba = "has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,tobacco,ducados). has(spanish,beverage,agua). has(english,house,2). has(english,color,blue). has(english,pet,giraffe). has(english,beverage,horchata)."
+#einstein_grafico(as_prueba)
 
 #representa_estado_inicial(casas)
 #representa_solucion(casas)

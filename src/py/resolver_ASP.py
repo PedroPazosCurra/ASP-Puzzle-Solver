@@ -26,7 +26,7 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
         cc.ground([("base",[])])
 
     except:
-        return([1, "Ha habido un problema en el grounding"])
+        return([1, "Ha habido un problema en el proceso de grounding ASP"])
 
     # Se devuelve el set si el programa es SAT y un error si no.
 
@@ -38,4 +38,4 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
         answer_sets = str(model).replace(" ", ". ") + "."
         return([0, answer_sets])
 
-    return([1, "El programa que he inferido en base a tu mensaje no es resoluble."])
+    return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento."])
