@@ -59,12 +59,19 @@ async function chatbotEnviarMensaje(inputMsg){
   // Envía petición AJAX a backend Express
   peticionProcesaMensaje(inputMsg).then((valor) => { 
 
-    // Recibe correctamente, actualiza el mensaje
-    actualizaMensaje(mensajeElem, valor);
 
-    // Envía un mensaje con la salida del módulo de imágenes
-    representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png"
-    chatbotEnviarImagenes("http://localhost:8080/img/fondo_imagen_generada.png", representacion_grafica_solucion)
+
+    // Recibe correctamente, actualiza el mensaje
+    actualizaMensaje(mensajeElem, valor[1]);
+
+    // Si OK, envía imágenes con la salida del módulo gráfico.
+    if(valor[0] == 0){
+      
+      representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png"
+      chatbotEnviarImagenes("http://localhost:8080/img/fondo_imagen_generada.png", representacion_grafica_solucion)
+    
+    }
+
   });
 
 }

@@ -42,30 +42,36 @@ INPUT: The pets that live in the houses are a dog, a cat and a raccoon.
 OUTPUT: pet(dog; cat; raccoon).
 INPUT: In this exercise there are the following pets: a horse, a bird, a fish and a lizard.
 OUTPUT: pet(horse; bird; fish; lizard).
-INPUT: The drinks and the pets are the following: coffee, milk, dog and cat.
+INPUT: The drinks and the pets are the following: coffee, milk, dog and cat, respectively.
 OUTPUT: beverage(coffee; milk). pet(dog; cat).
 INPUT: The brittish man lives in the red house.
-OUTPUT: person(brittish). color(red). housecolor(brit, red).
+OUTPUT: person(brittish). color(red). house_color(brit, red).
 INPUT: The norwegian lives in the house painted in purple.
-OUTPUT: person(norwegian). color(purple). housecolor(norwegian, purple).
+OUTPUT: person(norwegian). color(purple). house_color(norwegian, purple).
 INPUT: The albanese kid lives in the black painted home.
-OUTPUT: person(albanese). color(black). housecolor(albanese, black).
+OUTPUT: person(albanese). color(black). house_color(albanese, black).
 INPUT: In this puzzle there is a Congolese man whose house is painted yellow.
-OUTPUT: person(congolese). color(yellow). housecolor(congolese, yellow).
+OUTPUT: person(congolese). color(yellow). house_color(congolese, yellow).
 INPUT: The Egyptian man drinks beer.
 OUTPUT: person(egyptian). beverage(beer). drinks(egyptian, beer).
 INPUT: The German individual's favourite drink is tea.
 OUTPUT: person(german). beverage(tea). drinks(german, tea).
-INPUT: The norwegian keeps a dog as pet.
-OUTPUT: person(norwegian). pet(dog). keepspet(norwegian, dog).
-INPUT: The irish person has a rabbit.
-OUTPUT: person(irish). pet(rabbit). keepspet(irish, rabbit).
-INPUT: The Dane grows a fish in his house
-OUTPUT: person(dane). pet(fish). keepspet(dane, fish).
+INPUT: The norwegian keeps a dog as pet. He lives in a red house and drinks vodka.
+OUTPUT: person(norwegian). pet(dog). keeps_pet(norwegian, dog). person(norwegian). color(red). house_color(norwegian, red). beverage(vodka). drinks(norwegian, vodka).
+INPUT: The irish person has a rabbit. The italian girl has a dog. The rabbit owner has a blue house.
+OUTPUT: person(irish). pet(rabbit). keeps_pet(irish, rabbit). person(italian). pet(dog). keeps_pet(italian, dog). color(blue). house_color(irish, blue).
+INPUT: There are five pets: a dog, a cat, a rabbit, a mole and a fish. The Dane grows a fish in his house
+OUTPUT: pet(dog; cat; rabbit; mole; fish). person(dane). pet(fish). keeps_pet(dane, fish).
+INPUT: The Italian girl grows a possum in his house
+OUTPUT: person(italian). pet(possum). keeps_pet(italian, possum).
+INPUT: The Galician girl has a tiger in his house that she keeps as a pet.
+OUTPUT: person(galician). pet(tiger). keeps_pet(galician, tiger).
 INPUT: The Spanish man has a cat in his house, and his house is painted blue.
-OUTPUT: person(spanish). pet(cat). keepspet(spanish, cat). color(blue). housecolor(spanish, blue).
+OUTPUT: person(spanish). pet(cat). keeps_pet(spanish, cat). color(blue). house_color(spanish, blue).
 INPUT: The German smokes Dunhill cigarettes.
 OUTPUT: person(german). tobaccobrand(dunhill). smokes(german, dunhill).
+INPUT: The Sudafrican smokes Camel cigarettes and drinks beer in his white house. His neighbor is a Namibian girl. She lives in a red house where he keeps a rat.
+OUTPUT: person(sudafrican). tobaccobrand(camel). smokes(sudafrican, camel). beverage(beer). drinks(sudafrican, beer). color(white). house_color(sudafrican, white). person(namibian). color(red). house_color(namibian, red). pet(rat). keeps_pet(namibian, rat).
 INPUT: The European lives next to the African.
 OUTPUT: person(european). person(african). neighbor(european, african).
 INPUT: The Spanish kid and the Chinese man are neighbors.
@@ -73,7 +79,7 @@ OUTPUT: person(spanish). person(chinese). neighbor(spanish, chinese).
 INPUT: The Turkish and the Russian have adjacent residences.
 OUTPUT: person(turkish). person(russian). neighbor(turkish, ).
 INPUT: There is an irish whose favourite drink is tea and he has a horse. His house is colored beige and he smokes Ducados the whole day. He is the neighbor of a filipino old man. In this puzzle, there are only two houses.
-OUTPUT: person(irish). beverage(tea). drinks(irish, tea). pet(horse). keepspet(irish, horse). housecolor(irish, beige). tobaccobrand(ducados). smokes(irish, ducados). person(filipino). neighbor(irish, filipino). house(1..2).
+OUTPUT: person(irish). beverage(tea). drinks(irish, tea). pet(horse). keeps_pet(irish, horse). house_color(irish, beige). tobaccobrand(ducados). smokes(irish, ducados). person(filipino). neighbor(irish, filipino). house(1..2).
 INPUT: In this puzzle there are three houses, and there are three people: one is Iranian, other is French and the last one is Portuguese. The Iranian lives next to the French. The portuguese smokes Marlboro, and the French smokes Winston. The house of the French man is white. The one of the Iranian is yellow, and the Portuguese home is blue.
 OUTPUT: house(1..3). person(iranian; french; portuguese). person(iranian). person(french). neighbor(iranian, french). person(portuguese). tobaccobrand(marlboro). smokes(portuguese, marlboro). person(french). tobaccobrand(winston). smokes(french, winston). person(french). color(white). housecolor(french, white). person(iranian). color(yellow). housecolor(iranian, yellow). person(portuguese). color(blue). housecolor(portuguese, blue).
 INPUT: There are 3 tobacco brands: Ducados, Camel and Bluem. There are also three drinks: coffee, water and tea.

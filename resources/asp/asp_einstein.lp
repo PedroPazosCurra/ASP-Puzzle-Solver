@@ -23,8 +23,8 @@ type(tobacco,V) :- tobaccobrand(V).
 
 :- smokes(P,B), not has(P,tobacco,B).
 :- drinks(P,B), not has(P,beverage,B).
-:- keepspet(P,Q), not has(P,pet,Q).
-:- housecolor(P,C), not has(P,color,C).
+:- keeps_pet(P,Q), not has(P,pet,Q).
+:- house_color(P,C), not has(P,color,C).
 
 :- neighbor(P,P'), has(P,house,H), has(P',house,H'), H'!=H-1, H'!=H+1.
 

@@ -31,7 +31,13 @@ async function ejecutaScript(path, mensaje, puzzle) {
     procesoPython.on('close', (code) => {
 
       // Retorno con gestión de errores
-      if(code === 0){ resolve(data) }
+      if(code === 0){ 
+
+        // Por ahora no me queda otra que gestionar así los status entre Py y JS
+        estado_y_salida = data.split("|")
+        resolve(estado_y_salida) 
+
+      }
       else{ reject(new Error(`ERROR: Script de Python. (Cód: ${code})`)); }
 
     });

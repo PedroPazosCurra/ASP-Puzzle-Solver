@@ -39,7 +39,7 @@ puzzle_elegido = sys.argv[2]
 
 ## Fallo en LLM
 if (estado != 0):
-    print(modelo_asp)
+    print("1|" + modelo_asp)
     exit(0)
 
 
@@ -48,7 +48,7 @@ if (estado != 0):
 
 ##   Fallo en ASP
 if(estado != 0):
-    print("modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set)
+    print("1|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set)
     exit(0)
 
 
@@ -57,10 +57,10 @@ if(estado != 0):
 
 ##   Fallo en LLM
 if(estado != 0):
-    print("modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
+    print("1|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
     exit(0)
 
 
 # Caso optimista: Todo OK
 einstein_grafico(answer_set)
-print("modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
+print("0|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
