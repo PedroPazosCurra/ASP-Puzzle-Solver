@@ -10,7 +10,7 @@ AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
 modelo = "Awanllm-Llama-3-8B-Dolfin"
 url = "https://api.awanllm.com/v1/chat/completions"
 ASP_REGEX = "^\s?([a-z\_]*\((([a-z\_]+(,\s?)?)+|([a-z\_]+(;\s?)?)*|([0-9]+\.\.[0-9]+))\)\.\s?)+$"
-REINTENTOS_MAX = 5
+REINTENTOS_MAX = 3
 
 def NL_to_ASP(prompt, puzzle):
 

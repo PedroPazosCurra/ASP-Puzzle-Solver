@@ -32,6 +32,7 @@ async function procesar(msg, puzzle){
 
 // Routing para elementos estáticos
 app.use('/img', express.static(path.join(__dirname, '../../resources/img')));
+app.use('/tmp', express.static(path.join(__dirname, '../../resources/tmp')));
 app.use('/css',express.static(path.join(__dirname, '../css')));
 app.use('/js',express.static(__dirname));
 

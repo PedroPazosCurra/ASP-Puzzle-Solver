@@ -63,10 +63,9 @@ async function chatbotEnviarMensaje(inputMsg){
     actualizaMensaje(mensajeElem, valor);
 
     // Envía un mensaje con la salida del módulo de imágenes
-    // representacion_grafica_solucion = "http://localhost:8080/resources/tmp/solucion_einstein.png"
-    // chatbotEnviarImagenes("http://localhost:8080/img/fondo_imagen_generada.png", representacion_grafica_solucion)
+    representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png"
+    chatbotEnviarImagenes("http://localhost:8080/img/fondo_imagen_generada.png", representacion_grafica_solucion)
   });
-
 
 }
 
