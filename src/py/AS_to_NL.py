@@ -7,8 +7,8 @@ import re
 
 # Constantes
 AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
-modelo = "Meta-Llama-3-8B-Instruct-Dolfin-v0.1"
-url = "https://api.awanllm.com/v1/completions"
+modelo = "Awanllm-Llama-3-8B-Dolfin"
+url = "https://api.awanllm.com/v1/chat/completions"
 
 def AS_to_NL(input_answer_set, puzzle_elegido):
 
@@ -34,10 +34,10 @@ def AS_to_NL(input_answer_set, puzzle_elegido):
     prompt_w_context = contexto + input_answer_set +"\nOutput: "
 
     # Petición a la LLM (Actualmente, modelo pequeño para probar)
-    payload = json.dumps({ "model": modelo, "prompt": prompt_w_context })
+    payload = json.dumps({ "model": modelo, "messages": [{"role" : "user", "content" : prompt_w_context}] })
     headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
     response = requests.request("POST", url, headers=headers, data=payload)
-    salida_llm = response.json()['choices'][0]['text']
+    salida_llm = response.json()['choices'][0]['message']['content']
 
     if (salida_llm == ""):
         return([1, "El puzzle tiene una solucion y la he encontrado, pero no soy capaz de explicarla en lenguaje natural. El Answer Set encontrado, de todas formas, es: " + input_answer_set])

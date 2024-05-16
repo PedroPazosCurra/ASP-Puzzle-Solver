@@ -7,15 +7,15 @@ import re
 
 # Constantes
 AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
-modelo = "Meta-Llama-3-8B-Instruct-Dolfin-v0.1"
-url = "https://api.awanllm.com/v1/completions"
+modelo = "Awanllm-Llama-3-8B-Dolfin"
+url = "https://api.awanllm.com/v1/chat/completions"
 ASP_REGEX = "^\s?([a-z\_]*\((([a-z\_]+(,\s?)?)+|([a-z\_]+(;\s?)?)*|([0-9]+\.\.[0-9]+))\)\.\s?)+$"
 REINTENTOS_MAX = 5
 
 def NL_to_ASP(prompt, puzzle):
 
     # Contexto sin ejemplos (Zero-Shot)
-    contexto_zeroshot = "### I want to translate sentences to facts expressed as atomic logical predicates. Do not reply with a sentence, only with the logical atoms. Don't explain the result and don't say anything else than the result. Process only one iteration in each step. ###\n"
+    contexto_zeroshot = "### You MUST parse natural language sentences to atomic logical predicates. Reply only with the logical atoms. You will be penalized if you write something different from the final logical predicates. Write only the last iteration. You are provided with examples. ###\n"
 
     # Leemos /resources/txt/ctx... para tener el contexto para few-shot learning
     match puzzle:
@@ -41,16 +41,16 @@ def NL_to_ASP(prompt, puzzle):
     while (intentos <= REINTENTOS_MAX):
 
         # Petición a la LLM (Actualmente, modelo pequeño para probar)
-        payload = json.dumps({ "model": modelo, "prompt": prompt_w_context })
+        payload = json.dumps({ "model": modelo, "messages": [{"role" : "user", "content" : prompt_w_context}] })
         headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
         response = requests.request("POST", url, headers=headers, data=payload)
-        salida_llm = response.json()['choices'][0]['text']
+        salida_llm = response.json()['choices'][0]['message']['content']
 
         # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n' o 'Input')
         if (salida_llm.find("\\") != -1):
             salida_llm = salida_llm.split("\\", 1)[0].strip()
         elif (salida_llm.find("Input") != -1):
-            salida_llm = salida_llm.split("Input", 1)[0].strip()
+            salida_llm = salida_llm.split("INPUT", 1)[0].strip()
 
 
         # Comprobación de respuesta válida mediante REGEX con sintaxis ASP.

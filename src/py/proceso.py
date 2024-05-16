@@ -15,6 +15,7 @@ import clingo
 from NL_to_ASP import NL_to_ASP
 from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
+from einstein_grafico import einstein_grafico
 
 # Variables
 modelo_asp = ""
@@ -61,4 +62,5 @@ if(estado != 0):
 
 
 # Caso optimista: Todo OK
+einstein_grafico(answer_set)
 print("modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)

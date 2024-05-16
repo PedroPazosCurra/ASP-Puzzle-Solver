@@ -1,6 +1,8 @@
 # IMPORTS
 from PIL import Image, ImageDraw, ImageFont
 from webcolors import name_to_rgb
+import re
+import numpy as np
 
 
 # CONSTANTES
@@ -79,13 +81,13 @@ def representa_solucion(casas):
 
         # Dibuja la casa y escribe sus datos
         representa_casa(coordenadas= (division - tamaño_casas, 400),
-                    numero= casa["num"],
-                    persona=casa["person"],
-                    bebida=casa["beverage"],
-                    mascota=casa["pet"],
-                    tabaco=casa["tobacco"],
-                    color= casa["color"],
-                    tamaño= tamaño_casas)
+                    numero = casa["num"] if ("num" in casa) else 0,
+                    persona = casa["person"] if ("person" in casa) else "",
+                    bebida= casa["beverage"] if ("beverage" in casa) else "",
+                    mascota = casa["pet"] if ("pet" in casa) else "",
+                    tabaco = casa["tobacco"] if ("tobacco" in casa) else "",
+                    color = casa["color"] if ("color" in casa) else "black",
+                    tamaño = tamaño_casas)
         
         # Dibuja separador
         dibujo.line(xy= [(division - tamaño_casas*1.25 - 1.068**tamaño_casas, 420), (division - tamaño_casas*1.25 - 1.068**tamaño_casas, 340 + 8*tamaño_casas)],
@@ -96,6 +98,63 @@ def representa_solucion(casas):
     dibujo.line(xy= [(((1000/(num_casas+1)) * (num_casas + 1)) - tamaño_casas*1.25 - 1.068**tamaño_casas, 420), (((1000/(num_casas+1)) * (num_casas + 1)) - tamaño_casas*1.25 - 1.068**tamaño_casas, 340 + 8*tamaño_casas)],
             width= int(1.03**tamaño_casas),
             fill= 'gray')
+    
+    return fondo
+
+
+def einstein_grafico(answer_set):
+
+    regex = r"\(([^)]+)\)"
+    array_has = []
+    casas = np.array([])
+
+    # Extraer las palabras usando el patrón 
+    matches_regex = re.findall(regex, answer_set)
+
+    for matched in matches_regex:
+        array_has.append(matched.split(","))
+
+    # Ya tenemos un array de arrays de tres elementos correspondientes a todos los predicados has. Iteramos
+    for entrada in array_has:
+
+        #
+        #np.where(casas["person"] == entrada[0])
+
+        persona_creada = False
+
+        # ¿Esta persona está asignada a una casa en el array de diccionarios "casas[]"?
+        for casa in casas:
+
+            # Ya existe la casa de esta persona: se gestiona el predicado
+            if(casa["person"] == entrada[0]):
+
+                match entrada[1]:
+                    case "house":    casa["num"]      =   entrada[2]
+                    case "color":    casa["color"]    =   entrada[2]
+                    case "pet":      casa["pet"]      =   entrada[2]
+                    case "beverage": casa["beverage"] =   entrada[2]
+                    case "tobacco":  casa["tobacco"]  =   entrada[2]
+
+                persona_creada = True
+
+        # No existe la persona -> nueva casa
+        if(persona_creada == False):
+
+            nueva_casa = dict(person = entrada[0])
+
+            match entrada[1]:
+                case "house":    nueva_casa["num"]      =   entrada[2]
+                case "color":    nueva_casa["color"]    =   entrada[2]
+                case "pet":      nueva_casa["pet"]      =   entrada[2]
+                case "beverage": nueva_casa["beverage"] =   entrada[2]
+                case "tobacco":  nueva_casa["tobacco"]  =   entrada[2]
+
+            casas = np.append(casas, nueva_casa)
+
+    # Ya tenemos un array de diccionarios con todos los datos de las casas.
+    representa_solucion(casas).save("resources/tmp/solucion_einstein.png")
+
+
 
 casa1 = {
     "num": 1,
@@ -178,10 +237,14 @@ casa10 = {
     "tobacco": "ducados"
 }
 
-casas = [casa1, casa2, casa3]
-casas = [casa1, casa2, casa3, casa4, casa5, casa6]
-casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9, casa10]
-representa_solucion(casas)
+#casas = [casa1, casa2, casa3]
+#casas = [casa1, casa2, casa3, casa4, casa5, casa6]
+#casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9, casa10]
+
+#as_prueba = "has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,tobacco,ducados). has(spanish,beverage,agua). has(english,house,2). has(english,color,blue). has(english,pet,giraffe). has(english,beverage,horchata)."
+#einstein_grafico(as_prueba)
+
+#representa_solucion(casas)
 
 # Enseña la imagen por pantalla
-fondo.show()
+#fondo.show()

@@ -78,4 +78,5 @@ INPUT: In this puzzle there are three houses, and there are three people: one is
 OUTPUT: house(1..3). person(iranian; french; portuguese). person(iranian). person(french). neighbor(iranian, french). person(portuguese). tobaccobrand(marlboro). smokes(portuguese, marlboro). person(french). tobaccobrand(winston). smokes(french, winston). person(french). color(white). housecolor(french, white). person(iranian). color(yellow). housecolor(iranian, yellow). person(portuguese). color(blue). housecolor(portuguese, blue).
 INPUT: There are 3 tobacco brands: Ducados, Camel and Bluem. There are also three drinks: coffee, water and tea.
 OUTPUT: tobaccobrand( ducados; camel; bluem). beverage( coffee; water; tea).
+### Given this examples, parse the following sentence: ###
 INPUT: 
