@@ -19,7 +19,7 @@ type(house,V) :- house(V).
 type(color,V) :- color(V).
 type(pet,V) :- pet(V).
 type(beverage,V) :- beverage(V).
-type(tobacco,V) :- tobaccobrand(V).
+type(tobacco,V) :- tobacco_brand(V).
 
 :- smokes(P,B), not has(P,tobacco,B).
 :- drinks(P,B), not has(P,beverage,B).

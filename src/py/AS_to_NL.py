@@ -7,7 +7,7 @@ import re
 
 # Constantes
 AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
-modelo = "Awanllm-Llama-3-8B-Dolfin"
+modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
 
 def AS_to_NL(input_answer_set, puzzle_elegido):
