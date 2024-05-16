@@ -151,7 +151,10 @@ def einstein_grafico(answer_set):
 
             casas = np.append(casas, nueva_casa)
 
-    # Ya tenemos un array de diccionarios con todos los datos de las casas.
+
+
+    # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número y representamos.
+    casas = sorted(casas, key=lambda d: d['num'])
     representa_solucion(casas).save("resources/tmp/solucion_einstein.png")
 
 
