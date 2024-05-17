@@ -2,20 +2,29 @@
 // Variables
 var sendBtn = document.getElementById('enviar_button');
 var textBox = document.getElementById('textbox'); 
+textBox.value = "";
 var dropdownPuzzle = document.getElementById("dropdownPuzzle");
 var chatContainer = document.getElementById('chatContainer');
 var imgPrueba = "http://localhost:8080/img/logo_udc_horizontal.png";
 var imgFlecha = "http://localhost:8080/img/flecha.png";
 var selectedPuzzle = "none";
 
-// Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
-textBox.value = "";
 
-// Ejemplos de mensajes
+// Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
+
 setTimeout(() => {
-    chatbotEnviarMensajeNaive("Hola, ¿en qué puedo ayudarte?");
-    //chatbotEnviarImagenes(imgPrueba, "http://localhost:8080/img/logo_fic.jpg");
+
+  chatbotEnviarMensajeNaive("¡Hola! Soy tu asistente de resolución de puzzles. ¡Encantado!")
+  
+  setTimeout(() => {
+
+    chatbotEnviarMensajeNaive("Selecciona el puzzle a resolver e intenta explicar de forma lo más extensiva posible el problema al que te estés enfrentando.");
+    setTimeout(() => {
+
+      chatbotEnviarMensajeNaive("Por cierto, recuerda hacerlo en inglés.")
+    }, "1500");
   }, "1000");
+}, "1000");
 
 
 //########################   Funciones de chat   ############################
@@ -70,8 +79,6 @@ async function chatbotEnviarMensaje(inputMsg){
       representacion_grafica_inicial = "http://localhost:8080/tmp/estado_inicial_einstein.png"
       representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png"
       chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion)
-
-      
     
     }
 
@@ -86,56 +93,110 @@ async function chatbotEnviarMensaje(inputMsg){
 */ 
 function chatbotEnviarImagenes(startImg, endImg){
 
-    // Contenedor para el mensaje
-    var mensajeContainer = document.createElement('div');
-    mensajeContainer.style.display = "flex";
-    mensajeContainer.style.flexDirection = "column";
+  /*################    Mensaje     ################*/
 
-    // Creación del elemento mensaje
-    var mensaje = document.createElement('div');
-    mensaje.classList.add('float-start');
-    mensaje.classList.add('shadow-sm');
-    mensaje.style.margin = "10px";
-    mensaje.style.padding = "5px";
-    mensaje.style.width = "auto";
-    mensaje.style.maxWidth = "70%";
-    mensaje.style.backgroundColor = "hotpink";
-    mensaje.style.borderRadius = "20px";
+  // Contenedor para el mensaje
+  var mensajeContainer = document.createElement('div');
+  mensajeContainer.style.display = "flex";
+  mensajeContainer.style.flexDirection = "column";
 
-    // Creación de elementos imagen (estado inicio -> estado final)
-    var imagen1 = document.createElement('img');
-    imagen1.classList.add('imagen-inicial');
-    imagen1.src = startImg;
-    imagen1.style.width = "50%";
-    imagen1.style.borderRadius = "20px";
+  // Elemento mensaje
+  var mensaje = document.createElement('div');
+  mensaje.classList.add('float-start');
+  mensaje.classList.add('shadow-sm');
+  mensaje.style.margin = "10px";
+  mensaje.style.padding = "5px";
+  mensaje.style.width = "auto";
+  mensaje.style.maxWidth = "70%";
+  mensaje.style.backgroundColor = "hotpink";
+  mensaje.style.borderRadius = "20px";
 
-    var flecha = document.createElement('img');
-    flecha.src = imgFlecha;
-    flecha.classList.add('flecha');
-    flecha.style.marginInline = "20px";
-    flecha.style.width = "50px";
+  /*################    Elementos compartidos      ################*/
 
-    var imagen2 = document.createElement('img');
-    imagen2.src = endImg;
-    imagen2.classList.add('imagen-final');
-    imagen2.style.width = "50%";
-    imagen2.style.borderRadius = "20px";
+  // Elementos del modal
+  var modal = document.getElementById("myModal");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
 
-    // Creación del divisor para ambas imágenes
-    var divisor = document.createElement('div');
-    divisor.classList.add('divisor_imagenes');
-    divisor.appendChild(imagen1);
-    divisor.appendChild(flecha);
-    divisor.appendChild(imagen2);
-    mensaje.appendChild(divisor);
-    mensajeContainer.appendChild(mensaje);
+  // Click en botón de cerrar modal
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function() {
+    modal.style.display = "none";
+  } 
 
-    // Animación del mensaje al entrar en el chat
-    mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
+  /*################    Primera Imagen      ################*/
 
-    // Añade mensaje y scroll hacia el último mensaje enviado
-    chatContainer.appendChild(mensajeContainer);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+  // Imagen estado inicial
+  var imagen1 = document.createElement('img');
+  imagen1.id = 'imagen-inicial';
+  imagen1.classList.add('modal-content');
+
+  // Imagen que actúa como botón
+  var trigger_imagen1 = document.createElement('img');
+  trigger_imagen1.classList.add('imagen-inicial');
+  trigger_imagen1.id = "trigger1";
+  trigger_imagen1.src = startImg;
+  trigger_imagen1.style.width = "50%";
+  trigger_imagen1.style.borderRadius = "20px";
+  trigger_imagen1.alt = 'Estado inicial del puzzle'
+
+  // Click en la imagen
+  trigger_imagen1.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = trigger_imagen1.src;
+    captionText.innerHTML = trigger_imagen1.alt;
+  }
+
+  /*################    Flecha     ################*/
+
+  var flecha = document.createElement('img');
+  flecha.src = imgFlecha;
+  flecha.classList.add('flecha');
+  flecha.style.marginInline = "20px";
+  flecha.style.width = "50px";
+
+  /*################    Segunda Imagen      ################*/
+
+  // Imagen estado final
+  var imagen2 = document.createElement('img');
+  imagen2.id = 'imagen-final';
+  imagen2.classList.add('modal-content');
+
+  // Imagen que actúa como botón
+  var trigger_imagen2 = document.createElement('img');
+  trigger_imagen2.classList.add('imagen-final');
+  trigger_imagen2.id = "trigger2";
+  trigger_imagen2.src = endImg;
+  trigger_imagen2.style.width = "50%";
+  trigger_imagen2.style.borderRadius = "20px";
+  trigger_imagen2.alt = 'Solución del puzzle'
+
+  // Click en la imagen
+  trigger_imagen2.onclick = function(){
+    modal.style.display = "block";
+    imagen2.src = trigger_imagen2.src;
+    caption.innerHTML = trigger_imagen2.alt;
+  }
+
+  /*################    Divisor      ################*/
+
+  var divisor = document.createElement('div');
+  divisor.classList.add('divisor_imagenes');
+
+  divisor.appendChild(trigger_imagen1);
+  divisor.appendChild(flecha);
+  divisor.appendChild(trigger_imagen2);
+  mensaje.appendChild(divisor);
+  mensajeContainer.appendChild(mensaje);
+
+  /*################    Otros     ################*/
+
+  // Animación del mensaje al entrar en el chat
+  mensaje.animate([{easing:"ease-in", opacity:0}, {opacity:1}], {duration:500});
+
+  // Añade mensaje y scroll hacia el último mensaje enviado
+  chatContainer.appendChild(mensajeContainer);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
 
@@ -290,4 +351,3 @@ function changeSelectedPuzzle(item) {
   chatContainer.appendChild(elementoMensajeCambioPuzzle);
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
-
