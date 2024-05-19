@@ -42,7 +42,7 @@ for imagen in carpeta_tmp: remove(imagen)
 #
 
 # 1º - Pasa el mensaje del usuario a declaraciones ASP.
-[estado, modelo_asp] = NL_to_ASP(prompt_usuario, puzzle_elegido)
+estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido)
 
 ## Fallo en LLM
 if (estado != 0):
@@ -51,7 +51,7 @@ if (estado != 0):
 
 
 # 2º - Pasa el ASP al solver para obtener el Answer Set solución.
-[estado, answer_set] = resolver_ASP(modelo_asp, puzzle_elegido)
+estado, answer_set = resolver_ASP(modelo_asp, puzzle_elegido)
 
 ##   Fallo en ASP
 if(estado != 0):
@@ -60,7 +60,7 @@ if(estado != 0):
 
 
 # 3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.
-[estado, nl_salida] = AS_to_NL(answer_set, puzzle_elegido)
+estado, nl_salida = AS_to_NL(answer_set, puzzle_elegido)
 
 ##   Fallo en LLM
 if(estado != 0):

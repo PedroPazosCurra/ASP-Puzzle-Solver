@@ -1,7 +1,60 @@
 
+/* Título de la página */
+h1{
+  font-size: 75px;
+  font-family: 'Times New Roman', Times, serif;
+  color: hotpink;
+  text-shadow: 3px 4px 5px rgb(146, 52, 99);
+}
+
+/* Banner superior*/
+.banner{
+  width: 100%;
+  height: 10%;
+  color: white;
+  background-color: white;
+  border-bottom: 1px solid rgb(146, 52, 99);
+  padding-inline: 20px; 
+  display: flex; 
+  justify-content:flex-start; 
+  padding: 30px 20px 20px 5%;
+}
+
+.banner_elem{
+  border-radius: 5px;
+  padding-right: 5%;
+  color: #7b517c;
+  transition: transform .2s; /* Animation */
+  text-shadow: 0 0 0 rgb(146, 52, 99);
+  animation-name: cambia_color_out;
+  animation-duration: 200ms;
+}
+
+.banner_elem:hover{
+  -ms-transform: scale(1.25); /* IE 9 */
+  -webkit-transform: scale(1.25); /* Safari 3-8 */
+  transform: scale(1.25); 
+  animation-name: cambia_color;
+  animation-duration: 200ms;
+  animation-fill-mode: both;
+}
+
+.banner_elem:after{
+  color: #7b517c;
+}
+
+@keyframes cambia_color {
+  from{ color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
+  to{ color: hotpink; text-shadow: 10px 5px 5px rgb(146, 52, 99);}
+}
+
+@keyframes cambia_color_out {
+  from{ color: hotpink; text-shadow: 10px 5px 5px rgb(146, 52, 99);}
+  to{color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
+}
+
 /* Permite scroll */
 html { overflow-y: scroll;}
-
 
 .pie_de_pagina{
   left: 0;
@@ -42,10 +95,6 @@ html { overflow-y: scroll;}
   .divisor_imagenes .imagen-final { order: 3; }
 }
 
-.redondeado {
-  border-radius: 20px;
-}
-
 /* Botón "Enviar Mensaje" */
 .botonEnviar {
   border: none;
@@ -56,6 +105,10 @@ html { overflow-y: scroll;}
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
+  height:100%; 
+  width: 100%; 
+  color: hotpink; 
+  outline-color: hotpink;
 }
 .botonEnviar:after {
   content: "";
