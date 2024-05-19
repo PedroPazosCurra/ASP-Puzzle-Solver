@@ -30,18 +30,25 @@ def NL_to_ASP(prompt, puzzle):
     contexto = contexto_fewshot # Zero-shot o Few-shot?
     prompt_w_context = contexto + prompt +"\nOutput: "
 
-    # Bucle para reintentar petición si salida incorrecta
+    # Bucle para reintentar petición si salida incorrecta.
     intentos = 0
 
     while (intentos <= REINTENTOS_MAX):
 
-        # Petición a la LLM (Actualmente, modelo pequeño para probar)
+        # Petición a la LLM (Actualmente, modelo pequeño para probar).
         payload = json.dumps({ "model": modelo, "messages": [{"role" : "user", "content" : prompt_w_context}] })
         headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
-        response = requests.request("POST", url, headers=headers, data=payload)
-        salida_llm = response.json()['choices'][0]['message']['content']
+        response = requests.request("POST", url, headers=headers, data=payload).json()
 
-        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n' o 'INPUT')
+        # Maneja la respuesta por si trae algún error por parte de servidor.
+        try:
+            salida_llm = response['choices'][0]['message']['content']
+        except KeyError:
+            return([1, "Error en el servidor del LLM: " + response['message']])
+        except:
+            return([1, "Error no manejado en la comunicación con el LLM"])
+
+        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n' o 'INPUT').
         if (salida_llm.find("\\") != -1):
             salida_llm = salida_llm.strip().split("\\", 1)[0]
         elif (salida_llm.find("Input") != -1):
@@ -50,7 +57,6 @@ def NL_to_ASP(prompt, puzzle):
         # A veces se olvida de poner el punto en el último predicado. Intento rescatarlo.
         if (salida_llm.strip()[-1] != "."):
             salida_llm += "."
-
 
         # Comprobación de respuesta válida mediante REGEX con sintaxis ASP.
         if (re.search(ASP_REGEX, salida_llm) != None ):

@@ -31,6 +31,15 @@ prompt_w_context = contexto + input_answer_set +"\nOUTPUT: "
 # Petición a la LLM (Actualmente, modelo pequeño para probar)
 payload = json.dumps({ "model": modelo, "messages": [{"role" : "user", "content" : prompt_w_context}] })
 headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
-response = requests.request("POST", url, headers=headers, data=payload)
-print(response.json()['choices'][0]['message']['content'])
+response = requests.request("POST", url, headers=headers, data=payload).json()
+
+
+try:
+    print(response['choices'][0]['message']['content'])
+except KeyError:
+    print("Error en el servidor del LLM: " + response['message'])
+except:
+    print("Error no manejado en la comunicación con el LLM")
+
+    
 

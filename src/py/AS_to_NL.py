@@ -36,8 +36,15 @@ def AS_to_NL(input_answer_set, puzzle_elegido):
     # Petición a la LLM (Actualmente, modelo pequeño para probar)
     payload = json.dumps({ "model": modelo, "messages": [{"role" : "user", "content" : prompt_w_context}] })
     headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
-    response = requests.request("POST", url, headers=headers, data=payload)
-    salida_llm = response.json()['choices'][0]['message']['content']
+    response = requests.request("POST", url, headers=headers, data=payload).json()
+
+    # Maneja la respuesta por si trae algún error por parte de servidor.
+    try:
+        salida_llm = response['choices'][0]['message']['content']
+    except KeyError:
+        return([1, "Error en el servidor del LLM: " + response['message']])
+    except:
+        return([1, "Error no manejado en la comunicación con el LLM"])
 
     if (salida_llm == ""):
         return([1, "El puzzle tiene una solucion y la he encontrado, pero no soy capaz de explicarla en lenguaje natural. El Answer Set encontrado, de todas formas, es: " + input_answer_set])

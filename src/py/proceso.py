@@ -6,9 +6,7 @@
 # -*- coding: utf-8 -*-
 
 # Imports
-import sys
-import requests
-import json
+from sys import argv as args
 from os import path, remove
 from glob import glob
 import re
@@ -23,15 +21,18 @@ modelo_asp = ""
 answer_set = ""
 nl_salida = ""
 estado = 0
+num_args = len(args)
+prompt_usuario = "There are three houses. In them live a spanish, an english and a chinese."
+puzzle_elegido = "Einstein"
 
-# Prompt y puzzle recibidos por argumento
-prompt_usuario = sys.argv[1]
-puzzle_elegido = sys.argv[2]
+# Prompt y puzzle recibidos por argumento (adaptado para debug directo sin pasar por frontend)
+if (num_args >= 3): _, prompt_usuario, puzzle_elegido = args
+
+
 
 # Vacía la carpeta de salidas temporales del módulo de imagen usadas previamente
 carpeta_tmp = glob('..../resources/tmp/*')
-for imagen in carpeta_tmp:
-    remove(imagen)
+for imagen in carpeta_tmp: remove(imagen)
 
 # PROCESO: 1 -> 2 -> 3. Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end.
 #
@@ -54,7 +55,7 @@ if (estado != 0):
 
 ##   Fallo en ASP
 if(estado != 0):
-    print("1|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set)
+    print("1|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set, flush=True)
     exit(0)
 
 
@@ -63,10 +64,10 @@ if(estado != 0):
 
 ##   Fallo en LLM
 if(estado != 0):
-    print("1|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
+    print("1|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida, flush=True)
     exit(0)
 
 
 # Caso optimista: Todo OK
 einstein_grafico(answer_set)
-print("0|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida)
+print("0|modelo ASP sacado: \n\f" + modelo_asp + "\n Answer set resuelto: \n\f" + answer_set + "Explicación LN: \n\f" + nl_salida, flush= True)
