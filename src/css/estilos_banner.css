@@ -12,6 +12,7 @@
 }
   
 .banner_elem{
+    text-decoration: none;
     border-radius: 5px;
     padding-right: 5%;
     color: #7b517c;
