@@ -7,6 +7,22 @@ h1{
   text-shadow: 3px 4px 5px rgb(146, 52, 99);
 }
 
+h2{
+  color: #7b647c;
+}
+
+h3{
+  color: #937a94;
+}
+
+h4{
+  color: #b196b2;
+}
+
+p{
+  color: #b196b2;
+}
+
 /* Permite scroll */
 html { overflow-y: scroll;}
 

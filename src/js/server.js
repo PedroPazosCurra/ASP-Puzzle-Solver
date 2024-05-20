@@ -45,6 +45,24 @@ app.get("/", function (req, res) {
 
 });
 
+// Recibe GET a '/ayuda'
+app.get("/ayuda", function (req, res) {
+
+  // LOG + Envía html 
+  console.log("LOG: GET /ayuda");
+  res.sendFile(path.join(__dirname, '../', 'ayuda.html'));
+
+});
+
+// Recibe GET a '/about'
+app.get("/about", function (req, res) {
+
+  // LOG + Envía html 
+  console.log("LOG: GET /about");
+  res.sendFile(path.join(__dirname, '../', 'about.html'));
+
+});
+
 // Recibe POST a '/procesa-mensaje'
 app.post('/procesa-mensaje', (req, res) => {
 

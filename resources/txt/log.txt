@@ -49,4 +49,27 @@ The Spanish person lives in the third house, it is painted red, they have a dog,
 house(1..3). person(spanish; english; chinese). pet(dog; cat; duck). tobacco_brand(ducados; camel; bluem). beverage(coffee; water; tea). person(spanish). color(red). house_color(spanish, red). person(english). color(blue). house_color(english, blue). person(chinese). color(purple). house_color(chinese, purple). person(spanish). pet(dog). keeps_pet(spanish, dog). person(chinese). beverage(tea). drinks(chinese, tea). person(spanish). tobacco_brand(ducados). smokes(spanish, ducados).
 # Answer set resuelto: 
 has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,beverage,coffee). has(spanish,tobacco,ducados). has(english,house,1). has(english,color,blue). has(english,pet,duck). has(english,beverage,water). has(english,tobacco,bluem). has(chinese,house,2). has(chinese,color,purple). has(chinese,pet,cat). has(chinese,beverage,tea). has(chinese,tobacco,camel).# Explicación LN: 
-The Spanish person lives in the house number 3, the house is painted red, they have a dog as a pet, drinks coffee, smokes Ducados tobacco. The English person lives in the house number 1, the house is painted blue, they have a duck as a pet, drinks water, smokes Bluem tobacco. The Chinese person lives in the house number 2, the house is painted purple, they have a cat as a pet, drinks tea, smokes Camel tobacco.
+The Spanish person lives in the house number 3, the house is painted red, they have a dog as a pet, drinks coffee, smokes Ducados tobacco. The English person lives in the house number 1, the house is painted blue, they have a duck as a pet, drinks water, smokes Bluem tobacco. The Chinese person lives in the house number 2, the house is painted purple, they have a cat as a pet, drinks tea, smokes Camel tobacco.############ [22:38] LOG ############:
+# Modelo ASP sacado: 
+En NL_to_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.############ [22:40] LOG ############:
+# Modelo ASP sacado: 
+En NL_to_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.############ [22:40] LOG ############:
+# Modelo ASP sacado: 
+En NL_to_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.############ [22:46] LOG ############:
+# Modelo ASP sacado: 
+En NL_to_ASP.py, se recibe un puzzle que no existe: undefined. Vigila que se pase bien.############ [22:46] LOG ############:
+# Modelo ASP sacado: 
+En NL_to_ASP.py, se recibe un puzzle que no existe: undefined. Vigila que se pase bien.############ [22:50] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.############ [22:51] LOG ############:
+# Modelo ASP sacado: 
+person(english). house_color(english, red).
+person(spanish). pet(dog).
+person(ukrainian). beverage(tea). drinks(ukrainian, tea).
+person(spanish). house_color(spanish, green).
+beverage(coffee; tea; water).
+house(1..3). color(red; green; blue).
+pet(dog; cat; horse).
+# Answer set resuelto: 
+has(english,house,1). has(english,color,red). has(english,pet,horse). has(english,beverage,water). has(spanish,house,3). has(spanish,color,green). has(spanish,pet,cat). has(spanish,beverage,coffee). has(ukrainian,house,2). has(ukrainian,color,blue). has(ukrainian,pet,dog). has(ukrainian,beverage,tea).# Explicación LN: 
+The English person lives in the first house, their house is painted red, they own a horse, they drink water. The Spanish person lives in the third house, their house is painted green, they have a cat as pet and drink coffee. The Ukrainian person lives in the second house, their house is painted blue, they have a dog as pet and drink tea.
