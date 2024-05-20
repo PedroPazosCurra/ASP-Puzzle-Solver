@@ -349,7 +349,7 @@ textBox.addEventListener("keyup", function(evento){
 function changeSelectedPuzzle(item) {
   opcion = item.textContent.trim();
   dropdownPuzzle.innerHTML = opcion;
-  selectedPuzzle = opcion.split(" ")[1];
+  selectedPuzzle = opcion.split(" ")[1]; // Se hace split para evitar el emoji
 
   //<div class="message-container" style="display: flex; flex-direction: column;">
   elementoMensajeCambioPuzzle = document.createElement('div');
