@@ -1,0 +1,16 @@
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+
+  
+@keyframes cambia_color {
+    from{ color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
+    to{ color: hotpink; text-shadow: 10px 5px 5px rgb(146, 52, 99); -webkit-text-stroke: 0.5px rgb(201, 83, 142)}
+  }
+  
+  @keyframes cambia_color_out {
+    from{ color: hotpink; text-shadow: 10px 5px 5px rgb(146, 52, 99); -webkit-text-stroke: 0.5px rgb(201, 83, 142)}
+    to{color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
+  }
+  

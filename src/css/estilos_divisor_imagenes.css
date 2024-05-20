@@ -1,0 +1,44 @@
+
+/* Divisor de imágenes presente en mensajes del módulo gráfico*/
+.divisor_imagenes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    margin: 10px;
+    padding: 5px;
+    background-color: hotpink;
+    border-radius: 20px;
+}
+
+.divisor_imagenes img {
+    margin: 10px;
+    border-radius: 20px;
+}
+  
+  /* Opciones para colapso por anchura, imágenes se enseñan en vertical */
+@media (max-width: 1200px) {
+    .divisor_imagenes {
+        flex-direction: column;
+    }
+    /* Rotar la flecha si colapsa por anchura */
+    .divisor_imagenes .flecha { order: 2; transform: rotate(90deg); }
+    .divisor_imagenes .imagen-inicial { order: 1; }
+    .divisor_imagenes .imagen-final { order: 3; }
+}
+
+  /* Estilos para imágenes del divisor */
+.imagen-inicial {
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.imagen-final {
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.imagen-inicial:hover {opacity: 0.7;}
+.imagen-final:hover {opacity: 0.7;}

@@ -1,0 +1,67 @@
+
+/* Modal: Imagen que se muestra en galería al pulsar */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); 
+}
+  
+/* Imagen */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+  
+/* Descripción - mismo ancho que la imagen */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+  
+/* Animación de zoom */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.8s;
+}
+  
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    top: 35px;
+    right: 45px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+  
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+/* Pantallas pequeñas */
+@media only screen and (max-width: 700px){
+.modal-content {
+    width: 100%;
+}
+}

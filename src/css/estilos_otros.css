@@ -1,0 +1,28 @@
+
+/* Título de la página */
+h1{
+  font-size: 75px;
+  font-family: 'Times New Roman', Times, serif;
+  color: hotpink;
+  text-shadow: 3px 4px 5px rgb(146, 52, 99);
+}
+
+/* Permite scroll */
+html { overflow-y: scroll;}
+
+.pie_de_pagina{
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  background-color: white;
+  color: black;
+  margin: 30px;
+}
+
+.circulo-online {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  margin-right: 5px;
+}
