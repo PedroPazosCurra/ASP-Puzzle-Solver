@@ -22,6 +22,7 @@ setTimeout(() => {
     setTimeout(() => {
 
       chatbotEnviarMensajeNaive("Por cierto, recuerda hacerlo en inglés.")
+      chatbotEnviarImagenes(imgPrueba, imgPrueba)
     }, "1500");
   }, "1000");
 }, "1000");
@@ -310,7 +311,7 @@ sendBtn.addEventListener('click', function(evento){
 
         alert("Selecciona un puzzle, por favor");
         dropdownPuzzle.style.border="5px solid red";
-        dropdownPuzzle.style.transition = "border-color 0.5s ease-in-out";
+        dropdownPuzzle.style.transition = "0.5s";
 
       }else{                        // El mensaje se envía y se borra el input 
 

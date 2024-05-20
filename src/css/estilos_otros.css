@@ -26,3 +26,21 @@ html { overflow-y: scroll;}
   background-color: green;
   margin-right: 5px;
 }
+
+
+.dropdown-toggle{
+  cursor: pointer;
+  transition: transform 0.3s;
+  animation-name: dropdown-hover-out;
+  animation-duration: 0.3s;
+  color: #ffd5f6; 
+  background-color: 
+  rgb(146, 52, 99); 
+  border-color: #ffd5f6;
+}
+
+.dropdown-toggle:hover {
+  animation-name: dropdown-hover;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
