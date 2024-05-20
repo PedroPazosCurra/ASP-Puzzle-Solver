@@ -25,6 +25,7 @@ type(tobacco,V) :- tobacco_brand(V).
 :- drinks(P,B), not has(P,beverage,B).
 :- keeps_pet(P,Q), not has(P,pet,Q).
 :- house_color(P,C), not has(P,color,C).
+%:- house_number(P,N), not has(P, house, N). PROBAR ESTO MAÑANA
 
 :- neighbor(P,P'), has(P,house,H), has(P',house,H'), H'!=H-1, H'!=H+1.
 

@@ -68,8 +68,6 @@ async function chatbotEnviarMensaje(inputMsg){
   // Envía petición AJAX a backend Express
   peticionProcesaMensaje(inputMsg).then((valor) => { 
 
-
-
     // Recibe correctamente, actualiza el mensaje
     actualizaMensaje(mensajeElem, valor[1]);
 
@@ -81,9 +79,7 @@ async function chatbotEnviarMensaje(inputMsg){
       chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion)
     
     }
-
   });
-
 }
 
 /* Función chatbotEnviarImagenes
@@ -174,7 +170,7 @@ function chatbotEnviarImagenes(startImg, endImg){
   // Click en la imagen
   trigger_imagen2.onclick = function(){
     modal.style.display = "block";
-    imagen2.src = trigger_imagen2.src;
+    modalImg.src = trigger_imagen2.src;
     caption.innerHTML = trigger_imagen2.alt;
   }
 
