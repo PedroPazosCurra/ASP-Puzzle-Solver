@@ -1,27 +1,37 @@
+/* Zoom fuerte presente en imágenes Modal*/
 @keyframes zoom {
   from {transform:scale(0.8); opacity: 0%;}
   to {transform:scale(1); opacity: 100%}
 }
 
+/* Animación de 'hover' en dropdown de puzzles */
 @keyframes dropdown-hover {
   from {transform:scale(1); background-color: rgb(146, 52, 99);}
   to {transform:scale(1.05); background-color: #ffd5f6; color: #6f5471}
 }
-
 @keyframes dropdown-hover-out {
   from {transform:scale(1.05); background-color: #ffd5f6; color: #6f5471}
   to {transform:scale(1); background-color: rgb(146, 52, 99);}
-
 }
   
+/* Animaciones pensadas para los elementos del banner */
 @keyframes cambia_color {
   from{ color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
   to{ color: hotpink; text-shadow: 10px 5px 5px rgb(146, 52, 99); -webkit-text-stroke: 0.5px rgb(201, 83, 142)}
 }
-  
 @keyframes cambia_color_out {
   from{ color: hotpink; text-shadow: 10px 5px 5px rgb(146, 52, 99); -webkit-text-stroke: 0.5px rgb(201, 83, 142)}
   to{color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
+}
+
+/* Animaciones multiuso para agrandar un poco un objeto cuando el ratón pasa por encima */
+@keyframes general_hover_zoom {
+  from {transform:scale(1)}
+  to {transform:scale(1.2)}
+}
+@keyframes general_hover_zoomout {
+  from {transform:scale(1.2)}
+  to {transform:scale(1)}
 }
 
 

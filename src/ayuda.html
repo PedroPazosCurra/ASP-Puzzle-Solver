@@ -33,11 +33,15 @@
       <!-- Fondo blanco -->
       <div class="container" style="background-color: white; width: 100%; margin-top: 50px; margin-bottom: 20px; border-radius: 100px; box-shadow: 0 0 30px 40px white;">
         <br><br><br>
+
+        <!-- Título -->
         <div><h2 style="margin-left: 10px;">Ayuda</h2></div>
         <hr>
         <br>
         <p style="margin-left: 10px;">En esta sección, se especifica el uso esperado del sistema y el funcionamiento de los puzzles implementados.</p>
         <br>
+
+        <!-- Sección de puzzles -->
         <div>
           <h3 style="margin-left: 20px;">Puzzles :</h3>
           <hr>
@@ -47,13 +51,31 @@
             <hr>
             <p style="margin-left: 10px;">Einstein (también conocido como Zebra Puzzle o Zebra Problem) es un rompecabezas lógico que consiste en determinar qué elementos están agrupados dado un conjunto de reglas lógicas que determinan sus relaciones.</p>
             <p style="margin-left: 10px;">El problema puede presentarse, por ejemplo, de la siguiente forma:</p>
-            <p style="margin-left: 20px;">- El inglés vive en la casa roja.</p>
-            <p style="margin-left: 20px;">- El español tiene un perro.</p>
-            <p style="margin-left: 20px;">- En la casa verde se bebe café.</p>
-            <p style="margin-left: 20px;">- El ucraniano bebe té..</p>
-            <p style="margin-left: 20px;">- (...)</p>
+
+            <!-- Estado inicial con texto a la derecha -->
+            <div style="display: flex; align-items: center;">
+              <img src="/img/estado_inicial_einstein_ejemplo.png" style="width: 35%; height: auto" alt="">
+              <div>
+                <p style="margin-left: 20px;">- El inglés vive en la casa roja.</p>
+                <p style="margin-left: 20px;">- El español tiene un perro.</p>
+                <p style="margin-left: 20px;">- En la casa verde se bebe café.</p>
+                <p style="margin-left: 20px;">- El ucraniano bebe té..</p>
+                <p style="margin-left: 20px;">- (...)</p>
+              </div>
+            </div>
+
             <br>
             <p style="margin-left: 10px;">El objetivo del puzzle es razonar qué combinaciones de elementos (té, perro, inglés, ...) hay en cada casa, teniendo en cuenta que hay exactamente un elemento de cada tipo en cada casa.</p>
+            
+            <!-- Solución con texto a la derecha -->
+            <div style="display: flex; align-items: center;">
+              <img src="/img/solucion_einstein_ejemplo.png" style="width: 35%; height: auto; align-self: center;" alt="">
+                <p style="margin-left: 20px;"> Este es un ejemplo de una solución al pequeño puzzle Einstein de prueba.</p>
+
+            </div>
+
+            <h4>...</h4><!-- Añadir aquí puzzles consiguientes  -->
+            <hr>
           </div>
           <br>
         </div>
@@ -67,21 +89,21 @@
           style="margin: auto; padding-inline: 20px; display: flex; justify-content: space-between;">
 
           <!-- Icono UDC -->
-          <div class="media">          
+          <div class="media zoom_on_hover">          
             <img src="http://localhost:8080/img/logo_udc_horizontal.png" 
             style="margin: 10 px;" 
             class="img-responsive img-presentation" alt="" width="124p">
           </div>
               
           <!-- Icono FIC -->
-          <div class="media">    
+          <div class="media zoom_on_hover">    
             <img src="http://localhost:8080/img/logo_fic.jpg" 
               style="margin: 10 px;" 
               class="img-responsive img-presentation" alt="" width="50p">
           </div>
 
           <!-- Icono GitHub -->
-          <div class="media">
+          <div class="media zoom_on_hover">
             <a href="http://github.com/PedroPazosCurra/ASP-Puzzle-Solver" class="fa fa-github" style="font-size:60px; color: black; text-decoration: none;"></a>
           </div>
 

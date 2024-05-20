@@ -61,3 +61,16 @@ html { overflow-y: scroll;}
   animation-duration: 0.3s;
   animation-fill-mode: both;
 }
+
+/* Clase general para animar un pequeño zoom al pasar el ratón */
+.zoom_on_hover{
+  cursor: pointer;
+  transition: transform 0.3s;
+  animation-name: general_hover_zoomout;
+  animation-duration: 0.3s;
+}
+.zoom_on_hover:hover{
+  animation-name: general_hover_zoom;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
