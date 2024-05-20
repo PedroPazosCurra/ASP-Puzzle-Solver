@@ -303,13 +303,13 @@ sendBtn.addEventListener('click', function(evento){
 
     if(inputText == ""){            // Input vacío -> aviso
     
-      alert("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
+      mostrarDialogo("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
       
     }else{                  
 
       if(selectedPuzzle == "none"){  // Puzzle sin elegir -> aviso
 
-        alert("Selecciona un puzzle, por favor");
+        mostrarDialogo("¡Espera! Selecciona un puzzle");
         dropdownPuzzle.style.border="5px solid red";
         dropdownPuzzle.style.transition = "0.5s";
 
@@ -323,6 +323,17 @@ sendBtn.addEventListener('click', function(evento){
       }
     }
 });
+
+// Función auxiliar para mostrar el diálogo
+function mostrarDialogo(mensaje) {
+  document.getElementById("mensaje-dialogo").textContent = mensaje;
+  document.getElementById("dialogo").classList.remove("oculto");
+}
+
+// Función auxiliar para esconder diálogo
+function ocultarDialogo() {
+  document.getElementById("dialogo").classList.add("oculto");
+}
 
 // Enter en el input -> se envía el texto.
 textBox.addEventListener("keyup", function(evento){

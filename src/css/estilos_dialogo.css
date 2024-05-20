@@ -1,0 +1,40 @@
+.oculto{
+  display: none;
+}
+
+.dialogo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background-color: rgb(255, 246, 254);
+  color: rgb(146, 52, 99);
+  padding: 20px;
+  border: 1px solid #ffd5f6;
+  box-shadow: 60px 30px 60px rgb(146, 52, 99);
+  position: fixed;
+  z-index: 10000; /* Lo pongo muy 'alto' para que esté al frente siempre */
+  transition: all;
+}
+
+.dialogo h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+  
+#mensaje-dialogo {
+  margin-bottom: 20px;
+}
+  
+.dialogo button {
+  padding: 5px 10px;
+  background-color: hotpink;
+  color: #ffd5f6;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  float: right; 
+  margin-right: 25px; 
+  margin-bottom: 5px;
+}

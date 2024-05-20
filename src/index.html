@@ -15,11 +15,19 @@
     <link rel="stylesheet" href="css/estilos_boton_enviar.css">
     <link rel="stylesheet" href="css/estilos_divisor_imagenes.css">
     <link rel="stylesheet" href="css/estilos_imagen_modal.css">
+    <link rel="stylesheet" href="css/estilos_dialogo.css">
     <link rel="stylesheet" href="css/animaciones.css">
   </head>
   
   <!-- Global -->
   <body style=" background-image: url('/img/fondo_puzzle.jpg'); background-repeat: repeat; background-size: contain;">
+
+    <!-- Dialog oculto -->
+    <div id="dialogo" class="dialogo oculto">
+      <h2>Mensaje para el puzzle</h2>
+      <p id="mensaje-dialogo"></p>
+      <button id="btn-aceptar-dialogo">Perdón</button>
+    </div>
 
     <!-- Banner superior -->
     <div class="banner text-center">
@@ -95,7 +103,7 @@
           </div>
 
           <!-- Chat -->
-          <div id="chatContainer" class="container border overflow-auto" style="height:500px; background-color:#ffd5f6;">
+          <div id="chatContainer" class="container border overflow-auto" style="height:500px; background-color:#ffebf9;">
             <div class="message-container" style="display: flex; flex-direction: column;">
               <span style="align-self: center; margin: 30px; color: #b196b2;">Recuerda: Estás hablando con un sistema automático. No des tu datos personales.</span>
             </div>
@@ -103,7 +111,7 @@
 
           <!-- Input + Botón -->
           <div class="row">
-            <div class="input-group col-md-4" style="margin-top: 10px; background-color:#ffd5f6; border-radius: 32px;">
+            <div class="input-group col-md-4" style="margin-top: 10px; background-color:#ffebf9; border-radius: 32px;">
               
               <!--Input-->
               <input class="form-control py-2 border-right-0 border" id="textbox" type="search" placeholder="Escribe el estado de tu puzzle..." aria-label="Escribe el estado de tu puzzle..." 
