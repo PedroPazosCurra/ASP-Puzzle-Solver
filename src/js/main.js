@@ -2,6 +2,8 @@
 // Variables
 var sendBtn = document.getElementById('enviar_button');
 var textBox = document.getElementById('textbox'); 
+var dialogo = document.getElementById("dialogo");
+var botonCerrarDialogo = document.getElementById('btn-cerrar-dialogo');
 textBox.value = "";
 var dropdownPuzzle = document.getElementById("dropdownPuzzle");
 var chatContainer = document.getElementById('chatContainer');
@@ -22,7 +24,6 @@ setTimeout(() => {
     setTimeout(() => {
 
       chatbotEnviarMensajeNaive("Por cierto, recuerda hacerlo en inglés.")
-      chatbotEnviarImagenes(imgPrueba, imgPrueba)
     }, "1500");
   }, "1000");
 }, "1000");
@@ -299,59 +300,49 @@ async function peticionProcesaMensaje(mensaje){
 // Click en el botón ENVIAR 
 sendBtn.addEventListener('click', function(evento){
 
-    var inputText = textBox.value;
+  var inputText = textBox.value;
 
-    if(inputText == ""){            // Input vacío -> aviso
+  if(inputText == ""){            // Input vacío -> aviso
+  
+    mostrarDialogo("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
     
-      mostrarDialogo("No me has escrito nada en el cuadro de texto. ¿Qué quieres decirme?");
-      
-    }else{                  
+  }else{                  
 
-      if(selectedPuzzle == "none"){  // Puzzle sin elegir -> aviso
+    if(selectedPuzzle == "none"){  // Puzzle sin elegir -> aviso
 
-        mostrarDialogo("¡Espera! Selecciona un puzzle");
-        dropdownPuzzle.style.border="5px solid red";
-        dropdownPuzzle.style.transition = "0.5s";
+      mostrarDialogo("¡Espera! Selecciona un puzzle");
+      dropdownPuzzle.style.animation = "parpadeo_tamaño 500ms";
+      dropdownPuzzle.style.animationIterationCount = "infinite";
+      dropdownPuzzle.style.animationTimingFunction = "ease-in-out";
 
-      }else{                        // El mensaje se envía y se borra el input 
+    }else{                        // El mensaje se envía y se borra el input 
 
-        dropdownPuzzle.style.border="5px transparent";
-        userEnviarMensaje(inputText, selectedPuzzle);
-        textBox.value = "";
-        evento.preventDefault();
+      dropdownPuzzle.style.animation = "none";
+      userEnviarMensaje(inputText, selectedPuzzle);
+      textBox.value = "";
+      evento.preventDefault();
 
-      }
     }
+  }
 });
-
-// Función auxiliar para mostrar el diálogo
-function mostrarDialogo(mensaje) {
-  document.getElementById("mensaje-dialogo").textContent = mensaje;
-  document.getElementById("dialogo").classList.remove("oculto");
-}
-
-// Función auxiliar para esconder diálogo
-function ocultarDialogo() {
-  document.getElementById("dialogo").classList.add("oculto");
-}
 
 // Enter en el input -> se envía el texto.
 textBox.addEventListener("keyup", function(evento){
 
-    if(evento.key === "Enter"){
-        document.getElementById('enviar_button').click();
-        evento.preventDefault();
-    }
-
+  if(evento.key === "Enter"){
+      document.getElementById('enviar_button').click();
+      evento.preventDefault();
+  }
 });
 
 // Click opción del dropdown -> se cambia el texto y variable selectedPuzzle
 function changeSelectedPuzzle(item) {
   opcion = item.textContent.trim();
   dropdownPuzzle.innerHTML = opcion;
+  dropdownPuzzle.style.animation = "none";
   selectedPuzzle = opcion.split(" ")[1]; // Se hace split para evitar el emoji
 
-  //<div class="message-container" style="display: flex; flex-direction: column;">
+  // Elemento del texto en el chat sobre puzzle cambiado
   elementoMensajeCambioPuzzle = document.createElement('div');
   elementoMensajeCambioPuzzle.style.display = "flex";
   elementoMensajeCambioPuzzle.style.flexDirection = "column";
@@ -359,3 +350,22 @@ function changeSelectedPuzzle(item) {
   chatContainer.appendChild(elementoMensajeCambioPuzzle);
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+
+// Función auxiliar para mostrar el diálogo
+function mostrarDialogo(mensaje) {
+  document.getElementById("mensaje-dialogo").textContent = mensaje;
+  dialogo.classList.remove("oculto");
+  dialogo.classList.remove("ocultandose");
+}
+
+// Función auxiliar para esconder diálogo
+function ocultarDialogo() {
+  dialogo.classList.add("ocultandose");
+  // Espera a que se acabe la animación para quitar el elemento de la vista
+  setTimeout(() => {dialogo.classList.add("oculto")}, 300);
+}
+
+// Click en botón para cerrar diálogo
+botonCerrarDialogo.addEventListener('click', function(){
+  ocultarDialogo(); 
+})

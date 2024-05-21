@@ -13,7 +13,7 @@
   from {transform:scale(1.05); background-color: #ffd5f6; color: #6f5471}
   to {transform:scale(1); background-color: rgb(146, 52, 99);}
 }
-  
+
 /* Animaciones pensadas para los elementos del banner */
 @keyframes cambia_color {
   from{ color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
@@ -34,5 +34,21 @@
   to {transform:scale(1)}
 }
 
+/* Animaciones para el Dialog */
+@keyframes dialog_aparece {
+  0%    {opacity: 0;}
+  100%  {opacity: 1;}
+}
 
-  
+/* Animación en bucle para el dropdown */
+@keyframes parpadeo_tamaño {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

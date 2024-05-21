@@ -26,7 +26,8 @@ type(tobacco,V) :- tobacco_brand(V).
 :- keeps_pet(P,Q), not has(P,pet,Q).
 :- house_color(P,C), not has(P,color,C).
 :- house_number(P,N), not has(P, house, N).
-%  Manejar predicados cruzados: predicado same_house(X,Y) ? 
+%  Manejar predicados cruzados: predicado same_house(X,Y) ?
+%:- same_house(X,Y), has(P,_,X), has(P',_,Y), P != P'
 
 :- neighbor(P,P'), has(P,house,H), has(P',house,H'), H'!=H-1, H'!=H+1.
 

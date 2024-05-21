@@ -1,6 +1,11 @@
-.oculto{
-  display: none;
+.ocultandose{
+  opacity: 0%;
+  box-shadow: 0 0 0 rgb(146, 52, 99);
+  transition: all 0.3s;
 }
+
+
+.oculto{display: none;}
 
 .dialogo {
   position: fixed;
@@ -12,10 +17,10 @@
   color: rgb(146, 52, 99);
   padding: 20px;
   border: 1px solid #ffd5f6;
-  box-shadow: 60px 30px 60px rgb(146, 52, 99);
-  position: fixed;
+  box-shadow: 60px 40px 50px rgb(146, 52, 99);
   z-index: 10000; /* Lo pongo muy 'alto' para que esté al frente siempre */
-  transition: all;
+  animation-name: dialog_aparece;
+  animation-duration: 0.3s;
 }
 
 .dialogo h2 {
@@ -37,4 +42,12 @@
   float: right; 
   margin-right: 25px; 
   margin-bottom: 5px;
+  animation-name: general_hover_zoomout;
+  animation-duration: 0.3s;
+}
+
+.dialogo button:hover{
+  animation-name: general_hover_zoom;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
 }
