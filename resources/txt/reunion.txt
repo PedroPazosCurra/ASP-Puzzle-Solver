@@ -10,22 +10,22 @@ LLM tiene que sacar:
     house(1..5).
     neighbor(brit, swede).
 
-Filtrar la salida de LLM para que se lo pueda tragar el ASP.
-
 Comentarle al tutor:
 
 	Ideas: 
-        -   Para choice rules o entradas complejas, probar técnica de Chain of Thinking
-        -    En ASP, contar que para cada person(X) haya una casa, así no tener que declararlas. 
+        ?   Para choice rules o entradas complejas, probar técnica de Chain of Thinking
+        ?    En ASP, contar que para cada person(X) haya una casa, así no tener que declararlas. 
 
-    Cambios que hice frente a lo que dijimos:
-	    -   Quitar los apócopes de nacionalidades (Norwegian -> nord) para que aprenda mejor porque no da ningún problema
-        -   Mantengo beverage(B), drinks(P,B). Si no está bien, puedo cambiarlo. Lo mismo con tobaccobrand y smokes
+    Cambios que hice frente a lo que dijimos en ASP:
+	    -   Quitar los apócopes de nacionalidades (Norwegian -!> nord / Norwegian -> nordwegian) para que aprenda mejor porque no da ningún problema
+        ~   Mantengo beverage(B), drinks(P,B). Lo mismo con tobaccobrand y smokes.
+        ~   tobaccobrand(), housecolor(), keepspet() -> tobacco_brand(), house_color(), keeps_pet() (mejor)
+        +   Añado house_number(P,N)
 
     Se me ocurrió producir redundancia: the brittish lives in a red house -> person(brit). color(red). housecolor(brit, red). Funciona bien.
 
     Problemas: 
-        -   Relaciones compuestas "El fumador de Ducados es vecino del que vive en la casa verde"
+        X   Relaciones compuestas "El fumador de Ducados es vecino del que vive en la casa verde". ¿Añadir predicados nuevos con combinaciones? ¿Predicado de relacion general same_house(X,Y)? 
 
 
 The state of my puzzle is the following: there are three houses. One of them is red, the other is blue and the other is yellow. In each one live a French, a Scottish and an Irish, respectively. In each house, each person has a pet, and the pets are a lizard, a camel and a dragon. The existing tobacco brands are Camel, Ducados and Marlboro. The french drinks coffee, while the irish fancies drinking beer. The red house, where the french lives, is next to the blue house, where the scottish lives. The scottish smokes Bluem cigarettes.

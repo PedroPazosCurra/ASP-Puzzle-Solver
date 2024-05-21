@@ -4,24 +4,24 @@ INPUT: I have 3 people: a Swede, a Dane and a Norwegian.
 OUTPUT: person(swede; dane; norwegian).
 INPUT: There are 5 people: a German, an Italian; a Brittish, a Spaniard and a Chinese.
 OUTPUT: person(german; italian; brittish; spaniard; chinese).
-INPUT: In my puzzle there are only 2 people: one is a German, and the other one is from Sweden.
-OUTPUT: person(german; swede).
-INPUT: Hello! I have a puzzle to resolve: There are 3 man involved. One of them is from Germany, the other one is French and the last one is Nigerian.
-OUTPUT: person(german; french; nigerian).
-INPUT: A Brittish, a Japanese, an Albanese and a Norwegian.
-OUTPUT: person(brit; japanese; albanese; norwegian).
+INPUT: In my puzzle there are only 2 people: one is a German, and the other one is from Sweden. The german man lives in the first house.
+OUTPUT: person(german; swede). house(1..2). house_number(german, 1).
+INPUT: There are 3 man involved: One of them is from Germany, the other one is French and the last one is Nigerian. The German man lives in the first house. The nigerian lives in the last one.
+OUTPUT: house(1..3). person(german; french; nigerian). house_number(german, 1). house_number(nigerian, 3)
+INPUT: A Brittish, a Japanese, an Albanese and a Norwegian live in this puzzle neighborhood.
+OUTPUT: person(brittish; japanese; albanese; norwegian).
 INPUT: There are five house colours: red, white, blue, green and yellow.
 OUTPUT: color(red; white; blue; green; yellow).
-INPUT: This problem has a purple and a cyan house.
-OUTPUT: color(purple; cyan).
+INPUT: This problem has a purple and a cyan house. In them live an african and an european. The european man lives in the purple house and has a rat as a pet. Of the two houses, the african man lives in the number 1.
+OUTPUT: color(purple; cyan). person(european; african). house_color(european, purple). keeps_pet(european, rat). house_number(african, 1)
 INPUT: The houses come in 6 colours: white, beige, blue, red, green and orange.
 OUTPUT: color(white; beige; blue; red; green; orange).
 INPUT: The problem I'm working with has 4 houses. One house is red, other one is green, other is yellow and the last is black.
 OUTPUT: house(1..4). color(red; green; yellow; black).
 INPUT: In the puzzle there are seven houses, and the colors red, yellow, blue and green. There are four tobacco brands: Winston, Bluem, Marlboro and Palls.
 OUTPUT: house(1..7). color(red; yellow; blue; green). tobacco_brand(winston; bluem; marlboro; palls).
-INPUT: There are three houses.
-OUTPUT: house(1..3).
+INPUT: There are three houses. An african lives in the middle one.
+OUTPUT: house(1..3). person(african). house_number(african, 2).
 INPUT: There is a Swede, a Dane and a Norwegian. The puzzle has 3 houses.
 OUTPUT: person(swede; dane; norwegian). house(1..3).
 INPUT: The puzzle has two houses. An Italian and a Rumanian live there.
@@ -30,8 +30,8 @@ INPUT: There are three drinks: coffee, milk and beer.
 OUTPUT: beverage(coffee; milk; beer).
 INPUT: In this Einstein puzzle there are 4 different types of beverages: water, tea, soda and whiskey.
 OUTPUT: beverage(water; tea; soda; whiskey).
-INPUT: The following drinks are present in the puzzle: tea, wine, beer and juice. There are five houses, painted red, yellow, cyan and purple. 
-OUTPUT: beverage(tea; wine; beer; juice). house(1..5). color(red; yellow; cyan; purple).
+INPUT: The following drinks are present in the puzzle: tea, wine, beer and juice. There are five houses, painted red, yellow, cyan and purple. The taiwanese man lives in the third one. 
+OUTPUT: beverage(tea; wine; beer; juice). house(1..5). color(red; yellow; cyan; purple). person(taiwanese). house_number(taiwanese, 3).
 INPUT: The puzzle has ten houses. The drinks are water, tea, whiskey, soda, juice, milk, coffee, horchata, gazpacho and beer. Houses are painted red, green, white, black, yellow, purple, grey, brown, blue or orange. 
 OUTPUT: house(1..10). beverage(water; tea; whisky; soda; juice; milk; coffee; horchata; gazpacho; beer). color(red; green; white; black; yellow; purple; grey; brown; blue; orange).
 INPUT: The tobacco brands are Blends, Pall and Dunhill.
@@ -45,7 +45,7 @@ OUTPUT: pet(horse; bird; fish; lizard).
 INPUT: The drinks and the pets are the following: coffee, milk, dog and cat, respectively.
 OUTPUT: beverage(coffee; milk). pet(dog; cat).
 INPUT: The brittish man lives in the red house.
-OUTPUT: person(brittish). color(red). house_color(brit, red).
+OUTPUT: person(brittish). color(red). house_color(brittish, red).
 INPUT: The norwegian lives in the house painted in purple.
 OUTPUT: person(norwegian). color(purple). house_color(norwegian, purple).
 INPUT: The albanese kid lives in the black painted home.
@@ -60,9 +60,9 @@ INPUT: The norwegian keeps a dog as pet. He lives in a red house and drinks vodk
 OUTPUT: person(norwegian). pet(dog). keeps_pet(norwegian, dog). person(norwegian). color(red). house_color(norwegian, red). beverage(vodka). drinks(norwegian, vodka).
 INPUT: The irish person has a rabbit. The italian girl has a dog. The rabbit owner has a blue house.
 OUTPUT: person(irish). pet(rabbit). keeps_pet(irish, rabbit). person(italian). pet(dog). keeps_pet(italian, dog). color(blue). house_color(irish, blue).
-INPUT: There are five pets: a dog, a cat, a rabbit, a mole and a fish. The Dane grows a fish in his house
+INPUT: There are five pets: a dog, a cat, a rabbit, a mole and a fish. The Dane grows a fish in his house.
 OUTPUT: pet(dog; cat; rabbit; mole; fish). person(dane). pet(fish). keeps_pet(dane, fish).
-INPUT: The Italian girl grows a possum in his house
+INPUT: The Italian girl grows a possum in his house.
 OUTPUT: person(italian). pet(possum). keeps_pet(italian, possum).
 INPUT: The Galician girl has a tiger in his house that she keeps as a pet.
 OUTPUT: person(galician). pet(tiger). keeps_pet(galician, tiger).
@@ -72,12 +72,12 @@ INPUT: The German smokes Dunhill cigarettes.
 OUTPUT: person(german). tobacco_brand(dunhill). smokes(german, dunhill).
 INPUT: The Sudafrican smokes Camel cigarettes and drinks beer in his white house. His neighbor is a Namibian girl. She lives in a red house where he keeps a rat.
 OUTPUT: person(sudafrican). tobacco_brand(camel). smokes(sudafrican, camel). beverage(beer). drinks(sudafrican, beer). color(white). house_color(sudafrican, white). person(namibian). color(red). house_color(namibian, red). pet(rat). keeps_pet(namibian, rat).
-INPUT: The European lives next to the African.
-OUTPUT: person(european). person(african). neighbor(european, african).
-INPUT: The Spanish kid and the Chinese man are neighbors.
-OUTPUT: person(spanish). person(chinese). neighbor(spanish, chinese).
+INPUT: There are three houses. The European lives next to the African.
+OUTPUT: house(1..3). person(european). person(african). neighbor(european, african).
+INPUT: The Spanish kid and the Chinese man are neighbors. The kid lives in the first house while the Chinese man lives in the second one. 
+OUTPUT: person(spanish). person(chinese). neighbor(spanish, chinese). house(1..2).
 INPUT: The Turkish and the Russian have adjacent residences.
-OUTPUT: person(turkish). person(russian). neighbor(turkish, ).
+OUTPUT: person(turkish). person(russian). neighbor(turkish, russian).
 INPUT: There is an irish whose favourite drink is tea and he has a horse. His house is colored beige and he smokes Ducados the whole day. He is the neighbor of a filipino old man. In this puzzle, there are only two houses.
 OUTPUT: person(irish). beverage(tea). drinks(irish, tea). pet(horse). keeps_pet(irish, horse). house_color(irish, beige). tobacco_brand(ducados). smokes(irish, ducados). person(filipino). neighbor(irish, filipino). house(1..2).
 INPUT: In this puzzle there are three houses, and there are three people: one is Iranian, other is French and the last one is Portuguese. The Iranian lives next to the French. The portuguese smokes Marlboro, and the French smokes Winston. The house of the French man is white. The one of the Iranian is yellow, and the Portuguese home is blue.
