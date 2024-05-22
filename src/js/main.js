@@ -369,3 +369,8 @@ function ocultarDialogo() {
 botonCerrarDialogo.addEventListener('click', function(){
   ocultarDialogo(); 
 })
+
+// Fondo con animación fade-in al cargar la página
+window.onload = function(){
+  document.querySelector('.capa_fade_fondo').classList.add('fade_out')
+}

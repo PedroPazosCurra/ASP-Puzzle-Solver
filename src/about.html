@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="css/estilos_boton_enviar.css">
     <link rel="stylesheet" href="css/estilos_divisor_imagenes.css">
     <link rel="stylesheet" href="css/estilos_imagen_modal.css">
+    <link rel="stylesheet" href="css/estilos_dialogo.css">
     <link rel="stylesheet" href="css/animaciones.css">
   </head>
-  
-    <!-- Global -->
-    <body style=" background-image: url('/img/fondo_puzzle.jpg'); background-repeat: no-repeat; background-size:cover;">
+
+  <!-- Global -->
+  <body class="fondo">
+    <div class="capa_fade_fondo">
 
       <!-- Banner superior -->
       <div class="banner text-center">
@@ -31,7 +33,7 @@
       </div>
 
       <!-- Fondo blanco -->
-      <div class="container" style="background-color: white; width: 100%; margin-top: 50px; border-radius: 100px; box-shadow: 0 0 30px 40px white; height: fit-content;">
+      <div class="container" style="background-color: white; width: 100%; margin-bottom: 20px; box-shadow: 0px 60px 80px 90px white;">
         <br>
         <h2 style="margin-left: 10px;">Acerca de</h2>
         <hr>
@@ -52,7 +54,7 @@
             <div class="zoom_on_hover" style="width: 33%;">
               <div class="media zoom_on_hover">  
                 <a href="https://udc.es/" target="_blank">     
-                <img src="http://localhost:8080/img/logo_udc_horizontal.png" 
+                <img loading ="lazy" src="/img/logo_udc_horizontal.png" 
                 style="margin: 10 px;" 
                 class="img-responsive img-presentation" alt="" width="124p">
                 </a>  
@@ -63,7 +65,7 @@
             <div class="zoom_on_hover" style="width: 33%">
               <div class="media">   
                 <a href="https://www.fic.udc.es/" target="_blank">
-                  <img src="http://localhost:8080/img/logo_fic.jpg" 
+                  <img loading ="lazy" src="/img/logo_fic.jpg" 
                     style="margin: 10 px;" 
                     class="img-responsive img-presentation" alt="" width="50p">
                 </a> 
@@ -87,4 +89,12 @@
         </div>
       </div>
 
-    </body>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <script src="/js/secundarias.js"></script>
+
+  </body>
+</html>
