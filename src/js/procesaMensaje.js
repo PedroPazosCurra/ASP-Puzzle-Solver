@@ -14,8 +14,10 @@ async function procesaMensaje(mensaje, puzzle){
 */
 async function ejecutaScript(path, mensaje, puzzle) {
 
+  // Ejecuta el proceso Python
   const procesoPython = spawn('python', [path, mensaje, puzzle], {encoding: 'utf-8' });
 
+  // Recoge la salida
   var data = '';
   procesoPython.stdout.on('data', (stdout) => {
     data += stdout.toString();
