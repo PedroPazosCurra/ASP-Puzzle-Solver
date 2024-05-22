@@ -1,26 +1,29 @@
 # Imports
-import sys
 import requests
 import json
 from os import path
-import re
 
 # Constantes
 AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
 modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
 
-def AS_to_NL(input_answer_set, puzzle_elegido):
+def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
+
+   
 
     # Contexto sin ejemplos (Zero-Shot)
     contexto_zeroshot = "### I want to translate atomic logical predicates to natural language sentences. Reply only with the result sentence, don't explain the result and don't say anything else than the result. Process only one iteration in each step. ###\n"
-
+    
+    # Sale con error si alguno de los args es nulo
+    if ((input_answer_set == None) or (puzzle_elegido == None)): return([1, "AS_to_NL recibe una entrada con uno de los valores nulos."])
+    
     # Leemos /resources/txt/ctx... para tener el contexto para few-shot learning
     match puzzle_elegido:
         case "Einstein":
                 contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_NL.txt"))
         case _:
-            return([1, "En AS_to_NL.py, se recibe un puzzle que no existe. Vigila que se pase bien."])
+            return([1, "En AS_to_NL.py, se recibe un puzzle que no existe: " + puzzle_elegido + ". Vigila que se pase bien."])
     
 
     with open(contexto_path, 'r') as file: fewshot = file.read()

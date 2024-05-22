@@ -2,5 +2,8 @@
 
 // Fondo con animación fade-in al cargar la página
 window.onload = function(){
-    document.querySelector('.capa_fade_fondo').classList.add('fade_out')
+  
+  // Timeout para que dé tiempo a cargar las imágenes
+  setTimeout(() => {document.querySelector('.capa_fade_fondo').classList.add('fade_out')}, "1500");
+    
   }

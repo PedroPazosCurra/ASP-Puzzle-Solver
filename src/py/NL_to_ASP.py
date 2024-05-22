@@ -16,6 +16,10 @@ def NL_to_ASP(prompt, puzzle):
 
     # Contexto sin ejemplos (Zero-Shot)
     contexto_zeroshot = "### You MUST parse natural language sentences to atomic logical predicates. Reply only with the logical atoms. You will be penalized if you write something different from the final logical predicates. Write only the last iteration. You are provided with examples. ###\n"
+   
+    # Sale con error si alguno de los args es nulo
+    if ((prompt == None) or (puzzle == None)): return([1, "NL_to_ASP recibe una entrada con uno de los valores nulos."])
+    
 
     # Leemos /resources/txt/ctx... para tener el contexto para few-shot learning
     match puzzle:
