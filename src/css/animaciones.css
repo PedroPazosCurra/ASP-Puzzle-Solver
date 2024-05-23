@@ -24,6 +24,16 @@
   to{color: #7b517c; text-shadow: 0 0 0 rgb(146, 52, 99);}
 }
 
+/* Animaciones para elementos de caja a los que la animacion anterior no aplica al no ser svg*/
+@keyframes cambia_color_box {
+  from{ color: #7b517c; box-shadow: 0 0 0 rgb(146, 52, 99)}
+  to{ color: hotpink; box-shadow: 15px 5px 10px rgb(146, 52, 99)}
+}
+@keyframes cambia_color_out_box {
+  from{ color: hotpink; box-shadow: 15px 5px 10px rgb(146, 52, 99)}
+  to{color: #7b517c; box-shadow: 0 0 0 rgb(146, 52, 99);}
+}
+
 /* Animaciones multiuso para agrandar un poco un objeto cuando el ratón pasa por encima */
 @keyframes general_hover_zoom {
   from {transform:scale(1)}
@@ -52,3 +62,37 @@
     transform: scale(1);
   }
 }
+
+/* Zoom + cambio de color */
+.animacion_zoom_color{
+  transition: transform .2s; /* Animation */
+  text-shadow: 0 0 0 rgb(146, 52, 99);
+  animation-name: cambia_color_out;
+  animation-duration: 200ms;
+}
+
+.animacion_zoom_color:hover{
+  -ms-transform: scale(1.25); /* IE 9 */
+  -webkit-transform: scale(1.25); /* Safari 3-8 */
+  transform: scale(1.25); 
+  animation-name: cambia_color;
+  animation-duration: 200ms;
+  animation-fill-mode: both;
+}
+
+.animacion_zoom_color_imgs{
+  transition: transform .2s; /* Animation */
+  text-shadow: 0 0 0 rgb(146, 52, 99);
+  animation-name: cambia_color_out_box;
+  animation-duration: 200ms;
+}
+
+.animacion_zoom_color_imgs:hover{
+  -ms-transform: scale(1.25); /* IE 9 */
+  -webkit-transform: scale(1.25); /* Safari 3-8 */
+  transform: scale(1.25); 
+  animation-name: cambia_color_box;
+  animation-duration: 200ms;
+  animation-fill-mode: both;
+}
+

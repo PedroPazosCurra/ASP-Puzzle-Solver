@@ -174,4 +174,18 @@ The Chinese person lives in the first house, the English person lives in the sec
 house(1..3). person(spanish; english; chinese). pet(dog; cat; duck). tobacco_brand(ducados; camel; bluem). beverage(coffee; water; tea). color(red; blue; purple). house_color(spanish, red). house_color(english, blue). house_color(chinese, purple). person(spanish). keeps_pet(spanish, dog). person(chinese). drinks(chinese, tea). person(spanish). smokes(spanish, ducados).
 # Answer set resuelto: 
 has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,beverage,coffee). has(spanish,tobacco,ducados). has(chinese,house,1). has(chinese,color,purple). has(chinese,pet,duck). has(chinese,beverage,tea). has(chinese,tobacco,bluem). has(english,house,2). has(english,color,blue). has(english,pet,cat). has(english,beverage,water). has(english,tobacco,camel).# Explicación LN: 
-The Spanish person lives in the house number 3, their house is painted red, they have a dog as pet, drink coffee, smoke Ducados tobacco. The Chinese person lives in the house number 1, their house is painted purple, they have a duck as pet, drink tea and smoke Bluem tobacco. The English person lives in the house number 2, their house is painted blue, they have a cat as pet, drink water and smoke Camel tobacco.
+The Spanish person lives in the house number 3, their house is painted red, they have a dog as pet, drink coffee, smoke Ducados tobacco. The Chinese person lives in the house number 1, their house is painted purple, they have a duck as pet, drink tea and smoke Bluem tobacco. The English person lives in the house number 2, their house is painted blue, they have a cat as pet, drink water and smoke Camel tobacco.############ [12:22] LOG ############:
+# Modelo ASP sacado: 
+house(1..3).
+person(spanish; english; chinese).
+pet(dog; cat; duck).
+tobacco_brand(ducados; camel; bluem).
+beverage(coffee; water; tea).
+color(red). color(blue). color(purple).
+house_color(spanish, red). house_color(english, blue). house_color(chinese, purple).
+person(spanish). pet(dog). keeps_pet(spanish, dog).
+person(chinese). beverage(tea). drinks(chinese, tea).
+person(spanish). tobacco_brand(ducados). smokes(spanish, ducados).
+# Answer set resuelto: 
+has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,beverage,coffee). has(spanish,tobacco,ducados). has(chinese,house,1). has(chinese,color,purple). has(chinese,pet,duck). has(chinese,beverage,tea). has(chinese,tobacco,bluem). has(english,house,2). has(english,color,blue). has(english,pet,cat). has(english,beverage,water). has(english,tobacco,camel).# Explicación LN: 
+The Spanish person lives in the third house, has a red-colored house, owns a dog, drinks coffee, smokes Ducados tobacco. The Chinese person lives in the first house, has a purple-colored house, owns a duck, drinks tea, smokes Bluem tobacco. The English person lives in the second house, has a blue-colored house, owns a cat, drinks water, smokes Camel tobacco.

@@ -1,10 +1,11 @@
 
 /* Título de la página */
 h1{
-  font-size: 75px;
-  font-family: 'Times New Roman', Times, serif;
+  font-size: 35px;
   color: hotpink;
   text-shadow: 5px 4px 7px rgb(146, 52, 99);
+  margin: 5%;
+  -webkit-text-stroke: 1px rgb(128, 45, 86);
 }
 
 h2{
@@ -42,7 +43,6 @@ html { overflow-y: scroll;}
   background-color: green;
   margin-right: 5px;
 }
-
 
 .dropdown-toggle{
   border-radius: 20px;
