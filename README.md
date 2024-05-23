@@ -19,6 +19,10 @@ Este sistema, mediante una aproximación **neuro-simbólica**, simbiotiza la ág
 
 **(temporal)** El programa hace uso de node.js, por lo que deberá ser ([instalado en el sistema](https://developer.ibm.com/tutorials/learn-nodejs-installing-node-nvm-and-vscode/)).
 
+  cd ./src
+  npm install
+  node ./js/server.js
+
 En cuanto al programa, puedes ejecutarlo en Windows, Linux y Mac ejecutando sus respectivos archivos (Puzzle-Solver-Windows.bat, Puzzle-Solver-Linux.sh, Puzzle-Solver-Mac.sh, respectivamente).
 
 ## Documentación
