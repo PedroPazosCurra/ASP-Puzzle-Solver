@@ -71,13 +71,13 @@ def dibuja_casa(dibujo, coordenadas, tamaño, color = 'white', numero = ''):
                 )
 
 
-def representa_casa(coordenadas, persona, bebida, mascota, tabaco, tamaño, color = 'white', numero = ''):
+def representa_casa(coordenadas, elems, tamaño, color = 'white', numero = ''):
 
     # Dibuja la casa
     dibuja_casa(dibujo_solucion, coordenadas, tamaño, color, numero)
 
     # Escribe los datos debajo de la casa
-    dibuja_datos(dibujo_solucion, coordenadas, tamaño, [persona, bebida, mascota, tabaco])
+    dibuja_datos(dibujo_solucion, coordenadas, tamaño, elems)
 
 
 def representa_estado_inicial(casas):
@@ -95,7 +95,7 @@ def representa_estado_inicial(casas):
         division_casas = (1000/(num_casas+1)) * (i + 1)
         
         # Dibuja la casa en blanco
-        dibuja_casa(dibujo_estado_inicial, coordenadas= (division_casas - tamaño_casas, 1000 - 6* tamaño_casas), tamaño= tamaño_casas, numero= casa["num"])
+        dibuja_casa(dibujo_estado_inicial, coordenadas= (division_casas - tamaño_casas, 1000 - 6* tamaño_casas), tamaño= tamaño_casas, numero= casa["house"])
 
         # Recoge todos los datos de las casas y los almaceno por clave
         for key, value in casa.items():
@@ -133,19 +133,30 @@ def representa_solucion(casas):
 
     for i, casa in enumerate(casas):
 
+        color = "white" 
+        numero = ""
+
+
         # División de los 1000px que le toca a cada casa según cuántas casas hay
         division = (1000/(num_casas+1)) * (i + 1)
 
-        # Dibuja la casa y escribe sus datos
-        representa_casa(coordenadas= (division - tamaño_casas, 400),
-                    numero = casa["num"] if ("num" in casa) else '',
-                    persona = casa["person"] if ("person" in casa) else "",
-                    bebida= casa["beverage"] if ("beverage" in casa) else "",
-                    mascota = casa["pet"] if ("pet" in casa) else "",
-                    tabaco = casa["tobacco"] if ("tobacco" in casa) else "",
-                    color = casa["color"] if ("color" in casa) else "white",
-                    tamaño = tamaño_casas       
-                    )
+        # Argumentos de representa_casa (los quitamos del array casa porque ya no los queremos)
+        if("house" in casa):
+            numero = casa["house"]
+            del casa["house"]
+        
+        if("color" in casa):
+            color = casa["color"]
+            del casa["color"]
+
+
+         # Dibuja la casa y escribe sus datos
+        representa_casa(coordenadas=(division - tamaño_casas, 400),
+                        numero = numero,
+                        color = color,
+                        tamaño=tamaño_casas,
+                        elems = casa.values(),
+                        )
         
         # Dibuja separador
         dibujo_solucion.line(xy= [(division - tamaño_casas*1.25 - 1.068**tamaño_casas, 420), (division - tamaño_casas*1.25 - 1.068**tamaño_casas, 340 + 8*tamaño_casas)],
@@ -160,23 +171,27 @@ def representa_solucion(casas):
     return fondo_solucion
 
 
-def einstein_grafico(answer_set):
 
-    regex = r"\(([^)]+)\)"
-    array_has = []
+# einstein_grafico: Función de nivel superior que se encarga del proceso del módulo gráfico.
+#
+#   Ejemplo de uso:
+#
+#   einstein_grafico(   array_has       = [['pedro', 'house', 1], ['pedro', 'drink', 'water']], 
+#                       rutas_imagenes  = ['coffee', '/img/cafe.png'] 
+#                   )
+#
+def einstein_grafico(array_has, rutas_imagenes = []):
+
+    tipo = ""
     casas = np.array([])
-
-    # Extraer las palabras usando el patrón 
-    matches_regex = re.findall(regex, answer_set)
-
-    for matched in matches_regex:
-        array_has.append(matched.split(","))
 
     # Ya tenemos un array de arrays de tres elementos correspondientes a todos los predicados has. Iteramos
     for entrada in array_has:
 
-        #
-        #np.where(casas["person"] == entrada[0])
+        #[brittish, color, red]
+        persona = entrada[0]
+        tipo = entrada[1]
+        valor = entrada[2]
 
         persona_creada = False
 
@@ -184,34 +199,22 @@ def einstein_grafico(answer_set):
         for casa in casas:
 
             # Ya existe la casa de esta persona: se gestiona el predicado
-            if(casa["person"] == entrada[0]):
+            if(casa["person"] == persona):
 
-                match entrada[1]:
-                    case "house":    casa["num"]      =   entrada[2]
-                    case "color":    casa["color"]    =   entrada[2]
-                    case "pet":      casa["pet"]      =   entrada[2]
-                    case "beverage": casa["beverage"] =   entrada[2]
-                    case "tobacco":  casa["tobacco"]  =   entrada[2]
-
+                casa[tipo] = valor
                 persona_creada = True
 
         # No existe la persona -> nueva casa
         if(persona_creada == False):
 
-            nueva_casa = dict(person = entrada[0])
-
-            match entrada[1]:
-                case "house":    nueva_casa["num"]      =   entrada[2]
-                case "color":    nueva_casa["color"]    =   entrada[2]
-                case "pet":      nueva_casa["pet"]      =   entrada[2]
-                case "beverage": nueva_casa["beverage"] =   entrada[2]
-                case "tobacco":  nueva_casa["tobacco"]  =   entrada[2]
+            nueva_casa = dict(person = persona)
+            nueva_casa[tipo] = valor
 
             casas = np.append(casas, nueva_casa)
 
 
     # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número y representamos.
-    casas = sorted(casas, key=lambda d: d['num'])
+    casas = sorted(casas, key=lambda d: d['house'])
     representa_estado_inicial(casas).save("resources/tmp/estado_inicial_einstein.png")
     representa_solucion(casas).save("resources/tmp/solucion_einstein.png")
 
@@ -219,8 +222,12 @@ def einstein_grafico(answer_set):
 
 ################################################  Debug   ##########################################################
 
+as_prueba = [['pedro', 'house', 3], ['pedro', 'inventado', 'inventado'], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+einstein_grafico(as_prueba)
+
+
 casa1 = {
-    "num": 1,
+    "house": 1,
     "person": "brittish",
     "color": "red",
     "pet": "dog",
@@ -228,7 +235,7 @@ casa1 = {
     "tobacco": "ducados"
 }
 casa2 = {
-    "num": 2,
+    "house": 2,
     "person": "norwegian",
     "color": "blue",
     "pet": "cat",
@@ -236,7 +243,7 @@ casa2 = {
     "tobacco": "camel"
 }
 casa3 = {
-    "num": 3,
+    "house": 3,
     "person": "french",
     "color": "yellow",
     "pet": "horse",
@@ -244,7 +251,7 @@ casa3 = {
     "tobacco": "marlboro"
 }
 casa4 = {
-    "num": 4,
+    "house": 4,
     "person": "brittish",
     "color": "white",
     "pet": "dog",
@@ -252,7 +259,7 @@ casa4 = {
     "tobacco": "ducados"
 }
 casa5 = {
-    "num": 5,
+    "house": 5,
     "person": "brittish",
     "color": "purple",
     "pet": "dog",
@@ -260,7 +267,7 @@ casa5 = {
     "tobacco": "winston"
 }
 casa6 = {
-    "num": 6,
+    "house": 6,
     "person": "brittish",
     "color": "pink",
     "pet": "dog",
@@ -268,7 +275,7 @@ casa6 = {
     "tobacco": "bluem"
 }
 casa7 = {
-    "num": 7,
+    "house": 7,
     "person": "brittish",
     "color": "beige",
     "pet": "dog",
@@ -276,7 +283,7 @@ casa7 = {
     "tobacco": "ducados"
 }
 casa8 = {
-    "num": 8,
+    "house": 8,
     "person": "brittish",
     "color": "green",
     "pet": "dog",
@@ -284,7 +291,7 @@ casa8 = {
     "tobacco": "ducados"
 }
 casa9 = {
-    "num": 9,
+    "house": 9,
     "person": "brittish",
     "color": "cyan",
     "pet": "dog",
@@ -292,7 +299,7 @@ casa9 = {
     "tobacco": "ducados"
 }
 casa10 = {
-    "num": 10,
+    "house": 10,
     "person": "brittish",
     "color": "black",
     "pet": "dog",
@@ -303,9 +310,6 @@ casa10 = {
 #casas = [casa1, casa2, casa3]
 #casas = [casa1, casa2, casa3, casa4, casa5, casa6]
 #casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9, casa10]
-
-#as_prueba = "has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,tobacco,ducados). has(spanish,beverage,agua). has(english,house,2). has(english,color,blue). has(english,pet,giraffe). has(english,beverage,horchata)."
-#einstein_grafico(as_prueba)
 
 #representa_estado_inicial(casas)
 #representa_solucion(casas)

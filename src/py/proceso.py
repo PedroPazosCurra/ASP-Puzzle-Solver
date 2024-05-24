@@ -59,7 +59,7 @@ if (estado != 0):
 
 
 # 2º - Pasa el ASP al solver para obtener el Answer Set solución.
-estado, answer_set = resolver_ASP(modelo_asp, puzzle_elegido)
+estado, answer_set, rutas_imagenes = resolver_ASP(modelo_asp, puzzle_elegido)
 
 ##   Fallo en ASP
 if(estado != 0):
@@ -81,7 +81,7 @@ if(estado != 0):
 
 
 # Caso optimista: Todo OK
-einstein_grafico(answer_set)
+einstein_grafico(answer_set, rutas_imagenes)
 log.write(log_header + "# Modelo ASP sacado: \n" + modelo_asp + "\n# Answer set resuelto: \n" + answer_set + "# Explicación LN: \n" + nl_salida)
 log.close
 print("0|" + nl_salida, flush= True)
