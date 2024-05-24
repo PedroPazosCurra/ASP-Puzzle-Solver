@@ -3,8 +3,8 @@
 Este es el repositorio para mi Trabajo de Fin de Grado en Ingeniería Informática.  
 
 - [ASP-Puzzle-Solver](#asp-puzzle-solver)
-  * [¿Qué es?](#quées?)
-  * [¿Cómo funciona?](#-¿cómo-funciona?)
+  * [¿Qué es?](#¿qué-es?)
+  * [¿Cómo funciona?](#¿cómo-funciona?)
   * [Instalación](#instalación)
   * [Documentación](#documentación)
 
