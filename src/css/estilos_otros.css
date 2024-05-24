@@ -1,10 +1,10 @@
 
 /* Título de la página */
 h1{
-  font-size: 35px;
+  font-size: 3.2vw;
   color: hotpink;
   text-shadow: 5px 4px 7px rgb(146, 52, 99);
-  margin: 5%;
+  margin: 4%;
   -webkit-text-stroke: 1px rgb(128, 45, 86);
 }
 
@@ -45,6 +45,9 @@ html { overflow-y: scroll;}
 }
 
 .dropdown-toggle{
+  width: 10vw;
+  height: 3vw;
+  font-size: 1.3vw;
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.3s;
