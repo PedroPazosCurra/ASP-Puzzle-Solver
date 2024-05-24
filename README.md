@@ -2,6 +2,13 @@
 
 Este es el repositorio para mi Trabajo de Fin de Grado en Ingeniería Informática.  
 
+- [ASP-Puzzle-Solver](#asp-puzzle-solver)
+  * [¿Qué es?](#qué-es)
+  * [¿Cómo funciona?](#cómo-funciona)
+  * [Instalación](#instalación)
+  * [Documentación](#documentación)
+
+
 ## ¿Qué es?
 El cometido del proyecto es el desarrollo de una **interfaz Web** que permita a un usuario **resolver diversos tipos de puzzles** interactuando con el programa a través de un cómodo **chat**.  
 
@@ -29,4 +36,3 @@ En cuanto al programa, puedes ejecutarlo en Windows, Linux y Mac ejecutando sus 
 
 ## Documentación
 A disposición de quien lo considere de interés, dejo un enlace a la memoria del presente trabajo: (...)  
-
