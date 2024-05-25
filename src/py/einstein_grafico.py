@@ -1,8 +1,9 @@
 # IMPORTS
 from PIL import Image, ImageDraw, ImageFont
 from webcolors import name_to_rgb
-import re
+import requests
 import numpy as np
+from io import BytesIO
 from collections import defaultdict
 
 
@@ -21,8 +22,8 @@ dibujo_solucion = ImageDraw.Draw(fondo_solucion)
 ######################################### Funciones ##############################################
 
 # Función auxiliar que dibuja un array de texto en determinadas coordenadas y tamaño. 
-def dibuja_datos(dibujo, coordenadas, tamaño, array_datos):
-
+def dibuja_datos(fondo, dibujo, coordenadas, tamaño, array_datos, array_rutas_imagenes):
+    
     a, b = coordenadas
     c = a + tamaño*2
     d = b + tamaño*1.5
@@ -31,13 +32,39 @@ def dibuja_datos(dibujo, coordenadas, tamaño, array_datos):
 
     for i, dato in enumerate(array_datos):
 
-        # Escribe
-        dibujo.text(xy = (a + (c-a)/2 - tamaño*1.1, d + (d-b)*(0.75*i + 0.5)),
-                    text = dato.capitalize() if (isinstance(dato, str)) else dato,
-                    font= fuente_letras,
-                    stroke_width= int(tamaño * 0.06),
-                    stroke_fill= 'black'
-                    )
+        ruta_especificada = False
+        
+        # Para este dato, ¿tenemos ruta de imagen?
+        for ruta in array_rutas_imagenes:
+
+            if(dato == ruta[0]):
+                ruta_especificada = True
+                ruta_imagen = ruta[1]
+
+        if ruta_especificada:
+            # Busca la imagen
+            response = requests.get(ruta_imagen)
+            img = Image.open(BytesIO(response.content))
+
+            # Escala la imagen según tamaños
+            wpercent = (tamaño / float(img.size[0]))
+            hsize = int((float(img.size[1]) * float(wpercent)))
+            img = img.resize((int(tamaño), hsize), Image.Resampling.LANCZOS)
+
+            # Coloca la imagen donde toque
+            fondo.paste(
+                        box= (int(a + (c-a)/2 - tamaño*1.1), int(d + (d-b)*(0.75*i + 0.5)),  int((a + (c-a)/2 - tamaño*1.1) + tamaño), int(d + (d-b)*(0.75*i + 0.5)) + hsize),
+                        im= img
+                        )
+            
+        else:
+            # Dibuja texto
+            dibujo.text(xy = (a + (c-a)/2 - tamaño*1.1, d + (d-b)*(0.75*i + 0.5)),
+                        text = dato.capitalize() if (isinstance(dato, str)) else dato,
+                        font= fuente_letras,
+                        stroke_width= int(tamaño * 0.06),
+                        stroke_fill= 'black'
+                        )
 
 
 # Función auxiliar que dibuja una casa en determinadas coordenadas, tamaño, color y número. 
@@ -71,16 +98,16 @@ def dibuja_casa(dibujo, coordenadas, tamaño, color = 'white', numero = ''):
                 )
 
 
-def representa_casa(coordenadas, elems, tamaño, color = 'white', numero = ''):
+def representa_casa(fondo, coordenadas, elems, tamaño, color = 'white', numero = '', rutas_imagenes = []):
 
     # Dibuja la casa
     dibuja_casa(dibujo_solucion, coordenadas, tamaño, color, numero)
 
     # Escribe los datos debajo de la casa
-    dibuja_datos(dibujo_solucion, coordenadas, tamaño, elems)
+    dibuja_datos(fondo, dibujo_solucion, coordenadas, tamaño, elems, rutas_imagenes)
 
 
-def representa_estado_inicial(casas):
+def representa_estado_inicial(casas, rutas_imagenes = []):
 
     dict_datos = defaultdict(list)         # Aquí van a ir recopilados los datos sin asociar a casas ("num" : [1,2,3]...)
     num_casas = len(casas)
@@ -116,15 +143,17 @@ def representa_estado_inicial(casas):
         # Se prepara el array [clave, [valores...]]
         valor.insert(0, clave)
 
-        dibuja_datos(dibujo= dibujo_estado_inicial,
+        dibuja_datos(fondo = fondo_estado_inicial,
+                    dibujo= dibujo_estado_inicial,
                     tamaño= tamaño_datos,
                     coordenadas= (division_datos- tamaño_datos,100),
-                    array_datos= valor)
+                    array_datos= valor,
+                    array_rutas_imagenes= rutas_imagenes)
 
     return fondo_estado_inicial
 
 
-def representa_solucion(casas):
+def representa_solucion(casas, rutas_imagenes = []):
 
     num_casas = len(casas)
 
@@ -151,11 +180,13 @@ def representa_solucion(casas):
 
 
          # Dibuja la casa y escribe sus datos
-        representa_casa(coordenadas=(division - tamaño_casas, 400),
+        representa_casa(fondo = fondo_solucion,
+                        coordenadas = (division - tamaño_casas, 400),
                         numero = numero,
                         color = color,
                         tamaño=tamaño_casas,
                         elems = casa.values(),
+                        rutas_imagenes= rutas_imagenes
                         )
         
         # Dibuja separador
@@ -213,17 +244,17 @@ def einstein_grafico(array_has, rutas_imagenes = []):
             casas = np.append(casas, nueva_casa)
 
 
-    # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número y representamos.
+    # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número y representamos. Añadimos el array de urls de imágenes
     casas = sorted(casas, key=lambda d: d['house'])
-    representa_estado_inicial(casas).save("resources/tmp/estado_inicial_einstein.png")
-    representa_solucion(casas).save("resources/tmp/solucion_einstein.png")
+    representa_estado_inicial(casas, rutas_imagenes).save("resources/tmp/estado_inicial_einstein.png")
+    representa_solucion(casas, rutas_imagenes).save("resources/tmp/solucion_einstein.png")
 
 
 
 ################################################  Debug   ##########################################################
 
 as_prueba = [['pedro', 'house', 3], ['pedro', 'inventado', 'inventado'], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
-einstein_grafico(as_prueba)
+einstein_grafico(as_prueba, [['dog', 'https://keystonekeynote.com/wp-content/uploads/2023/09/dog-puppy-on-garden-royalty-free-image-1586966191.jpg']])
 
 
 casa1 = {
