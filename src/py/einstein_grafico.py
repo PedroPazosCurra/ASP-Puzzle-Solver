@@ -253,8 +253,8 @@ def einstein_grafico(array_has, rutas_imagenes = []):
 
 ################################################  Debug   ##########################################################
 
-as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
-einstein_grafico(as_prueba, [['dog', 'https://keystonekeynote.com/wp-content/uploads/2023/09/dog-puppy-on-garden-royalty-free-image-1586966191.jpg']])
+#as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+#einstein_grafico(as_prueba, [['dog', 'https://keystonekeynote.com/wp-content/uploads/2023/09/dog-puppy-on-garden-royalty-free-image-1586966191.jpg']])
 
 
 casa1 = {

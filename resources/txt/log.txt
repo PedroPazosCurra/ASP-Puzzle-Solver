@@ -193,4 +193,18 @@ The Spanish person lives in the third house, has a red-colored house, owns a dog
 person(spanish; english; chinese). house(1..3). color(red; blue; purple). pet(dog; cat; duck). tobacco_brand(ducados; camel; bluem). beverage(coffee; water; tea). house_color(spanish, red). house_color(english, blue). house_color(chinese, purple). keeps_pet(spanish, dog). drinks(chinese, tea). smokes(spanish, ducados).
 # Answer set resuelto: 
 has(spanish,house,3). has(spanish,color,red). has(spanish,pet,dog). has(spanish,beverage,coffee). has(spanish,tobacco,ducados). has(english,house,1). has(english,color,blue). has(english,pet,duck). has(english,beverage,water). has(english,tobacco,bluem). has(chinese,house,2). has(chinese,color,purple). has(chinese,pet,cat). has(chinese,beverage,tea). has(chinese,tobacco,camel).# Explicación LN: 
-The Spanish person lives in the third house, the Spanish house is painted red, the Spanish person owns a dog, drinks coffee and smokes Ducados tobacco. The English person lives in the first house, the English house is painted blue, the English person owns a duck, drinks water and smokes Bluem tobacco. The Chinese person lives in the second house, the Chinese house is purple, the Chinese person owns a cat, drinks tea and smokes Camel tobacco.
+The Spanish person lives in the third house, the Spanish house is painted red, the Spanish person owns a dog, drinks coffee and smokes Ducados tobacco. The English person lives in the first house, the English house is painted blue, the English person owns a duck, drinks water and smokes Bluem tobacco. The Chinese person lives in the second house, the Chinese house is purple, the Chinese person owns a cat, drinks tea and smokes Camel tobacco.############ [18:35] LOG ############:
+############ [18:36] LOG ############:
+############ [18:37] LOG ############:
+############ [19:45] LOG ############:
+############ [20:1] LOG ############:
+############ [20:2] LOG ############:
+############ [20:3] LOG ############:
+# Modelo ASP sacado: person(spanish; english; chinese). house(1..3).
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.############ [20:6] LOG ############:
+# Modelo ASP sacado: person(spanish; english; chinese). house(1..3).
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person in the second, and the Spanish person in the third.############ [20:8] LOG ############:
+# Modelo ASP sacado: person(spanish; english; chinese). house(1..3).
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.############ [20:10] LOG ############:
+# Modelo ASP sacado: house(1..3). person(spanish; english; chinese).
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.

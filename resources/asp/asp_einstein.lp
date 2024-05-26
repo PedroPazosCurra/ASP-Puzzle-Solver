@@ -28,7 +28,7 @@ type(beverage,V) :- beverage(V).
 type(tobacco,V) :- tobacco_brand(V).
 
 % Ruta de imagen para representar átomo: LLM lo sabe
-%image(brit,"pics/england.png").
+%image(brittish, pics/england.png).
 
 % Actualmente, sin uso: LLM sabe 'has(P,X,H)'
 :- smokes(P,B), not has(P,tobacco,B).
@@ -49,3 +49,5 @@ house_of(P,H) :- has(P,house,H).
 
 1 { has(X,T,V): person(X) } 1 :- type(T,V).
 :- has(X,T,V), has(X,T,V'), V!=V'.
+
+#show has/3.

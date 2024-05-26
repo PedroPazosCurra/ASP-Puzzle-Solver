@@ -4,7 +4,8 @@ import clingo
 from os import path
 
 # Variables y Constantes
-answer_sets = []    # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
+answer_sets = ""    # has(brittish,house,1). has(brittish,pet,dog).
+has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
 image_routes = []   # [['coffee', 'ruta/coffee.png']]
 reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resources/asp/asp_einstein.lp"))
 
@@ -36,19 +37,20 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
 
     # En caso de que haya modelos, se recogen los átomos en listas.
     for model in solve_handle:
+        answer_sets = (str(model).replace(" ", ". ") + ".")
         for atom in model.symbols(atoms=True):
             if(atom.name == "has" and len(atom.arguments) == 3):
-                answer_sets.append([atom.arguments[0].name, atom.arguments[1].name, atom.arguments[2]])
+                has_atoms.append([atom.arguments[0].name, atom.arguments[1].name, atom.arguments[2]])
             elif(atom.name == "image" and len(atom.arguments) == 2):
                 image_routes.append([atom.arguments[0].name, atom.arguments[1]])
 
+    # ¿Tiene solución?
+    if (len(answer_sets) >= 1):
+        return([0, answer_sets, has_atoms, image_routes])
+    else:
+        return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento."])
 
-    return([0, answer_sets, image_routes])
+# Debug:
 
-    return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento."])
-
-
-status, has, imageroutes = (resolver_ASP("has(brittish, color, red). has(brittish, house, 1).", "Einstein"))
-
-print(has)
-print(imageroutes)
+#status, ans_sets, has, imageroutes = (resolver_ASP("has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog).", "Einstein"))
+#print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")
