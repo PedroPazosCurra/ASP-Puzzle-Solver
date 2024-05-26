@@ -19,23 +19,23 @@
 % Preparar modelo de lenguaje puro1
 
 
-% Representación interna: el LLM tiene que sacarla
+% Representación interna: el LLM tiene que sacarla sin ayuda
 %type(X,V) ;- house(V).
-type(house,V) :- house(V).
-type(color,V) :- color(V).
-type(pet,V) :- pet(V).
-type(beverage,V) :- beverage(V).
-type(tobacco,V) :- tobacco_brand(V).
+%type(house,V) :- house(V).
+%type(color,V) :- color(V).
+%type(pet,V) :- pet(V).
+%type(beverage,V) :- beverage(V).
+%type(tobacco,V) :- tobacco(V).
 
 % Ruta de imagen para representar átomo: LLM lo sabe
 %image(brittish, pics/england.png).
 
 % Actualmente, sin uso: LLM sabe 'has(P,X,H)'
-:- smokes(P,B), not has(P,tobacco,B).
-:- drinks(P,B), not has(P,beverage,B).
-:- keeps_pet(P,Q), not has(P,pet,Q).
-:- house_color(P,C), not has(P,color,C).
-:- house_number(P,N), not has(P, house, N).
+%:- smokes(P,B), not has(P,tobacco,B).
+%:- drinks(P,B), not has(P,beverage,B).
+%:- keeps_pet(P,Q), not has(P,pet,Q).
+%:- house_color(P,C), not has(P,color,C).
+%:- house_number(P,N), not has(P, house, N).
 
 % Reglas para determinar cosas de una casa
 house_of(X,H) :- has(P,_,X), has(P,house,H).

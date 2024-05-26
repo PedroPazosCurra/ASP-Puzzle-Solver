@@ -27,7 +27,7 @@ predicados_has = []
 rutas_imagenes = []
 estado = 0
 num_args = len(args)
-prompt_usuario = "There are three houses. In them live a spanish, an english and a chinese."
+prompt_usuario = "There are three houses. There are a spanish, an english and a chinese."
 puzzle_elegido = "Einstein"
 log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/log.txt")), "a")
 

@@ -15,7 +15,7 @@ REINTENTOS_MAX = 1
 def NL_to_ASP(prompt, puzzle):
 
     # Contexto sin ejemplos (Zero-Shot)
-    contexto_zeroshot = "### You MUST parse natural language sentences to atomic logical predicates. Reply only with the logical atoms. You will be penalized if you write something different from the final logical predicates. Write only the last iteration. You are provided with examples. ###\n"
+    contexto_zeroshot = "### You MUST parse natural language sentences to atomic logical predicates. Reply only with the logical atoms, instanciating every new type different than 'person' with the format 'type(new_type,V) :- new_type(V).' You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification. You will be punished if you're not as concise and descriptive as possible. Write only the last iteration. You are provided with examples. ###\n"
    
     # Sale con error si alguno de los args es nulo
     if ((prompt == None) or (puzzle == None)): return([1, "NL_to_ASP recibe una entrada con uno de los valores nulos."])
@@ -52,11 +52,13 @@ def NL_to_ASP(prompt, puzzle):
         except:
             return([1, "Error no manejado en la comunicación con el LLM"])
 
-        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n' o 'INPUT').
+        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n', 'INPUT' o 'Note').
         if (salida_llm.find("\\") != -1):
             salida_llm = salida_llm.strip().split("\\", 1)[0]
-        elif (salida_llm.find("Input") != -1):
+        elif (salida_llm.find("INPUT") != -1):
             salida_llm = salida_llm.strip().split("INPUT", 1)[0]
+        elif (salida_llm.find("Note") != -1):
+            salida_llm = salida_llm.strip().split("Note", 1)[0]
 
         # A veces se olvida de poner el punto en el último predicado. Intento rescatarlo.
         if (salida_llm.strip()[-1] != "."):
