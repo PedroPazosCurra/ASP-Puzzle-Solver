@@ -37,7 +37,7 @@ def dibuja_datos(fondo, dibujo, coordenadas, tamaño, array_datos, array_rutas_i
         # Para este dato, ¿tenemos ruta de imagen?
         for ruta in array_rutas_imagenes:
 
-            if(dato == ruta[0]):
+            if(ruta[0] == dato):
                 ruta_especificada = True
                 ruta_imagen = ruta[1]
 
@@ -53,7 +53,7 @@ def dibuja_datos(fondo, dibujo, coordenadas, tamaño, array_datos, array_rutas_i
 
             # Coloca la imagen donde toque
             fondo.paste(
-                        box= (int(a + (c-a)/2 - tamaño*1.1), int(d + (d-b)*(0.75*i + 0.5)),  int((a + (c-a)/2 - tamaño*1.1) + tamaño), int(d + (d-b)*(0.75*i + 0.5)) + hsize),
+                        box= (int(a + (c-a)/2 - tamaño*1.1), int(d + (d-b)*(0.75*i + 0.5)),  int((a + (c-a)/2 - tamaño*1.1) + int(tamaño)), int(d + (d-b)*(0.75*i + 0.5)) + hsize),
                         im= img
                         )
             
@@ -253,7 +253,7 @@ def einstein_grafico(array_has, rutas_imagenes = []):
 
 ################################################  Debug   ##########################################################
 
-as_prueba = [['pedro', 'house', 3], ['pedro', 'inventado', 'inventado'], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
 einstein_grafico(as_prueba, [['dog', 'https://keystonekeynote.com/wp-content/uploads/2023/09/dog-puppy-on-garden-royalty-free-image-1586966191.jpg']])
 
 
