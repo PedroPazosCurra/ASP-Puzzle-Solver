@@ -27,16 +27,19 @@ predicados_has = []
 rutas_imagenes = []
 estado = 0
 num_args = len(args)
-prompt_usuario = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image 'cocacola'"
-puzzle_elegido = "Einstein"
 log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/log.txt")), "a")
+
+# Debug
+prompt_usuario = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image 'cocacola'. There's a dog, a cat and a horse. The spanish keeps the cat, while the english man has a dog. The horse is represented by the image called horse."
+puzzle_elegido = "Einstein"
+
+
 
 # Prompt y puzzle recibidos por argumento (adaptado para debug directo sin pasar por frontend)
 if (num_args >= 3): _, prompt_usuario, puzzle_elegido = args
 
 # Vacía la carpeta de salidas temporales del módulo de imagen usadas previamente
-carpeta_tmp = glob('..../resources/tmp')
-for imagen in carpeta_tmp: remove(imagen)
+for imagen in glob('..../resources/tmp'): remove(imagen)
 
 # PROCESO: 1 -> 2 -> 3. Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end.
 #
@@ -45,13 +48,19 @@ for imagen in carpeta_tmp: remove(imagen)
 #       3 - ASP_to_NL(answerset, puzzle) -> [estado, msg]
 #
 
+# Start
 log.write(f"\n{log_header}\n")
+tiempo_comienzo_total = time.perf_counter()
+tiempo_comienzo_nl_to_asp = time.perf_counter()
 
 
 # 1º - Pasa el mensaje del usuario a declaraciones ASP.
 estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido)
 
-## Fallo en LLM
+tiempo_nl_to_asp = time.perf_counter() - tiempo_comienzo_nl_to_asp
+tiempo_comienzo_resolver_asp = time.perf_counter()
+
+## Fallo en NL_to_ASP (1)
 if (estado != 0):
     print("1|" + modelo_asp)
     log.write("# Modelo ASP sacado: \n\f" + modelo_asp)
@@ -62,7 +71,10 @@ if (estado != 0):
 # 2º - Pasa el ASP al solver para obtener el Answer Set solución.
 estado, answer_set, predicados_has, rutas_imagenes = resolver_ASP(modelo_asp, puzzle_elegido)
 
-##   Fallo en ASP
+tiempo_resolver_asp = time.perf_counter() - tiempo_comienzo_resolver_asp
+tiempo_comienzo_as_to_nl = time.perf_counter()
+
+##   Fallo en resolver_ASP (2)
 if(estado != 0):
     print("1|# Modelo ASP sacado:" + modelo_asp + "\n# Answer set resuelto: \n\t" + answer_set, flush=True)
     log.write("# Modelo ASP sacado: \n" + modelo_asp + "\n# Answer set resuelto: \n" + answer_set)
@@ -73,6 +85,9 @@ if(estado != 0):
 # 3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.
 estado, nl_salida = AS_to_NL(answer_set, puzzle_elegido)
 
+tiempo_as_to_nl = time.perf_counter() - tiempo_comienzo_as_to_nl
+tiempo_comienzo_modulo_grafico = time.perf_counter()
+
 ##   Fallo en LLM
 if(estado != 0):
     print("1|# Modelo ASP sacado: " + modelo_asp + "\n# Answer set resuelto: " + answer_set + "# Explicación LN: " + nl_salida, flush=True)
@@ -82,7 +97,14 @@ if(estado != 0):
 
 
 # Caso optimista: Todo OK
-einstein_grafico(predicados_has, rutas_imagenes)
+if(puzzle_elegido == "Einstein"):
+    einstein_grafico(predicados_has, rutas_imagenes)
+
+tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
+tiempo_total = time.perf_counter() - tiempo_comienzo_total
+print(f"########### TIEMPO TOTAL ###########:{tiempo_total}:\n\tNL_to_ASP:\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t{tiempo_resolver_asp}\n\tAS_to_NL:\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t{tiempo_grafico}")
+
+# Logs, debugs, etc.    
 log.write("# Modelo ASP sacado: " + modelo_asp + "\n# Answer set resuelto: " + answer_set + "# Explicación LN: " + nl_salida)
 log.close
 print("0|" + nl_salida, flush= True)
