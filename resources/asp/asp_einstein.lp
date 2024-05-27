@@ -20,7 +20,7 @@
 
 
 % Representación interna: el LLM tiene que sacarla sin ayuda
-%type(X,V) ;- house(V).
+%type(X,V) :- house(V).
 %type(house,V) :- house(V).
 %type(color,V) :- color(V).
 %type(pet,V) :- pet(V).
@@ -37,7 +37,7 @@
 %:- house_color(P,C), not has(P,color,C).
 %:- house_number(P,N), not has(P, house, N).
 
-% Reglas para determinar cosas de una casa
+% Reglas para determinar cosas de una casa (oculto a llm)
 house_of(X,H) :- has(P,_,X), has(P,house,H).
 house_of(P,H) :- has(P,house,H).
 

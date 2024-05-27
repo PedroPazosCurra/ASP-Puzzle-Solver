@@ -12,8 +12,8 @@ INPUT: There are 3 man involved: One of them is from Germany, the other one is F
 OUTPUT: person(german; french; nigerian). type(house, V) :- house(V). has(german, house, 1). has(nigerian, house, 3).
 INPUT: A Brittish, a Japanese, an Albanese and a Norwegian live in this neighborhood. Each one has a house, with a total of five houses. The number one is inhabited by the Japanese man. The third one is where the norwegian lives.
 OUTPUT: person(brittish; japanese; albanese; norwegian). type(house, V) :- house(V). house(1..5). has(japanese, house, 1). has(norwegian, house, 3).
-INPUT: There are five house colours: red, white, blue, green and yellow. There's only one house, where John lives. His house is painted red.
-OUTPUT: type(color, V) :- color(V). color(red; white; blue; green; yellow). type(house, V) :- house(V). house(1). person(john). has(john, house, 1). has(john, color, red).
+INPUT: There are five house colours: red, white, blue, green and yellow. There's only one house, where John lives. His house is painted red. John is represented by the image "john_image"
+OUTPUT: type(color, V) :- color(V). color(red; white; blue; green; yellow). type(house, V) :- house(V). house(1). person(john). has(john, house, 1). has(john, color, red). image(john, john_image).
 INPUT: This problem has a purple and a cyan house. In them live an african girl and an european man. The european man lives in the purple house and has a rat as a pet. Of the two houses, the african man lives in the number 1.
 OUTPUT: type(color, V) :- color(V). color(purple; cyan). type(house, V) :- house(V). house(1..2). person(european; african). has(european, color, purple). type(pet, V) :- pet(V). pet(rat). has(european, pet, rat). has(african, house, 1).
 INPUT: The houses come in 6 colours: white, beige, blue, red, green and orange.
@@ -22,14 +22,14 @@ INPUT: The problem I'm working with has 4 houses. One house is red, other one is
 OUTPUT: type(house, V) :- house(V). house(1..4). type(color, V) :- color(V). color(red; green; yellow; black).
 INPUT: In the puzzle there are seven houses, and the colors red, yellow, blue and green. There are four tobacco brands: Winston, Bluem, Marlboro and Palls.
 OUTPUT: type(house, V) :- house(V). house(1..7). type(color, V) :- color(V). color(red; yellow; blue; green). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(winston; bluem; marlboro; palls).
-INPUT: There are three houses. An african lives in the middle one.
-OUTPUT: type(house, V) :- house(V). house(1..3). person(african). has(african, house, 2).
+INPUT: There are three houses. An african lives in the middle one. Represent the african man with the image "africa_flag".
+OUTPUT: type(house, V) :- house(V). house(1..3). person(african). has(african, house, 2). image(african, africa_flag).
 INPUT: There is a Swede, a Dane and a Norwegian woman. The puzzle has 3 houses.
 OUTPUT: person(swede; dane; norwegian). type(house, V) :- house(V). house(1..3).
-INPUT: The puzzle has two houses. An Italian kid and a Romanian folk live in each house.
-OUTPUT: type(house, V) :- house(V). house(1..2). person(italian; romanian). 
-INPUT: There are three drinks: coffee, milk and beer.
-OUTPUT: type(beverage, V) :- beverage(V). beverage(coffee; milk; beer).
+INPUT: The puzzle has two houses. An Italian kid and a Romanian folk live in each house. The kid is represented by the following image: "italia_flag". The romanian man, on the other hand, has romania_flag representing him.
+OUTPUT: type(house, V) :- house(V). house(1..2). person(italian; romanian). image(italian, italia_flag). image(romanian, romania_flag).
+INPUT: There are three drinks: coffee, milk and beer. Here's a photo for the milk: milk_image
+OUTPUT: type(beverage, V) :- beverage(V). beverage(coffee; milk; beer). image(milk, milk_image).
 INPUT: In this Einstein puzzle there are 4 different types of beverages: water, tea, soda and whiskey.
 OUTPUT: type(beverage, V) :- beverage(V). beverage(water; tea; soda; whiskey).
 INPUT: The following drinks are present in the puzzle: tea, wine, beer and juice. There are five houses, painted red, yellow, cyan and purple. The taiwanese man lives in the third one. 

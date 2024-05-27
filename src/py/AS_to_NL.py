@@ -10,8 +10,6 @@ url = "https://api.awanllm.com/v1/chat/completions"
 
 def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
 
-   
-
     # Contexto sin ejemplos (Zero-Shot)
     contexto_zeroshot = "### I want to translate atomic logical predicates to natural language sentences. Reply only with the result sentence, don't explain the result and don't say anything else than the result. Process only one iteration in each step. ###\n"
     

@@ -27,7 +27,7 @@ predicados_has = []
 rutas_imagenes = []
 estado = 0
 num_args = len(args)
-prompt_usuario = "There are three houses. There are a spanish, an english and a chinese."
+prompt_usuario = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image 'cocacola'"
 puzzle_elegido = "Einstein"
 log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/log.txt")), "a")
 
@@ -45,7 +45,8 @@ for imagen in carpeta_tmp: remove(imagen)
 #       3 - ASP_to_NL(answerset, puzzle) -> [estado, msg]
 #
 
-log.write(log_header)
+log.write(f"\n{log_header}\n")
+
 
 # 1º - Pasa el mensaje del usuario a declaraciones ASP.
 estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido)

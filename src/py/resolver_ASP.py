@@ -15,21 +15,22 @@ reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resou
 def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
 
     cc = clingo.Control(clingo_args)
+    answer_sets = ""
 
     # Se carga el programa ASP según el puzzle elegido
     match puzzle:
         case "Einstein":
             cc.load(reglas_einstein)
         case _:
-            return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien."])
+            return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", None, None])
 
     # Se añade el modelo recibido de LLM al código ASP + se hace grounding
     try:
         cc.add('base', [], modelo)
-        cc.ground([("base",[])])
+        cc.ground([('base',[])])
 
     except:
-        return([1, "Ha habido un problema en el proceso de grounding ASP"])
+        return([1, "Ha habido un problema en el proceso de grounding ASP", None, None])
 
     # Se devuelve el set si el programa es SAT y un error si no.
 
@@ -39,18 +40,30 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
     for model in solve_handle:
         answer_sets = (str(model).replace(" ", ". ") + ".")
         for atom in model.symbols(atoms=True):
+
             if(atom.name == "has" and len(atom.arguments) == 3):
-                has_atoms.append([atom.arguments[0].name, atom.arguments[1].name, atom.arguments[2]])
+
+                # Toma los 3 argumentos del has (el tercero puede ser string o numero)
+                has_arg_1 = atom.arguments[0].name
+                has_arg_2 = atom.arguments[1].name
+
+                match atom.arguments[2].type:
+                    case clingo.SymbolType.Function:    has_arg_3 = atom.arguments[2].name
+                    case clingo.SymbolType.Number:      has_arg_3 = atom.arguments[2].number    
+                    case _:                             has_arg_3 = atom.arguments[2]        
+
+                has_atoms.append([has_arg_1, has_arg_2, has_arg_3])
+
             elif(atom.name == "image" and len(atom.arguments) == 2):
-                image_routes.append([atom.arguments[0].name, atom.arguments[1]])
+                image_routes.append([atom.arguments[0].name, atom.arguments[1].name])
 
     # ¿Tiene solución?
     if (len(answer_sets) >= 1):
         return([0, answer_sets, has_atoms, image_routes])
     else:
-        return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento."])
+        return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.", None, None])
 
 # Debug:
-
-#status, ans_sets, has, imageroutes = (resolver_ASP("has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog).", "Einstein"))
+#string = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
+#status, ans_sets, has, imageroutes = (resolver_ASP(string, "Einstein"))
 #print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")

@@ -219,4 +219,216 @@ The Spanish person lives in the third house, the Spanish house is painted red, t
 # Modelo ASP sacado: 
 Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.############ [11:31] LOG ############:
 # Modelo ASP sacado: type(house, V) :- house(V). house(1..3). person(spanish). person(english). person(chinese).
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.############ [13:23] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.############ [13:25] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.############ [13:27] LOG ############:
+# Modelo ASP sacado: 
+Here is the output:
+
+type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(beverage, V) :- beverage(V). beverage(soda).
+
+has(spanish, beverage, soda).
+
+image(soda, https://www.encopadebalon.com/3507-large_default/coca-cola-pack-24-botellas-20cl.jpg).
+
+############ [13:38] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.############ [13:40] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.############ [14:0] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.Here is the parsed output:
+
+type(house, V) :- house(V). house(1..3).
+
+type(person, V) :- person(V). person(spanish; english; chinese).
+
+person(spanish). person(english). person(chinese).
+
+type(beverage, V) :- beverage(V). beverage(soda).
+
+has(spanish, beverage, soda).
+
+image(soda, https://www.encopadebalon.com/3507-large_default/coca-cola-pack-24-botellas-20cl.jpg).############ [14:2] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.Here is the output:
+
+type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+has(spanish, beverage, soda).
+image(soda, https://www.encopadebalon.com/3507-large_default/coca-cola-pack-24-botellas-20cl.jpg).
+
+############ [14:3] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.Here is the parsed output:
+
+type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+has(spanish, beverage, soda).
+image(soda, https://www.encopadebalon.com/3507-large_default/coca-cola-pack-24-botellas-20cl.jpg).############ [14:3] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.Here is the parsed output:
+
+type(house, V) :- house(V). house(1..3).
+
+type(person, V) :- person(V). person(spanish; english; chinese).
+
+has(spanish, beverage, soda). image(soda, https://www.encopadebalon.com/3507-large_default/coca-cola-pack-24-botellas-20cl.jpg).
+
+############ [14:5] LOG ############:
+# Modelo ASP sacado: 
+Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.
+
+type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+has(spanish, beverage, soda).
+image(soda, https://www.encopadebalon.com/3507-large_default/coca-cola-pack-24-botellas-20cl.jpg).
+
+Note: I assumed that "soda" refers to a specific brand or type of soda, and not just a general category of beverages. If you intended it to refer to a more general category, please let me know and I'll adjust the output accordingly.############ [17:20] LOG ############:
+############ [17:21] LOG ############:
+############ [17:22] LOG ############:
+############ [17:24] LOG ############:
+############ [17:25] LOG ############:
+############ [17:26] LOG ############:
+# Modelo ASP sacado: house(1..3).
+
+# Answer set resuelto: .# Explicación LN: Nothing.############ [17:28] LOG ############:
+############ [17:35] LOG ############:
+############ [17:37] LOG ############:
+############ [17:50] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.############ [17:53] LOG ############:
+############ [17:59] LOG ############:
+############ [19:8] LOG ############:
+############ [19:9] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(soda). image(soda, cocacola).
+has(spanish, beverage, soda).
+
+# Answer set resuelto: has(spanish,beverage,soda). has(chinese,house,1). has(spanish,house,2). has(english,house,3).# Explicación LN: The Spanish person drinks soda. The Chinese person lives in the first house. The Spanish person lives in the second house. The English person lives in the third house.############ [19:12] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.############ [19:13] LOG ############:
+############ [19:14] LOG ############:
+
+############ [19:17] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+has(spanish, beverage, soda).
+image(soda, cocacola).
+
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea).# Explicación LN: The Spanish person drinks soda. He/she lives in the second house. The English person lives in the third house and drinks milk. The Chinese person lives in the first house and drinks tea.
+############ [19:18] LOG ############:
+
+
+############ [19:19] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+has(spanish, beverage, soda).
+image(soda, cocacola).
+
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea).# Explicación LN: The Spanish person drinks soda and lives in the second house. The English person lives in the third house and drinks milk. The Chinese person lives in the first house and drinks tea.
+############ [19:20] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+has(spanish, beverage, soda).
+image(soda, cocacola).
+
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea).# Explicación LN: The Spanish person drinks soda and lives in the second house. The English person lives in the third house and drinks milk. The Chinese person lives in the first house and drinks tea.
+############ [19:32] LOG ############:
+
+
+############ [19:35] LOG ############:
+
+
+############ [19:39] LOG ############:
+
+
+############ [19:41] LOG ############:
+
+# Modelo ASP sacado: type(beverage, V) :- beverage(V). beverage(soda). image(soda, cocacola).
+
+person(spanish). has(spanish, beverage, soda).
+# Answer set resuelto: has(spanish,beverage,soda).# Explicación LN: The Spanish person drinks soda.
+############ [19:48] LOG ############:
+
+
+############ [20:15] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda). image(soda, cocacola). has(spanish, beverage, soda).
+
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,house,2). has(spanish,person,english). has(english,house,3). has(english,person,spanish). has(english,beverage,milk). has(chinese,house,1). has(chinese,person,chinese). has(chinese,beverage,tea).# Explicación LN: The Spanish person drinks soda, lives in the second house, is an English speaker, the English person lives in the third house, is a Spanish speaker, drinks milk, the Chinese person lives in the first house, is a Chinese person, drinks tea.
+############ [20:21] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
 # Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.
+############ [20:22] LOG ############:
+
+# Modelo ASP sacado: 
+type(house, V) :- house(V). house(1..3).
+
+# Answer set resuelto: 
+El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+############ [20:23] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+person(spanish). has(spanish, beverage, soda).
+has(spanish, image, cocacola).
+
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,image,cocacola). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea).# Explicación LN: The Spanish person drinks soda. The Spanish person loves Coca-Cola. The Spanish person lives in the house number 2. The English person lives in the house number 3. The English person drinks milk. The Chinese person lives in the house number 1 and drinks tea.
+############ [20:39] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+# Answer set resuelto: has(chinese,house,1). has(english,house,2). has(spanish,house,3).# Explicación LN: The Chinese person lives in the first house, the English person lives in the second house, and the Spanish person lives in the third house.
+############ [20:41] LOG ############:
+
+# Modelo ASP sacado: 
+
+
+type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda). 
+type(image, V) :- image(V). image(cocacola). 
+has(spanish, beverage, soda). 
+
+Note: I assume that "represent soda with the image 'cocacola'" means that we should create a new predicate `image` with `soda` as its value, so I added a line to define it.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [20:42] LOG ############:
+
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+has(spanish, beverage, soda).
+image(soda, cocacola).
+
+
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea).# Explicación LN: The Spanish person drinks soda and lives in the second house. The English person lives in the third house and drinks milk. The Chinese person lives in the first house and drinks tea.
