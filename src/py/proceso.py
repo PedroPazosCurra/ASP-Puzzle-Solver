@@ -15,11 +15,14 @@ from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
 from einstein_grafico import einstein_grafico
 
+# Constantes
+AHORA = time.localtime()
+HORA_STRING = f"[{str(AHORA.tm_hour)}:{str(AHORA.tm_min)}]"
+LOG_HEADER = f"\n############ {HORA_STRING} LOG ############:\n"
+USAR_LLM_PURO = False
+DEBUG = True
 
 # Variables
-now = time.localtime()
-hora_string = "[" + str(now.tm_hour) + ":" + str(now.tm_min) + "]"
-log_header = "############ " + hora_string + " LOG ############:\n"
 modelo_asp = ""
 answer_set = ""
 nl_salida = ""
@@ -49,7 +52,7 @@ for imagen in glob('..../resources/tmp'): remove(imagen)
 #
 
 # Start
-log.write(f"\n{log_header}\n")
+log.write(LOG_HEADER)
 tiempo_comienzo_total = time.perf_counter()
 tiempo_comienzo_nl_to_asp = time.perf_counter()
 
@@ -67,6 +70,9 @@ if (estado != 0):
     log.close
     exit(0)
 
+# Si modo LLM Puro, se sale ya.
+if(USAR_LLM_PURO):
+    print("0|" + modelo_asp)
 
 # 2º - Pasa el ASP al solver para obtener el Answer Set solución.
 estado, answer_set, predicados_has, rutas_imagenes = resolver_ASP(modelo_asp, puzzle_elegido)
@@ -102,9 +108,16 @@ if(puzzle_elegido == "Einstein"):
 
 tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
 tiempo_total = time.perf_counter() - tiempo_comienzo_total
-print(f"########### TIEMPO TOTAL ###########:{tiempo_total}:\n\tNL_to_ASP:\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t{tiempo_resolver_asp}\n\tAS_to_NL:\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t{tiempo_grafico}")
 
 # Logs, debugs, etc.    
 log.write("# Modelo ASP sacado: " + modelo_asp + "\n# Answer set resuelto: " + answer_set + "# Explicación LN: " + nl_salida)
 log.close
-print("0|" + nl_salida, flush= True)
+
+if(DEBUG):
+
+    # Salida
+    print("0|" + nl_salida, flush= True)
+
+    # Tiempo
+    print(f"########### TIEMPO TOTAL ###########:{tiempo_total}:\n\tNL_to_ASP:\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t{tiempo_resolver_asp}\n\tAS_to_NL:\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t{tiempo_grafico}")
+
