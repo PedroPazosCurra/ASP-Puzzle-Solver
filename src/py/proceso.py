@@ -44,10 +44,10 @@ if (num_args >= 3): _, prompt_usuario, puzzle_elegido = args
 # Vacía la carpeta de salidas temporales del módulo de imagen usadas previamente
 for imagen in glob('..../resources/tmp'): remove(imagen)
 
-# PROCESO: 1 -> 2 -> 3. Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end.
+# PROCESO: 1 -> 2 -> 3. Si falla, no pasa a la siguiente fase y devuelve el mensaje de error al front-end (vía stdout).
 #
 #       1 - NL_to_ASP(prompt, puzzle) ->    [estado, msg] 
-#       2 - resolver_ASP(modelo, puzzle) -> [estado, msg]
+#       2 - resolver_ASP(modelo, puzzle) -> [estado, modelo, array_has, array_rutas_img]
 #       3 - ASP_to_NL(answerset, puzzle) -> [estado, msg]
 #
 
@@ -119,5 +119,5 @@ if(DEBUG):
     print("0|" + nl_salida, flush= True)
 
     # Tiempo
-    print(f"########### TIEMPO TOTAL ###########:{tiempo_total}:\n\tNL_to_ASP:\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t{tiempo_resolver_asp}\n\tAS_to_NL:\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t{tiempo_grafico}")
+    print(f"########### TIEMPO TOTAL ###########:      {tiempo_total}:\n\tNL_to_ASP:\t\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t\t{tiempo_resolver_asp}\n\tAS_to_NL:\t\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t\t{tiempo_grafico}")
 

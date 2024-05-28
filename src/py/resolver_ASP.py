@@ -12,7 +12,11 @@ reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resou
 # Función a exportar: resolver_ASP
 #
 #   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un Answer Set con la solución
-def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
+def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = ["--warn=none"]):
+
+    # Sale con error si alguno de los args es nulo
+    if ((modelo == None) or (puzzle == None)): return([1, "resolver_ASP recibe una entrada con uno de los valores nulos.", None, None])
+    
 
     cc = clingo.Control(clingo_args)
     answer_sets = ""
@@ -64,6 +68,8 @@ def resolver_ASP(modelo, puzzle, clingo_args = ["--warn=none"]):
         return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.", None, None])
 
 # Debug:
-#string = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
-#status, ans_sets, has, imageroutes = (resolver_ASP(string, "Einstein"))
-#print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")
+modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
+modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
+modelo_invalido = ":-"
+status, ans_sets, has, imageroutes = (resolver_ASP(modelo_unsat, "Einstein"))
+print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")
