@@ -33,7 +33,7 @@ num_args = len(args)
 log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/log.txt")), "a")
 
 # Debug
-prompt_usuario = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image 'cocacola'. There's a dog, a cat and a horse. The spanish keeps the cat, while the english man has a dog. The horse is represented by the image called horse."
+prompt_usuario = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image 'cocacola'. There's a dog, a cat and a horse. The spanish keeps the cat, while the english man has a dog. The horse is represented by the image called horse. The cat is represented by \"https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg\"."
 puzzle_elegido = "Einstein"
 
 
@@ -102,9 +102,9 @@ if(estado != 0):
     exit(0)
 
 
-# Caso optimista: Todo OK
+# Caso optimista: Todo OK - Representación gráfica
 if(puzzle_elegido == "Einstein"):
-    einstein_grafico(predicados_has, rutas_imagenes)
+    estado = einstein_grafico(predicados_has, rutas_imagenes)
 
 tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
 tiempo_total = time.perf_counter() - tiempo_comienzo_total

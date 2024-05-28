@@ -57,7 +57,7 @@ def NL_to_ASP(prompt = None, puzzle = None):
         except:
             return([1, "Error no manejado en la comunicación con el LLM para NL_to_ASP"])
 
-        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n', 'INPUT' o 'Note').
+        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n', 'INPUT', 'Note'...).
         if (salida_llm.find("\\") != -1):
             salida_llm = salida_llm.strip().split("\\", 1)[0]
         if (salida_llm.find("INPUT:") != -1):
@@ -66,9 +66,13 @@ def NL_to_ASP(prompt = None, puzzle = None):
             salida_llm = salida_llm.strip().split("output:", 1)[1]
         if (salida_llm.find("Note") != -1):
             salida_llm = salida_llm.strip().split("Note", 1)[0]
+        if (salida_llm.find("```") != -1):
+            salida_llm = salida_llm.replace("```", "")
+
 
         # A veces se olvida de poner el punto en el último predicado. Intento rescatarlo.
-        if (salida_llm.strip()[-1] != "."):
+        salida_llm = salida_llm.strip()
+        if (salida_llm[-1] != "."):
             salida_llm += "."
 
         # Comprobación de respuesta válida mediante REGEX con sintaxis ASP.

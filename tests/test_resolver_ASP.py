@@ -18,7 +18,6 @@ puzzle_invalido = 'Puzzle_inventado'
 # --------------------------------- Funciones de test ----------------------------------------
 
 
-
 # Comprueba que devuelve estado de error y msg de error al recibir nulos en la entrada
 def test_entradas_nulas():
 

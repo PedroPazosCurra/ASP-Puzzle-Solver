@@ -1,14 +1,15 @@
 # IMPORTS
 from PIL import Image, ImageDraw, ImageFont
-from webcolors import name_to_rgb
 import requests
 import numpy as np
 from io import BytesIO
+from webcolors import name_to_rgb
 from collections import defaultdict
 
 
 ######################################### Constantes y variables ##############################################
 TAMAÑO_DEFAULT = 70
+DEBUG = False
 
 # Crea nueva imagen importándola. La imagen es 1000x1000
 fondo_estado_inicial = Image.open('..../resources/img/fondo_imagen_generada.png')
@@ -20,6 +21,38 @@ dibujo_solucion = ImageDraw.Draw(fondo_solucion)
 
 
 ######################################### Funciones ##############################################
+
+# Función auxiliar que abstrae la búsqueda de una imagen dado un nombre. Primero, de forma estática. Después, busca URL.
+def busca_imagen(nombre : str):
+
+    nombre = nombre.replace(r'"', '')
+
+    # jpg
+    try:
+        img = Image.open(f'..../resources/atom_images/{nombre}.jpg')
+    except:
+
+        # png
+        try:
+            img = Image.open(f'..../resources/atom_images/{nombre}.png')
+        except:
+
+            # jpeg
+            try:
+                img = Image.open(f'..../resources/atom_images/{nombre}.jpeg')
+            except:
+
+                # url
+                try:
+                    response = requests.get(nombre)
+                    img = Image.open(BytesIO(response.content))
+                except:
+                    img = None
+
+    # return
+    finally:
+        return img
+
 
 # Función auxiliar que dibuja un array de texto en determinadas coordenadas y tamaño. 
 def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:float, array_datos:list, array_rutas_imagenes:list):
@@ -48,16 +81,16 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
             # Busca la imagen. Si no existe, texto.
             try:
 
-                img = Image.open(f'..../resources/atom_images/{ruta_imagen}.jpg')
+                img = busca_imagen(ruta_imagen)
 
                 # Escala la imagen según tamaños
                 wpercent = (tamaño / float(img.size[0]))
-                hsize = int((float(img.size[1]) * float(wpercent)))
-                img = img.resize((int(tamaño), hsize), Image.Resampling.LANCZOS)
+                hsize = round((float(img.size[1]) * float(wpercent)))
+                img = img.resize((round(tamaño), hsize), Image.Resampling.LANCZOS)
 
                 # Coloca la imagen donde toque
                 fondo.paste(
-                            box= (int(a + (c-a)/2 - tamaño*1.1), int(d + (d-b)*(0.75*i + 0.5)),  int((a + (c-a)/2 - tamaño*1.1) + int(tamaño)), int(d + (d-b)*(0.75*i + 0.5)) + hsize),
+                            box= (round(a + (c-a)/2 - tamaño*1.1), round(d + (d-b)*(0.75*i + 0.5)),  round((a + (c-a)/2 - tamaño*1.1) + round(tamaño)), round(d + (d-b)*(0.75*i + 0.5)) + hsize),
                             im= img
                             )
                 
@@ -81,69 +114,117 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
                         )
 
 
-# Función auxiliar que dibuja una casa en determinadas coordenadas, tamaño, color y número. 
-def dibuja_casa(dibujo, coordenadas, tamaño, color = 'white', numero = ''):
-
-    # En base al nombre del color, una librería pasa un rgb. Si no puede, gris.
-    try:
-        color_casa = name_to_rgb(color)
-    except ValueError:
-        color_casa = (255,255,255)
+# Función auxiliar que dibuja un elemento en determinadas coordenadas, tamaño, color y número. 
+def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tamaño, color = 'white', numero = ''):
 
     a, b = coordenadas
     c = a + tamaño*2
     d = b + tamaño*1.15
 
-    # Dibuja la casa
-    dibujo.polygon([(a - tamaño*0.3, b), (a,b), (a,d), (c,d), (c,b), (c + tamaño*0.3, b), ((c + a)/2, b - tamaño*1.3)],
-                    fill = color_casa,
-                    outline = 'black',
-                    width= int(tamaño * 0.1))
+    # En base al nombre del color, una librería pasa un rgb. Si no puede, gris.
+    try:
+        color_elem = name_to_rgb(color)
+    except ValueError:
+        color_elem = (255,255,255)
 
-    # Crea elemento fuente
-    fuente_numero = ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = tamaño*0.8)
+    # Si es casa, dibuja una casa del color indicado
+    if (elemento in ["house", "casa", "home", "residence", "homestead", "domicile"]):
+
+        dibujo.polygon([(a - tamaño*0.3, b), (a,b), (a,d), (c,d), (c,b), (c + tamaño*0.3, b), ((c + a)/2, b - tamaño*1.3)],
+                        fill = color_elem,
+                        outline = 'black',
+                        width= round(tamaño * 0.1))
+        
+        # Dibuja el número del elemento
+        fuente_numero = ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = tamaño*0.8)
+        dibujo.text(xy = (a + (c-a)/2 - tamaño*0.25, b - tamaño*0.2 ),
+                    text = numero,
+                    font= fuente_numero,
+                    stroke_width= round(tamaño * 0.1),
+                    stroke_fill='black'
+                    )
     
-    # Dibuja el número de la casa
-    dibujo.text(xy = (a + (c-a)/2 - tamaño*0.25, b - tamaño*0.2 ),
-                text = numero,
-                font= fuente_numero,
-                stroke_width= int(tamaño * 0.1),
+    # Si no es una casa, ponemos la imagen del elemento y indicamos el color en un círculo de color.
+    else:
+        try:
+            img = busca_imagen(imagen_elemento)
+
+            # Escala la imagen según tamaños
+            tamaño_escala = 2*tamaño
+            wpercent = (tamaño_escala / float(img.size[0]))
+            hsize = round((float(img.size[1]) * float(wpercent)))
+            img = img.resize((round(tamaño_escala), hsize), Image.Resampling.LANCZOS)
+
+            # Coloca la imagen donde toque
+            fondo.paste(
+                        box= (round(a - tamaño*0.3), round(b), round(a - tamaño*0.3 + tamaño_escala), round(b) + hsize),
+                        im= img
+                        )
+        
+        except:
+            # No consigo la imagen: pongo el nombre del elemento en su lugar.
+            fuente= ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = tamaño)
+            dibujo.text(xy = (a, b ),
+                text = elemento.capitalize(),
+                font= fuente,
+                stroke_width= round(tamaño * 0.1),
                 stroke_fill='black'
                 )
+            
+        finally:
+
+            # Círculo indicando color arriba a la derecha
+            dibujo.ellipse(xy=(c, b, c + 0.6*tamaño, b + 0.6*tamaño),
+                        fill= color_elem,
+                        outline = 'black',
+                        width= round(tamaño * 0.05))
+        
+        # Dibuja el número del elemento
+        fuente_numero = ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = 0.6*tamaño)
+        dibujo.text(xy = (c, d),
+                    text = numero,
+                    font= fuente_numero,
+                    stroke_width= round(tamaño * 0.05),
+                    stroke_fill='black'
+                    )
 
 
-def representa_casa(fondo, coordenadas, elems, tamaño, color = 'white', numero = '', rutas_imagenes = []):
+
+
+def representa_elemento(fondo, elemento, imagen_elemento, coordenadas, elems, tamaño, color = 'white', numero = '', rutas_imagenes = []):
 
     # Dibuja la casa
-    dibuja_casa(dibujo_solucion, coordenadas, tamaño, color, numero)
+    dibuja_elemento(fondo, elemento, imagen_elemento, dibujo_solucion, coordenadas, tamaño, color, numero)
 
     # Escribe los datos debajo de la casa
     dibuja_datos(fondo, dibujo_solucion, coordenadas, tamaño, elems, rutas_imagenes)
 
 
-def representa_estado_inicial(casas, rutas_imagenes = []):
+def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
 
     dict_datos = defaultdict(list)         # Aquí van a ir recopilados los datos sin asociar a casas ("num" : [1,2,3]...)
-    num_casas = len(casas)
+    num_casas = len(grupos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
     tamaño_casas = (1.1**(-num_casas)) * 80
 
     # Para cada casa con índice i de la entrada
-    for i, casa in enumerate(casas):
+    for i, casa in enumerate(grupos):
 
         # División de los 1000px que le toca a cada casa según cuántas casas hay
         division_casas = (1000/(num_casas+1)) * (i + 1)
 
-        numero = ""
-        if "house" in casa:
-            numero = str(casa["house"])
+        numero = str(casa[elemento_central])
+        imagen_elemento = None
 
-            # Dibuja la casa en blanco
-            dibuja_casa(dibujo_estado_inicial, coordenadas= (division_casas - tamaño_casas, 1000 - 6* tamaño_casas), tamaño= tamaño_casas, numero= numero)
+        # ¿Se le da imagen al elemento central?
+        for par in rutas_imagenes:
+            if par[0] == elemento_central:
+                imagen_elemento = par[1]
 
-            #TODO: Coger imagen de casa si se indica.
-
+        # Dibuja el elemento en blanco
+        dibuja_elemento(fondo_estado_inicial, elemento_central, imagen_elemento, dibujo_estado_inicial, coordenadas= (division_casas - tamaño_casas, 1000 - 6* tamaño_casas), tamaño= tamaño_casas, numero= numero)
+        
         # Recoge todos los datos de las casas y los almaceno por clave
         for key, value in casa.items():
             dict_datos[key].append(str(value))
@@ -173,50 +254,57 @@ def representa_estado_inicial(casas, rutas_imagenes = []):
     return fondo_estado_inicial
 
 
-def representa_solucion(casas, rutas_imagenes = []):
+def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
 
-    num_casas = len(casas)
+    num_elems = len(grupos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_casas = (1.1**(-num_casas)) * 80
+    tamaño_elems = (1.1**(-num_elems)) * 80
 
-    for i, casa in enumerate(casas):
+    for i, elem in enumerate(grupos):
 
         color = "white" 
         numero = ""
+        imagen_elemento = None
+        numero = str(elem[elemento_central])
 
+        # División de los 1000px que le toca a cada elemento central según cuántos haya
+        division = (1000/(num_elems+1)) * (i + 1)
 
-        # División de los 1000px que le toca a cada casa según cuántas casas hay
-        division = (1000/(num_casas+1)) * (i + 1)
+        # ¿Se le da imagen al elemento central?
+        for par in rutas_imagenes:
+            if par[0] == elemento_central:
+                imagen_elemento = par[1]
 
-        # Argumentos de representa_casa (los quitamos del array casa porque ya no los queremos)
-        if("house" in casa):
-            numero = str(casa["house"])
-            del casa["house"]
+        # Argumentos de representa_elemento (los quitamos del array casa porque ya no los queremos)
+        if(elemento_central in elem):
+            del elem[elemento_central]
         
-        if("color" in casa):
-            color = str(casa["color"])
-            del casa["color"]
+        if("color" in elem):
+            color = str(elem["color"])
+            del elem["color"]
 
 
-        # Dibuja la casa y escribe sus datos
-        representa_casa(fondo = fondo_solucion,
-                        coordenadas = (division - tamaño_casas, 400),
-                        numero = numero,
-                        color = color,
-                        tamaño=tamaño_casas,
-                        elems = casa.values(),
+        # Dibuja el elemento central y escribe sus datos
+        representa_elemento(fondo       = fondo_solucion,
+                        elemento        = elemento_central,
+                        imagen_elemento = imagen_elemento,
+                        coordenadas     = (division - tamaño_elems, 400),
+                        numero          = numero,
+                        color           = color,
+                        tamaño          = tamaño_elems,
+                        elems           = elem.values(),
                         rutas_imagenes= rutas_imagenes
                         )
         
         # Dibuja separador
-        dibujo_solucion.line(xy= [(division - tamaño_casas*1.25 - 1.068**tamaño_casas, 420), (division - tamaño_casas*1.25 - 1.068**tamaño_casas, 340 + 8*tamaño_casas)],
-                width= int(1.03**tamaño_casas),
+        dibujo_solucion.line(xy= [(division - tamaño_elems*1.25 - 1.068**tamaño_elems, 420), (division - tamaño_elems*1.25 - 1.068**tamaño_elems, 340 + 8*tamaño_elems)],
+                width= round(1.03**tamaño_elems),
                 fill= 'gray')
         
     # Dibuja último separador
-    dibujo_solucion.line(xy= [(((1000/(num_casas+1)) * (num_casas + 1)) - tamaño_casas*1.25 - 1.068**tamaño_casas, 420), (((1000/(num_casas+1)) * (num_casas + 1)) - tamaño_casas*1.25 - 1.068**tamaño_casas, 340 + 8*tamaño_casas)],
-            width= int(1.03**tamaño_casas),
+    dibujo_solucion.line(xy= [(((1000/(num_elems+1)) * (num_elems + 1)) - tamaño_elems*1.25 - 1.068**tamaño_elems, 420), (((1000/(num_elems+1)) * (num_elems + 1)) - tamaño_elems*1.25 - 1.068**tamaño_elems, 340 + 8*tamaño_elems)],
+            width= round(1.03**tamaño_elems),
             fill= 'gray')
     
     return fondo_solucion
@@ -234,7 +322,10 @@ def representa_solucion(casas, rutas_imagenes = []):
 def einstein_grafico(array_has, rutas_imagenes = []):
 
     tipo = ""
-    casas = np.array([])
+    elemento_central = "house"
+    grupos = np.array([])
+
+    #try:
 
     # Ya tenemos un array de arrays de tres elementos correspondientes a todos los predicados has. Iteramos
     for entrada in array_has:
@@ -247,125 +338,146 @@ def einstein_grafico(array_has, rutas_imagenes = []):
         persona_creada = False
 
         # ¿Esta persona está asignada a una casa en el array de diccionarios "casas[]"?
-        for casa in casas:
+        for elem in grupos:
 
             # Ya existe la casa de esta persona: se gestiona el predicado
-            if(casa["person"] == persona):
+            if(elem["person"] == persona):
 
-                casa[tipo] = valor
+                elem[tipo] = valor
                 persona_creada = True
 
         # No existe la persona -> nueva casa
         if(persona_creada == False):
 
-            nueva_casa = dict(person = persona)
-            nueva_casa[tipo] = valor
+            nuevo_elem = dict(person = persona)
+            nuevo_elem[tipo] = valor
 
-            casas = np.append(casas, nueva_casa)
+            grupos = np.append(grupos, nuevo_elem)
 
 
-    # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número de casa (si es posible) y representamos. Añadimos el array de urls de imágenes
-    if(all("house" in casa for casa in casas)):
-        casas = sorted(casas, key=lambda d: d['house'])
-    representa_estado_inicial(casas, rutas_imagenes).save("resources/tmp/estado_inicial_einstein.png")
-    representa_solucion(casas, rutas_imagenes).save("resources/tmp/solucion_einstein.png")
+    # Elemento central es aquel con valor int
+    for elem in grupos:
+        
+        for k,v in elem.items():
+            if isinstance(v, int):
+                elemento_central = k
+                break
+
+    # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número de elemento central y representamos. Añadimos el array de urls de imágenes
+    if(all(elemento_central in casa for casa in grupos)):
+        grupos = sorted(grupos, key=lambda d: d[elemento_central])
+
+        representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save("resources/tmp/estado_inicial_einstein.png")
+        representa_solucion(elemento_central, grupos, rutas_imagenes).save("resources/tmp/solucion_einstein.png")
+
+        return [0, "OK"]
+    
+    else: return[1, "El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos."]
+
+    # Caso de excepcion en el proceso
+    #except Exception as exc:
+     #   return[1, exc.args]
 
 
 
 ################################################  Debug   ##########################################################
 
-#as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
-#einstein_grafico(as_prueba, [['dog', 'cocacola']])
+if DEBUG:
+    as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+    as_prueba2 = [['pedro', 'car', 1], ['isabel', 'car', 2], ['josito', 'car', 3], ['pedro', 'bebida', 'cocacola'], ['isabel', 'bebida', 'agua'], ['josito', 'bebida', 'leche'], ['pedro','color','red'], ['isabel','color','blue'], ['josito','color','green']]
+    print(einstein_grafico(as_prueba2, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]))
 
+    # Enseña las imgs por pantalla
+    #fondo_estado_inicial.show()
+    fondo_solucion.show()
 
-casa1 = {
-    "house": 1,
-    "person": "brittish",
-    "color": "red",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "ducados"
-}
-casa2 = {
-    "house": 2,
-    "person": "norwegian",
-    "color": "blue",
-    "pet": "cat",
-    "beverage": "coffee",
-    "tobacco": "camel"
-}
-casa3 = {
-    "house": 3,
-    "person": "french",
-    "color": "yellow",
-    "pet": "horse",
-    "beverage": "wine",
-    "tobacco": "marlboro"
-}
-casa4 = {
-    "house": 4,
-    "person": "brittish",
-    "color": "white",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "ducados"
-}
-casa5 = {
-    "house": 5,
-    "person": "brittish",
-    "color": "purple",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "winston"
-}
-casa6 = {
-    "house": 6,
-    "person": "brittish",
-    "color": "pink",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "bluem"
-}
-casa7 = {
-    "house": 7,
-    "person": "brittish",
-    "color": "beige",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "ducados"
-}
-casa8 = {
-    "house": 8,
-    "person": "brittish",
-    "color": "green",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "ducados"
-}
-casa9 = {
-    "house": 9,
-    "person": "brittish",
-    "color": "cyan",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "ducados"
-}
-casa10 = {
-    "house": 10,
-    "person": "brittish",
-    "color": "black",
-    "pet": "dog",
-    "beverage": "milk",
-    "tobacco": "ducados"
-}
+    """
+    casa1 = {
+        "house": 1,
+        "person": "brittish",
+        "color": "red",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "ducados"
+    }
+    casa2 = {
+        "house": 2,
+        "person": "norwegian",
+        "color": "blue",
+        "pet": "cat",
+        "beverage": "coffee",
+        "tobacco": "camel"
+    }
+    casa3 = {
+        "house": 3,
+        "person": "french",
+        "color": "yellow",
+        "pet": "horse",
+        "beverage": "wine",
+        "tobacco": "marlboro"
+    }
+    casa4 = {
+        "house": 4,
+        "person": "brittish",
+        "color": "white",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "ducados"
+    }
+    casa5 = {
+        "house": 5,
+        "person": "brittish",
+        "color": "purple",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "winston"
+    }
+    casa6 = {
+        "house": 6,
+        "person": "brittish",
+        "color": "pink",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "bluem"
+    }
+    casa7 = {
+        "house": 7,
+        "person": "brittish",
+        "color": "beige",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "ducados"
+    }
+    casa8 = {
+        "house": 8,
+        "person": "brittish",
+        "color": "green",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "ducados"
+    }
+    casa9 = {
+        "house": 9,
+        "person": "brittish",
+        "color": "cyan",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "ducados"
+    }
+    casa10 = {
+        "house": 10,
+        "person": "brittish",
+        "color": "black",
+        "pet": "dog",
+        "beverage": "milk",
+        "tobacco": "ducados"
+    }
 
-#casas = [casa1, casa2, casa3]
-#casas = [casa1, casa2, casa3, casa4, casa5, casa6]
-#casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9, casa10]
+    #casas = [casa1, casa2, casa3]
+    #casas = [casa1, casa2, casa3, casa4, casa5, casa6]
+    #casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9, casa10]
 
-#representa_estado_inicial(casas)
-#representa_solucion(casas)
-
-# Enseña la imagen por pantalla
-#fondo_estado_inicial.show()
-#fondo_solucion.show()
+    #representa_estado_inicial(casas)
+    #representa_solucion(casas)
+    
+    """

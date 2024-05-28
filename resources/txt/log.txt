@@ -532,3 +532,184 @@ type(beverage, V) :- beverage(V). beverage(tea; milk; soda). image(soda, cocacol
 
 type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, horse).
 # Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person lives in the second house. The English person lives in the third house. The English person drinks milk. The Chinese person lives in the first house and drinks tea. The Chinese person also owns a horse.
+############ [23:26] LOG ############:
+# Modelo ASP sacado: 
+
+type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+
+has(spanish, beverage, soda).
+
+image(soda, cocacola).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+has(spanish, pet, cat).
+
+has(english, pet, dog).
+
+image(horse, horse).
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person lives in the second house. The English person lives in the third house. The English person drinks milk. The Chinese person lives in the first house and drinks tea. The Chinese person owns a horse.
+############ [23:27] LOG ############:
+# Modelo ASP sacado: 
+
+type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+
+has(spanish, beverage, soda).
+
+image(soda, cocacola).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+has(spanish, pet, cat).
+
+has(english, pet, dog).
+
+image(horse, horse).
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person lives in the house number 2. The English person lives in the house number 3. The English person drinks milk. The Chinese person lives in the house number 1. The Chinese person drinks tea. The Chinese person owns a horse.
+############ [23:29] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+type(person, V) :- person(V). person(spanish; english; chinese).
+
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda). 
+
+person(spanish). has(spanish, beverage, soda). image(soda, cocacola).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+person(spanish). has(spanish, pet, cat). person(english). has(english, pet, dog). image(horse, horse).
+
+
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(spanish,person,english). has(english,house,3). has(english,person,spanish). has(english,beverage,milk). has(chinese,house,1). has(chinese,person,chinese). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Argentinean smokes Pall Mall tobacco. The Chilean person drinks soda. The Spanish person drinks soda and has a cat as pet. The English person is the inhabitant of the house number 3, is the inhabitant of the house number 3, is the inhabitant of the house number 3, and drinks milk. The Chinese person lives in the first house and is the owner of the horse, also drinking tea.
+############ [23:45] LOG ############:
+
+############ [23:45] LOG ############:
+
+############ [23:46] LOG ############:
+# Modelo ASP sacado: 
+
+
+```
+type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, 'horse').
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")
+```.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [23:47] LOG ############:
+# Modelo ASP sacado: 
+
+
+```
+type(house, V) :- house(V). house(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+has(spanish, beverage, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")
+```.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [23:48] LOG ############:
+# Modelo ASP sacado: 
+
+
+```
+type(house, V) :- house(V). house(1..3).
+
+type(person, V) :- person(V). person(spanish; english; chinese).
+
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+
+person(spanish). has(spanish, beverage, soda). image(soda, "cococola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+person(spanish). has(spanish, pet, cat). person(english). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+```.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [23:49] LOG ############:
+
+############ [23:51] LOG ############:
+
+############ [23:54] LOG ############:
+# Modelo ASP sacado: 
+
+
+```
+type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(drink, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(pet, "horse").
+image(pet, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+```.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [23:56] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+person(spanish). has(spanish, drink, soda).
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+# Answer set resuelto: has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(english,house,3). has(english,drink,milk). has(chinese,house,1). has(chinese,drink,tea). has(chinese,pet,horse).# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person lives in the second house. The English person lives in the third house. The English person drinks milk. The Chinese person lives in the first house and drinks tea, owns a horse.
+############ [23:59] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda). has(spanish, beverage, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Spanish person drinks soda, owns a cat, and lives in the second house. The English person owns a dog, lives in the third house, and drinks milk. The Chinese person drinks tea, lives in the first house, and owns a horse.
+############ [0:1] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+
+person(spanish; english; chinese).
+
+has(spanish, beverage, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(spanish,tobacco_brand,camel). has(english,house,3). has(english,tobacco_brand,ducados). has(english,beverage,milk). has(chinese,house,1). has(chinese,tobacco_brand,bluem). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Argentinian smokes Pall's tobacco and the Chilean drinks Soda. The Spanish person drinks Soda, has a cat as pet, lives in the second house, smokes Camel tobacco. The English person lives in the third house, smokes Ducados tobacco, drinks Milk, and has a dog as pet. The Chinese person lives in the first house, smokes Bluem tobacco, drinks Tea, has a horse as pet.
+############ [0:2] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+
+person(spanish). person(english). person(chinese).
+
+has(spanish, beverage, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+has(english, pet, dog). has(spanish, pet, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+# Answer set resuelto: has(spanish,beverage,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,house,2). has(spanish,tobacco_brand,camel). has(english,house,3). has(english,tobacco_brand,ducados). has(english,beverage,milk). has(chinese,house,1). has(chinese,tobacco_brand,bluem). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Argentinean smokes Pall Mall tobacco. The Chilean person drinks soda. The Spanish person drinks soda. The Spanish person owns a cat and lives in the second house and smokes Camel tobacco. The English person owns a dog and lives in the third house and smokes Ducados tobacco. The Chinese person drinks tea, owns a horse, and lives in the first house and smokes Bluem tobacco.

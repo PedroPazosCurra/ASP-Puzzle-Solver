@@ -4,6 +4,8 @@ import clingo
 from os import path
 
 # Variables y Constantes
+DEBUG = False
+
 answer_sets = ""    # has(brittish,house,1). has(brittish,pet,dog).
 has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
 image_routes = []   # [['coffee', 'ruta/coffee.png']]
@@ -53,13 +55,20 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
 
                 match atom.arguments[2].type:
                     case clingo.SymbolType.Function:    has_arg_3 = atom.arguments[2].name
-                    case clingo.SymbolType.Number:      has_arg_3 = atom.arguments[2].number    
+                    case clingo.SymbolType.Number:      has_arg_3 = atom.arguments[2].number  
+                    case clingo.SymbolType.String:      has_arg_3 = atom.arguments[2].string
                     case _:                             has_arg_3 = atom.arguments[2]        
 
                 has_atoms.append([has_arg_1, has_arg_2, has_arg_3])
 
             elif(atom.name == "image" and len(atom.arguments) == 2):
-                image_routes.append([atom.arguments[0].name, atom.arguments[1].name])
+
+                img_arg_1 = atom.arguments[0].name
+
+                match atom.arguments[1].type:
+                    case clingo.SymbolType.Function:    img_arg_2 = atom.arguments[1].name
+                    case clingo.SymbolType.String:      img_arg_2 = atom.arguments[1].string
+                image_routes.append([img_arg_1, img_arg_2])
 
     # ¿Tiene solución?
     if (len(answer_sets) >= 1):
@@ -68,8 +77,9 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
         return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.", None, None])
 
 # Debug:
-modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
-modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
-modelo_invalido = ":-"
-status, ans_sets, has, imageroutes = (resolver_ASP(modelo_unsat, "Einstein"))
-print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")
+if (DEBUG):
+    modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
+    #modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
+    #modelo_invalido = ":-"
+    status, ans_sets, has, imageroutes = (resolver_ASP(modelo_sat, "Einstein"))
+    print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")
