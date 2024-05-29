@@ -11,6 +11,30 @@ has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house',
 image_routes = []   # [['coffee', 'ruta/coffee.png']]
 reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resources/asp/asp_einstein.lp"))
 
+
+
+###########################################   Funciones   ##########################################
+
+
+# Función auxiliar para procesar los argumentos de los átomos
+def procesa_atom_arguments(atom_args):
+
+    lista_args = []
+    arg_listo = ""
+
+    # Procesa los argumentos según su tipo
+    for atom_arg in atom_args:
+        match atom_arg.type:
+            case clingo.SymbolType.Function:    arg_listo = atom_arg.name
+            case clingo.SymbolType.Number:      arg_listo = atom_arg.number  
+            case clingo.SymbolType.String:      arg_listo = atom_arg.string
+            case _:                             arg_listo = atom_arg
+
+        lista_args.append(arg_listo)
+    
+    return lista_args
+
+
 # Función a exportar: resolver_ASP
 #
 #   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un Answer Set con la solución
@@ -53,25 +77,14 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
 
             if(atom.name == "has" and len(atom.arguments) == 3):
 
-                # Toma los 3 argumentos del has (el tercero puede ser string o numero)
-                has_arg_1 = atom.arguments[0].name
-                has_arg_2 = atom.arguments[1].name
-
-                match atom.arguments[2].type:
-                    case clingo.SymbolType.Function:    has_arg_3 = atom.arguments[2].name
-                    case clingo.SymbolType.Number:      has_arg_3 = atom.arguments[2].number  
-                    case clingo.SymbolType.String:      has_arg_3 = atom.arguments[2].string
-                    case _:                             has_arg_3 = atom.arguments[2]        
-
+                # Toma los 3 argumentos del has(X,Y,Z)
+                has_arg_1, has_arg_2, has_arg_3 = procesa_atom_arguments(atom.arguments)  
                 has_atoms.append([has_arg_1, has_arg_2, has_arg_3])
 
             elif(atom.name == "image" and len(atom.arguments) == 2):
 
-                img_arg_1 = atom.arguments[0].name
-
-                match atom.arguments[1].type:
-                    case clingo.SymbolType.Function:    img_arg_2 = atom.arguments[1].name
-                    case clingo.SymbolType.String:      img_arg_2 = atom.arguments[1].string
+                # Toma 2 args del image(X,Y)
+                img_arg_1, img_arg_2 = procesa_atom_arguments(atom.arguments)
                 image_routes.append([img_arg_1, img_arg_2])
 
     # ¿Tiene solución?
