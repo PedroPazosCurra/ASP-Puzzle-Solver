@@ -1,7 +1,7 @@
 INPUT: There are ten houses.
 OUTPUT: type(house, V) :- house(V). house(1..10).
-INPUT: In my puzzle there is a Brit, a Norwegian, a German and a Dane.
-OUTPUT: person(brittish; norwegian; german; dane).
+INPUT: In my puzzle there is a Brit, a Norwegian, a German and a Dane. There are 4 buildings. There are four icecream flavors: vanilla, soda, cookie and chocolate.
+OUTPUT: person(brittish; norwegian; german; dane). type(building, V) :- building(V). building(1..4). type(icecream_flavor, V) :- icecream_flavor(V). icecream_flavor(vanilla; soda; cookie; chocolate).
 INPUT: I have 3 people: a Swede, a Dane and a Norwegian. Each one of them lives in a house.
 OUTPUT: person(swede; dane; norwegian). type(house, V) :- house(V). house(1..3).
 INPUT: There are 5 people: a German, an Italian; a Brittish, a Spaniard and a Chinese.
@@ -46,8 +46,8 @@ INPUT: In this exercise there are the following pets: a horse, a bird, a fish an
 OUTPUT: type(pet, V) :- pet(V). pet(horse; bird; fish; lizard).
 INPUT: The drinks and the pets are the following: coffee, milk, dog and cat, respectively.
 OUTPUT: type(beverage, V) :- beverage(V). beverage(coffee; milk). type(pet, V) :- pet(V). pet(dog; cat).
-INPUT: The brittish man lives in the red house.
-OUTPUT: person(brittish). type(color, V) :- color(V). color(red). has(brittish, color, red).
+INPUT: The brittish man lives in a red house. Represent the red house with https://fotocasa.com/casa
+OUTPUT: person(brittish). type(color, V) :- color(V). color(red). has(brittish, color, red). type(house, V) :- house(V). house(1). image(house, "https://fotocasa.com/casa").
 INPUT: The norwegian lives in the house painted in purple.
 OUTPUT: person(norwegian). type(color, V) :- color(V). color(purple). has(norwegian, color, purple).
 INPUT: The albanese kid lives in the black painted home.
@@ -86,5 +86,5 @@ INPUT: In this puzzle there are three houses, and there are three people: one is
 OUTPUT: type(house, V) :- house(V). house(1..3). person(iranian; french; portuguese). person(iranian). person(french). left_to(iranian, french). person(portuguese). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(marlboro). has(portuguese, tobacco_brand, marlboro). person(french). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(winston). has(french, tobacco_brand, winston). person(french). type(color, V) :- color(V). color(white). has(french, color, white). person(iranian). type(color, V) :- color(V). color(yellow). has(iranian, color, yellow). person(portuguese). type(color, V) :- color(V). color(blue). has(portuguese, color, blue).
 INPUT: There are 3 tobacco brands: Ducados, Camel and Bluem. There are also three drinks: coffee, water and tea.
 OUTPUT: type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem). type(beverage, V) :- beverage(V). beverage( coffee; water; tea).
-### Given this examples, parse the following sentence: ###
+### Given this examples, process only the following input. You will be penalized if your output is non ASP parsable. You must always use double quotes instead of single quotes. ###
 INPUT: 

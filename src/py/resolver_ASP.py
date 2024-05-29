@@ -40,7 +40,11 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
 
     # Se devuelve el set si el programa es SAT y un error si no.
 
-    solve_handle = cc.solve(yield_= True)
+    try:
+        solve_handle = cc.solve(yield_= True)
+    except:
+        return([1, "Ha habido un problema en el proceso de solving ASP", None, None])
+
 
     # En caso de que haya modelos, se recogen los átomos en listas.
     for model in solve_handle:

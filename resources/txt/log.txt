@@ -713,3 +713,1856 @@ type(pet, V) :- pet(V). pet(dog; cat; horse).
 
 has(english, pet, dog). has(spanish, pet, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
 # Answer set resuelto: has(spanish,beverage,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,house,2). has(spanish,tobacco_brand,camel). has(english,house,3). has(english,tobacco_brand,ducados). has(english,beverage,milk). has(chinese,house,1). has(chinese,tobacco_brand,bluem). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Argentinean smokes Pall Mall tobacco. The Chilean person drinks soda. The Spanish person drinks soda. The Spanish person owns a cat and lives in the second house and smokes Camel tobacco. The English person owns a dog and lives in the third house and smokes Ducados tobacco. The Chinese person drinks tea, owns a horse, and lives in the first house and smokes Bluem tobacco.
+############ [12:56] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+type(color, V) :- color(V). color(red). has(spanish, color, red).
+type(color, V) :- color(V). color(blue). has(englishman, color, blue).
+has(chinese, color, purple).
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,color,red). has(englishman,color,blue). has(chinese,color,purple). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,house,2). has(spanish,beverage,water). has(english,house,3). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(english,color,blue). has(chinese,house,1). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).# Explicación LN: The Spanish person's house is colored red, the English person's house is colored blue, the Chinese person lives in the first house, the Spanish person owns a dog, the Chinese person drinks tea, the Spanish person smokes Ducados tobacco, the Spanish person lives in the second house, the Spanish person drinks water, the English person lives in the third house, the English person owns a duck, the English person smokes Camel tobacco, the English person drinks coffee, the English person's house is colored blue, the Chinese person lives in the first house, the Chinese person owns a cat, the Chinese person smokes Bluem tobacco.
+############ [12:56] LOG ############:
+
+############ [12:59] LOG ############:
+
+############ [13:1] LOG ############:
+# Modelo ASP sacado: 
+type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+has(spanish, house, 1). has(spanish, pet, dog). has(spanish, tobacco_brand, ducados).
+
+has(english, house, 2). has(english, house, blue).
+
+has(chinese, house, 3). has(chinese, beverage, tea).
+# Answer set resuelto: 
+El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+############ [13:3] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish). person(english). person(chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+has(spanish, house, 1). color(spanish, red). has(english, house, 2). color(english, blue). has(chinese, house, 3). color(chinese, purple). has(spanish, pet, dog). has(chinese, beverage, tea). has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,beverage,water). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Spanish person has a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco and drinks water. The English person has a duck. The English person smokes Camel tobacco and drinks coffee. The Chinese person has a cat. The Chinese person smokes Bluem tobacco.
+############ [13:6] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+type(color, V) :- color(V). color(red; blue; purple).
+has(spanish, house, 1).
+has(english, house, 2).
+has(chinese, house, 3).
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,beverage,water). has(spanish,color,blue). has(english,pet,duck). has(english,tobacco_brand,bluem). has(english,beverage,coffee). has(english,color,purple). has(chinese,pet,cat). has(chinese,tobacco_brand,camel). has(chinese,color,red).# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco, drinks water, and his house is colored blue. The English person owns a duck, smokes Bluem tobacco, drinks coffee, and his house is purple. The Chinese person owns a cat, smokes Camel tobacco, and their house is colored red.
+############ [13:15] LOG ############:
+# Modelo ASP sacado: 
+`type(house, V) :- house(V). house(1..3).`
+`person(spanish; english; chinese).`
+`type(pet, V) :- pet(V). pet(dog; cat; duck).`
+`type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).`
+`type(beverage, V) :- beverage(V). beverage( coffee; water; tea).`
+`person(spanish). type(color, V) :- color(V). color(red). has(spanish, color, red).`
+`person(english). type(color, V) :- color(V). color(blue). has(english, color, blue).`
+`person(chinese). type(color, V) :- color(V). color(purple). has(chinese, color, purple).`
+`has(spanish, pet, dog).`
+`has(chinese, beverage, tea).`
+`has(spanish, tobacco_brand, ducados).`
+
+Let me know if this meets your requirements!.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [13:16] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+person(spanish). person(english). person(chinese).
+has(spanish, house, 1), has_color(spanish, red).
+has(english, house, 2), has_color(english, blue).
+has(chinese, house, 3), has_color(chinese, purple).
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,house,2). has(spanish,beverage,water). has(english,house,3). has(english,pet,duck). has(english,tobacco_brand,bluem). has(english,beverage,coffee). has(chinese,house,1). has(chinese,pet,cat). has(chinese,tobacco_brand,camel).# Explicación LN: The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco and lives in the second house. He also drinks water. The English person lives in the third house. He owns a duck. He smokes Bluem tobacco and drinks coffee. The Chinese person lives in the first house and owns a cat.
+############ [13:17] LOG ############:
+# Modelo ASP sacado: 
+type(house, V) :- house(V). house(1..3).
+
+person(spanish). person(english). person(chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage( coffee; water; tea).
+
+person(spanish). has(spanish, house, ?). color(spanish, house, red).
+
+person(english). has(english, house, ?). color(english, house, blue).
+
+person(chinese). has(chinese, house, ?). color(chinese, house, purple).
+
+has(spanish, pet, dog).
+
+has(chinese, beverage, tea).
+
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [13:17] LOG ############:
+# Modelo ASP sacado: 
+`type(house, V) :- house(V). house(1..3).`
+`type(person, V) :- person(V). person(spanish; english; chinese).`
+`type(pet, V) :- pet(V). pet(dog; cat; duck).`
+`type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).`
+`type(beverage, V) :- beverage(V). beverage(coffee; water; tea).`
+`has(spanish, house, 1), has(english, house, 2), has(chinese, house, 3).`
+`has(spanish, pet, dog).`
+`has(chinese, beverage, tea).`
+`has(spanish, tobacco_brand, ducados).`.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [13:18] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+person(spanish). has(spanish, house, 1). has(spanish, color, red).
+person(english). has(english, house, 2). has(english, color, blue).
+person(chinese). has(chinese, house, 3). has(chinese, color, purple).
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(spanish,color,red). has(english,house,2). has(english,color,blue). has(chinese,house,3). has(chinese,color,purple). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,beverage,water). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).# Explicación LN: The Spanish person lives in the first house and it is painted red. The English person lives in the second house and it is painted blue. The Chinese person lives in the third house and it is painted purple. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco and drinks water. The English person owns a duck, smokes Camel tobacco and drinks coffee. The Chinese person owns a cat and smokes Bluem tobacco.
+############ [13:22] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+type(color, V) :- color(V). color(red). color(blue). color(purple).
+
+has(spanish, house, 1). color(spanish, red).
+
+has(english, house, 2). color(english, blue).
+
+has(chinese, house, 3). color(chinese, purple).
+
+has(spanish, pet, dog).
+
+has(chinese, beverage, tea).
+
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,beverage,water). has(spanish,color,blue). has(english,pet,duck). has(english,tobacco_brand,bluem). has(english,beverage,coffee). has(english,color,purple). has(chinese,pet,cat). has(chinese,tobacco_brand,camel). has(chinese,color,red).# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco and drinks water, and their house is painted blue. The English person owns a duck. The English person smokes Bluem tobacco, drinks coffee, and their house is purple. The Chinese person owns a cat and has Camel tobacco.
+############ [13:23] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+type(color, V) :- color(V). color(red; blue; purple).
+
+has(spanish, color, red).
+
+has(english, color, blue).
+
+has(chinese, color, purple).
+
+has(spanish, pet, dog).
+
+has(chinese, beverage, tea).
+
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,color,red). has(english,color,blue). has(chinese,color,purple). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,house,2). has(spanish,beverage,water). has(english,house,3). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,house,1). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).# Explicación LN: The Spanish person's house is colored red. The English person's house is colored blue. The Chinese person's house is purple. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco. The Spanish person lives in the second house. The Spanish person drinks water. The English person lives in the third house. The English person owns a duck. The English person smokes Camel tobacco. The English person drinks coffee. The Chinese person lives in the first house. The Chinese person owns a cat. The Chinese person smokes Bluem tobacco.
+############ [13:36] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+type(color, V) :- color(V). color(red; blue; purple).
+person(spanish). has(spanish, house, 1). has_color(spanish, red).
+person(english). has(english, house, 2). has_color(english, blue).
+person(chinese). has(chinese, house, 3). has_color(chinese, purple). has(chinese, beverage, tea).
+person(spanish). has(spanish, pet, dog). has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(chinese,beverage,tea). has(spanish,pet,dog). has(spanish,tobacco_brand,ducados). has(spanish,beverage,water). has(spanish,color,blue). has(english,pet,duck). has(english,tobacco_brand,bluem). has(english,beverage,coffee). has(english,color,purple). has(chinese,pet,cat). has(chinese,tobacco_brand,camel). has(chinese,color,red).# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Chinese person drinks tea. The Spanish person owns a dog. The Spanish person smokes Ducados tobacco and drinks water. The Spanish person's house is colored blue. The English person owns a duck. The English person smokes Bluem tobacco and drinks coffee. The English person's house is colored purple. The Chinese person owns a cat. The Chinese person smokes Camel tobacco and their house is colored red.
+############ [13:37] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+type(color, V) :- color(V). color(red; blue; purple).
+person(spanish; english; chinese).
+has(spanish, house, 1).
+has(english, house, 2).
+has(chinese, house, 3).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+person(spanish). has(spanish, pet, dog).
+person(chinese). has(chinese, beverage, tea).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+person(spanish). has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,color,red). has(chinese,color,purple). has(chinese,pet,duck). has(chinese,tobacco_brand,camel). has(english,color,blue). has(english,pet,cat). has(english,tobacco_brand,bluem).# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Spanish person has a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco. The Chinese person's house is colored purple. The Chinese person has a duck as pet. The Chinese person prefers Camel tobacco brand. The English person's house is colored blue. The English person has a cat as pet. The English person smokes Bluem tobacco brand.
+############ [13:38] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+type(color, V) :- color(V). color(red; blue; purple).
+has(spanish, house, 1), color(red).
+has(english, house, 2), color(blue).
+has(chinese, house, 3), color(purple).
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,house,2). has(spanish,beverage,water). has(spanish,color,purple). has(english,house,3). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(english,color,blue). has(chinese,house,1). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem). has(chinese,color,red).# Explicación LN: The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco and lives in the second house which is purple-colored. The English person lives in the third house. The English person owns a duck. The English person smokes Camel tobacco. The English person drinks coffee. The English house is blue. The Chinese person lives in the first house. The Chinese person owns a cat. The Chinese person smokes Bluem tobacco. The Chinese house is red.
+############ [13:38] LOG ############:
+# Modelo ASP sacado: 
+`type(house, V) :- house(V). house(1..3).`
+`person(spanish; english; chinese).`
+`type(pet, V) :- pet(V). pet(dog; cat; duck).`
+`type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).`
+`type(beverage, V) :- beverage(V). beverage(coffee; water; tea).`
+`has(spanish, house, 1), has_color(spanish, red).`
+`has(english, house, 2), has_color(english, blue).`
+`has(chinese, house, 3), has_color(chinese, purple).`
+`has(spanish, pet, dog).`
+`has(chinese, beverage, tea).`
+`has(spanish, tobacco_brand, ducados).`.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [13:39] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+has(spanish, color, red).
+has(english, color, blue).
+has(chinese, color, purple).
+
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,color,red). has(english,color,blue). has(chinese,color,purple). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,house,2). has(spanish,beverage,water). has(english,house,3). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,house,1). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).# Explicación LN: The Spanish person's house is colored red. The English person's house is colored blue. The Chinese person's house is colored purple. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco. The Spanish person lives in the house number 2. The Spanish person drinks water. The English person lives in the house number 3. The English person owns a duck. The English person smokes Camel tobacco. The English person drinks coffee. The Chinese person lives in the house number 1. The Chinese person owns a cat. The Chinese person smokes Bluem tobacco.
+############ [13:44] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+type(person, V) :- person(V). person(spanish; english; chinese).
+
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+
+person(spanish). has(spanish, beverage, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+person(spanish). has(spanish, pet, cat).
+
+person(english). has(english, pet, dog).
+
+image(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(spanish,person,english). has(english,house,3). has(english,person,spanish). has(english,beverage,milk). has(chinese,house,1). has(chinese,person,chinese). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Argentinean smokes Pall Mall tobacco and the Chilean drinks Soda. The Spanish person drinks Soda, has a cat as pet, lives in the second house. The English person has a dog as pet, lives in the third house, is the person who lives in the Spanish house, drinks Milk. The Chinese person drinks Tea, lives in the first house, is the owner of a horse and has it as a pet.
+############ [13:45] LOG ############:
+# Modelo ASP sacado: 
+`type(house, V) :- house(V). house(1..3).`
+`person(spanish; english; chinese).`
+`type(drink, V) :- drink(V). drink(tea; milk; soda).`
+`has(spanish, drink, soda).`
+`image(drink, "cocacola").`
+`type(pet, V) :- pet(V). pet(dog; cat; horse).`
+`has(spanish, pet, cat).`
+`has(english, pet, dog).`
+`image(pet, horse).`
+`image(pet, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").`.
+# Answer set resuelto: 
+Ha habido un problema en el proceso de grounding ASP
+############ [13:46] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+has(spanish, beverage, soda).
+image(soda, 'cocacola').
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, 'horse').
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+# Answer set resuelto: has(spanish,beverage,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,2). has(english,house,3). has(english,beverage,milk). has(chinese,house,1). has(chinese,beverage,tea). has(chinese,pet,horse).# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English neighbor owns a dog. The Spanish person lives in the second house. The English neighbor lives in the third house. The English neighbor drinks milk. The Chinese person lives in the first house and drinks tea. The Chinese person owns a horse.
+############ [13:51] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+type(color, V) :- color(V). color(red). color(blue). color(purple).
+person(spanish). has(spanish, house, 1). has_color(spanish, red).
+person(english). has(english, house, 2). has_color(english, blue).
+person(chinese). has(chinese, house, 3). has_color(chinese, purple).
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,beverage,water). has(spanish,color,blue). has(english,pet,duck). has(english,tobacco_brand,bluem). has(english,beverage,coffee). has(english,color,purple). has(chinese,pet,cat). has(chinese,tobacco_brand,camel). has(chinese,color,red).# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco, drinks water, and paints his house blue. The English person owns a duck, smokes Bluem tobacco, drinks coffee, and paints their house purple. The Chinese person owns a cat, smokes Camel tobacco, and paints their house red.
+############ [14:23] LOG ############:
+# Modelo ASP sacado: type(house, V) :- house(V). house(1..3).
+
+person(spanish; english; chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+type(color, V) :- color(V). color(red). color(blue). color(purple).
+
+has(spanish, house, 1). has(english, house, 2). has(chinese, house, 3).
+
+has(spanish, pet, dog).
+
+has(chinese, beverage, tea).
+
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,beverage,water). has(spanish,color,blue). has(english,pet,duck). has(english,tobacco_brand,bluem). has(english,beverage,coffee). has(english,color,purple). has(chinese,pet,cat). has(chinese,tobacco_brand,camel). has(chinese,color,red).# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco and drinks water. The Spanish person's house is blue. The English person owns a duck. The English person smokes Bluem tobacco and drinks coffee. The English person's house is purple. The Chinese person owns a cat.
+############ [15:36] LOG ############:
+The Spanish person drinks soda and owns a cat, lives in the second house, the English person owns a dog, lives in the third house and drinks milk, the Chinese person lives in the first house, drinks tea and owns a horse.
+############ [15:37] LOG ############:
+
+############ [15:42] LOG ############:
+
+############ [15:42] LOG ############:
+# Modelo ASP sacado: 
+	`type(house, V) :- house(V). house(1..3).`
+`person(spanish; english; chinese).`
+`type(pet, V) :- pet(V). pet(dog; cat; duck).`
+`type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).`
+`type(beverage, V) :- beverage(V). beverage(coffee; water; tea).`
+`has(spanish, color, red).`
+`has(english, color, blue).`
+`has(chinese, color, purple).`
+`has(spanish, pet, dog).`
+`has(chinese, beverage, tea).`
+`has(spanish, tobacco_brand, ducados).`.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [15:43] LOG ############:
+The Spanish person's house is colored red. The English person's house is colored blue. The Chinese person's house is purple. The Spanish person owns a dog. The Chinese person drinks tea. The Spanish person smokes Ducados tobacco and lives in the second house. He also drinks water. The English person lives in the third house, owns a duck, smokes Camel tobacco and drinks coffee. The Chinese person lives in the first house, owns a cat and smokes Bluem tobacco.
+############ [15:46] LOG ############:
+The Spanish person drinks soda and owns a cat. He lives in the second house. The English person lives in the third house and drinks milk, also he owns a dog. The Chinese person lives in the first house, drinks tea and owns a horse.
+############ [16:4] LOG ############:
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+has(spanish, beverage, soda).
+image(beverage, 'cocacola').
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(pet, horse).
+image(pet, https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [16:4] LOG ############:
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(camelsoda).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda). type(image, V) :- image(V). image("https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(pet, V) :- pet(V). pet(dog; cat; horse). person(spanish). type(pet, V) :- pet(V). pet(cat). has(spanish, pet, cat). person(english). type(pet, V) :- pet(V). pet(dog). has(english, pet, dog). type(image, V) :- image(V). image(horse). has(horse, image, horse).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [16:5] LOG ############:
+The Argentinian smokes Pall Mall tobacco, the Chilean drinks soda. The Spanish person drinks soda, owns a cat, lives in the second house and smokes Camel tobacco. The English neighbor lives in the house number 3, smokes Ducados tobacco, drinks milk and owns a dog. The Chinese person lives in the first house, drinks tea, owns a horse and smokes Bluem tobacco.
+############ [16:6] LOG ############:
+The Argentinean smokes Pall Mall tobacco and the Chilean drinks soda. The Spanish person drinks soda and owns a cat. The English person owns a dog and their house is colored red. The Chinese person's house is colored purple and it is located at number 1. The Spanish person who is an English person lives in the second house. The English person who is a Spanish person lives in the third house and drinks milk. The Chinese person who is also Chinese lives in the first house and drinks tea and owns a horse.
+############ [16:8] LOG ############:
+0|modelo nl_to_asp : type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+has(spanish, drink, soda). image(soda, "cocacola"). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red). has(spanish, color, red). 
+type(color, V) :- color(V). color(purple). has(chinese, color, purple). >>>>>>>>
+answer sets : has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,house,2). has(english,house,3). has(english,drink,milk). has(chinese,house,1). has(chinese,drink,tea). has(chinese,pet,horse). ///
+ has : [['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'color', 'red'], ['chinese', 'color', 'purple'], ['spanish', 'house', 2], ['english', 'house', 3], ['english', 'drink', 'milk'], ['chinese', 'house', 1], ['chinese', 'drink', 'tea'], ['chinese', 'pet', 'horse']] ///
+ imgs : [['soda', 'cocacola'], ['horse', 'horse'], ['cat', 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg']] >>>>>>>
+explicacion: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is painted red. The Chinese house is painted purple. The Chinese person lives in the first house and drinks tea, owns a horse and a pet. The English person lives in the house number 3 and drinks milk.
+############ [16:9] LOG ############:
+The Spanish person drinks soda and owns a cat. He also paints his house red and smokes Camel tobacco. The Chinese person owns a horse, paints his house purple, smokes Bluem tobacco, drinks tea, and owns a horse as a pet. The English person drinks milk, owns a dog, lives in the house number 3, smokes Ducados tobacco, and does not have any other information available.
+############ [16:27] LOG ############:
+The Spanish person drinks soda and owns a cat. The English person owns a dog and lives in the house number 3 and drinks milk. The Chinese person's house is purple, lives in the first house, drinks tea, owns a horse and lives in the house number 1.
+############ [16:29] LOG ############:
+The Argentinian, the Chilean, the Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person's house is red. The Chinese person's house is purple. The Spanish person lives in the second house, smokes Camel tobacco. The English person lives in the third house, smokes Ducados tobacco and drinks milk. The Chinese person lives in the first house, smokes Bluem tobacco, drinks tea, and owns a horse.
+############ [16:30] LOG ############:
+The Argentinian smokes Pall Mall tobacco. The Chilean drinks soda. The Spanish person drinks soda, owns a cat, lives in the second house, and their house is colored red. The Chinese person owns a horse, drinks tea, lives in the first house, and is also Chinese. The English person speaks Spanish, lives in the third house, and drinks milk.
+############ [16:30] LOG ############:
+The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is colored purple. The Chinese person lives in the first house. The Chinese person drinks tea. The Chinese person owns a horse.
+############ [16:34] LOG ############:
+The Argentinian drinks soda and the Chilean also drinks soda. The Spanish person owns a cat, has a house at number 2, is an English-speaking person, lives in the second house, speaks English, lives in the third house, drinks milk, owns a cat, paints their house red, owns a horse as pet. The Chinese person drinks tea, owns a horse, has a house at number 1, speaks Chinese, drinks tea, owns a horse, has a house at number 1, owns a horse as pet.
+############ [16:37] LOG ############:
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(beverage, V) :- beverage(V). beverage(tea; milk; soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+# Answer set resuelto: 
+	has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,house,2). has(spanish,beverage,milk). has(english,house,3). has(english,beverage,tea). has(chinese,house,1). has(chinese,beverage,soda). has(chinese,pet,horse).
+# Explicación LN: The Spanish person owns a cat. The English person owns a dog. The Spanish house is painted red. The Chinese house is painted purple. The Spanish person lives in the second house and drinks milk. The English person lives in the third house and drinks tea. The Chinese person lives in the first house and drinks soda. The Chinese person also owns a horse as a pet.
+
+############ [17:48] LOG ############:
+# Modelo ASP sacado: 
+	Based on the given examples, I will parse the input sentence as follows:
+
+* There are three boats.: type(boat, V) :- boat(V). boat(1..3).
+* There are a spanish, an english and a chinese.: person(spanish; english; chinese)
+* There are three drinks: tea, milk and soda.: type(beverage, V) :- beverage(V). beverage(tea; milk; soda).
+* The spanish man drinks soda.: person(spanish). type(beverage, V) :- beverage(V). beverage(soda). has(spanish, beverage, soda).
+* Represent soda with the image 'cocacola': image(soda, "cocacola")
+* There's a dog, a cat and a horse.: type(pet, V) :- pet(V). pet(dog; cat; horse).
+* The spanish keeps the cat, while the english man has a dog.: person(spanish). type(pet, V) :- pet(V). pet(cat). has(spanish, pet, cat). person(english). type(pet, V) :- pet(V). pet(dog). has(english, pet, dog).
+* The horse is represented by the image called "horse": image(horse, "horse")
+* The cat is represented by "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg": image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")
+* The spanish man has a red house.: person(spanish). type(color, V) :- color(V). color(red). has(spanish, color, red).
+* The chinese man, on the other hand, lives in a purple house.: person(chinese). type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+* Represent the boats with the image "https://cdn-icons-png.freepik.com/512/861/861011.png": image(boat, "https://cdn-icons-png.freepik.com/512/861/861011.png").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [17:49] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+person(spanish). type(pet, V) :- pet(V). pet(cat). has(spanish, pet, cat). person(english). type(pet, V) :- pet(V). pet(dog). has(english, pet, dog).
+
+type(color, V) :- color(V). color(red). has(spanish, color, red).
+
+person(chinese). type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+
+image(boat, "https://cdn-icons-png.freepik.com/512/861/861011.png").
+# Answer set resuelto: 
+	has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(spanish,drink,soda). has(english,boat,2). has(english,drink,milk). has(chinese,boat,1). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person owns a cat, an English person owns a dog, the Spanish house is colored red, the Chinese house is purple, the Spanish owns boat number 3, the Spanish drinks soda, an English person owns boat number 2, the English person drinks milk, a Chinese person owns boat number 1, a Chinese person drinks tea and owns a horse.
+
+############ [17:53] LOG ############:
+# Modelo ASP sacado: 
+	type(person, V) :- person(V). person(spanish; english; chinese).
+
+type(house, V) :- house(V). house(1..3). person(spanish). person(chinese). has(spanish, house, 1). has(chinese, house, 3). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+type(boat, V) :- boat(V). boat(1..3). image(boat, "https://cdn-icons-png.freepik.com/512/861/861011.png").
+# Answer set resuelto: 
+	has(spanish,house,1). has(chinese,house,3). has(spanish,color,red). has(chinese,color,purple). has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,person,spanish). has(spanish,tobacco_brand,ducados). has(spanish,boat,2). has(chinese,person,chinese). has(chinese,drink,milk). has(chinese,pet,horse). has(chinese,tobacco_brand,bluem). has(chinese,boat,3). has(english,person,english). has(english,house,2). has(english,drink,tea). has(english,tobacco_brand,camel). has(english,boat,1).
+# Explicación LN: The Spanish person lives in the first house. The Chinese person lives in the house number 3. The Spanish house is colored red. The Chinese house is colored purple. The Spanish person drinks soda. The Spanish person has a cat as a pet. The English person has a dog as a pet. The Spanish person is Spanish. The Spanish person smokes Ducados tobacco. The Spanish person has a boat numbered 2. The Chinese person is Chinese. The Chinese person drinks milk. The Chinese person has a horse as a pet. The Chinese person smokes Bluem tobacco. The Chinese person has a boat numbered 3. The English person is English. The English person lives in the house number 2. The English person drinks tea. The English person smokes Camel tobacco. The English person has a boat numbered 1.
+
+############ [17:55] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(house, V) :- house(V). house(1..3). has(spanish, house, 1). has(chinese, house, 3).
+has(spanish, color, red).
+has(chinese, color, purple).
+image(boat, "https://cdn-icons-png.freepik.com/512/861/861011.png").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,1). has(chinese,house,3). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(spanish,person,spanish). has(english,boat,3). has(english,person,english). has(english,drink,tea). has(english,house,2). has(chinese,boat,2). has(chinese,person,chinese). has(chinese,drink,milk). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person lives in the first house. The Chinese person lives in the third house. The Spanish house is colored red. The Chinese house is purple. The Spanish person owns boat number 1. The Spanish person is Spanish. The English person owns boat number 3. The English person is English. The English person drinks tea. The English person lives in the second house. The Chinese person lives in the second house. The Chinese person is Chinese. The Chinese person drinks milk. The Chinese person owns a horse.
+
+############ [17:57] LOG ############:
+# Modelo ASP sacado: 
+	Here is the output for the last iteration:
+
+
+type(boat, V) :- boat(V). boat(1..3). type(color, V) :- color(V). color(red; purple). has(spanish, boat, 1). has(chinese, boat, 2). type(image, V) :- image(V). image("https://cdn-icons-png.freepik.com/512/861/861011.png").
+type(person, V) :- person(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:1] LOG ############:
+# Modelo ASP sacado: 
+	Here is the processed input:
+
+
+type(boat, V) :- boat(V). boat(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). image(soda, "cocacola"). has(spanish, drink, soda).
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). boat_color(purple). has(chinese, boat_color, purple).
+image(boat, "https://cdn-icons-png.freepik.com/512/861/861011.png").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:4] LOG ############:
+# Modelo ASP sacado: 
+	type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, 'cocacola').
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog).
+image(cat, 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'). image(horse, 'horse').
+type(boat, V) :- boat(V). boat(1..3).
+has(spanish, boat, 1). has(chinese, boat, 3).
+image(boat, 'https://cdn-icons-png.freepik.com/512/861/861011.png').
+color(red). has(spanish, color, red).
+color(purple). has(chinese, color, purple).
+image(red, 'red'). image(purple, 'purple').
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:5] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V), boat(1..3).
+type(person, V) :- person(V), person(spanish; english; chinese).
+type(drink, V) :- drink(V), drink(tea; milk; soda).
+has(spanish, drink, soda), has(spanish, drink, 'cocacola').
+type(pet, V) :- pet(V), pet(dog; cat; horse).
+has(spanish, pet, cat), has/english, pet, dog).
+has(spanish, pet, 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'), has(english, pet, 'dog').
+has(spanish, boat, 1), has(chinese, boat, 2).
+has(spanish, boat, 'https://cdn-icons-png.freepik.com/512/861/861011.png'), has(chinese, boat, 'https://cdn-icons-png.freepik.com/512/861/861011.png').
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:8] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). type(boat_color, V) :- boat_color(V). boat_color(purple). has(chinese, boat_color, purple). image(boat, "https://cdn-icons-png.freepik.com/512/861/861011.png").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat, has a boat that is number 1 and is painted red. The English person owns a dog and a boat that is number 3, drinks milk. The Chinese person drinks tea, owns a horse and a boat that is number 2, and the boat is painted purple.
+
+############ [18:10] LOG ############:
+# Modelo ASP sacado: 
+	% There are three boats.
+type(boat, V) :- boat(V), boat(1..3).
+
+% There are a spanish, an english and a chinese.
+person(spanish; english; chinese).
+
+% There are three drinks: tea, milk and soda.
+type(drink, V) :- drink(V), drink(tea; milk; soda).
+
+% The spanish man drinks soda.
+has(spanish, drink, soda).image(soda, 'cocacola').
+
+% There's a dog, a cat and a horse.
+type(pet, V) :- pet(V), pet(dog; cat; horse).
+
+% The spanish keeps the cat.
+has(spanish, pet, cat).
+
+% The english man has a dog.
+has(english, pet, dog).
+
+% The horse is represented by the image called "horse".
+image(horse, "horse").
+
+% The cat is represented by the image called "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")% The spanish man has a red boat.
+has(spanish, boat, 1).
+
+% The chinese man, on the other hand, lives in a purple boat.
+has(chinese, boat, 3).
+
+% Represent the boats with the image "https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/Travel-pict-boat.png"
+image(boat, "https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/Travel-pict-boat.png").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:13] LOG ############:
+# Modelo ASP sacado: 
+	% There are three boats.
+type(boat, V) :- boat(V).
+boat(1..3).
+
+% There are a spanish, an english and a chinese.
+person(spanish; english; chinese).
+
+% There are three drinks: tea, milk and soda.
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+
+% The spanish man drinks soda.
+has(spanish, drink, soda). % Use 'has' instead of 'drink'
+image(soda, 'cocacola').
+
+% There's a dog, a cat and a horse.
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+
+% The spanish keeps the cat, while the english man has a dog.
+has(spanish, pet, cat).
+has(english, pet, dog).
+
+% The horse is represented by the image called "horse".
+image(horse, "horse").
+
+% The cat is represented by "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")
+
+% The spanish man has a red boat.
+has(spanish, boat, 1).
+
+% The chinese man, on the other hand, lives in a purple boat.
+has(chinese, boat, 3).% Represent the boats with the image ""
+% Since no specific images are mentioned for the boats, we cannot provide the full URL for the images. However, here's how it could look like:
+image(boat, "boat_image")
+image(boat, "boat_image")
+image(boat, "boat_image").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:14] LOG ############:
+# Modelo ASP sacado: 
+	% Input:
+There are three boats. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image 'cocacola'. There's a dog, a cat and a horse. The spanish man keeps the cat, while the english man has a dog. The horse is represented by the image called "horse". The cat is represented by "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg" The spanish man has a red boat. The chinese man, on the other hand, lives in a purple boat. Represent the boats with the image "https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/Travel-pict-boat.png".
+
+% Output:
+type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+type(animal, V) :- animal(V). animal(dog; cat; horse).
+has(spanish, animal, cat).
+has(english, animal, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+image(boat, "https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/Travel-pict-boat.png").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:16] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). color(purple). has(chinese, color, purple). type(image, V) :- image(V). image("https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/Travel-pict-boat.png").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(english,boat,2). has(english,drink,milk). has(chinese,boat,1). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,image,"https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/Travel-pict-boat.png").
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is purple. The Spanish person has a boat numbered 3. The English person has a boat numbered 2. The English person drinks milk. The Chinese person has a boat numbered 1. The Chinese person drinks tea. The Chinese person owns a horse. The Chinese person has an image of a boat.
+
+############ [18:18] LOG ############:
+# Modelo ASP sacado: 
+	% There are three boats.
+% There are a spanish, an english and a chinese.
+% There are three drinks: tea, milk and soda.
+% The spanish man drinks soda.
+% Represent soda with the image 'cocacola'.
+% There's a dog, a cat and a horse.
+% The spanish man keeps the cat, while the english man has a dog.
+% The horse is represented by the image called "horse".
+% The cat is represented by "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"
+% The spanish man has a red boat.
+% The chinese man, on the other hand, lives in a purple boat.
+% Represent the boats with the image "barco".
+
+type(boat, V) :- boat(V), boat(1..3).
+boat(1; 2; 3).
+person(spanish; english; chinese).
+drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+color(red).
+has(spanish, color, red).
+color(purple).
+has(chinese, color, purple).
+image(boat, "barco").
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(chinese,boat,2). has(english,boat,3).
+# Explicación LN: The Spanish person likes to drink soda. He also owns a cat and his boat is the first one. The Chinese person owns a cat too, but his boat is the second one. The English person has a dog and his boat is the third one.
+
+############ [18:22] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+type(image, V) :- image(V).
+image(barco, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(chinese,boat,1). has(english,boat,2). has(spanish,boat,3).
+# Explicación LN: The Spanish person drinks soda, owns a cat, and their boat is number 3. The English person owns a dog and their boat is number 2. The Chinese person's boat is number 1 and it's purple-colored.
+
+############ [18:23] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(image, V) :- image(V). image(barco, "barco"). has(spanish, boat, 1). has(chinese, boat, 3).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(chinese,boat,3). has(english,boat,2). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The English person owns a dog and a boat, the second one being their own. They also drink milk. The Chinese person owns a cat, a horse and a purple-colored house, and a tea-drinking habit, and they have a 3rd boat.
+
+############ [18:24] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V), boat(1..3).
+type(person, V) :- person(V), person(spanish; english; chinese).
+type(drink, V) :- drink(V), drink(tea; milk; soda).
+has(spanish, drink, soda), image(soda, 'cocacola').
+type(pet, V) :- pet(V), pet(dog; cat; horse).
+has(spanish, pet, cat), has(english, pet, dog), has(horse, image, "horse").
+has(chinese, pet, cat), image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V), color(red; purple).
+has(spanish, color, red), has(chinese, color, purple).
+type(image, V) :- image(V), image(barco), image(horse), image(cat).
+has(spanish, boat, 1), has(chinese, boat, 2).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(horse,image,"horse"). has(chinese,pet,cat). has(spanish,color,red). has(chinese,boat,2).
+# Explicación LN: The Spanish person likes to drink soda. There's an image of a horse. The Chinese person has a cat as a pet. The Spanish person's house is colored red. The Chinese person owns a boat numbered 2.
+
+############ [18:30] LOG ############:
+
+############ [18:31] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). 
+person(spanish; english; chinese). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+has(spanish, drink, soda). 
+image(soda, 'cocacola'). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(spanish, pet, cat). 
+has(english, pet, dog). 
+image(horse, "horse"). 
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). 
+type(color, V) :- color(V). color(red; purple). 
+has(spanish, color, red). 
+has(chinese, color, purple). 
+type(image, V) :- image(V). image(barco).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(english,boat,2). has(english,drink,milk). has(chinese,boat,1). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,image,barco).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is painted red. The Chinese house is painted purple. The Spanish person has a boat number 3. The English person has a boat number 2. The English person drinks milk. The Chinese person has a boat number 1. The Chinese person drinks tea. The Chinese person has a horse as a pet. The Chinese person has an image of a boat.
+
+############ [18:33] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). has(spanish, boat, 1). type(color, V) :- color(V). color(red). has(spanish, color, red). has(chinese, boat, 3). type(color, V) :- color(V). color(purple). has(chinese, color, purple). image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,boat,1). has(spanish,color,red). has(chinese,boat,3). has(chinese,color,purple). has(english,boat,2). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The English person owns a dog as pet. The Spanish person owns a cat as pet. The Spanish person has a boat numbered 1. It's the Chinese who have a purple-colored boat numbered 3. The English person has a boat numbered 2. The Spanish person drinks soda. The Chinese person drinks tea. The Chinese person owns a horse as pet.
+
+############ [18:36] LOG ############:
+# Modelo ASP sacado: 
+	% Input: There are three boats. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image "cocacola". There's a dog, a cat and a horse. The spanish keeps the cat, while the english man has a dog. The horse is represented by the image called "horse". The cat is represented by "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg" The spanish man has a red boat. The chinese man, on the other hand, lives in a purple boat. Represent the boats with the image "barco".
+
+type(boat, V) :- boat(V), V = 1..3.
+type(person, V) :- person(V), V = spanish; english; chinese.
+type(drink, V) :- drink(V), V = tea; milk; soda.
+has(spanish, drink, soda).
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V), V = dog; cat; horse.
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")
+
+type(color, V) :- color(V), V = red; purple.
+has(spanish, color, red).
+has(chinese, color, purple).image(boat, "barco").
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+has(spanish, boat, 3).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [18:40] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog).
+image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red). has(chinese, color, purple).
+type(image, V) :- image(V). image(barco).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(spanish,person,chinese). has(english,boat,2). has(english,person,english). has(english,drink,milk). has(english,image,barco). has(chinese,boat,1). has(chinese,person,spanish). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is colored purple. The Spanish person owns boat number 3. The Spanish person is married to a Chinese person. The English person owns boat number 2. The English person is married to an English person. The English person drinks milk. The English person has a picture of a barco. The Chinese person owns boat number 1. The Chinese person is married to a Spanish person. The Chinese person drinks tea. The Chinese person owns a horse as pet.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos.
+
+############ [18:42] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). image(boat, "barco"). has(spanish, boat, 1). has(chinese, boat, 2).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(chinese,boat,2). has(english,boat,3). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is purple. The Spanish person owns boat number 1. The Chinese person owns boat number 2. The English person owns boat number 3. The English person drinks milk. The Chinese person drinks tea. The Chinese person is the owner of a horse.
+# Módulo gráfico: ('dictionary changed size during iteration',)
+
+############ [18:43] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). person(spanish). person(english). person(chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). has(spanish, image, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). has(image, horse, "horse"). has(image, cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). boat_color(purple). has(chinese, boat_color, purple). has(spanish, boat, 1). has(english, boat, 2). has(chinese, boat, 3). has(image, boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,image,"cocacola"). has(english,pet,dog). has(spanish,pet,cat). has(image,horse,"horse"). has(image,cat,"https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(english,boat,2). has(chinese,boat,3). has(image,boat,"barco"). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and has an image of Coca-Cola. The Spanish person has a cat, the English person has a dog, there's an image of a horse, an image of a cat at https://i.natgeof.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg, the Spanish house is painted red, the Chinese house is painted purple, the Spanish boat is painted red, the Chinese boat is painted purple, the Spanish boat is the first, the English boat is the second, the Chinese boat is the third, there's an image of a boat named "barco", the English person drinks milk, the Chinese person drinks tea, the Chinese person has a horse as a pet.
+# Módulo gráfico: ("'<' not supported between instances of 'str' and 'int'",)
+
+############ [18:46] LOG ############:
+# Modelo ASP sacado: 
+	% type(boat, V) :- boat(V). boat(1..3).
+% person(spanish; english; chinese).
+% type(drink, V) :- drink(V). drink(tea; milk; soda).
+% has(spanish, drink, soda).
+% image(soda, "cocacola").
+% type(pet, V) :- pet(V). pet(dog; cat; horse).
+% has(english, pet, dog).
+% has(spanish, pet, cat).
+% image(horse, "horse").
+% image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")
+% type(color, V) :- color(V). color(red; purple).
+% has(spanish, color, red).
+% has(chinese, color, purple).
+% type(image, V) :- image(V). image(barco).
+# Answer set resuelto: 
+	.
+# Explicación LN: The Argentinian smokes Palls tobacco and the Chilean drinks Soda.
+# Módulo gráfico: OK
+
+############ [18:47] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(english, pet, dog). has(spanish, pet, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red). has(spanish, color, red). has(spanish, boat, 1).
+type(color, V) :- color(V). color(purple). has(chinese, color, purple). has(chinese, boat, 3).
+has(spanish, boat, 1).
+has(chinese, boat, 3).
+image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,color,red). has(spanish,boat,1). has(chinese,color,purple). has(chinese,boat,3). has(english,boat,2). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda, owns a cat and a boat number 1, his house is colored red. The Chinese person's house is purple, they own a horse, a boat number 3 and drink tea. The English person owns a dog and a boat number 2, drinks milk and has no boat information about other nationals.
+# Módulo gráfico: ('dictionary changed size during iteration',)
+
+############ [18:53] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V).
+boat(1..3).
+type(person, V) :- person(V).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+has(spanish, pet, horse).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V).
+color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+type(image, V) :- image(V).
+image(barco, "barco").
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [18:54] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). has(chinese, color, purple). type(image, V) :- image(V). image(barco).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(english,boat,2). has(english,drink,milk). has(chinese,boat,1). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,image,barco).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is purple. The Spanish person possesses the boat number 3. The English person possesses the boat number 2. The English person drinks milk. The Chinese person possesses the boat number 1. The Chinese person drinks tea. The Chinese person owns a horse. The Chinese person has an image of a boat.
+# Módulo gráfico: Traceback (most recent call last):
+  File "C:\Users\Dro\Desktop\ASP-Puzzle-Solver\src\py\einstein_grafico.py", line 377, in einstein_grafico
+    representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dro\Desktop\ASP-Puzzle-Solver\src\py\einstein_grafico.py", line 288, in representa_solucion
+    for elem in grupo:
+RuntimeError: dictionary changed size during iteration
+
+
+############ [19:0] LOG ############:
+# Modelo ASP sacado: 
+	% This section is for processing the given input
+type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red; purple).
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,boat_color,red). has(english,boat,3). has(english,drink,milk). has(english,boat_color,purple). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda, owns a cat, and has a boat numbered 1 with a red color. The English person owns a dog, drinks milk, has a boat numbered 3 with a purple color, and has another boat with no specified color. The Chinese person drinks tea, owns a horse, and has a boat numbered 2.
+# Módulo gráfico: Traceback (most recent call last):
+  File "C:\Users\Dro\Desktop\ASP-Puzzle-Solver\src\py\einstein_grafico.py", line 379, in einstein_grafico
+    representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dro\Desktop\ASP-Puzzle-Solver\src\py\einstein_grafico.py", line 289, in representa_solucion
+    for elem in grupo:
+RuntimeError: dictionary changed size during iteration
+
+
+############ [19:1] LOG ############:
+
+############ [19:3] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(image, V) :- image(V). image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The English person owns a dog. The Spanish person owns a cat. The Spanish house is colored red. The Chinese house is colored purple. The Spanish person has boat number 1. The English person has boat number 3. The English person drinks milk. The Chinese person has boat number 2. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: ['Traceback (most recent call last):\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 379, in einstein_grafico\n    representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 289, in representa_solucion\n    for elem in grupo:\n', 'RuntimeError: dictionary changed size during iteration\n']
+
+############ [19:6] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+type(boat_color, V) :- boat_color(V). boat_color(red; purple).
+has(spanish, boat_color, red).
+has(chinese, boat_color, purple).
+image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is colored purple. The Spanish boat is number 1. The English boat is number 3. The English person drinks milk. The Chinese boat is number 2. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: ['Traceback (most recent call last):\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 377, in einstein_grafico\n    representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 289, in representa_solucion\n    for elem in grupo:\n', 'RuntimeError: dictionary changed size during iteration\n']
+
+############ [19:11] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). 
+person(spanish; english; chinese). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+has(spanish, drink, soda). 
+image(soda, "cocacola"). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(spanish, pet, cat). has(english, pet, dog). 
+image(horse, "horse"). 
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). 
+type(boat_color, V) :- boat_color(V). boat_color(red). 
+has(spanish, boat, 1). 
+type(boat_color, V) :- boat_color(V). boat_color(purple). 
+has(chinese, boat, 2). 
+image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,boat_color,red). has(english,boat,3). has(english,drink,milk). has(english,boat_color,purple). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda, owns a cat as pet, and has a boat numbered 1 that is red. The English person owns a dog as pet, drinks milk, has a boat numbered 3 that is purple, and also owns an unspecified boat. The Chinese person drinks tea, owns a horse as pet, and has a boat numbered 2.
+# Módulo gráfico: ['Traceback (most recent call last):\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 377, in einstein_grafico\n    representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 289, in representa_solucion\n    for elem in copia_grupo:\n', 'RuntimeError: dictionary changed size during iteration\n']
+
+############ [19:13] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red; purple).
+has(spanish, boat_color, red).
+has(chinese, boat_color, purple).
+image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person's boat is number 1 and is red. The Chinese person's boat is number 2 and is purple. The English person drinks milk and has a boat numbered 3. The Chinese person drinks tea, owns a horse, and has a boat numbered 2.
+# Módulo gráfico: ['Traceback (most recent call last):\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 377, in einstein_grafico\n    representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 289, in representa_solucion\n    for elem in copia_grupo:\n', 'RuntimeError: dictionary changed size during iteration\n']
+
+############ [19:14] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red). has(chinese, color, purple).
+type(image, V) :- image(V). image(barco, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(spanish,person,chinese). has(english,boat,3). has(english,person,english). has(english,drink,milk). has(chinese,boat,2). has(chinese,person,spanish). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat as pet. The English person owns a dog as pet. The Spanish house is colored red. The Chinese house is colored purple. The Spanish person has a boat number 1. The person on the Spanish boat is Chinese. The English person has a boat number 3. The person on the English boat is English. The English person drinks milk. The Chinese person has a boat number 2. The person on the Chinese boat is Spanish. The Chinese person drinks tea. The Chinese person owns a horse as pet.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [{'person': 'spanish', 'drink': 'soda', 'pet': 'cat', 'color': 'red', 'boat': 2}
+ {'person': 'english', 'pet': 'dog', 'boat': 3, 'drink': 'milk'}
+ {'person': 'spanish', 'color': 'purple', 'boat': 2}
+ {'person': 'chinese', 'drink': 'tea', 'pet': 'horse'}]
+
+############ [19:19] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+type(boat_color, V) :- boat_color(V). boat_color(red; purple).
+has(spanish, boat_color, red).
+has(chinese, boat_color, purple).
+image(boat, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat. They paint their house red, boat red too, and they have a boat number 1. The English person has a dog, drinks milk, owns a boat number 3, and there is no more information. The Chinese person drinks tea, owns a horse, paints their house purple, boat purple too, and has a boat number 2.
+# Módulo gráfico: ['Traceback (most recent call last):\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 377, in einstein_grafico\n    representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n', '  File "C:\\Users\\Dro\\Desktop\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 289, in representa_solucion\n    for elem in copia_grupo:\n', 'RuntimeError: dictionary changed size during iteration\n']
+
+############ [19:29] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). 
+person(spanish; english; chinese). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+has(spanish, drink, soda). 
+image(soda, "cocacola"). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(english, pet, dog). 
+has(spanish, pet, cat). 
+image(horse, "horse"). 
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). 
+type(color, V) :- color(V). color(red). has(spanish, color, red). 
+color(purple). has(chinese, color, purple). 
+type(image, V) :- image(V). image(barco).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(english,boat,2). has(english,drink,milk). has(chinese,boat,1). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,image,barco).
+# Explicación LN: The Spanish person drinks soda, owns a cat, paints their house red, owns boat number 3, the English person owns a dog, owns boat number 2, drinks milk, the Chinese person owns a horse, paints their house purple, owns boat number 1, drinks tea, and owns an image of a barco.
+# Módulo gráfico: OK
+
+############ [19:30] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+type(image, V) :- image(V). image("barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(english,boat,2). has(english,drink,milk). has(chinese,boat,1). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,image,"barco").
+# Explicación LN: The Spanish person drinks soda and has a cat as pet, his house is painted red, he has a boat number 3. The English person owns a dog as pet, his boat is number 2, he drinks milk. He also has an image of a boat. The Chinese person drinks tea, has a horse as pet, his house is painted purple, he has a boat number 1 and an image of a barco.
+# Módulo gráfico: OK
+
+############ [19:31] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). 
+person(spanish; english; chinese). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+has(spanish, drink, soda). 
+image(soda, "cocacola"). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has/english, pet, dog). 
+has(spanish, pet, cat). 
+image(horse, "horse"). 
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg") 
+type(color, V) :- color(V). color(red; purple). 
+has(spanish, color, red). 
+has(chinese, color, purple). 
+type(image, V) :- image(V). image(barco).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [19:33] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(image, V) :- image(V). image(barco, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda, owns a cat, paints their house red, has boat number 1, the English person owns a dog, paints their boat number 3, drinks milk, the Chinese person drinks tea, owns a horse, paints their house purple, and has boat number 2.
+# Módulo gráfico: OK
+
+############ [19:34] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red). has(spanish, color, red).
+type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+type(image, V) :- image(V). image(barco, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is colored purple. The Spanish person owns boat number 1. The English person owns boat number 3. The English person drinks milk. The Chinese person owns boat number 2. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: OK
+
+############ [19:42] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(image, V) :- image(V). image("barco", V), V = barco. has(spanish, boat, 1). has(chinese, boat, 2).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [19:43] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). has(spanish, boat, 1). type(color, V) :- color(V). color(red). has(spanish, color, red). has(chinese, boat, 2). type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,boat,1). has(spanish,color,red). has(chinese,boat,2). has(chinese,color,purple). has(english,boat,3). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The English person owns a dog as a pet. The Spanish person owns a cat as a pet. The Spanish person has a boat number 1. The Chinese person has a boat number 2. The boat of the English person is the number 3. The English person drinks milk. The Chinese person drinks tea. The Chinese person has a horse as a pet.
+# Módulo gráfico: OK
+
+############ [19:45] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+type(image, V) :- image(V).
+image(barco, "barco").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is painted red. The Chinese house is painted purple. The Spanish person owns boat number 1. The English person owns boat number 3. The English person drinks milk. The Chinese person owns boat number 2. The Chinese person drinks tea and has a horse as pet.
+# Módulo gráfico: OK
+
+############ [19:47] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has/english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(boat, V) :- boat(V). boat(1..3). has(spanish, boat, 1). has(chinese, boat, 3).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [19:54] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). type(color, V) :- color(V). color(red). has(spanish, color, red). color(purple). has(chinese, color, purple). type(image, V) :- image(V). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat. The English person owns a dog. The Chinese person's boat is the second one and it's purple colored. They also own a horse as a pet, drink tea and have a boat number 2.
+# Módulo gráfico: OK
+
+############ [19:58] LOG ############:
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+person(spanish; english; chinese). 
+has(spanish, drink, soda). 
+image(soda, 'cocacola'). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(english, pet, dog). 
+image(horse, "horse"). 
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). 
+type(color, V) :- color(V). color(red; purple). 
+has(spanish, color, red). 
+has(chinese, color, purple).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,house,3). has(spanish,pet,cat). has(english,house,1). has(english,drink,milk). has(chinese,house,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and has a cat as pet, their house is at number 3 and it's colored red. The Chinese person's house is at number 2, they drink tea, own a horse and like purple color. The English person lives in the first house, drinks milk, has a dog as pet.
+# Módulo gráfico: OK
+
+############ [20:1] LOG ############:
+# Modelo ASP sacado: 
+	%person(spanish; english; chinese).
+type(boat, V) :- boat(V). boat(1..3).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(english, pet, dog).
+has(spanish, pet, cat).
+image(cat, 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg').
+image(horse, "horse").
+type(color, V) :- color(V). color(red). has(spanish, color, red).
+has(chinese, color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [20:3] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V).
+boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V).
+color(red).
+has(spanish, color, red).
+color(purple).
+has(chinese, color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat, his house is colored red, he also owns a boat numbered 1. The English person owns a dog, his house is not specified, but he owns a boat numbered 3 and drinks milk. The Chinese person drinks tea, their house is not specified, they own a horse and a boat numbered 2, and their house is colored purple.
+# Módulo gráfico: OK
+
+############ [20:5] LOG ############:
+# Modelo ASP sacado: 
+	type(person, spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(boat, V) :- boat(V). boat(1..3). has(spanish, boat, 1). has(chinese, boat, 3). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [20:9] LOG ############:
+# Modelo ASP sacado: 
+	% type(drink, V) :- drink(V). drink(tea; milk; soda).
+% type(pet, V) :- pet(V). pet(dog; cat; horse).
+% person(spanish; english; chinese). 
+% has(spanish, pet, cat). has/english, pet, dog). has(chinese, pet, horse).
+% type(image, V) :- image(V). image(cocacola; horse; "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"; "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+% has(spanish, drink, soda). % has(spanish, boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+% has(chinese, boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	.
+# Explicación LN: There are no more input sentences.
+# Módulo gráfico: OK
+
+############ [20:11] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). 
+type(person, V) :- person(V). person(spanish; english; chinese). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+has(spanish, drink, soda). 
+image(soda, 'cocacola'). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(spanish, pet, cat). 
+has(english, pet, dog). 
+image(horse, "horse"). 
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg") . 
+type(boat_color, V) :- boat_color(V). boat_color(red; purple). 
+has(spanish, boat, 1). has(chinese, boat, 2). 
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,person,chinese). has(spanish,boat_color,purple). has(english,boat,3). has(english,person,spanish). has(english,drink,milk). has(chinese,person,english). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,boat_color,red).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person has boat number 1. The Chinese person has boat number 2. The Spanish person is married to a Chinese. The Spanish person's boat is purple. The English person has boat number 3. The English person is married to a Spanish. The English person drinks milk. The Chinese person is married to an English. The Chinese person drinks tea. The Chinese person owns a horse. The Chinese person's boat is red.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [{'person': 'english', 'drink': 'soda', 'pet': 'cat', 'boat': 1}
+ {'person': 'spanish', 'pet': 'dog', 'boat': 3}
+ {'person': 'english', 'boat': 2}
+ {'person': 'spanish', 'boat_color': 'purple'}
+ {'person': 'english', 'drink': 'milk'}
+ {'person': 'chinese', 'drink': 'tea', 'pet': 'horse', 'boat_color': 'red'}]
+
+############ [20:14] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V), boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V), drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+type(pet, V) :- pet(V), pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+image(horse, "horse").
+type(color, V) :- color(V), color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple).
+# Explicación LN: The Spanish person drinks soda. The Spanish person has a cat as pet. The English person has a dog as pet. The Spanish house is painted red. The Chinese house is painted purple.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [{'person': 'spanish', 'drink': 'soda', 'pet': 'cat', 'color': 'red'}
+ {'person': 'english', 'pet': 'dog'}
+ {'person': 'chinese', 'color': 'purple'}]
+
+############ [20:15] LOG ############:
+# Modelo ASP sacado: 
+	type(person, spanish; english; chinese). type(boat, V) :- boat(V). boat(1..3). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(dog, "https://www.pexels.com/photo/dog-1449246/"). image(horse, "horse"). has(spanish, boat, 1). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [20:16] LOG ############:
+# Modelo ASP sacado: 
+	type(person, V) :- person(V).
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+
+has(spanish, drink, soda).
+
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+
+has(english, pet, dog).
+has(spanish, pet, cat).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(boat, V) :- boat(V).
+boat(1..3).
+color(red).
+has(spanish, boat, 1).
+
+color(purple).
+has(chinese, boat, 2).image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,boat,1). has(chinese,boat,2). has(spanish,person,spanish). has(english,person,chinese). has(english,drink,milk). has(english,boat,3). has(chinese,person,english). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat. The Spanish person also has a boat number 1. The Chinese person drinks tea, owns a horse and a boat number 2. The Spanish person is Spanish. The English person who is owned by Chinese drinks milk and owns a dog and a boat number 3. The Chinese person who is owned by English owns a horse as pet.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [{'person': 'spanish', 'drink': 'soda', 'pet': 'cat', 'boat': 1}
+ {'person': 'english', 'pet': 'dog'} {'person': 'english', 'boat': 2}
+ {'person': 'english', 'drink': 'milk', 'boat': 3}
+ {'person': 'chinese', 'drink': 'tea', 'pet': 'horse'}]
+
+############ [20:20] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red).
+has(spanish, color, red).
+type(color, V) :- color(V). color(purple).
+has(chinese, color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(spanish,person,chinese). has(english,boat,3). has(english,person,english). has(english,drink,milk). has(chinese,boat,2). has(chinese,person,spanish). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is colored red. The Chinese house is colored purple. The Spanish has a boat number 1. The Spanish person is married to a Chinese. The English person has a boat number 3. The English person is English. The English person drinks milk. The Chinese person has a boat number 2. The Chinese person is married to a Spanish. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [{'person': 'spanish', 'drink': 'soda', 'pet': 'cat', 'color': 'red', 'boat': 2}
+ {'person': 'english', 'pet': 'dog', 'boat': 3, 'drink': 'milk'}
+ {'person': 'spanish', 'color': 'purple', 'boat': 2}
+ {'person': 'chinese', 'drink': 'tea', 'pet': 'horse'}]
+
+############ [20:35] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). type(drink, V) :- drink(V). drink(tea; milk; soda). person(spanish; english; chinese). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). has(spanish, boat, 1). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,boat,1). has(chinese,boat,2). has(english,boat,3). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The English person owns a dog and has boats numbered 3. He also drinks milk. The Spanish person owns a cat and has a boat numbered 1. The Chinese person owns a horse and has boats numbered 2 and 3.
+# Módulo gráfico: OK
+
+############ [20:37] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, 'cocacola'). type(pet, V) :- pet(V). pet(dog; cat; horse). has/english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(boat, V) :- boat(V). boat(1..3). has(spanish, boat, 1). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [20:44] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V), boat(1..3).
+type(person, V) :- person(V), person(spanish; english; chinese).
+type(drink, V) :- drink(V), drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+type(pet, V) :- pet(V), pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V), color(red; purple).
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person has a boat numbered 1. The Chinese person has a boat numbered 2.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'boat', 1], ['chinese', 'boat', 2]]
+
+############ [20:54] LOG ############:
+
+############ [20:56] LOG ############:
+
+############ [20:57] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V), boat(1..3).
+person(spanish; english; chinese).
+drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, 'cocacola').
+pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+color(red).
+has(spanish, color, red).
+color(purple).
+has(chinese, color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple).
+# Explicación LN: The Spanish person drinks soda and has a cat as a pet, his house is painted red. The Chinese person's house is painted purple.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'color', 'red'], ['chinese', 'color', 'purple']]
+
+############ [21:1] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). 
+person(spanish; english; chinese). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). 
+has(spanish, drink, soda). 
+image(soda, 'cocacola'). 
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(spanish, pet, cat). has(english, pet, dog). 
+image(horse, "horse"). 
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg") 
+type(color, V) :- color(V). color(red). has(spanish, color, red). 
+color(purple). has(chinese, color, purple). 
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [21:4] LOG ############:
+# Modelo ASP sacado: 
+	type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat, V) :- boat(V). boat(1..3). has(spanish, boat, 1). has(chinese, boat, 2). has(spanish, boat, 1, color, red). has(chinese, boat, 2, color, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,person,spanish). has(english,person,chinese). has(english,drink,milk). has(english,boat,3). has(chinese,person,english). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person has a boat number 1. The Chinese person has a boat number 2. The Spanish person is Spanish. The English person is Chinese. The English person drinks milk. The English person has a boat number 3. The Chinese person is English. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: [['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'boat', 1], ['chinese', 'boat', 2], ['spanish', 'person', 'spanish'], ['english', 'person', 'chinese'], ['english', 'drink', 'milk'], ['english', 'boat', 3], ['chinese', 'person', 'english'], ['chinese', 'drink', 'tea'], ['chinese', 'pet', 'horse']]
+
+############ [21:22] LOG ############:
+# Modelo ASP sacado: 
+	Here is the processed input:
+
+
+type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda).
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). type(boat_color, V) :- boat_color(V). boat_color(purple). has(chinese, boat_color, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [21:24] LOG ############:
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.I cannot generate code that contains personal data or is harmful to others. Is there something else I can help you with?.
+
+############ [21:31] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). type(boat, V) :- boat(V). boat(1..3). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat_color,red). has(chinese,boat,2). has(spanish,boat,3). has(english,boat,1). has(english,drink,tea). has(chinese,drink,milk). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and has a cat as a pet, their boat is the number 3 and its color is red. The English person has a dog as a pet, they own a boat number 1, they drink tea, and there is no information about the Chinese person except that they have a horse as a pet and a boat number 2.
+# Módulo gráfico: OK
+
+############ [21:37] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red; purple). has(spanish, boat_color, red). has(chinese, boat_color, purple).
+has(spanish, boat, 1). has(chinese, boat, 2).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(chinese,boat,2). has(english,boat,3). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda, owns a cat, and has a red boat number 1. The Chinese person drinks tea, owns a horse, and has a purple boat number 2. The English person drinks milk, owns a dog, and has a blue boat number 3.
+# Módulo gráfico: OK
+
+############ [21:39] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, "cocacola"). image("cocacola", "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat, V) :- boat(V). boat(1..3). person(spanish). has(spanish, boat, 1). type(color, V) :- color(V). color(red). has(spanish, color, red). person(chinese). has(chinese, boat, 2). type(color, V) :- color(V). color(purple). has(chinese, color, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:43] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). 
+person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat, has a boat number 1 and his house is colored red. The English person owns a dog and has boats number 3, also he drinks milk. The Chinese person drinks tea, owns a horse and has a purple-colored house, and also has a boat number 2.
+# Módulo gráfico: OK
+
+############ [21:52] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red).
+has(spanish, boat, 1; boat_color, red).
+type(boat_color, V) :- boat_color(V). boat_color(purple).
+has(chinese, boat, 2; boat_color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,drink,soda). has(english,boat,3). has(english,drink,milk). has(english,boat_color,red). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,boat_color,purple).
+# Explicación LN: The Spanish person owns a cat. The English person owns a dog. The Spanish person possesses boat number 1. The Chinese person possesses boat number 2. The Spanish person usually drinks soda. The English person possesses boat number 3. The English person usually drinks milk. The English person paints his boat red. The Chinese person usually drinks tea. The Chinese person owns a horse. The Chinese person colors his boat purple.
+# Módulo gráfico: OK
+
+############ [22:3] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat, V) :- boat(V). boat(1..3).
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(english,boat,3). has(english,drink,milk). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat. He also owns boat number 1. The English person owns a dog, a boat number 3 and drinks milk. The Chinese person drinks tea, owns a horse and a boat number 2.
+# Módulo gráfico: OK
+
+############ [22:6] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). type(boat, V) :- boat(V). boat(1..3). has(chinese, boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:9] LOG ############:
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+type(house, V) :- house(V). house(1..3). person(spanish). has(spanish, house, 1). person(chinese). has(chinese, house, 3).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:10] LOG ############:
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(house_color, V) :- house_color(V). house_color(red; purple). has(spanish, house_color, red). has(chinese, house_color, purple).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house_color,red). has(chinese,house_color,purple). has(spanish,house,2). has(english,house,3). has(english,drink,milk). has(chinese,house,1). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat. They live in the second house and it's painted red. The Chinese person drinks tea and owns a horse. They live in the first house. The English person drinks milk, owns a dog, and lives in the third house.
+# Módulo gráfico: OK
+
+############ [22:11] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+type(person, V) :- person(V). person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red; purple). has(spanish, boat_color, red). has(chinese, boat_color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(spanish,person,chinese). has(english,boat,3). has(english,person,english). has(english,drink,milk). has(chinese,boat,2). has(chinese,person,spanish). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The color of the Spanish boat is red. The Chinese person's boat color is purple. The Spanish person owns the first boat and is married to a Chinese person. The English person owns the third boat and is married to an English person, who drinks milk. The Chinese person owns the second boat and is married to a Spanish person, who drinks tea. The Chinese person has a horse as pet.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: Grupos: [{'person': 'spanish', 'drink': 'soda', 'pet': 'cat', 'boat_color': 'red', 'boat': 2}
+ {'person': 'english', 'pet': 'dog', 'boat': 3, 'drink': 'milk'}
+ {'person': 'spanish', 'boat_color': 'purple', 'boat': 2}
+ {'person': 'chinese', 'drink': 'tea', 'pet': 'horse'}] Array_has: [['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'boat_color', 'red'], ['chinese', 'boat_color', 'purple'], ['spanish', 'boat', 1], ['spanish', 'person', 'chinese'], ['english', 'boat', 3], ['english', 'person', 'english'], ['english', 'drink', 'milk'], ['chinese', 'boat', 2], ['chinese', 'person', 'spanish'], ['chinese', 'drink', 'tea'], ['chinese', 'pet', 'horse']]
+
+############ [22:13] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, "cocacola"). has(english, drink, ?). has(chinese, drink, ?).
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). has(? , pet, horse). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red; purple). has(spanish, boat, 1, red). has(chinese, boat, ?, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [22:13] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+type(drink, V) :- drink(V). drink(tea; milk; soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+person(spanish; english; chinese).
+has(spanish, drink, soda). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). has(chinese, boat, 2). type(boat, V) :- boat(V). boat(1..3). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(chinese,boat,2). has(spanish,boat,3). has(english,boat,1). has(english,drink,tea). has(chinese,drink,milk). has(chinese,pet,horse).
+# Explicación LN: The Spanish person likes to drink soda. The Spanish person owns a cat. The English person owns a dog. The Chinese person owns a boat numbered 2 and also owns a horse. The Chinese person drinks milk.
+# Módulo gráfico: OK
+
+############ [22:16] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). type(drink, V) :- drink(V). drink(tea; milk; soda). person(spanish). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). person(spanish). has(spanish, pet, cat). person(english). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(boat, V) :- boat(V). boat(1..3). person(spanish). has(spanish, boat, 1). type(color, V) :- color(V). color(red). has(spanish, boat, color, red). person(chinese). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(english,boat,3). has(english,drink,milk). has(english,color,red). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda, owns a cat, and has a boat numbered 1. The English person owns a dog, has a boat numbered 3, drinks milk, and paints their house red. The Chinese person drinks tea, owns a horse, and has a boat numbered 2.
+# Módulo gráfico: OK
+
+############ [22:17] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, "cocacola"). 
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red; purple).
+has(spanish, boat, "red", 1). has(chinese, boat, "purple", 2).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:17] LOG ############:
+# Modelo ASP sacado: 
+	type(person, V) :- person(V). person(spanish; english; chinese). 
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). 
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). 
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg")
+type(boat, V) :- boat(V). boat(1..3). person(spanish). has(spanish, boat, 1). type(boat, V) :- boat(V). boat(2). person(chinese). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJ.jpg").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [22:22] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, "cocacola"). image("cocacola", "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat, V) :- boat(V). boat(1..3).
+has(spanish, boat, 1). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:24] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+person(spanish; english; chinese).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+type(boat, V) :- boat(V). boat(1..3).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,pet,cat). has(english,pet,dog). has(spanish,drink,soda). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,pet,horse). has(chinese,drink,tea).
+# Explicación LN: The Spanish person owns a cat. The English person owns a dog. The Spanish person drinks soda and their house is red. The Chinese person's house is purple. The Spanish person has boat number 1. The English person has boat number 3. The English person drinks milk. The Chinese person has boat number 2. The Chinese person owns a horse and drinks tea.
+# Módulo gráfico: OK
+
+############ [22:26] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat, V) :- boat(V). boat(1..3).
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:26] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red; purple).
+has(spanish, boat, 1, red). has(chinese, boat, 2, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:27] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). type(color, V) :- color(V). color(red). has(spanish, boat, 1). type(image, V) :- image(V). image("https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). type(pet, V) :- pet(V). pet(dog; cat; horse). person(spanish). has(spanish, pet, cat). type(image, V) :- image(V). image("https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(beverage, V) :- beverage(V). beverage(tea; milk; soda). has(spanish, beverage, soda). image(soda, "cocacola"). person(english). has(english, pet, dog). person(chinese). type(boat, V) :- boat(V). boat(1..3). has(chinese, boat, 2). type(color, V) :- color(V). color(purple). has(chinese, boat, 2). person(spanish).  person(spanish; english; chinese).
+# Answer set resuelto: 
+	has(spanish,boat,1). has(spanish,pet,cat). has(spanish,beverage,soda). has(english,pet,dog). has(chinese,boat,2). has(spanish,color,red). has(spanish,image,"https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). has(english,boat,3). has(english,color,purple). has(english,image,"https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). has(english,beverage,milk). has(chinese,pet,horse). has(chinese,beverage,tea).
+# Explicación LN: The Spanish person owns boat number 1, has a cat as a pet, drinks soda, and his house is colored red. He also has an image at "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg". The English person owns boats number 3 and is proud of his purple-colored house. He drinks milk and has an image at "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg" and keeps a dog as a pet. The Chinese person owns a horse as a pet, drinks tea, and owns boat number 2.
+# Módulo gráfico: OK
+
+############ [22:28] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). type(image, V) :- image(V). image("cocacola"). image("https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). color(purple). has(chinese, color, purple).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,3). has(spanish,image,"https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). has(english,boat,1). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,image,"cocacola"). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish house is painted red. The Chinese house is painted purple. The Spanish person has a boat numbered 3. The image of the Spanish person is "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg". The English person owns a boat numbered 1 and drinks milk. The Chinese person owns a boat numbered 2 and drinks tea. The image of the Chinese person is "Coca-Cola". The Chinese person has a horse as pet.
+# Módulo gráfico: OK
+
+############ [22:29] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(drink, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(pet, "horse").
+image(pet, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and owns a cat. They own boat number 1, their house is colored red. The Chinese person drinks tea and owns a horse. Their house is purple-colored. They also own boat number 2. The English person drinks milk, owns a dog, and has boat number 3.
+# Módulo gráfico: OK
+
+############ [22:31] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). type(boat, V) :- boat(V). boat(1..3). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat_color,red). has(chinese,boat,2). has(spanish,boat,3). has(english,boat,1). has(english,drink,tea). has(chinese,drink,milk). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish person paints his boat red. The Chinese person owns boat number 2. The Spanish person owns boat number 3. The English person owns boat number 1. The English person drinks tea. The Chinese person drinks milk. The Chinese person owns a horse.
+# Módulo gráfico: OK
+
+############ [22:32] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+ person(spanish; english; chinese).
+has(spanish, drink, "cocacola").
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+image("cocacola", "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f5-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat, V) :- boat(V). boat(1..3).
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+type(color, V) :- color(V). color(red).
+has(spanish, color, red).
+type(color, V) :- color(V). color(purple).
+has(chinese, color, purple).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:32] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). type(color, V) :- color(V). color(red). has(spanish, boat, 1). type(image, V) :- image(V). image("https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). has(spanish, boat, 1).  person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(purple). has(chinese, color, purple). type(boat, V) :- boat(V). boat(1..3). has(chinese, boat, 2).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [22:36] LOG ############:
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(boat, V) :- boat(V). boat(1..3). person(spanish). has(spanish, boat, 1). type(boat, V) :- boat(V). boat(1..3). person(chinese). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). type(color, V) :- color(V). color(red). has(spanish, color, red). color(purple). has(chinese, color, purple).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,color,red). has(chinese,color,purple). has(chinese,drink,milk). has(chinese,pet,horse). has(english,boat,3). has(english,drink,tea).
+# Explicación LN: The Spanish person drinks soda. The Spanish person owns a cat and a boat numbered 1. The Spanish house is colored red. The Chinese person drinks milk. The Chinese person owns a horse and a purple-colored boat, numbered 2. The English person owns a dog, a boat numbered 3, and drinks tea.
+# Módulo gráfico: OK

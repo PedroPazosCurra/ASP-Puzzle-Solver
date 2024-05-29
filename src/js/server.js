@@ -7,6 +7,7 @@
 
 //  Imports y variables
 const procesador = require("./procesaMensaje")
+const limpiador = require("./limpiaTmp")
 const express = require('express');
 const cors = require('cors')
 var path = require('path');
@@ -25,6 +26,12 @@ async function procesar(msg, puzzle){
 
   // Llama a la función asíncrona externa procesaMensaje (espera por el valor)
   return await procesador.procesaMensaje(msg, puzzle);
+}
+
+async function limpiar(){
+
+  // Llama a la función externa limpiaTmp()
+  limpiador.limpiaTmp();
 }
 
 
@@ -60,6 +67,15 @@ app.get("/about", function (req, res) {
   // LOG + Envía html 
   console.log("LOG: GET /about");
   res.sendFile(path.join(__dirname, '../', 'about.html'));
+
+});
+
+// Recibe DELETE a '/tmp'
+app.delete("/tmp", function (req, res) {
+
+  // LOG
+  console.log("LOG: DELETE /tmp");
+  limpiar();
 
 });
 

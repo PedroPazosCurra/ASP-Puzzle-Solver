@@ -18,6 +18,7 @@
 /* Imagen */
 .modal-content {
     margin: auto;
+    margin-top: 20px;
     display: block;
     width: 80%;
     max-width: 700px;
@@ -44,7 +45,7 @@
 /* Botón de cerrar */
 .close {
     position: absolute;
-    top: 35px;
+    top: 9vw;
     right: 45px;
     color: #f1f1f1;
     font-size: 40px;

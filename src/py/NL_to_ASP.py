@@ -15,12 +15,12 @@ REINTENTOS_MAX = 1
 def NL_to_ASP(prompt = None, puzzle = None):
 
     # Contexto sin ejemplos (Zero-Shot)
-    contexto_zeroshot = "### You must parse natural language sentences into atomic logical predicates. \
-    Instanciate every new type different than 'person'  with the format 'type(new_type, V) :- new_type(V).'. \
-    For example: 'type(new_type, pet) :- new_type(pet). pet(dog; cat; horse).' \
-    Also, you can use the predicates 'image(X, Y).' to indicate a image route, 'left_to(X, Y).' to indicate X is to the left of Y, 'right_to(X, Y).' to indicate X is to the right to Y, 'neighbor(X, Y)' to indicate that a person X and a person Y are neighbors.\
+    contexto_zeroshot = "### You must turn natural language sentences into atomic logical predicates. \
+    Instanciate every new type different than 'person(P)' with the format 'type(new_type, V) :- new_type(V).'. \
+    For example: 'type(pet, V) :- pet(V). pet(dog; cat; horse).' \
+    Also, you can use the predicates 'image(X, Y).' to indicate a image route, 'left_to(X, Y).' to indicate X is to the left of Y, 'right_to(X, Y).' to indicate X is to the right to Y and 'neighbor(X, Y)' to indicate that a person X and a person Y are neighbors.\
     You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification.\
-    You will be penalized if you're not as concise and descriptive as possible. Complete only the last iteration. You are provided with examples. ###\n"
+    You will be penalized if you're verbose and convoluted. Complete only the last iteration. ###\n"
    
     # Sale con error si alguno de los args es nulo
     if ((prompt == None) or (puzzle == None)): return([1, "NL_to_ASP recibe una entrada con uno de los valores nulos."])
@@ -36,8 +36,7 @@ def NL_to_ASP(prompt = None, puzzle = None):
     # Construcción de prompt
     with open(contexto_path, 'r') as file: fewshot = file.read()
     contexto_fewshot = contexto_zeroshot + fewshot
-    contexto = contexto_fewshot # Zero-shot o Few-shot?
-    prompt_w_context = contexto + prompt +"\nOUTPUT: "
+    prompt_w_context = contexto_fewshot + prompt +"\nOUTPUT: "
 
     # Bucle para reintentar petición si salida incorrecta.
     intentos = 0
@@ -57,17 +56,24 @@ def NL_to_ASP(prompt = None, puzzle = None):
         except:
             return([1, "Error no manejado en la comunicación con el LLM para NL_to_ASP"])
 
-        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n', 'INPUT', 'Note'...).
+        # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n', 'INPUT', 'Note'...)
+        # Además, preprocesado de caracteres extraños que a veces el LLM mete por el medio con intención de ejemplificar.
         if (salida_llm.find("\\") != -1):
             salida_llm = salida_llm.strip().split("\\", 1)[0]
         if (salida_llm.find("INPUT:") != -1):
             salida_llm = salida_llm.strip().split("INPUT", 1)[0]
         if (salida_llm.find("output:") != -1):
             salida_llm = salida_llm.strip().split("output:", 1)[1]
+        if (salida_llm.find("input:") != -1):
+            salida_llm = salida_llm.strip().split("input:", 1)[1]
         if (salida_llm.find("Note") != -1):
             salida_llm = salida_llm.strip().split("Note", 1)[0]
-        if (salida_llm.find("```") != -1):
-            salida_llm = salida_llm.replace("```", "")
+        if (salida_llm.find("`") != -1):
+            salida_llm = salida_llm.replace("`", "")
+        if (salida_llm.find("),") != -1):
+            salida_llm = salida_llm.replace("),", ").")
+        if (salida_llm.find("type(person, V) :- person(V).") != -1):
+            salida_llm = salida_llm.replace("type(person, V) :- person(V).", "")
 
 
         # A veces se olvida de poner el punto en el último predicado. Intento rescatarlo.

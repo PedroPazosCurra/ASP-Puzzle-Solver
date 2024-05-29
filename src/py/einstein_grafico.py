@@ -2,9 +2,11 @@
 from PIL import Image, ImageDraw, ImageFont
 import requests
 import numpy as np
+from os import path
 from io import BytesIO
 from webcolors import name_to_rgb
 from collections import defaultdict
+import traceback
 
 
 ######################################### Constantes y variables ##############################################
@@ -12,8 +14,13 @@ TAMAÑO_DEFAULT = 70
 DEBUG = False
 
 # Crea nueva imagen importándola. La imagen es 1000x1000
-fondo_estado_inicial = Image.open('..../resources/img/fondo_imagen_generada.png')
-fondo_solucion = Image.open('..../resources/img/fondo_imagen_generada.png')
+img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
+tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/tmp"))
+atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/atom_images"))
+font_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/fonts"))
+
+fondo_estado_inicial = Image.open(img_path + '/fondo_imagen_generada.png')
+fondo_solucion = Image.open(img_path + '/fondo_imagen_generada.png')
 
 # Crea objeto Draw
 dibujo_estado_inicial = ImageDraw.Draw(fondo_estado_inicial)
@@ -29,17 +36,17 @@ def busca_imagen(nombre : str):
 
     # jpg
     try:
-        img = Image.open(f'..../resources/atom_images/{nombre}.jpg')
+        img = Image.open(atom_imgs_path + f'/{nombre}.jpg')
     except:
 
         # png
         try:
-            img = Image.open(f'..../resources/atom_images/{nombre}.png')
+            img = Image.open(atom_imgs_path + f'/{nombre}.png').convert("RGB")
         except:
 
             # jpeg
             try:
-                img = Image.open(f'..../resources/atom_images/{nombre}.jpeg')
+                img = Image.open(atom_imgs_path + f'/{nombre}.jpeg')
             except:
 
                 # url
@@ -63,7 +70,7 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
     c = a + tamaño*2
     d = b + tamaño*1.5
 
-    fuente_letras = ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = tamaño*0.5)
+    fuente_letras = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = tamaño*0.5)
 
     for i, dato in enumerate(array_datos):
 
@@ -123,9 +130,9 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
 
     # En base al nombre del color, una librería pasa un rgb. Si no puede, gris.
     try:
-        color_elem = name_to_rgb(color)
+        color_elem = name_to_rgb(color.strip())
     except ValueError:
-        color_elem = (255,255,255)
+        color_elem = ("grey")
 
     # Si es casa, dibuja una casa del color indicado
     if (elemento in ["house", "casa", "home", "residence", "homestead", "domicile"]):
@@ -136,7 +143,7 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
                         width= round(tamaño * 0.1))
         
         # Dibuja el número del elemento
-        fuente_numero = ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = tamaño*0.8)
+        fuente_numero = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = tamaño*0.8)
         dibujo.text(xy = (a + (c-a)/2 - tamaño*0.25, b - tamaño*0.2 ),
                     text = numero,
                     font= fuente_numero,
@@ -163,7 +170,7 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
         
         except:
             # No consigo la imagen: pongo el nombre del elemento en su lugar.
-            fuente= ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = tamaño)
+            fuente= ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = tamaño)
             dibujo.text(xy = (a, b ),
                 text = elemento.capitalize(),
                 font= fuente,
@@ -180,15 +187,13 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
                         width= round(tamaño * 0.05))
         
         # Dibuja el número del elemento
-        fuente_numero = ImageFont.truetype("..../resources/fonts/OpenSans-Regular.ttf", size = 0.6*tamaño)
+        fuente_numero = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = 0.6*tamaño)
         dibujo.text(xy = (c, d),
                     text = numero,
                     font= fuente_numero,
                     stroke_width= round(tamaño * 0.05),
                     stroke_fill='black'
                     )
-
-
 
 
 def representa_elemento(fondo, elemento, imagen_elemento, coordenadas, elems, tamaño, color = 'white', numero = '', rutas_imagenes = []):
@@ -261,12 +266,12 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
     tamaño_elems = (1.1**(-num_elems)) * 80
 
-    for i, elem in enumerate(grupos):
+    for i, grupo in enumerate(grupos):
 
-        color = "white" 
+        color = "gray" 
         numero = ""
         imagen_elemento = None
-        numero = str(elem[elemento_central])
+        numero = str(grupo.get(elemento_central, []))
 
         # División de los 1000px que le toca a cada elemento central según cuántos haya
         division = (1000/(num_elems+1)) * (i + 1)
@@ -277,13 +282,13 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
                 imagen_elemento = par[1]
 
         # Argumentos de representa_elemento (los quitamos del array casa porque ya no los queremos)
-        if(elemento_central in elem):
-            del elem[elemento_central]
-        
-        if("color" in elem):
-            color = str(elem["color"])
-            del elem["color"]
+        if(elemento_central in grupo):
+            del grupo[elemento_central]
 
+        for elem in list(grupo):
+            if("color" in elem):
+                color = grupo[elem]
+                del grupo[elem]
 
         # Dibuja el elemento central y escribe sus datos
         representa_elemento(fondo       = fondo_solucion,
@@ -293,7 +298,7 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
                         numero          = numero,
                         color           = color,
                         tamaño          = tamaño_elems,
-                        elems           = elem.values(),
+                        elems           = grupo.values(),
                         rutas_imagenes= rutas_imagenes
                         )
         
@@ -325,58 +330,57 @@ def einstein_grafico(array_has, rutas_imagenes = []):
     elemento_central = "house"
     grupos = np.array([])
 
-    #try:
+    try:
 
-    # Ya tenemos un array de arrays de tres elementos correspondientes a todos los predicados has. Iteramos
-    for entrada in array_has:
+        # Ya tenemos un array de arrays de tres elementos correspondientes a todos los predicados has. Iteramos
+        for entrada in array_has:
 
-        #[brittish, color, red]
-        persona = entrada[0]
-        tipo = entrada[1]
-        valor = entrada[2]
+            #[brittish, color, red]
+            persona = entrada[0]
+            tipo = entrada[1]
+            valor = entrada[2]
 
-        persona_creada = False
+            persona_creada = False
 
-        # ¿Esta persona está asignada a una casa en el array de diccionarios "casas[]"?
+            # ¿Esta persona está asignada a una casa en el array de diccionarios "grupos[]"?
+            for elem in grupos:
+
+                # Ya existe el grupo de esta persona: se gestiona el predicado
+                if(elem["person"] == persona):
+                    elem[tipo] = valor
+                    persona_creada = True
+
+            # No existe la persona -> nueva casa
+            if(persona_creada == False):
+
+                nuevo_elem = dict(person = persona)
+                nuevo_elem[tipo] = valor
+
+                grupos = np.append(grupos, nuevo_elem)
+
+
+        # Elemento central es aquel con valor int
         for elem in grupos:
+            
+            for k,v in elem.items():
+                if isinstance(v, int):
+                    elemento_central = k
+                    break
 
-            # Ya existe la casa de esta persona: se gestiona el predicado
-            if(elem["person"] == persona):
+        # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número de elemento central y representamos. Añadimos el array de urls de imágenes
+        if(all(elemento_central in grupo for grupo in grupos)):
+            grupos = sorted(grupos, key=lambda d: d[elemento_central])
 
-                elem[tipo] = valor
-                persona_creada = True
+            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save( tmp_path + "/estado_inicial_einstein.png")
+            representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")
 
-        # No existe la persona -> nueva casa
-        if(persona_creada == False):
-
-            nuevo_elem = dict(person = persona)
-            nuevo_elem[tipo] = valor
-
-            grupos = np.append(grupos, nuevo_elem)
-
-
-    # Elemento central es aquel con valor int
-    for elem in grupos:
+            return [0, "OK"]
         
-        for k,v in elem.items():
-            if isinstance(v, int):
-                elemento_central = k
-                break
-
-    # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número de elemento central y representamos. Añadimos el array de urls de imágenes
-    if(all(elemento_central in casa for casa in grupos)):
-        grupos = sorted(grupos, key=lambda d: d[elemento_central])
-
-        representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save("resources/tmp/estado_inicial_einstein.png")
-        representa_solucion(elemento_central, grupos, rutas_imagenes).save("resources/tmp/solucion_einstein.png")
-
-        return [0, "OK"]
-    
-    else: return[1, "El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos."]
+        else: return[1, f"El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: Grupos: {grupos} Array_has: {array_has}"]
 
     # Caso de excepcion en el proceso
-    #except Exception as exc:
-     #   return[1, exc.args]
+    except Exception as exc:
+        return[1, traceback.format_exception(exc)]
 
 
 
@@ -385,6 +389,7 @@ def einstein_grafico(array_has, rutas_imagenes = []):
 if DEBUG:
     as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
     as_prueba2 = [['pedro', 'car', 1], ['isabel', 'car', 2], ['josito', 'car', 3], ['pedro', 'bebida', 'cocacola'], ['isabel', 'bebida', 'agua'], ['josito', 'bebida', 'leche'], ['pedro','color','red'], ['isabel','color','blue'], ['josito','color','green']]
+    as_prueba3 = [[]]
     print(einstein_grafico(as_prueba2, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]))
 
     # Enseña las imgs por pantalla

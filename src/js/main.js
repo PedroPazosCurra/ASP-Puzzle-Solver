@@ -15,15 +15,15 @@ var selectedPuzzle = "none";
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
 
 setTimeout(() => {
-
-  chatbotEnviarMensajeNaive("¡Hola! Soy tu asistente de resolución de puzzles. ¡Encantado!")
+  //chatbotEnviarImagenes(imgPrueba, imgPrueba)
+  chatbotEnviarMensajeNaive("¡Hola! Soy tu asistente de resolución de puzzles. ¡Encantado!");
   
   setTimeout(() => {
 
     chatbotEnviarMensajeNaive("Selecciona el puzzle a resolver e intenta explicar de forma lo más extensiva posible el problema al que te estés enfrentando.");
     setTimeout(() => {
-
-      chatbotEnviarMensajeNaive("Por cierto, recuerda hacerlo en inglés.")
+      
+      chatbotEnviarMensajeNaive("Por cierto, recuerda hacerlo en inglés.");
     }, "1500");
   }, "1000");
 }, "1000");
@@ -75,11 +75,11 @@ async function chatbotEnviarMensaje(inputMsg){
 
     // Si OK, envía imágenes con la salida del módulo gráfico.
     if(valor[0] == 0){
+        
+      representacion_grafica_inicial = "http://localhost:8080/tmp/estado_inicial_einstein.png";
+      representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png";
+      chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion);
       
-      representacion_grafica_inicial = "http://localhost:8080/tmp/estado_inicial_einstein.png"
-      representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png"
-      chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion)
-    
     }
   });
 }
@@ -195,6 +195,9 @@ function chatbotEnviarImagenes(startImg, endImg){
   // Añade mensaje y scroll hacia el último mensaje enviado
   chatContainer.appendChild(mensajeContainer);
   chatContainer.scrollTop = chatContainer.scrollHeight;
+
+  // Borra de la BD las imágenes usadas (petición DELETE a /tmp)
+  // peticionBorraTmp();
 }
 
 
@@ -288,11 +291,27 @@ async function peticionProcesaMensaje(mensaje){
 
   }).catch(error => {   // Caso de error -> Aviso
 
-    alert("...Ha habido un error procesando el mensaje, lo sentimos.\n" + error);
+    mostrarDialogo("...Ha habido un error enviando tu mensaje al servidor, lo sentimos.\n\n" + error);
 
   });
 
 }
+
+/* Función para llamar DELETE /procesa-mensaje y pedirle que borre /resources/tmp (desde JS no se puede) */ 
+async function peticionBorraTmp(){
+
+  return fetch('/tmp', {
+    method: "DELETE",
+  }).then(response => { // Caso exitoso
+    pass
+  }).catch(error => {   // Caso de error -> Aviso
+
+    mostrarDialogo("...Ha habido un error intentando borrar los archivos temporales. Lo sentimos.\n\n" + error);
+
+  });
+
+}
+
 
 
 //#############################   Eventos    ######################################
