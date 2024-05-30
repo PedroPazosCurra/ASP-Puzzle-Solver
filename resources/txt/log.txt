@@ -20,3 +20,37 @@ has(chinese, house, 3). type(color, V) :- color(V). color(purple). has(chinese, 
 	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,house,1). has(spanish,color,red). has(chinese,house,3). has(chinese,color,purple). has(english,drink,tea). has(english,house,2). has(chinese,drink,milk). has(chinese,pet,horse).
 # Explicación LN: The Spanish person drinks soda. The Spanish person has a cat. The English person has a dog. The Spanish person lives in the house number 1 and his house is painted red. The Chinese person lives in the house number 3 and his house is purple. The English person drinks tea and lives in the house number 2. The Chinese person drinks milk and owns a horse.
 # Módulo gráfico: OK
+
+############ [15:50] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+has(spanish, drink, soda).
+
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+has(spanish, pet, cat).
+
+has(english, pet, dog).
+
+image(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red). has(spanish, color, red).
+
+type(house, V) :- house(V). house(1..3).
+
+has(spanish, house, 1).
+
+has(chinese, house, 3).
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(spanish,house,1). has(chinese,house,3). has(english,drink,tea). has(english,house,2). has(chinese,drink,milk). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and has a cat. The English person owns a dog. The Spanish person's house is red and he resides in the first house. The Chinese person resides in the third house. The English person drinks tea and resides in the second house. The Chinese person drinks milk and owns a horse.
+# Módulo gráfico: OK

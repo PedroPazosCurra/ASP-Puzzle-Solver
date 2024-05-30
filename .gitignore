@@ -1,3 +1,9 @@
+# Ignora imágenes temporales
+resources/tmp/
+resources/tmp/*
+resources/tmp/estado_inicial_einstein.png
+resources/tmp/solucion_einstein.png
+
 # Logs
 logs
 *.log
@@ -347,5 +353,4 @@ pip-wheel-metadata/
 pytestdebug.log
 src/py/__pycache__/AS_to_NL.cpython-311.pyc
 src/py/__pycache__/NL_to_ASP.cpython-311.pyc
-resources/tmp/estado_inicial_einstein.png
-resources/tmp/solucion_einstein.png
+
