@@ -1,0 +1,20 @@
+import importlib
+import importlib.util
+spec = importlib.util.spec_from_file_location('src', 'src/py/modulo_grafico.py')
+modulo = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(modulo)
+
+modulo_grafico = getattr(modulo, 'modulo_grafico')
+
+einstein_has_sin_central = [[["pedro", "house", "1"], ["juan", "house", "2"], ["fulanito", "pet", "dog"]],["dog", "foto_perro"]]
+einstein_has_ok = [[["pedro", "house", "1"], ["juan", "house", "2"], ["fulanito", "house", "3"]],["dog", "foto_perro"]]
+
+# Comprueba fallo si el puzzle dado no existe.
+def test_puzzle_inexistente():
+    assert (modulo_grafico([['hola que tal'],[]], 'Puzzle_inventado') == [1, "El módulo gráfico recibe un puzzle que no existe: Puzzle_inventado."])
+
+def test_einstein_incorrecto():
+    assert(modulo_grafico(einstein_has_sin_central, "Einstein")[0] == 1)
+
+def test_einstein_correcto():
+    assert(modulo_grafico(einstein_has_ok, "Einstein")[0] == 0)

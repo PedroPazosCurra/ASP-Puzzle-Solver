@@ -54,3 +54,68 @@ has(chinese, house, 3).
 	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(spanish,house,1). has(chinese,house,3). has(english,drink,tea). has(english,house,2). has(chinese,drink,milk). has(chinese,pet,horse).
 # Explicación LN: The Spanish person drinks soda and has a cat. The English person owns a dog. The Spanish person's house is red and he resides in the first house. The Chinese person resides in the third house. The English person drinks tea and resides in the second house. The Chinese person drinks milk and owns a horse.
 # Módulo gráfico: OK
+
+############ [18:27] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [18:29] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [18:30] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [18:30] LOG ############:
+
+### Intento 1 de 2  ###
+# Modelo ASP sacado: 
+	person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red). has(chinese, color, purple).
+type(house, V) :- house(V). house(1..3).
+# Answer set resuelto: 
+	[[['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'color', 'red'], ['chinese', 'color', 'purple'], ['spanish', 'house', 1], ['english', 'drink', 'milk'], ['english', 'house', 3], ['chinese', 'drink', 'tea'], ['chinese', 'pet', 'horse'], ['chinese', 'house', 2]], [['soda', 'cocacola'], ['horse', 'horse'], ['cat', 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg']]]
+# Explicación LN: The Spanish drinks soda. The Spanish person owns a cat. The English person owns a dog. The Spanish's house is red. The Chinese's house is purple. The Spanish person lives in the house number 1. The English person drinks milk and lives in the house number 3. The Chinese person drinks tea and owns a horse and lives in the house number 2.
+# Módulo gráfico: OK
+
+############ [18:55] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+has(spanish, drink, soda). image(soda, "cocacola").
+
+has(spanish, pet, cat). has(english, pet, dog).
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+
+type(color, V) :- color(V). color(red). has(spanish, color, red). 
+
+type(house, V) :- house(V). house(1..3). has(spanish, house, 1). has(chinese, house, 3). 
+
+left_to(spanish, english).
+# Answer set resuelto: 
+	[[['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'color', 'red'], ['spanish', 'house', 1], ['chinese', 'house', 3], ['english', 'drink', 'milk'], ['english', 'house', 2], ['chinese', 'drink', 'tea'], ['chinese', 'pet', 'horse']], [['soda', 'cocacola'], ['cat', 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'], ['horse', 'horse']]]
+# Explicación LN: The Spanish person drinks soda. The Spanish person has a cat. The English person has a dog. The Spanish person's house is painted red. The Spanish person lives in the house number 1. The Chinese person lives in the house number 3. The English person drinks milk. The English person lives in the house number 2. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: OK
+
+############ [19:11] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).  person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). type(color, V) :- color(V). color(red). has(spanish, color, red). type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+# Answer set resuelto: 
+	[[['spanish', 'drink', 'soda'], ['spanish', 'pet', 'cat'], ['english', 'pet', 'dog'], ['spanish', 'color', 'red'], ['chinese', 'color', 'purple'], ['spanish', 'house', 2], ['english', 'house', 3], ['english', 'drink', 'milk'], ['chinese', 'house', 1], ['chinese', 'drink', 'tea'], ['chinese', 'pet', 'horse']], [['soda', 'cocacola'], ['cat', 'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'], ['horse', 'horse']]]
+# Explicación LN: The Spaniard drinks soda and has a cat. The Spanish house is red. The English person has a dog and lives in the house number 3 and drinks milk. The Chinese person's house is number 1, they drink tea, have a horse as pet, and their house is not specified in this colour.
+# Módulo gráfico: OK

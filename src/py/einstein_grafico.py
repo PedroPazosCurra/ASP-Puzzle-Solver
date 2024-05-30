@@ -324,11 +324,12 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
 #                       rutas_imagenes  = [['coffee', '/img/cafe.png']]
 #                   )
 #
-def einstein_grafico(array_has, rutas_imagenes = []):
+def einstein_grafico(argumentos):
 
     tipo = ""
     elemento_central = "house"
     grupos = np.array([])
+    array_has, rutas_imagenes = argumentos
 
     try:
 
@@ -390,7 +391,7 @@ if DEBUG:
     as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
     as_prueba2 = [['pedro', 'car', 1], ['isabel', 'car', 2], ['josito', 'car', 3], ['pedro', 'bebida', 'cocacola'], ['isabel', 'bebida', 'agua'], ['josito', 'bebida', 'leche'], ['pedro','color','red'], ['isabel','color','blue'], ['josito','color','green']]
     as_prueba3 = [[]]
-    print(einstein_grafico(as_prueba2, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]))
+    print(einstein_grafico([as_prueba2, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
 
     # Enseña las imgs por pantalla
     #fondo_estado_inicial.show()

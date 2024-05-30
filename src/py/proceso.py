@@ -14,7 +14,7 @@ from matplotlib import pyplot as plt
 from NL_to_ASP import NL_to_ASP
 from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
-from einstein_grafico import einstein_grafico
+from modulo_grafico import modulo_grafico
 from tiempos_plot import tiempos_plot
 
 
@@ -26,7 +26,7 @@ MAX_REINTENTOS = 2
 
 # Flags
 USAR_LLM_PURO = False
-DEBUG = True
+DEBUG = False
 
 # Variables
 log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/log.txt")), "a")
@@ -54,8 +54,9 @@ def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, 
 ######### PROCESO: 1 -> 2 -> 3. Si falla, no pasa a la siguiente fase y reintenta o devuelve el mensaje de error al front-end (vía stdout). ###########
 #
 #       1 - NL_to_ASP(prompt, puzzle) ->    [estado, msg] 
-#       2 - resolver_ASP(modelo, puzzle) -> [estado, modelo, array_has, array_rutas_img]
+#       2 - resolver_ASP(modelo, puzzle) -> [estado, modelo, [args_solver]]
 #       3 - ASP_to_NL(answerset, puzzle) -> [estado, msg]
+#       4 - Módulo gráfico ([args_solver], puzzle) -> [estado, msg]
 #
 def proceso(prompt_usuario, puzzle_elegido, n_intento):
 
@@ -65,8 +66,6 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     nl_salida = ""
     salida = "# "
     array_tiempos = []
-    predicados_has = []
-    rutas_imagenes = []
     estado = 0
 
     # Inicio
@@ -95,12 +94,12 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     ####  2º - Pasa el ASP al solver para obtener el Answer Set solución. ####
     tiempo_comienzo_resolver_asp = time.perf_counter()
 
-    estado, answer_set, predicados_has, rutas_imagenes = resolver_ASP(modelo_asp, puzzle_elegido)
+    estado, answer_set, salida_solver = resolver_ASP(modelo_asp, puzzle_elegido)
 
     tiempo_resolver_asp = time.perf_counter() - tiempo_comienzo_resolver_asp
     array_tiempos.append(tiempo_resolver_asp)
 
-    salida += f"# Answer set resuelto: \n\t{answer_set}\n"
+    salida += f"# Answer set resuelto: \n\t{salida_solver}\n"
 
     ##   Fallo en resolver_ASP (2)
     if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
@@ -108,7 +107,6 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
 
     ####  3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve. ####
     tiempo_comienzo_as_to_nl = time.perf_counter()
-
 
     estado, nl_salida = AS_to_NL(answer_set, puzzle_elegido)
 
@@ -124,8 +122,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     ####  4º Caso optimista: Todo OK - Representación gráfica ####
     tiempo_comienzo_modulo_grafico = time.perf_counter()
 
-    if(puzzle_elegido == "Einstein"):
-        estado, msg_grafico = einstein_grafico(predicados_has, rutas_imagenes)
+    estado, msg_grafico = modulo_grafico(salida_solver, puzzle_elegido)
 
     tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
     array_tiempos.append(tiempo_grafico)

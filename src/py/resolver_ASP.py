@@ -37,11 +37,11 @@ def procesa_atom_arguments(atom_args):
 
 # Función a exportar: resolver_ASP
 #
-#   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un Answer Set con la solución
+#   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un estado, Answer Set y argumentos posteriores
 def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = ["--warn=none"]):
 
     # Sale con error si alguno de los args es nulo
-    if ((modelo == None) or (puzzle == None)): return([1, "resolver_ASP recibe una entrada con uno de los valores nulos.", None, None])
+    if ((modelo == None) or (puzzle == None)): return([1, "resolver_ASP recibe una entrada con uno de los valores nulos.", []])
     
 
     cc = clingo.Control(clingo_args)
@@ -52,7 +52,7 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
         case "Einstein":
             cc.load(reglas_einstein)
         case _:
-            return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", None, None])
+            return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
 
     # Se añade el modelo recibido de LLM al código ASP + se hace grounding
     try:
@@ -60,14 +60,14 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
         cc.ground([('base',[])])
 
     except:
-        return([1, "Ha habido un problema en el proceso de grounding ASP", None, None])
+        return([1, "Ha habido un problema en el proceso de grounding ASP", []])
 
     # Se devuelve el set si el programa es SAT y un error si no.
 
     try:
         solve_handle = cc.solve(yield_= True)
     except:
-        return([1, "Ha habido un problema en el proceso de solving ASP", None, None])
+        return([1, "Ha habido un problema en el proceso de solving ASP", []])
 
 
     # En caso de que haya modelos, se recogen los átomos en listas.
@@ -75,28 +75,31 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
         answer_sets = (str(model).replace(" ", ". ") + ".")
         for atom in model.symbols(atoms=True):
 
-            if(atom.name == "has" and len(atom.arguments) == 3):
+            match puzzle:
+                case "Einstein":
+                    if(atom.name == "has" and len(atom.arguments) == 3):
+                        # Toma los 3 argumentos del has(X,Y,Z)
+                        has_arg_1, has_arg_2, has_arg_3 = procesa_atom_arguments(atom.arguments)  
+                        has_atoms.append([has_arg_1, has_arg_2, has_arg_3])
 
-                # Toma los 3 argumentos del has(X,Y,Z)
-                has_arg_1, has_arg_2, has_arg_3 = procesa_atom_arguments(atom.arguments)  
-                has_atoms.append([has_arg_1, has_arg_2, has_arg_3])
+                    elif(atom.name == "image" and len(atom.arguments) == 2):
 
-            elif(atom.name == "image" and len(atom.arguments) == 2):
-
-                # Toma 2 args del image(X,Y)
-                img_arg_1, img_arg_2 = procesa_atom_arguments(atom.arguments)
-                image_routes.append([img_arg_1, img_arg_2])
+                        # Toma 2 args del image(X,Y)
+                        img_arg_1, img_arg_2 = procesa_atom_arguments(atom.arguments)
+                        image_routes.append([img_arg_1, img_arg_2])
+                case _:
+                    return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
 
     # ¿Tiene solución?
     if (len(answer_sets) >= 1):
-        return([0, answer_sets, has_atoms, image_routes])
+        return([0, answer_sets, [has_atoms, image_routes]])
     else:
-        return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.", None, None])
+        return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.", []])
 
 # Debug:
 if (DEBUG):
     modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
     #modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
     #modelo_invalido = ":-"
-    status, ans_sets, has, imageroutes = (resolver_ASP(modelo_sat, "Einstein"))
+    status, ans_sets, [has, imageroutes] = resolver_ASP(modelo_sat, "Einstein")
     print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")
