@@ -70,17 +70,25 @@ async function chatbotEnviarMensaje(inputMsg){
   // Envía petición AJAX a backend Express
   peticionProcesaMensaje(inputMsg).then((valor) => { 
 
-    // Recibe correctamente, actualiza el mensaje
-    actualizaMensaje(mensajeElem, valor[1]);
 
-    // Si OK, envía imágenes con la salida del módulo gráfico.
-    if(valor[0] == 0){
-        
-      representacion_grafica_inicial = "http://localhost:8080/tmp/estado_inicial_einstein.png";
-      representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png";
-      chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion);
-      
+    try{    // Recibe correctamente, actualiza el mensaje
+      actualizaMensaje(mensajeElem, valor[1]);
+
+      // Si OK, envía imágenes con la salida del módulo gráfico.
+      if(valor[0] == 0){
+          
+        representacion_grafica_inicial = "http://localhost:8080/tmp/estado_inicial_einstein.png";
+        representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png";
+        chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion); 
+      }
+
+    }catch(error){
+
+      actualizaMensaje(mensajeElem, "Hay un problema con el servidor. Perdona, necesito un momento para pensar.");
+      mostrarDialogo("El servidor no parece estar funcionando bien. ¡Sentimos las molestias!")
     }
+
+
   });
 }
 
@@ -233,16 +241,14 @@ function creaMensaje(lado, msg ){
   // Variaciones
   if (lado == "User"){      // Caso Usuario
 
-    mensajeElem.style.backgroundColor = "aliceblue";
-    mensajeElem.style.alignSelf = "flex-end";
+    mensajeElem.classList.add('mensaje-chat-user');
     mensajeElem.innerHTML = '<span class="text-end" style="color: #6f5471">' + msg + '</span>';
 
   }
   else if (lado == "Bot"){  // Caso Bot
                             // Nota: Por defecto, se dice que está cargando (esta función es síncrona !) Actualizar después de enviar.
 
-    mensajeElem.style.backgroundColor = "hotpink";
-    mensajeElem.style.alignSelf = "flex-start";
+    mensajeElem.classList.add('mensaje-chat-bot');
     mensajeElem.innerHTML = '<span class="text-start" style= "color: #fdb7ff;"> Cargando... </span>';
 
   }
@@ -255,7 +261,6 @@ function actualizaMensaje(mensajeContainer, msg){
   try{
 
     elementoMensaje = mensajeContainer.firstChild;
-    elementoMensaje.style.backgroundColor = "hotpink";
     elementoMensaje.innerHTML = '<span class="text-start" style= "color: #fef0ff;">'+ msg +'</span>';
     elementoMensaje.animate([{easing:"ease-in", opacity:0.4}, {opacity:1}], {duration:500});
   } catch(e){ console.error('ERROR CAPTURADO: actualizaMensaje()\n\t' + e)}

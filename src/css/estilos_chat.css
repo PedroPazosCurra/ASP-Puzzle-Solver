@@ -1,0 +1,33 @@
+
+/* Banner de perfil */
+.banner_perfil{
+    background: -webkit-linear-gradient(left,#ff986f,#ff5479, #ff48ad );
+}
+
+/* Recuadro de chat */
+.chat{
+    height:500px;
+    background: -webkit-linear-gradient(left,#fff6ef ,#ffebf4);
+}
+
+/* Mensajes en el chat */
+.mensaje-chat-bot{
+
+    background-color: hotpink;
+    align-self: flex-start;
+
+}
+
+.mensaje-chat-user{
+
+    background-color : aliceblue;
+    align-self: flex-end;
+}
+
+.chat-input{
+    border: none;
+    outline: none;
+    border-color: transparent;
+    background: -webkit-linear-gradient(left,#fff6ef ,#ffebf4);
+    background-color: transparent;
+}

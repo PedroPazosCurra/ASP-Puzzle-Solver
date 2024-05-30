@@ -1,26 +1,33 @@
 
 /* Título de la página */
 h1{
-  font-size: 3.2vw;
-  color: hotpink;
-  text-shadow: 5px 4px 7px rgb(146, 52, 99);
-  margin: 4%;
-  -webkit-text-stroke: 1px rgb(128, 45, 86);
+  font-size: 3.3vw;
+  background: -webkit-linear-gradient(right, #df8fff, #cd28ff, #ff8b8b);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 1.3vw;
+  margin-left: 3vw;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #7b647c;
 }
 
 h3{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #937a94;
 }
 
 h4{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #b196b2;
 }
 
 p{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #b196b2;
 }
 
