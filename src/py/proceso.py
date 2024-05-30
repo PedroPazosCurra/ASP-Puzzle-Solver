@@ -7,10 +7,8 @@
 
 # Imports
 from sys import argv as args
-from os import path, remove
-from glob import glob
+from os import path
 import time
-from matplotlib import pyplot as plt
 from NL_to_ASP import NL_to_ASP
 from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
@@ -99,7 +97,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     tiempo_resolver_asp = time.perf_counter() - tiempo_comienzo_resolver_asp
     array_tiempos.append(tiempo_resolver_asp)
 
-    salida += f"# Answer set resuelto: \n\t{salida_solver}\n"
+    salida += f"# Answer set resuelto: \n\t{answer_set}\n"
 
     ##   Fallo en resolver_ASP (2)
     if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
@@ -152,4 +150,4 @@ n_intento = 0
 num_args = len(args)
 if (num_args >= 3): _, prompt, puzzle, n_intento = args
 
-proceso(prompt, puzzle, n_intento)
+proceso(prompt, puzzle, int(n_intento))

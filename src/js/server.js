@@ -70,6 +70,24 @@ app.get("/about", function (req, res) {
 
 });
 
+// Recibe GET a '/imagen-inicial'
+app.get("/imagen-inicial", function (req, res) {
+
+  // LOG + Envía html 
+  console.log("LOG: GET /imagen-inicial");
+  res.sendFile(path.join(__dirname, '../../resources/tmp/', 'estado_inicial_einstein.png'));
+
+});
+
+// Recibe GET a '/imagen-final'
+app.get("/imagen-final", function (req, res) {
+
+  // LOG + Envía html 
+  console.log("LOG: GET /imagen-final");
+  res.sendFile(path.join(__dirname, '../../resources/tmp/', 'solucion_einstein.png'));
+
+});
+
 // Recibe DELETE a '/tmp'
 app.delete("/tmp", function (req, res) {
 

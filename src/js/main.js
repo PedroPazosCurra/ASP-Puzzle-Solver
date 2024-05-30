@@ -10,7 +10,8 @@ var chatContainer = document.getElementById('chatContainer');
 var imgPrueba = "http://localhost:8080/img/logo_udc_horizontal.png";
 var imgFlecha = "http://localhost:8080/img/flecha.png";
 var selectedPuzzle = "none";
-
+var num_ids = 0
+textBox.value = "";
 
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
 
@@ -72,6 +73,7 @@ async function chatbotEnviarMensaje(inputMsg){
 
 
     try{    // Recibe correctamente, actualiza el mensaje
+      
       actualizaMensaje(mensajeElem, valor[1]);
 
       // Si OK, envía imágenes con la salida del módulo gráfico.
@@ -128,13 +130,13 @@ function chatbotEnviarImagenes(startImg, endImg){
 
   // Imagen estado inicial
   var imagen1 = document.createElement('img');
-  imagen1.id = 'imagen-inicial';
+  imagen1.id = `imagen-final${num_ids}`
   imagen1.classList.add('modal-content');
 
   // Imagen que actúa como botón
   var trigger_imagen1 = document.createElement('img');
   trigger_imagen1.classList.add('imagen-inicial');
-  trigger_imagen1.id = "trigger1";
+  trigger_imagen1.id = `trigger1.${num_ids}`;
   trigger_imagen1.src = startImg;
   trigger_imagen1.style.width = "50%";
   trigger_imagen1.style.borderRadius = "20px";
@@ -159,13 +161,13 @@ function chatbotEnviarImagenes(startImg, endImg){
 
   // Imagen estado final
   var imagen2 = document.createElement('img');
-  imagen2.id = 'imagen-final';
+  imagen2.id = `imagen-final${num_ids}`;
   imagen2.classList.add('modal-content');
 
   // Imagen que actúa como botón
   var trigger_imagen2 = document.createElement('img');
   trigger_imagen2.classList.add('imagen-final');
-  trigger_imagen2.id = "trigger2";
+  trigger_imagen2.id = `trigger2.${num_ids}`;
   trigger_imagen2.src = endImg;
   trigger_imagen2.style.width = "50%";
   trigger_imagen2.style.borderRadius = "20px";
@@ -182,6 +184,7 @@ function chatbotEnviarImagenes(startImg, endImg){
 
   var divisor = document.createElement('div');
   divisor.classList.add('divisor_imagenes');
+  num_ids = num_ids + 1;
 
   divisor.appendChild(trigger_imagen1);
   divisor.appendChild(flecha);
@@ -285,11 +288,9 @@ async function peticionProcesaMensaje(mensaje){
       puzzle : selectedPuzzle
     })
   }).then(response => { // Caso exitoso
-
     return response.json();
 
   }).catch(error => {   // Caso de error -> Aviso
-
     mostrarDialogo("...Ha habido un error enviando tu mensaje al servidor, lo sentimos.\n\n" + error);
 
   });
@@ -301,6 +302,7 @@ async function peticionBorraTmp(){
 
   return fetch('/tmp', {
     method: "DELETE",
+    headers: { 'Content-Type': 'application/json' },
   }).then(response => { // Caso exitoso
     pass
   }).catch(error => {   // Caso de error -> Aviso
