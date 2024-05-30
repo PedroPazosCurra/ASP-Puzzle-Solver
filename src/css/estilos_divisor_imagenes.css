@@ -9,7 +9,7 @@
     max-width: 100%;
     margin: 10px;
     padding: 5px;
-    background-color: hotpink;
+    background: -webkit-linear-gradient(left,#ff986f, #ff48ad );
     border-radius: 20px;
 }
 

@@ -88,7 +88,6 @@ async function chatbotEnviarMensaje(inputMsg){
       mostrarDialogo("El servidor no parece estar funcionando bien. ¡Sentimos las molestias!")
     }
 
-
   });
 }
 
@@ -110,12 +109,7 @@ function chatbotEnviarImagenes(startImg, endImg){
   var mensaje = document.createElement('div');
   mensaje.classList.add('float-start');
   mensaje.classList.add('shadow-sm');
-  mensaje.style.margin = "10px";
-  mensaje.style.padding = "5px";
-  mensaje.style.width = "auto";
-  mensaje.style.maxWidth = "70%";
-  mensaje.style.backgroundColor = "hotpink";
-  mensaje.style.borderRadius = "20px";
+  mensaje.classList.add('mensaje-imagenes-bot');
 
   /*################    Elementos compartidos      ################*/
 
@@ -249,7 +243,7 @@ function creaMensaje(lado, msg ){
                             // Nota: Por defecto, se dice que está cargando (esta función es síncrona !) Actualizar después de enviar.
 
     mensajeElem.classList.add('mensaje-chat-bot');
-    mensajeElem.innerHTML = '<span class="text-start" style= "color: #fdb7ff;"> Cargando... </span>';
+    mensajeElem.innerHTML = '<span class="text-start" style= "color: #ffd6ef;"> Cargando... </span>';
 
   }
   mensajeContainer.appendChild(mensajeElem);

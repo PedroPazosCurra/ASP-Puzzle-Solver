@@ -7,20 +7,28 @@
 /* Recuadro de chat */
 .chat{
     height:500px;
-    background: -webkit-linear-gradient(left,#fff6ef ,#ffebf4);
+    background: -webkit-linear-gradient(left,#fff6ef ,#fdebff);
 }
 
 /* Mensajes en el chat */
 .mensaje-chat-bot{
 
-    background-color: hotpink;
+    background: -webkit-linear-gradient(left,#ff986f, #ff48ad );
     align-self: flex-start;
 
+}
+.mensaje-imagenes-bot{
+    margin: 10px;
+    padding: 5px;
+    width: auto;
+    max-width: 70%;
+    background: -webkit-linear-gradient(left,#ff986f, #ff48ad );
+    border-radius: 20px;
 }
 
 .mensaje-chat-user{
 
-    background-color : aliceblue;
+    background: -webkit-linear-gradient(left,#ffd4e6, #f2deff );
     align-self: flex-end;
 }
 
