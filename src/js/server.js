@@ -48,7 +48,7 @@ app.get("/", function (req, res) {
 
   // LOG + Envía html 
   console.log("LOG: GET /");
-  res.sendFile(path.join(__dirname, '../', 'index.html'));
+  res.sendFile(path.join(__dirname, '../html/', 'index.html'));
 
 });
 
@@ -57,7 +57,7 @@ app.get("/ayuda", function (req, res) {
 
   // LOG + Envía html 
   console.log("LOG: GET /ayuda");
-  res.sendFile(path.join(__dirname, '../', 'ayuda.html'));
+  res.sendFile(path.join(__dirname, '../html/', 'ayuda.html'));
 
 });
 
@@ -66,7 +66,7 @@ app.get("/about", function (req, res) {
 
   // LOG + Envía html 
   console.log("LOG: GET /about");
-  res.sendFile(path.join(__dirname, '../', 'about.html'));
+  res.sendFile(path.join(__dirname, '../html/', 'about.html'));
 
 });
 

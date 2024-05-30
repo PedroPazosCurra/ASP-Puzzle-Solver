@@ -52,7 +52,7 @@ html { overflow-y: scroll;}
 }
 
 .dropdown-toggle{
-  width: 10vw;
+  width: fit-content;
   height: 3vw;
   font-size: 1.3vw;
   border-radius: 20px;
