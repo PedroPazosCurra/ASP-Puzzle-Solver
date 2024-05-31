@@ -1475,3 +1475,37 @@ type(pet, V) :- pet(V). pet(dog; cat; rabbit; mole; fish; horse; possum; tiger; 
 	has(french,house,1). has(danish,house,2). has(italian,house,3). has(brittish,house,4). has(portuguese,house,5). has(german,house,6). has(norwegian,house,7). has(turkish,house,8). has(russian,house,9). has(spanish,house,10). has(danish,pet,dog). has(german,pet,cat). has(norwegian,pet,rabbit). has(turkish,pet,mole). has(russian,pet,fish). has(portuguese,pet,horse). has(french,pet,possum). has(spanish,pet,tiger). has(italian,pet,rat).
 # Explicación LN: The French person lives in the first house. The Danish person lives in the second house. The Italian person lives in the third house. The British person lives in the fourth house. The Portuguese person lives in the fifth house. The German person lives in the sixth house. The Norwegian person lives in the seventh house. The Turkish person lives in the eighth house. The Russian person lives in the ninth house. The Spanish person lives in the tenth house. The Danish person has a dog. The German person has a cat. The Norwegian person has a rabbit. The Turkish person has a mole. The Russian person has a fish. The Portuguese person owns a horse. The French person has a possum. The Spanish person has a tiger. The Italian person has a rat.
 # Módulo gráfico: OK
+
+############ [2:33] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [2:33] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [2:33] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	person(brittish; norwegian; german; dane; swede; italian; spanish; chinese; french; portuguese).
+
+type(house, V) :- house(V). house(1..10).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse; rabbit; mole; fish; possum; tiger; rat; snake).
+
+neighbor(V, W) :- house(V). house(W). not(V = W).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [2:35] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(brittish; norwegian; german; italian; spanish; chinese; sudafrican; turkish; russian; filipino). 
+type(house, V) :- house(V). house(1..10).
+type(pet, V) :- pet(V). pet(dog; cat; rabbit; mole; fish; tiger; horse; rat; possum; possum).
+# Answer set resuelto: 
+	has(sudafrican,house,1). has(italian,house,2). has(spanish,house,3). has(brittish,house,4). has(turkish,house,5). has(german,house,6). has(norwegian,house,7). has(filipino,house,8). has(russian,house,9). has(chinese,house,10). has(italian,pet,dog). has(german,pet,cat). has(norwegian,pet,rabbit). has(filipino,pet,mole). has(russian,pet,fish). has(turkish,pet,tiger). has(sudafrican,pet,horse). has(chinese,pet,rat). has(spanish,pet,possum).
+# Explicación LN: The South African person lives in the house number 1. The Italian lives in the house number 2. There's a Spanish living in the house number 3. The British person resides in the house number 4. There's a Turkish living in the house number 5. The German person lives in the house number 6. The Norwegian person lives in the house number 7. The Filipino person lives in the house number 8. The Russian person lives in the house number 9. The Chinese person lives in the house number 10. The Italian has a dog. The German has a cat. The Norwegian has a rabbit as a pet. The Filipino has a mole. The Russian has a fish as a pet. The Turkish has a tiger as a pet. The South African person has a horse as a pet. The Chinese person has a rat. The Spanish person has a possum as a pet.
+# Módulo gráfico: OK

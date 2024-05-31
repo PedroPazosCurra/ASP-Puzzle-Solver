@@ -238,7 +238,7 @@ def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
     num_datos = len(dict_datos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_datos = (1.1**(-num_datos)) * 80
+    tamaño_datos = (1.1**(-num_casas)) * 80
 
     for i, par in enumerate(dict_datos.items()):
 
@@ -388,13 +388,23 @@ def einstein_grafico(argumentos):
 ################################################  Debug   ##########################################################
 
 if DEBUG:
-    as_prueba = [['juan', 'house', 4], ['pedro', 'house', 1], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+
+    # Falla, 'pedro' no tiene 'house'
+    as_prueba = [['juan', 'house', 4], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+    
+    # 3 coches, ejemplo con mucha foto.
     as_prueba2 = [['pedro', 'car', 1], ['isabel', 'car', 2], ['josito', 'car', 3], ['pedro', 'bebida', 'cocacola'], ['isabel', 'bebida', 'agua'], ['josito', 'bebida', 'leche'], ['pedro','color','red'], ['isabel','color','blue'], ['josito','color','green']]
-    as_prueba3 = [[]]
-    print(einstein_grafico([as_prueba2, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
+    
+    # 7 casas, elementos heterogéneamente definidos.
+    as_prueba3 = [['juan', 'house', 4], ['pedro', 'house', 1], ['ramon', 'house', 6], ['luis', 'house', 7], ['pedro', 'inventado', 'inventado'], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 3], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+    
+    # 2 Casas, muchos elemetos
+    as_prueba4 = [['a', 'house', 1], ['b', 'house', 2], ['a', 'pet', 'perro'], ['b', 'pet', 'gato'], ['a', 'drink', 'cocacola'], ['b', 'drink', 'water'], ['a', 'food', 'arroz'], ['b', 'food', 'macarrones'], ['a', 'car', 'ford'], ['b', 'car', 'mitshubishi']]
+
+    print(einstein_grafico([as_prueba, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
 
     # Enseña las imgs por pantalla
-    #fondo_estado_inicial.show()
+    fondo_estado_inicial.show()
     fondo_solucion.show()
 
     """
