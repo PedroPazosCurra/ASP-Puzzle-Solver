@@ -372,7 +372,7 @@ def einstein_grafico(argumentos):
         if(all(elemento_central in grupo for grupo in grupos)):
             grupos = sorted(grupos, key=lambda d: d[elemento_central])
 
-            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save( tmp_path + "/estado_inicial_einstein.png")
+            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/estado_inicial_einstein.png")
             representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")
 
             return [0, "OK"]

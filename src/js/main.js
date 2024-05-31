@@ -79,8 +79,8 @@ async function chatbotEnviarMensaje(inputMsg){
       // Si OK, envía imágenes con la salida del módulo gráfico.
       if(valor[0] == 0){
           
-        representacion_grafica_inicial = "http://localhost:8080/tmp/estado_inicial_einstein.png";
-        representacion_grafica_solucion = "http://localhost:8080/tmp/solucion_einstein.png";
+        representacion_grafica_inicial = "./imagen-inicial";
+        representacion_grafica_solucion = "./imagen-final";
         chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion); 
       }
 

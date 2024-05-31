@@ -1509,3 +1509,192 @@ type(pet, V) :- pet(V). pet(dog; cat; rabbit; mole; fish; tiger; horse; rat; pos
 	has(sudafrican,house,1). has(italian,house,2). has(spanish,house,3). has(brittish,house,4). has(turkish,house,5). has(german,house,6). has(norwegian,house,7). has(filipino,house,8). has(russian,house,9). has(chinese,house,10). has(italian,pet,dog). has(german,pet,cat). has(norwegian,pet,rabbit). has(filipino,pet,mole). has(russian,pet,fish). has(turkish,pet,tiger). has(sudafrican,pet,horse). has(chinese,pet,rat). has(spanish,pet,possum).
 # Explicación LN: The South African person lives in the house number 1. The Italian lives in the house number 2. There's a Spanish living in the house number 3. The British person resides in the house number 4. There's a Turkish living in the house number 5. The German person lives in the house number 6. The Norwegian person lives in the house number 7. The Filipino person lives in the house number 8. The Russian person lives in the house number 9. The Chinese person lives in the house number 10. The Italian has a dog. The German has a cat. The Norwegian has a rabbit as a pet. The Filipino has a mole. The Russian has a fish as a pet. The Turkish has a tiger as a pet. The South African person has a horse as a pet. The Chinese person has a rat. The Spanish person has a possum as a pet.
 # Módulo gráfico: OK
+
+############ [12:20] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [12:20] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [12:20] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	En NL_to_ASP.py, se recibe un puzzle que no existe: Comensales. Vigila que se pase bien.
+
+############ [12:21] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+ person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+has(spanish, house, 1). has(spanish, pet, dog). has(spanish, tobacco_brand, ducados).
+has(chinese, house, 3). has(chinese, beverage, tea).
+has(english, house, 2).
+
+color(red, 1). color(blue, 2). color(purple, 3).
+# Answer set resuelto: 
+	has(spanish,house,1). has(spanish,pet,dog). has(spanish,tobacco_brand,ducados). has(chinese,house,3). has(chinese,beverage,tea). has(english,house,2). has(spanish,beverage,water). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).
+# Explicación LN: The Spanish person lives in the first house and has a dog, smokes Ducados, and drinks water. The Chinese person lives in the third house, has a cat, drinks tea, and smokes Bluem. The English person lives in the second house, has a duck, smokes Camel, and drinks coffee.
+# Módulo gráfico: OK
+
+############ [12:21] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [12:21] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [12:21] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+ person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+has(spanish, house, 1).
+color(red).
+has(spanish, pet, dog).
+has(spanish, tobacco_brand, ducados).
+
+has(english, house, 2).
+color(blue).
+has(chinese, house, 3).
+color(purple).
+
+has(chinese, beverage, tea).
+# Answer set resuelto: 
+	has(spanish,house,1). has(spanish,pet,dog). has(spanish,tobacco_brand,ducados). has(english,house,2). has(chinese,house,3). has(chinese,beverage,tea). has(spanish,beverage,water). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).
+# Explicación LN: The Spanish person lives in the first house, has a dog, and smokes Ducados tobacco. The English person lives in the second house. The Chinese person lives in the third house, has a cat, and drinks tea. The Spanish person drinks water. The English person has a duck, smokes Camel tobacco, and drinks coffee.
+# Módulo gráfico: OK
+
+############ [12:22] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(spanish; english; chinese).
+type(house, V) :- house(V). house(1..3).
+type(color, V) :- color(V). color(red; blue; purple).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+
+has(spanish, color, red).
+has(english, color, blue).
+has(chinese, color, purple).
+
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: 
+	has(spanish,color,red). has(english,color,blue). has(chinese,color,purple). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,house,2). has(spanish,beverage,water). has(english,house,3). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,house,1). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).
+# Explicación LN: The Spanish house is coloured red. The English neighbour's house is blue. The Chinese house is purple. The Spaniard has a dog. The Chinese person drinks tea. The Spaniard smokes Ducados tobacco. The Spaniard lives in the second house. The English person lives in the house number 3. The English person owns a duck. The English person smokes Camel tobacco. The English person drinks coffee. The Chinese person lives in the first house. The Chinese person keeps a cat. The Chinese person smokes Bluem tobacco.
+# Módulo gráfico: OK
+
+############ [12:50] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [12:50] LOG ############:
+
+### Intento 1 de 2  ###
+# Modelo ASP sacado: 
+	person(spanish; english; chinese).
+type(house, V) :- house(V). house(1..3).
+type(color, V) :- color(V). color(red; blue; purple).
+has(spanish, house, 1). has(english, house, 2). has(chinese, house, 3).
+type(pet, V) :- pet(V). pet(dog; cat; duck). has(spanish, pet, dog). 
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem). has(spanish, tobacco_brand, ducados).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea). has(chinese, beverage, tea).
+# Answer set resuelto: 
+	has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(spanish,tobacco_brand,ducados). has(chinese,beverage,tea). has(spanish,color,blue). has(spanish,beverage,water). has(english,color,purple). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,color,red). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).
+# Explicación LN: The Spanish person lives in the first house. The Spanish person owns a dog. The Spanish person smokes Ducados tobacco. The Chinese person lives in the third house. The Chinese person owns a cat. The Chinese person smokes Bluem tobacco. The Spanish house is colored blue. The English person lives in the second house. The English person owns a duck. The English person smokes Camel tobacco and drinks coffee. The English house is colored purple.
+# Módulo gráfico: OK
+
+############ [12:51] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3).
+ person(spanish; english; chinese).
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+type(beverage, V) :- beverage(V). beverage(coffee; water; tea).
+color(red). has(spanish, color, red).
+color(blue). has(english, color, blue).
+color(purple). has(chinese, color, purple).
+has(spanish, pet, dog).
+has(chinese, beverage, tea).
+has(spanish, tobacco_brand, ducados).
+# Answer set resuelto: 
+	has(spanish,color,red). has(english,color,blue). has(chinese,color,purple). has(spanish,pet,dog). has(chinese,beverage,tea). has(spanish,tobacco_brand,ducados). has(spanish,house,2). has(spanish,beverage,water). has(english,house,3). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,house,1). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).
+# Explicación LN: The Spanish person's house is red. The English person's house is blue. The Chinese person's house is purple. The Spanish person owns a dog. The Chinese person prefers tea. The Spanish person smokes Ducados. The Spanish person drinks water and lives in the house number 2. The English person lives in the house number 3. The English person owns a duck. The English person smokes Camel. The English person drinks coffee. The Chinese person lives in the house number 1. The Chinese person owns a cat. The Chinese person smokes Bluem.
+# Módulo gráfico: OK
+
+############ [12:52] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [12:52] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [12:52] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	person(spanish; english; chinese).
+
+type(house, V) :- house(V). house(1..3).
+
+type(color, V) :- color(V). color(red; blue; purple).
+
+has(spanish, house, 1).
+has(english, house, 2).
+has(chinese, house, 3).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+has(spanish, pet, dog).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluem).
+
+has(spanish, tobacco_brand, ducados).
+
+type(beverage, V) :- beverage(V). beverage(tea; coffee; water).
+
+has(chinese, beverage, tea).
+# Answer set resuelto: 
+	has(spanish,house,1). has(english,house,2). has(chinese,house,3). has(spanish,pet,dog). has(spanish,tobacco_brand,ducados). has(chinese,beverage,tea). has(spanish,color,blue). has(spanish,beverage,water). has(english,color,purple). has(english,pet,duck). has(english,tobacco_brand,camel). has(english,beverage,coffee). has(chinese,color,red). has(chinese,pet,cat). has(chinese,tobacco_brand,bluem).
+# Explicación LN: The Spanish person lives in the first house. The English person lives in the second house. The Chinese person lives in the third house. The Spanish person owns a dog. The Spanish person smokes Ducados tobacco. The Chinese person drinks tea. The Spanish person's house is colored blue. The Spanish person drinks water. The English person's house is colored purple. The English person owns a duck. The English person smokes Camel tobacco. The English person drinks coffee. The Chinese person's house is colored red. The Chinese person owns a cat. The Chinese person smokes Bluem tobacco.
+# Módulo gráfico: OK
+
+############ [12:54] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog).
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+type(color, V) :- color(V). color(red). has(spanish, color, red).
+type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda. The Spaniard owns a cat. The Spanish house is painted red. The English person owns a dog. The English person's boat is the number 3. The English person drinks milk. The Chinese person's boat is the number 2. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: OK

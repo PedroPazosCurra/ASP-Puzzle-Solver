@@ -72,7 +72,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     log.write(f"\n### Intento {n_intento} de {MAX_REINTENTOS}  ###\n")
 
 
-    ####  1º - Pasa el mensaje del usuario a declaraciones ASP. ####
+    ########    1º - Pasa el mensaje del usuario a declaraciones ASP.           ########
     tiempo_comienzo_nl_to_asp = time.perf_counter()
 
     estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido)
@@ -89,7 +89,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     if (USAR_LLM_PURO): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
 
 
-    ####  2º - Pasa el ASP al solver para obtener el Answer Set solución. ####
+    ########    2º - Pasa el ASP al solver para obtener el Answer Set solución. ########
     tiempo_comienzo_resolver_asp = time.perf_counter()
 
     estado, answer_set, salida_solver = resolver_ASP(modelo_asp, puzzle_elegido)
@@ -103,7 +103,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
 
 
-    ####  3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve. ####
+    ########    3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.       ########
     tiempo_comienzo_as_to_nl = time.perf_counter()
 
     estado, nl_salida = AS_to_NL(answer_set, puzzle_elegido)
@@ -117,7 +117,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
 
 
-    ####  4º Caso optimista: Todo OK - Representación gráfica ####
+    ########    4º Caso optimista: Todo OK - Representación gráfica             ########
     tiempo_comienzo_modulo_grafico = time.perf_counter()
 
     estado, msg_grafico = modulo_grafico(salida_solver, puzzle_elegido)
@@ -129,6 +129,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
 
     tiempo_total = time.perf_counter() - tiempo_comienzo_total
 
+    # Fin
     imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
 
     if(DEBUG):
