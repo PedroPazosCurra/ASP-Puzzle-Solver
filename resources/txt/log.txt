@@ -1305,3 +1305,173 @@ image(image, "not defined").
 image(representacion_grafica_inicial; representacion_grafica_solucion).
 # Answer set resuelto: 
 	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [1:19] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+type(color, V) :- color(V). color(red). has(spanish, color, red).
+type(color, V) :- color(V). color(purple). has(chinese, color, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish likes drinking soda. The English man owns a dog and a boat number 3. He also drinks milk. The Spanish person owns a cat and his house is painted red. He has a boat number 1. The Chinese person's house is purple. He owns a boat number 2 and a horse, drinks tea.
+# Módulo gráfico: OK
+
+############ [1:42] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). has(spanish, pet, cat). has(english, pet, dog). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). type(boat_color, V) :- boat_color(V). boat_color(purple). has(chinese, boat_color, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Spanish person drinks soda and has a cat. The English person has a dog. The Spanish person's boat is number 1 and it's painted red. The Chinese person's boat is number 2. The English person drinks milk. The Chinese person drinks tea. The Chinese person owns a horse.
+# Módulo gráfico: OK
+
+############ [1:44] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person("brittish"; "norwegian"; "german"; "danish"; "swedish"; "spanish"; "italian"; "french"; "portuguese"; "irish"; "scottish"; "english"; "russian"; "turkish"; "iranian"; "chinese"; "japanese"; "korean"; "american"; "canadian"; "australian"; "newzealander").
+
+type(house, V) :- house(V). house(1..20).
+# Answer set resuelto: 
+	has("italian",house,1). has("french",house,2). has("portuguese",house,3). has("american",house,4). has("korean",house,5). has("irish",house,6). has("japanese",house,7). has("newzealander",house,8). has("swedish",house,9). has("scottish",house,10). has("canadian",house,11). has("german",house,12). has("english",house,13). has("danish",house,14). has("chinese",house,15). has("australian",house,16). has("norwegian",house,17). has("brittish",house,18). has("russian",house,19). has("spanish",house,20).
+# Explicación LN: The Italian lives in the house number 1. The French lives in the house number 2. The Portuguese lives in the house number 3. The American lives in the house number 4. The Korean lives in the house number 5. The Irish lives in the house number 6. The Japanese lives in the house number 7. The New Zealander lives in the house number 8. The Swedish lives in the house number 9. The Scottish lives in the house number 10. The Canadian lives in the house number 11. The German lives in the house number 12. The English lives in the house number 13. The Danish lives in the house number 14. The Chinese lives in the house number 15. The Australian lives in the house number 16. The Norwegian lives in the house number 17. The British lives in the house number 18. The Russian lives in the house number 19. The Spanish lives in the house number 20.
+# Módulo gráfico: OK
+
+############ [1:52] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(1..15).
+# Answer set resuelto: 
+	.
+# Explicación LN: There are no more atoms to process.
+# Módulo gráfico: OK
+
+############ [1:53] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(1..20).
+# Answer set resuelto: 
+	.
+# Explicación LN: There is no input.
+# Módulo gráfico: OK
+
+############ [1:54] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [1:54] LOG ############:
+
+### Intento 1 de 2  ###
+# Modelo ASP sacado: 
+	person(polish; italian; spanish; chinese; german; french; british; dutch; belgian; austrian; swiss; danish; swedish; norwegian).
+# Answer set resuelto: 
+	.
+# Explicación LN: There are no more sentences to generate.
+# Módulo gráfico: OK
+
+############ [1:55] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [1:55] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [1:55] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.person(v1; v2; ... ; v15).
+
+Let me know if it meets your requirements!.
+
+############ [1:55] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(polish; danish; spanish; italian; german; french; english; dutch; swedish; swiss; austrian; belgian; czech; hungarian; british).
+# Answer set resuelto: 
+	.
+# Explicación LN: There are no more atoms to process.
+# Módulo gráfico: OK
+
+############ [1:58] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(1..15).
+# Answer set resuelto: 
+	.
+# Explicación LN: There is no input provided.
+# Módulo gráfico: OK
+
+############ [1:58] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [1:58] LOG ############:
+
+### Intento 1 de 2  ###
+# Modelo ASP sacado: 
+	person(1..15).
+# Answer set resuelto: 
+	.
+# Explicación LN: The sentence is incomplete.
+# Módulo gráfico: OK
+
+############ [1:59] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(polish; british; american; french; german; italian; spanish; portuguese; swedish; danish; norwegian; dutch; belgian; austrian; swiss).
+# Answer set resuelto: 
+	.
+# Explicación LN: The statement is empty, so there is no output.
+# Módulo gráfico: OK
+
+############ [2:5] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(polish; danish; french; german; british; italian; spanish; chinese; japanese; american).
+# Answer set resuelto: 
+	.
+# Explicación LN: There is no more information to process.
+# Módulo gráfico: OK
+
+############ [2:6] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [2:6] LOG ############:
+
+### Intento 1 de 2  ###
+# Modelo ASP sacado: 
+	person(brittish; norwegian; german; danish; swedish; italian; spanish; french; chinese; sudafrican).
+# Answer set resuelto: 
+	.
+# Explicación LN: There is no input provided.
+# Módulo gráfico: OK
+
+############ [2:7] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	person(brittish; norwegian; german; danish; italian; spanish; french; portuguese; russian; turkish).
+type(house, V) :- house(V). house(1..10).
+type(pet, V) :- pet(V). pet(dog; cat; rabbit; mole; fish; horse; possum; tiger; rat).
+# Answer set resuelto: 
+	has(french,house,1). has(danish,house,2). has(italian,house,3). has(brittish,house,4). has(portuguese,house,5). has(german,house,6). has(norwegian,house,7). has(turkish,house,8). has(russian,house,9). has(spanish,house,10). has(danish,pet,dog). has(german,pet,cat). has(norwegian,pet,rabbit). has(turkish,pet,mole). has(russian,pet,fish). has(portuguese,pet,horse). has(french,pet,possum). has(spanish,pet,tiger). has(italian,pet,rat).
+# Explicación LN: The French person lives in the first house. The Danish person lives in the second house. The Italian person lives in the third house. The British person lives in the fourth house. The Portuguese person lives in the fifth house. The German person lives in the sixth house. The Norwegian person lives in the seventh house. The Turkish person lives in the eighth house. The Russian person lives in the ninth house. The Spanish person lives in the tenth house. The Danish person has a dog. The German person has a cat. The Norwegian person has a rabbit. The Turkish person has a mole. The Russian person has a fish. The Portuguese person owns a horse. The French person has a possum. The Spanish person has a tiger. The Italian person has a rat.
+# Módulo gráfico: OK
