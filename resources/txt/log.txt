@@ -1698,3 +1698,502 @@ image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqML
 	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
 # Explicación LN: The Spanish person drinks soda. The Spaniard owns a cat. The Spanish house is painted red. The English person owns a dog. The English person's boat is the number 3. The English person drinks milk. The Chinese person's boat is the number 2. The Chinese person drinks tea. The Chinese person owns a horse.
 # Módulo gráfico: OK
+
+############ [15:56] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [15:56] LOG ############:
+
+### Intento 1 de 2  ###
+# Modelo ASP sacado: 
+	person(spanish; english; chinese).
+type(boat, V) :- boat(V). boat(1..3).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda). image(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat). has(english, pet, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, boat, 1). has(chinese, boat, 2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,color,red). has(english,boat,3). has(english,drink,milk). has(english,color,purple). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: Here is the final output:
+
+The Spanish person drinks soda and owns a cat; the English has a white dog and likes milk; there's an English Boat 1, a Chinese boat 2, two cats owning a Chinese in a Chinese boat; and Chinese have tea with a Chinese boat, having Horse as a pet and with tea as preferred drink for Chinese person.
+# Módulo gráfico: OK
+
+############ [15:58] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+ person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "https://i.imgur.com/JRzG7PZ.png").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(horse, "https://www.google.com/search?q=Horse&tbm=isch").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V). color(red; purple).
+has(spanish, boat, 1).
+has(chinese, boat, 2).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,boat,1). has(chinese,boat,2). has(spanish,color,red). has(english,boat,3). has(english,drink,milk). has(english,color,purple). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: Here is the output:
+
+The English person has a red boat number 3, drinks milk, and his house is colored purple. The English person also keeps a dog as a pet. The Spanish person drinks soda, has a cat as a pet, lives in boat number 1, and his house is colored red. The Chinese person has a tea as a drink and owns a horse as a pet, with boat number 2.
+# Módulo gráfico: OK
+
+############ [17:23] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+ person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+has(spanish, drink, soda).
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+has(spanish, pet, cat).
+has(english, pet, dog).
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+image(horse, "horse").
+
+type(color, V) :- color(V). color(red; purple).
+has(spanish, color, red).
+has(chinese, color, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(spanish,pet,cat). has(english,pet,dog). has(spanish,color,red). has(chinese,color,purple). has(spanish,boat,1). has(english,boat,3). has(english,drink,milk). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: Here is the output for the given input:
+
+The spanish person drinks soda and has a cat as pet. The english person has a dog, his car is red, he drinks milk, and he has a boat number 3. The chinese person also has a boat, it's the number 2, has tea as a drink and a horse as a pet, whose color is purple.
+# Módulo gráfico: OK
+
+############ [20:27] LOG ############:
+
+### Intento 0 de 2  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+ person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). has(spanish, drink, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). has(english, pet, dog). has(spanish, pet, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+
+type(boat_color, V) :- boat_color(V). boat_color(red). has(spanish, boat_color, red). boat_color(purple). has(chinese, boat_color, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,drink,soda). has(english,pet,dog). has(spanish,pet,cat). has(spanish,boat_color,red). has(chinese,boat_color,purple). has(spanish,boat,2). has(english,boat,3). has(english,drink,milk). has(chinese,boat,1). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The Chinese lives in the first boat and drinks tea. He also has a horse as a pet. The Chinese's boat is purple. The English lives in the third boat, drinks milk and keeps a dog. The Spanish have a cat and a boat with the number 2, whose color is red.
+# Módulo gráfico: OK
+
+############ [20:45] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [20:45] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [20:45] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(house_color, V) :- house_color(V). house_color(yellow). house_color(green). house_color(white). house_color(red). house_color(blue).
+
+ person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince; chesterfield).
+
+has(brittish, house, 4). 
+
+has(spaniard, pet, dog).
+
+coffee(yellow).
+
+ukrainian(tea).
+
+house(2, green).
+
+living_place(house, 2).
+
+norwegian(1).
+
+has(norwegian, house, 1).
+
+living_place(house, 1).
+
+has(gold_smoker, snails).
+
+kools(yellow).
+
+milk(3).
+
+has(norwegian, house, 1).
+
+living_place(house, 1).
+
+has(strike_smoker, orange_juice).
+
+japanese(parliament).
+
+living_place(horse, yellow).
+
+living_place(horse, yellow).
+
+has(norwegian, blue).
+
+living_place(house, blue).
+
+living_place(house, blue).
+
+neighbor(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+living_place(house, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+
+has(norwegian, blue).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [20:47] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [20:47] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [20:47] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(house_color, V) :- house_color(V). house_color(yellow; green; white; red; blue).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(beverage, V) :- beverage(V). beverage(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+has(brittish, house_color, red).
+
+has(spaniard, pet, dog).
+
+coffee(yellow).
+
+ukrainian(tea).
+
+house(yellow, right, ivory).
+
+kools(yellow).
+
+milk(mid).
+
+norwegian(1).
+
+gold_snail.
+
+kools(yellow).
+
+strike_orange_juice.
+
+chesterfield.
+
+parliament(japanese).
+
+norwegian(blue).
+# Answer set resuelto: 
+	has(brittish,house_color,red). has(spaniard,pet,dog). has(brittish,house,4). has(brittish,pet,cat). has(brittish,beverage,water). has(brittish,tobacco_brand,prince). has(dane,house,2). has(dane,house_color,green). has(dane,pet,horse). has(dane,beverage,milk). has(dane,tobacco_brand,pall_mall). has(german,house,1). has(german,house_color,yellow). has(german,pet,bird). has(german,beverage,tea). has(german,tobacco_brand,dunhill). has(norwegian,house,3). has(norwegian,house_color,blue). has(norwegian,pet,fish). has(norwegian,beverage,coffee). has(norwegian,tobacco_brand,blue_master). has(swede,house,5). has(swede,house_color,white). has(swede,pet,dog). has(swede,beverage,beer). has(swede,tobacco_brand,blends).
+# Explicación LN: Here is the final output:
+
+The British person who resides in the fourth house with a red color drinks water, possesses a cat as a pet, and consumes Prince brand cigarettes. The Danish person lives in the green-colored house numbered 2, owns a horse as a pet, drinks milk, and enjoys Pall Mall cigarettes. The German person occupies the yellow-colored house numbered 1, keeps a bird as a pet, drinks tea, and prefers Dunhill tobacco. The Norwegian person residing in the blue-colored house numbered 3 has a fish as a pet, consumes coffee, and smokes Blue Master cigarettes. Finally, there's no information about the Swedish person occupying the white-colored house numbered 5 who has a dog as a pet, drinks beer, and enjoys Blends cigarettes.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: Grupos: [{'person': 'norwegian', 'house': 3, 'house_color': 'blue', 'pet': 'fish', 'drink': 'coffee', 'tobacco_brand': 'blue_master', 'beverage': 'coffee'}
+ {'person': 'spaniard', 'pet': 'dog'}
+ {'person': 'strike_smoker', 'drink': 'orange_juice'}
+ {'person': 'english', 'house': 2, 'house_color': 'green', 'pet': 'bird', 'drink': 'milk', 'tobacco_brand': 'dunhill'}
+ {'person': 'ukrainian', 'house': 3, 'house_color': 'white', 'pet': 'horse', 'drink': 'water', 'tobacco_brand': 'pall_mall'}
+ {'person': 'japanese', 'house': 4, 'house_color': 'yellow', 'pet': 'fish', 'drink': 'tea', 'tobacco_brand': 'blue_master'}
+ {'person': 'spanish', 'house': 5, 'pet': 'cat', 'drink': 'orange_juice', 'tobacco_brand': 'prince'}
+ {'person': 'german', 'house_color': 'yellow', 'tobacco_brand': 'dunhill', 'house': 1, 'pet': 'bird', 'beverage': 'tea'}
+ {'person': 'swede', 'drink': 'beer', 'tobacco_brand': 'blends', 'house': 5, 'house_color': 'white', 'pet': 'dog', 'beverage': 'beer'}
+ {'person': 'danish', 'tobacco_brand': 'strike'}
+ {'person': 'brittish', 'tobacco_brand': 'prince', 'house_color': 'red', 'house': 4, 'pet': 'cat', 'beverage': 'water'}
+ {'person': 'dane', 'house': 2, 'house_color': 'green', 'pet': 'horse', 'beverage': 'milk', 'tobacco_brand': 'pall_mall'}] Array_has: [['norwegian', 'house', 1], ['spaniard', 'pet', 'dog'], ['strike_smoker', 'drink', 'orange_juice'], ['english', 'house', 2], ['ukrainian', 'house', 3], ['japanese', 'house', 4], ['spanish', 'house', 5], ['japanese', 'house_color', 'yellow'], ['english', 'house_color', 'green'], ['ukrainian', 'house_color', 'white'], ['german', 'house_color', 'red'], ['norwegian', 'house_color', 'blue'], ['norwegian', 'pet', 'dog'], ['japanese', 'pet', 'fish'], ['english', 'pet', 'bird'], ['ukrainian', 'pet', 'horse'], ['spanish', 'pet', 'cat'], ['swede', 'drink', 'beer'], ['norwegian', 'drink', 'coffee'], ['japanese', 'drink', 'tea'], ['english', 'drink', 'milk'], ['ukrainian', 'drink', 'water'], ['spanish', 'drink', 'orange_juice'], ['norwegian', 'tobacco_brand', 'blends'], ['japanese', 'tobacco_brand', 'blue_master'], ['english', 'tobacco_brand', 'dunhill'], ['ukrainian', 'tobacco_brand', 'pall_mall'], ['spanish', 'tobacco_brand', 'prince'], ['swede', 'tobacco_brand', 'chesterfield'], ['german', 'tobacco_brand', 'kools'], ['danish', 'tobacco_brand', 'strike'], ['brittish', 'tobacco_brand', 'parliament'], ['brittish', 'house_color', 'red'], ['spaniard', 'pet', 'dog'], ['brittish', 'house', 4], ['brittish', 'pet', 'cat'], ['brittish', 'beverage', 'water'], ['brittish', 'tobacco_brand', 'prince'], ['dane', 'house', 2], ['dane', 'house_color', 'green'], ['dane', 'pet', 'horse'], ['dane', 'beverage', 'milk'], ['dane', 'tobacco_brand', 'pall_mall'], ['german', 'house', 1], ['german', 'house_color', 'yellow'], ['german', 'pet', 'bird'], ['german', 'beverage', 'tea'], ['german', 'tobacco_brand', 'dunhill'], ['norwegian', 'house', 3], ['norwegian', 'house_color', 'blue'], ['norwegian', 'pet', 'fish'], ['norwegian', 'beverage', 'coffee'], ['norwegian', 'tobacco_brand', 'blue_master'], ['swede', 'house', 5], ['swede', 'house_color', 'white'], ['swede', 'pet', 'dog'], ['swede', 'beverage', 'beer'], ['swede', 'tobacco_brand', 'blends']]
+
+############ [20:53] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [21:41] LOG ############:
+
+### Intento 0 de 2  ###
+
+############ [21:41] LOG ############:
+
+### Intento 1 de 2  ###
+
+############ [21:41] LOG ############:
+
+### Intento 2 de 2  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(house_color, V) :- house_color(V). house_color(yellow). house_color(green). house_color(white). house_color(red). house_color(blue).
+
+ person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+has(brittish, house_color, red).
+
+has(spanish, pet, dog).
+
+living_place(coffee, green).
+
+has(ukrainian, drink, tea).
+
+right_to(i, green).
+
+has(gold_smoker, pet, snail).
+
+has(kool_smoker, tobacco_brand, kools).
+
+has(kool_smoker, pet, horse).
+
+has(strike_smoker, drink, orange_juice).
+
+has(japanese, tobacco_brand, parliaments).
+
+left_to(norwegian, blue).
+# Answer set resuelto: 
+	has(brittish,house_color,red). has(spanish,pet,dog). has(ukrainian,drink,tea). has(gold_smoker,pet,snail). has(kool_smoker,tobacco_brand,kools). has(kool_smoker,pet,horse). has(strike_smoker,drink,orange_juice). has(japanese,tobacco_brand,parliaments). has(brittish,house,5). has(brittish,pet,cat). has(brittish,drink,water). has(brittish,tobacco_brand,prince). has(danish,house,1). has(danish,house_color,green). has(danish,pet,horse). has(danish,drink,milk). has(danish,tobacco_brand,pall_mall). has(german,house,2). has(german,house_color,yellow). has(german,pet,bird). has(german,drink,tea). has(german,tobacco_brand,dunhill). has(norwegian,house,3). has(norwegian,house_color,white). has(norwegian,pet,fish). has(norwegian,drink,coffee). has(norwegian,tobacco_brand,blue_master). has(swedish,house,4). has(swedish,house_color,blue). has(swedish,pet,dog). has(swedish,drink,beer). has(swedish,tobacco_brand,blends).
+# Explicación LN: Here is the output:
+
+The British person lives in the red house. The Spanish person also lives in the house and smokes Bluem, drinks water and eats sandwiches. The English person has a red car, drinks milk, and keeps a dog. The Gold Smoker owns a snail, the Kool Smoker smokes Kools and has a horse, the Strike Smoker drinks orange juice. The Japanese person smokes Parliaments. The Danish person lives in the first green house, drinks milk, has a horse and smokes Pall Mall. The Ukrainian drinks tea.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: Grupos: [{'person': 'brittish', 'house_color': 'red', 'house': 5, 'pet': 'cat', 'drink': 'water', 'tobacco_brand': 'prince'}
+ {'person': 'spanish', 'pet': 'dog'}
+ {'person': 'ukrainian', 'drink': 'tea'}
+ {'person': 'gold_smoker', 'pet': 'snail'}
+ {'person': 'kool_smoker', 'tobacco_brand': 'kools', 'pet': 'horse'}
+ {'person': 'strike_smoker', 'drink': 'orange_juice'}
+ {'person': 'japanese', 'tobacco_brand': 'parliaments'}
+ {'person': 'danish', 'house': 1, 'house_color': 'green', 'pet': 'horse', 'drink': 'milk', 'tobacco_brand': 'pall_mall'}
+ {'person': 'german', 'house': 2, 'house_color': 'yellow', 'pet': 'bird', 'drink': 'tea', 'tobacco_brand': 'dunhill'}
+ {'person': 'norwegian', 'house': 3, 'house_color': 'white', 'pet': 'fish', 'drink': 'coffee', 'tobacco_brand': 'blue_master'}
+ {'person': 'swedish', 'house': 4, 'house_color': 'blue', 'pet': 'dog', 'drink': 'beer', 'tobacco_brand': 'blends'}] Array_has: [['brittish', 'house_color', 'red'], ['spanish', 'pet', 'dog'], ['ukrainian', 'drink', 'tea'], ['gold_smoker', 'pet', 'snail'], ['kool_smoker', 'tobacco_brand', 'kools'], ['kool_smoker', 'pet', 'horse'], ['strike_smoker', 'drink', 'orange_juice'], ['japanese', 'tobacco_brand', 'parliaments'], ['brittish', 'house', 5], ['brittish', 'pet', 'cat'], ['brittish', 'drink', 'water'], ['brittish', 'tobacco_brand', 'prince'], ['danish', 'house', 1], ['danish', 'house_color', 'green'], ['danish', 'pet', 'horse'], ['danish', 'drink', 'milk'], ['danish', 'tobacco_brand', 'pall_mall'], ['german', 'house', 2], ['german', 'house_color', 'yellow'], ['german', 'pet', 'bird'], ['german', 'drink', 'tea'], ['german', 'tobacco_brand', 'dunhill'], ['norwegian', 'house', 3], ['norwegian', 'house_color', 'white'], ['norwegian', 'pet', 'fish'], ['norwegian', 'drink', 'coffee'], ['norwegian', 'tobacco_brand', 'blue_master'], ['swedish', 'house', 4], ['swedish', 'house_color', 'blue'], ['swedish', 'pet', 'dog'], ['swedish', 'drink', 'beer'], ['swedish', 'tobacco_brand', 'blends']]

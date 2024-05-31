@@ -11,7 +11,10 @@ url = "https://api.awanllm.com/v1/chat/completions"
 def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
 
     # Contexto sin ejemplos (Zero-Shot)
-    contexto_zeroshot = "### I want to translate atomic logical predicates to natural language sentences. Reply only with the result sentence, don't explain the result and don't say anything else than the result. Process only one iteration in each step. ###\n"
+    contexto_zeroshot = "### You must turn atomic logical predicates into natural language sentences. \
+      You will be penalized if you make any kind of note or clarification. \
+      You will be penalized if you're verbose or convoluted. \
+      Complete only the last iteration. ###\n"
     
     # Sale con error si alguno de los args es nulo
     if ((input_answer_set == None) or (puzzle_elegido == None)): return([1, "AS_to_NL recibe una entrada con uno de los valores nulos."])
@@ -39,7 +42,7 @@ def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
                         "model": modelo, 
                         "messages": [{"role" : "user", "content" : prompt_w_context}],
                         "max_tokens": 1024,
-                        "temperature": 0.7  
+                        "temperature": 1.0  
                         })
     headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
     response = requests.request("POST", url, headers=headers, data=payload).json()
