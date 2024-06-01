@@ -1,16 +1,17 @@
-%person(a;b;c;d;e).
+%person(a;b;c).
 %type(house, V) :- house(V).
-%house(1..5).
+%house(1..3).
 %living_place(house, V) :- house(V).
 %type(pet, V) :- pet(V).
-%pet(dog;cat;mouse;rat;snail).
+%pet(dog;cat;mouse;).
 %type(color, V) :- color(V).
-%color(red;blue;yellow;grey;white).
+%color(red;blue;yellow).
+%has(a,pet,cat).
+%has(b,pet,dog).
 %same_place(dog,red).
 %same_place(cat,yellow).
-%right_to(a,b).
+%neighbor(dog,red).
 %neighbor(a,b).
-%left_to(b,a).
 
 % Reglas para determinar cosas de un elem. central (oculto a llm)
 place_of(X,N) :- has(P,_,X), has(P,Y,N), X!=N, living_place(Y,N).
@@ -33,10 +34,15 @@ place_of(P,N) :- has(P,Y,N), living_place(Y,N).
 1 {has(P,T,Y): person(P)} 1 :- same_place(X,Y), type(T,Y).
 
 % neighbor(X, Y)
-:- neighbor(X,Y), place_of(X,H), place_of(Y,H'), X!=Y, |H-H'| != 1.
+:- neighbor(X,Y), place_of(X,H), place_of(Y,H'), |H-H'| != 1.
+:- neighbor(X,Y), X==Y.
+:- neighbor(X,Y), same_place(X,Y).
+neighbor(Y,X) :- neighbor(X,Y).
 
-% left_to(X,Y), right_to(X,Y)
-:- left_to(X,Y), place_of(X,H), place_of(Y,H'), X!=Y, H!=(H'-1).
-:- right_to(X,Y), place_of(X,H), place_of(Y,H'), X!=Y, H!=(H'+1).
+% left_to(X,Y), right(X,Y)
+:- left(X,Y), place_of(X,H), place_of(Y,H'), X!=Y, H!=(H'-1).
+:- right(X,Y), place_of(X,H), place_of(Y,H'), X!=Y, H!=(H'+1).
+neighbor(X,Y), right(Y,X) :- left(X,Y).
+neighbor(X,Y), left(Y,X) :- right(X,Y).
 
 #show has/3.

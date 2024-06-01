@@ -74,6 +74,9 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
 
     for i, dato in enumerate(array_datos):
 
+        # Primer elemento más grande
+        if (i==0): fuente_letras = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = tamaño*0.6)
+
         ruta_especificada = False
         
         # Para este dato, ¿tenemos ruta de imagen?
@@ -208,16 +211,16 @@ def representa_elemento(fondo, elemento, imagen_elemento, coordenadas, elems, ta
 def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
 
     dict_datos = defaultdict(list)         # Aquí van a ir recopilados los datos sin asociar a casas ("num" : [1,2,3]...)
-    num_casas = len(grupos)
+    num_grupos = len(grupos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_casas = (1.1**(-num_casas)) * 80
+    tamaño_elem_central = (1.1**(-num_grupos)) * 80
 
     # Para cada casa con índice i de la entrada
     for i, casa in enumerate(grupos):
 
         # División de los 1000px que le toca a cada casa según cuántas casas hay
-        division_casas = (1000/(num_casas+1)) * (i + 1)
+        division_elems_centrales = (1000/(num_grupos+1)) * (i + 1)
 
         numero = str(casa[elemento_central])
         imagen_elemento = None
@@ -228,7 +231,7 @@ def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
                 imagen_elemento = par[1]
 
         # Dibuja el elemento en blanco
-        dibuja_elemento(fondo_estado_inicial, elemento_central, imagen_elemento, dibujo_estado_inicial, coordenadas= (division_casas - tamaño_casas, 1000 - 6* tamaño_casas), tamaño= tamaño_casas, numero= numero)
+        dibuja_elemento(fondo_estado_inicial, elemento_central, imagen_elemento, dibujo_estado_inicial, coordenadas= (division_elems_centrales - tamaño_elem_central, 1000 - 6* tamaño_elem_central), tamaño= tamaño_elem_central, numero= numero)
         
         # Recoge todos los datos de las casas y los almaceno por clave
         for key, value in casa.items():
@@ -238,7 +241,7 @@ def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
     num_datos = len(dict_datos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_datos = (1.1**(-num_casas)) * 80
+    tamaño_datos = (1.1**(-num_grupos)) * 80
 
     for i, par in enumerate(dict_datos.items()):
 
@@ -329,7 +332,7 @@ def einstein_grafico(argumentos):
     tipo = ""
     elemento_central = "house"
     grupos = np.array([])
-    array_has, rutas_imagenes = argumentos
+    [array_has, rutas_imagenes] = argumentos
 
     try:
 

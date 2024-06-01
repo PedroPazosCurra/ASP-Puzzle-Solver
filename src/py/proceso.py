@@ -20,7 +20,7 @@ from tiempos_plot import tiempos_plot
 AHORA = time.localtime()
 HORA_STRING = f"[{str(AHORA.tm_hour)}:{str(AHORA.tm_min)}]"
 LOG_HEADER = f"\n############ {HORA_STRING} LOG ############:\n"
-MAX_REINTENTOS = 2
+MAX_REINTENTOS = 4
 
 # Flags
 USAR_LLM_PURO = False
@@ -36,6 +36,7 @@ def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, 
 
     # Fallo sin máximo alcanzado -> reintento
     if(estado != 0 and intento < MAX_REINTENTOS):
+        log.write(msg)
         proceso(prompt, puzzle_elegido, intento + 1)
 
     else:
@@ -62,8 +63,10 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     modelo_asp = ""
     answer_set = ""
     nl_salida = ""
-    salida = "# "
+    msg_grafico = ""
+    salida_solver = [{},{}]
     array_tiempos = []
+    salida = "# "
     estado = 0
 
     # Inicio
@@ -92,7 +95,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     ########    2º - Pasa el ASP al solver para obtener el Answer Set solución. ########
     tiempo_comienzo_resolver_asp = time.perf_counter()
 
-    estado, answer_set, salida_solver = resolver_ASP(modelo_asp, puzzle_elegido)
+    [estado, answer_set, salida_solver] = resolver_ASP(modelo_asp, puzzle_elegido)
 
     tiempo_resolver_asp = time.perf_counter() - tiempo_comienzo_resolver_asp
     array_tiempos.append(tiempo_resolver_asp)
@@ -134,11 +137,13 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
 
     if(DEBUG):
 
+        pass
+
         # Salida
         #msg = f"modelo nl_to_asp : {modelo_asp} >>>>>>>>\nanswer sets : {answer_set} ///\n has : {predicados_has} ///\n imgs : {rutas_imagenes} >>>>>>>\nexplicacion: {nl_salida}"
 
         # Tiempo
-        print(f"########### TIEMPO TOTAL ###########:      {tiempo_total}:\n\tNL_to_ASP:\t\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t\t{tiempo_resolver_asp}\n\tAS_to_NL:\t\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t\t{tiempo_grafico}")
+        #print(f"########### TIEMPO TOTAL ###########:      {tiempo_total}:\n\tNL_to_ASP:\t\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t\t{tiempo_resolver_asp}\n\tAS_to_NL:\t\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t\t{tiempo_grafico}")
         
 ##############################################################  Ejecución  #############################################################################
 

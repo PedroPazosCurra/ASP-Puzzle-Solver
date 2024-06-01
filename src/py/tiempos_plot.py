@@ -13,7 +13,7 @@ def tiempos_plot(tiempos : list):
     fases_all = ["1.- NL_to_ASP", "2.- resolver_ASP", "3.- AS_to_NL", "4.- Módulo gráfico"]
     fases  = fases_all[ : num_fases]
 
-    tiempo_total = 12.01
+    tiempo_total = sum(tiempos)
 
     fig, ax = plt.subplots(figsize =(6, 3), 
                         subplot_kw = dict(aspect ="equal"))
@@ -31,7 +31,7 @@ def tiempos_plot(tiempos : list):
         texts[i].set_color(patch.get_facecolor())
         plt.setp(texts, fontweight = 600)
 
-    plt.title(f"Tiempo total = {tiempo_total} s")
+    #plt.title(f"Tiempo total = {tiempo_total} s")
     plt.setp(autotexts, size = 8, weight ="bold")
-    ax.set_title("Tiempo de ejecución por fase del proceso", )
+    ax.set_title(f"Tiempo de ejecución por fase del proceso\nTiempo total = {tiempo_total} s", )
     plt.show()

@@ -40,9 +40,12 @@ def procesa_atom_arguments(atom_args):
 #   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un estado, Answer Set y argumentos posteriores
 def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = ["--warn=none"]):
 
+    answer_sets = ""
+    has_atoms = []
+    image_routes = []
+
     # Sale con error si alguno de los args es nulo
     if ((modelo == None) or (puzzle == None)): return([1, "resolver_ASP recibe una entrada con uno de los valores nulos.", []])
-    
 
     cc = clingo.Control(clingo_args)
     answer_sets = ""
