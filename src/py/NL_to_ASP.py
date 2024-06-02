@@ -17,9 +17,8 @@ def NL_to_ASP(prompt = None, puzzle = None):
     contexto_zeroshot = "### You must turn natural language sentences into atomic logical predicates.\
     Instanciate every new atom different than 'person(P)' as a type with the format: 'type(new_type, V) :- new_type(V1;...;Vn).'.\
     For example: 'type(pet, V) :- pet(V). pet(dog; cat; horse).'\
-    Also, you can use the predicates 'image(X, Y).' to indicate a image route, 'left(X, Y).' to indicate atom X is to the left of atom Y, 'right(X, Y).' to indicate atom X is to the right of atom Y and 'neighbor(X, Y)' to indicate that a person X and a person Y are neighbors.\
-    Besides, the predicate 'place_number(X,N)' says that the atom X is in the place with the number N, and the predicate 'same_place(X,Y).' says that the atom X and the atom Y are on the same place.\
-    To define that an item belongs to a person, you may use the predicate 'has(P, T, X).', being P a person, T a defined type and X an atom. For example, 'has(john, pet, dog).' describes 'John has a Dog'.\
+    Also, you can use the predicates 'image(X, Y).' to indicate a image route, 'left(X, Y).' to indicate atom X is to the left of atom Y, 'right(X, Y).' to indicate atom X is to the right of atom Y and 'next_to(X, Y)' to indicate that a person X and a person Y are neighbors.\
+    Besides, the predicate 'same_place(X,Y).' says that the atom X and the atom Y are on the same place or grouped together, for example 'John lives in the house number 3' is 'same_place(john, 3).', while 'Water is drunk in the house where Camel is smoked' would be 'same_place(water, camel).'\
     You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification.\
     You will be penalized if you're verbose and convoluted. Complete only the last iteration. ###\n"
    

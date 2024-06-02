@@ -24,8 +24,13 @@ place_of(P,N) :- has(P,Y,N), living_place(Y,N).
 %%%%%%%%%%%%%%%%%%%%%%%%%%   Interfaz de LLM   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % place_number( X, nº) para predicados numéricos
-:- place_number(X,N), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
-:- place_number(P,N), person(P), living_place(L,N), not has(P,L,N).
+%:- place_number(X,N), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
+%:- place_number(P,N), person(P), living_place(L,N), not has(P,L,N).
+
+%%% Predicados numéricos: 
+%same_place (X, nº) 
+:- same_place(X,N), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
+:- same_place(P,N), person(P), living_place(L,N), not has(P,L,N).
 
 %%% Predicados de vecindario / cruzados
 % same_place(X,Y).
@@ -33,16 +38,16 @@ place_of(P,N) :- has(P,Y,N), living_place(Y,N).
 1 {has(P,T,X): person(P)} 1 :- same_place(X,Y), type(T,X).
 1 {has(P,T,Y): person(P)} 1 :- same_place(X,Y), type(T,Y).
 
-% neighbor(X, Y)
-:- neighbor(X,Y), place_of(X,H), place_of(Y,H'), |H-H'| != 1.
-:- neighbor(X,Y), X==Y.
-:- neighbor(X,Y), same_place(X,Y).
-neighbor(Y,X) :- neighbor(X,Y).
+% next_to(X, Y)
+:- next_to(X,Y), place_of(X,H), place_of(Y,H'), |H-H'| != 1.
+:- next_to(X,Y), X==Y.
+:- next_to(X,Y), same_place(X,Y).
+next_to(Y,X) :- next_to(X,Y).
 
-% left_to(X,Y), right(X,Y)
+% left(X,Y), right(X,Y)
 :- left(X,Y), place_of(X,H), place_of(Y,H'), X!=Y, H!=(H'-1).
 :- right(X,Y), place_of(X,H), place_of(Y,H'), X!=Y, H!=(H'+1).
-neighbor(X,Y), right(Y,X) :- left(X,Y).
-neighbor(X,Y), left(Y,X) :- right(X,Y).
+next_to(X,Y), right(Y,X) :- left(X,Y).
+next_to(X,Y), left(Y,X) :- right(X,Y).
 
 #show has/3.
