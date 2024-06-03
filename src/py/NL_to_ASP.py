@@ -9,7 +9,8 @@ import re
 AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
 modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
-ASP_REGEX = "((type\(([a-z\_]+\,\s?[A-Z])\)\s:-\s[a-z\_]+\([A-Z]\)\.?\s?)|(\s?[a-z]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z]+\((\s?[a-z]+\;?\s?)+\)\.?\s?)|(\s?[a-z\_]+\(([a-z\_]+\s?\,?\s?)+\)\.?\s?))+"
+ASP_REGEX_LIGERO = r"((type\(([a-z\_]+\,\s?[A-Z])\)\s:-\s[a-z\_]+\([A-Z]\)\.?\s?)|(\s?[a-z]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z]+\((\s?[a-z]+\;?\s?)+\)\.?\s?)|(\s?[a-z\_]+\(([a-z\_]+\s?\,?\s?)+\)\.?\s?))+"
+ASP_REGEX_ESTRICTO = r"((type\(([a-z\_]+\,\s?V)\)\s:-\s[a-z\_]+\(V\)\.?\s?)|(\s?[a-z]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z]+\((\s?[a-z]+\s?\;?\s?)+\)\.?\s?)|(\s?(living_place|image|left|right|next_to|same_place)\(([a-z\_]+\s?\,?\s?)+\)\.?\s?))+"
 
 def NL_to_ASP(prompt = None, puzzle = None):
 
@@ -85,10 +86,11 @@ def NL_to_ASP(prompt = None, puzzle = None):
     if (salida_llm[-1] != "."):
         salida_llm += "."
 
-    # Comprobación de respuesta válida mediante REGEX con sintaxis ASP.
-    match_regex = re.search(ASP_REGEX, salida_llm, flags=0)
+    # Comprobación de respuesta válida mediante REGEX con sintaxis ASP. Nota: REGEX en dos niveles para filtrar preámbulos y coletillas en LV 1 y filtrar comandos erróneos en LV 2
+    match_regex_ligero = re.search(ASP_REGEX_LIGERO, salida_llm, flags=0).group()
+    match_regex_estricto = re.search(ASP_REGEX_ESTRICTO, match_regex_ligero, flags=0).group()
 
-    if (match_regex): 
+    if (match_regex_estricto == match_regex_ligero): 
         return([0, salida_llm])
     else:
         return([1, "Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras." + salida_llm])
