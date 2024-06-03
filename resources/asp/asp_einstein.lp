@@ -30,6 +30,7 @@ place_of(P,N) :- has(P,Y,N), living_place(Y,N).
 %%% Predicados numéricos: 
 %same_place (X, nº) 
 :- same_place(X,N), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
+:- same_place(N,X), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
 :- same_place(P,N), person(P), living_place(L,N), not has(P,L,N).
 
 %%% Predicados de vecindario / cruzados

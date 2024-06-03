@@ -15,11 +15,15 @@ def NL_to_ASP(prompt = None, puzzle = None):
 
     # Contexto sin ejemplos (Zero-Shot)
     contexto_zeroshot = "### You must turn natural language sentences into atomic logical predicates.\
-    Instanciate every new atom different than 'person(P)' as a type with the format: 'type(new_type, V) :- new_type(V1;...;Vn).'.\
+    Keep a solid naming through all the generated predicates of a given state as it's very important, keep the atom name as it's being said.\
+    Instanciate every new atom different than 'person(P)' as a type with the format: 'type(new_type, V) :- new_type(V1; V2;...; Vn).'.\
     For example: 'type(pet, V) :- pet(V). pet(dog; cat; horse).'\
-    Also, you can use the predicates 'image(X, Y).' to indicate a image route, 'left(X, Y).' to indicate atom X is to the left of atom Y, 'right(X, Y).' to indicate atom X is to the right of atom Y and 'next_to(X, Y)' to indicate that a person X and a person Y are neighbors.\
+    You must also instanciate a central element with the expression 'living_place(X, V) :- X(V).'. This element will be the core of all relations. For example: 'living_place(house, V) :- house(V).'. You will be penalized if you use it more than once.\
+    Also, you can use the predicates 'image(X, Y).' to indicate the atom is represented with an image with the indicated route, 'left(X, Y).' to indicate atom X is to the left of atom Y, 'right(X, Y).' to indicate atom X is to the right of atom Y and 'next_to(X, Y)' to indicate that a person X and a person Y are neighbors.\
     Besides, the predicate 'same_place(X,Y).' says that the atom X and the atom Y are on the same place or grouped together, for example 'John lives in the house number 3' is 'same_place(john, 3).', while 'Water is drunk in the house where Camel is smoked' would be 'same_place(water, camel).'\
+    In the case of indicating a place number, you must use the number '1,2,3' rather than the spelt word 'one, two, three'.\
     You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification.\
+    You will be penalized if you don't describe the whole sentence perfectly as stated in the examples.\
     You will be penalized if you're verbose and convoluted. Complete only the last iteration. ###\n"
    
     # Sale con error si alguno de los args es nulo

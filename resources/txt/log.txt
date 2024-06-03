@@ -4362,3 +4362,1137 @@ next_to(blends, water).
 	has(brittish,house,3). has(brittish,color,red). has(brittish,pet,horse). has(brittish,drink,milk). has(brittish,tobacco_brand,blends). has(dane,house,4). has(dane,color,green). has(dane,pet,bird). has(dane,drink,coffee). has(dane,tobacco_brand,palls). has(german,house,5). has(german,color,white). has(german,pet,fish). has(german,drink,tea). has(german,tobacco_brand,prince). has(norwegian,house,2). has(norwegian,color,yellow). has(norwegian,pet,cat). has(norwegian,drink,water). has(norwegian,tobacco_brand,dunhill). has(swede,house,1). has(swede,color,blue). has(swede,pet,dog). has(swede,drink,beer). has(swede,tobacco_brand,bluem).
 # Explicación LN: The British person lives in the house with the number 3, it's red, and they keep a horse, drink milk and smoke Blends. The Dane dwells in the house numbered 4, the walls of which are painted green, keeping a bird and drinking coffee, also preferring Pall Mall cigars. The German resides in the white house numbered 5, where he has a fish, enjoys tea, and smokes Prince cigarettes. Finally, the Norwegian inhabits the yellow-numbered house 2, accompanied by his cat, sipping on water, and smoking Dunhill. And then there's the Swedish person residing in the blue house numbered one, keeping a dog, drinking beer, and smoking Bluem.
 # Módulo gráfico: OK
+
+############ [23:34] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). same_place(swede, dog).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; bluem; dunhill; pall; prince). 
+
+type(color, V) :- color(V). color(yellow; green; white; red; blue). same_place(brittish, red).
+
+same_place(swede, dog). same_place(dane, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird).
+
+same_place(yellow, dunhill). same_place(yellow, dunhill). same_place(norwegian, 1). center(milk). next_to(blends, cat). next_to(horse, dunhill).
+
+type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+image(john, "john_image").
+
+same_place(blue_master, beer). same_place(prince, german). next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,house,5). has(brittish,pet,bird). has(brittish,drink,milk). has(brittish,tobacco_brand,pall). has(brittish,color,red). has(dane,house,4). has(dane,pet,horse). has(dane,drink,tea). has(dane,tobacco_brand,bluem). has(dane,color,blue). has(german,house,2). has(german,pet,cat). has(german,drink,water). has(german,tobacco_brand,prince). has(german,color,white). has(norwegian,house,1). has(norwegian,pet,fish). has(norwegian,drink,coffee). has(norwegian,tobacco_brand,blends). has(norwegian,color,green). has(swede,house,3). has(swede,pet,dog). has(swede,drink,beer). has(swede,tobacco_brand,dunhill). has(swede,color,yellow).
+# Explicación LN: The British person lives in the 5th house, has a bird as a pet, drinks milk and smokes Pall tobacco, the house having the number 5 is painted red. The Dane lives in the 4th house, keeps a horse, drinks tea, smokes Bluem tobacco, and his house is painted blue. The German lives in the 2nd house, has a cat, drinks water, smokes Prince tobacco, and his house is painted white. The Norwegian lives in the 1st house, keeps a fish as a pet, drinks coffee, smokes Blends tobacco, and his house is painted green. Alex lives in the 3rd house and has a dog.
+# Módulo gráfico: OK
+
+############ [23:55] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; danish; german; norwegian; swedish). type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+color(yellow; green; white; red; blue). same_place(brittish, red). same_place(swede, dog). same_place(dane, tea).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+drink(beer; coffee; tea; milk; water). type(drink, V) :- drink(V).
+
+tobacco_brand(blends; bluem; dunhill; palls; prince). type(tobacco_brand, V) :- tobacco_brand(V).
+
+next_to(green, white). same_place(green, coffee). same_place(white, tea).
+
+same_place(palls, bird). same_place(yellow, dunhill).
+
+type(house, V) :- house(V). living_place(house, V) :- house(V).
+
+same_place(center, milk). same_place(norwegian, 1). same_place(blue, ?). 
+
+next_to(blends, cat). next_to(horse, dunhill).
+
+same_place(prince, german). next_to(blue, ?). same_place(blends, water).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [23:55] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; bluem; dunhill; palls; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+same_place(green, coffee).
+
+same_place(person, palls, bird).
+same_place(yellow, dunhill).
+
+same_place(man, milk, 2).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+next_to(horse, dunhill).
+
+same_place(german, prince).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,house,3). has(brittish,color,red). has(brittish,pet,fish). has(brittish,drink,water). has(brittish,tobacco_brand,bluem). has(dane,house,5). has(dane,color,white). has(dane,pet,cat). has(dane,drink,tea). has(dane,tobacco_brand,palls). has(german,house,2). has(german,color,blue). has(german,pet,horse). has(german,drink,beer). has(german,tobacco_brand,prince). has(norwegian,house,1). has(norwegian,color,yellow). has(norwegian,pet,bird). has(norwegian,drink,milk). has(norwegian,tobacco_brand,dunhill). has(swede,house,4). has(swede,color,green). has(swede,pet,dog). has(swede,drink,coffee). has(swede,tobacco_brand,blends).
+# Explicación LN: Here is the output:
+
+The British person lives in the house with the number 3, it is red, has a fish, drinks water and smokes BlueM. The Danish person lives in the house with the number 5, it is white, has a cat, drinks tea and smokes Pall Mall. The German person lives in the house with the number 2, it is blue, has a horse, drinks beer and smokes Prince. The Norwegian person lives in the house with the number 1, it is yellow, has a bird, drinks milk and smokes Dunhill. The Swedish person lives in the house with the number 4, it is green, has a dog, drinks coffee and smokes Blended.
+# Módulo gráfico: OK
+
+############ [2:0] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). 
+type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+ person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). 
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+left(green, white).
+living_place(coffee, green).
+same_place(pall_mall, birds).
+same_place(dunhill, yellow).
+same_place(milk, 3).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(horse, dunhill).
+same_place(blue_master, beer).
+same_place(prince, german).
+next_to(norwegian, blue).
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,color,red). has(brittish,house,5). has(brittish,pet,bird). has(brittish,drink,beer). has(brittish,tobacco_brand,blue_master). has(danish,color,green). has(danish,house,3). has(danish,pet,dog). has(danish,drink,milk). has(danish,tobacco_brand,pall_mall). has(german,color,white). has(german,house,4). has(german,pet,fish). has(german,drink,tea). has(german,tobacco_brand,prince). has(norwegian,color,yellow). has(norwegian,house,1). has(norwegian,pet,cat). has(norwegian,drink,water). has(norwegian,tobacco_brand,dunhill). has(swedish,color,blue). has(swedish,house,2). has(swedish,pet,horse). has(swedish,drink,coffee). has(swedish,tobacco_brand,blends).
+# Explicación LN: The British person has a red house with the number 5, keeps a bird as a pet, drinks beer, and smokes Blue Master tobacco. The Danish person has a green house with the number 3, keeps a dog, drinks milk, and smokes Pall Mall tobacco. The German person has a white house with the number 4, keeps a fish, drinks tea, and smokes Prince tobacco. The Norwegian person has a yellow house with the number 1, keeps a cat, drinks water, and smokes Dunhill tobacco. The Swedish person has a blue house with the number 2, keeps a horse, drinks coffee, and smokes Blends tobacco.
+# Módulo gráfico: OK
+
+############ [2:32] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+ person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swede, dog). same_place(dane, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(third, milk). same_place(norwegian, 1). same_place(blends, cat). next_to(blends, water). right(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). same_place(blends, water).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [2:32] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+ person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+next_to(green, white).
+
+living_place(green, coffee).
+
+same_place(pall_mall, birds).
+
+same_place(yellow, dunhill).
+
+same_place(third_house, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(horse, dunhill).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,house,3). has(brittish,color,red). has(brittish,pet,cat). has(brittish,drink,beer). has(brittish,tobacco_brand,blue_master). has(dane,house,4). has(dane,color,green). has(dane,pet,bird). has(dane,drink,tea). has(dane,tobacco_brand,blends). has(german,house,2). has(german,color,blue). has(german,pet,horse). has(german,drink,milk). has(german,tobacco_brand,prince). has(norwegian,house,1). has(norwegian,color,yellow). has(norwegian,pet,fish). has(norwegian,drink,coffee). has(norwegian,tobacco_brand,dunhill). has(swede,house,5). has(swede,color,white). has(swede,pet,dog). has(swede,drink,water). has(swede,tobacco_brand,pall_mall).
+# Explicación LN: The British person lives in the red house number 3 with a cat, drinks beer and smokes Blue Master cigarettes. The Dane lives in the green house number 4 with a bird, drinks tea and smokes Blends tobacco. The German person resides in the blue house number 2 with a horse, consumes milk, and enjoys Prince tobacco. The Norwegian occupies the yellow house number 1 with a fish, drinks coffee and smokes Dunhill tobacco. The Swede dwells in the white house number 5 with a dog, drinks water and puffs on Pall Mall cigarettes.
+# Módulo gráfico: OK
+
+############ [2:58] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). same_place(swede, dog). same_place(dane, tea). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(pall_mall, birds). same_place(yellow, dunhill). same_place(blends, cat). same_place(dunhill, horse). same_place(blends, water).
+
+same_place(brittish, red). same_place(norwegian, 1). left(green, white). same_place(green, coffee). same_place(3, milk). same_place(blends, cat). next_to(blends, water). same_place(blue, blue_master). same_place(beer, blue_master). same_place(german, prince). next_to(norwegian, blue).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [2:58] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede).
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+
+left(green, white).
+same_place(green, coffee).
+
+same_place(pall_mall, birds).
+same_place(yellow, dunhill).
+
+same_place(third, milk).
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+next_to(dunhill, horses).
+
+same_place(blue_master, beer).
+same_place(german, prince).
+
+next_to(norwegian, blue).
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,color,red). has(brittish,house,3). has(brittish,pet,cat). has(brittish,drink,beer). has(brittish,tobacco_brand,blue_master). has(dane,color,white). has(dane,house,5). has(dane,pet,horse). has(dane,drink,tea). has(dane,tobacco_brand,pall_mall). has(german,color,green). has(german,house,4). has(german,pet,bird). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,color,yellow). has(norwegian,house,1). has(norwegian,pet,fish). has(norwegian,drink,water). has(norwegian,tobacco_brand,dunhill). has(swede,color,blue). has(swede,house,2). has(swede,pet,dog). has(swede,drink,milk). has(swede,tobacco_brand,blends).
+# Explicación LN: The Swedish person's home is blue, he lives in the second house, drinks milk, has a dog as pet, and prefers Blends tobacco.
+
+(Note: I'll make sure to keep it concise this time!)
+# Módulo gráfico: OK
+
+############ [3:15] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; danish; german; norwegian; swede). same_place(brittish, red).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(swede, dog).
+same_place(dane, tea).
+
+next_to(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(milk, 3).
+
+next_to(norwegian, blue).
+
+same_place(blends, cat).
+next_to(blends, water).
+
+same_place(blue_master, beer).
+same_place(german, prince).
+
+next_to(norwegian, blue).
+# Answer set resuelto: 
+	has(brittish,color,red). has(brittish,house,2). has(brittish,pet,cat). has(brittish,drink,tea). has(brittish,tobacco_brand,blends). has(danish,color,blue). has(danish,house,3). has(danish,pet,bird). has(danish,drink,milk). has(danish,tobacco_brand,pall_mall). has(german,color,green). has(german,house,5). has(german,pet,fish). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,color,white). has(norwegian,house,4). has(norwegian,pet,horse). has(norwegian,drink,beer). has(norwegian,tobacco_brand,blue_master). has(swede,color,yellow). has(swede,house,1). has(swede,pet,dog). has(swede,drink,water). has(swede,tobacco_brand,dunhill).
+# Explicación LN: The British person's house is the number 2, with a red colour, having a cat as pet, drinking tea and smoking blends tobacco. The Danish house is the number 3, with a blue colour, having a bird as pet, drinking milk, and Pall Mall cigarette brand. The German's house is the number 5, with a green colour, having a fish as pet, drinking coffee, and Prince tobacco brand. The Norwegian house is the number 4, with a white colour, having a horse as pet, drinking beer and smoking Blue Master tobacco. And finally, the Swedish house is the number 1, with a yellow colour, having a dog as pet, drinking water, and Dunhill cigarette brand.
+# Módulo gráfico: OK
+
+############ [3:23] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+pet(dog; fish; bird; horse; cat).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(dunhill, horse).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,house,5). has(brittish,color,red). has(brittish,drink,beer). has(brittish,tobacco_brand,blue_master). has(dane,house,4). has(dane,color,white). has(dane,drink,tea). has(dane,tobacco_brand,pall_mall). has(german,house,3). has(german,color,green). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,house,1). has(norwegian,color,yellow). has(norwegian,drink,water). has(norwegian,tobacco_brand,dunhill). has(swede,house,2). has(swede,color,blue). has(swede,drink,milk). has(swede,tobacco_brand,blends).
+# Explicación LN: The British person lives in the 5th house with a red colour, drinks beer and smokes Blue Master cigarettes. The Dane lives in the 4th house with a white colour, drinks tea and smokes Pall Mall. The German person lives in the 3rd house with a green colour, drinks coffee and smokes Prince. The Norwegian person lives in the first house with a yellow colour, drinks water and smokes Dunhill. The Swedish person lives in the 2nd house with a blue colour, drinks milk and smokes Blends.
+# Módulo gráfico: OK
+
+############ [3:25] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+color(yellow; green; white; red; blue). same_place(yellow, 1). same_place(green, 2). same_place(white, 3). same_place(red, 4). same_place(blue, 5).
+
+person(brittish; dane; german; norwegian; swede). same_place(brittish, red). same_place(swede, dog). same_place(dane, tea). same_place(norwegian, 1). same_place(german, prince).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+drink(beer; coffee; tea; milk; water). same_place(dane, tea). same_place(blue_master, beer). same_place(blends, water).
+
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(pall_mall, bird). same_place(dunhill, yellow). same_place(blends, cat). same_place(blends, water). same_place(blue_master, beer). same_place(prince, german).
+
+image(image(Y). "Y").
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [3:25] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(third, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(dunhill, horse).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,color,red). has(brittish,house,3). has(brittish,pet,bird). has(brittish,drink,water). has(brittish,tobacco_brand,pall_mall). has(dane,color,blue). has(dane,house,2). has(dane,pet,horse). has(dane,drink,tea). has(dane,tobacco_brand,blends). has(german,color,green). has(german,house,4). has(german,pet,fish). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,color,yellow). has(norwegian,house,1). has(norwegian,pet,cat). has(norwegian,drink,milk). has(norwegian,tobacco_brand,dunhill). has(swede,color,white). has(swede,house,5). has(swede,pet,dog). has(swede,drink,beer). has(swede,tobacco_brand,blue_master).
+# Explicación LN: The British person's house is numbered 3, has a bird as a pet, drinks water and smokes Pall Mall. The Danish person's house is numbered 2, has a horse as a pet and drinks tea. The German's house is numbered 4, is colored green, has a fish as pet and drinks coffee, smokes Prince. The Norwegian's house is numbered 1, is colored yellow, has a cat as pet and drinks milk, smokes Dunhill.
+# Módulo gráfico: OK
+
+############ [4:3] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(boat_color, V) :- boat_color(V). boat_color(red). same_place(spanish, red). boat_color(purple). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,soda). has(spanish,pet,cat). has(spanish,boat_color,red). has(english,boat,1). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,boat_color,purple).
+# Explicación LN: Here is the output:
+
+The Spanish person owns a boat numbered 3, drinks soda, keeps a cat as pet, and the boat has a red color. The English person owns a boat number 1, drinks milk, and keeps a dog as pet. The Chinese person owns a boat numbered 2, drinks tea, and keeps a horse as pet, with a purple boat color.
+# Módulo gráfico: OK
+
+############ [4:14] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+color(Yellow, V) :- color(V). color(Green, V) :- color(V). color(White, V) :- color(V). color(Red, V) :- color(V). color(Blue, V) :- color(V).
+
+person(brittish; danish; german; norwegian; swede).
+
+pet(Dog, V) :- pet(V). pet(Fish, V) :- pet(V). pet(Bird, V) :- pet(V). pet(Horse, V) :- pet(V). pet(Cat, V) :- pet(V).
+
+drink(Beer, V) :- drink(V). drink(Coffee, V) :- drink(V). drink(Tea, V) :- drink(V). drink(Milk, V) :- drink(V). drink(Water, V) :- drink(V).
+
+tobacco_brand(Blends, V) :- tobacco_brand(V). tobacco_brand(Blue_Master, V) :- tobacco_brand(V). tobacco_brand(Dunhill, V) :- tobacco_brand(V). tobacco_brand(Pall_Mall, V) :- tobacco_brand(V). tobacco_brand(Prince, V) :- tobacco_brand(V).
+
+same_place(brittish, Red). same_place(swede, Dog). same_place(dane, Tea). same_place(Green, left, White). same_place(Green, Coffee). same_place(Pall_Mall, Bird). same_place(Yellow, Dunhill). same_place(third, Milk). same_place(norwegian, 1). same_place(next_to(Dunhill). Horse). same_place(Blue_Master, Beer). same_place(german, Prince). same_place(norwegian, Blue). same_place(left_of_Blends, Water).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [4:14] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+color(yellow; green; white; red; blue).
+person(brittish; dane; german; norwegian; swede).
+
+pet(dog; fish; bird; horse; cat).
+drink(beer; coffee; tea; milk; water).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+
+left(green, white).
+drinks_coffee_in(green).
+
+bird_owner_smokes_pall_mall.
+dunhill_smoker_lives_in_yellow.
+
+third_house_drinks_milk.
+norwegian_lives_in_first.
+first_house_neighboring_blue.
+blends_smoker_next_to_cat.
+horse_keeper_next_to_dunhill.
+blue_master_smoker_drinks_beer.
+german_smokes_prince.
+norwegian_next_to_blue.
+blends_smoker_neighbor_drinks_water.
+# Answer set resuelto: 
+	has(swede,house,1). has(german,house,2). has(norwegian,house,3). has(dane,house,4). has(brittish,house,5).
+# Explicación LN: Here is the completed output:
+
+The Swedish person lives in the first house. The German person lives in the second house. Alex lives in the third house. The Dane lives in the fourth house. The British person lives in the fifth house.
+# Módulo gráfico: OK
+
+############ [4:17] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+
+person(brittish; danish; german; norwegian; swede).
+
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+
+left(green, white).
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(third_house, milk).
+same_place(norwegian, 1).
+next_to(norwegian, blue).
+
+same_place(german, prince).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+
+same_place(blends, cat).
+
+next_to(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place.
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [4:17] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+left(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(third_house, milk).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(dunhill, horse).
+same_place(blue_master, beer).
+same_place(prince, german).
+next_to(norwegian, blue).
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,house,5). has(brittish,color,red). has(brittish,pet,bird). has(brittish,drink,milk). has(brittish,tobacco_brand,pall_mall). has(dane,house,2). has(dane,color,blue). has(dane,pet,horse). has(dane,drink,tea). has(dane,tobacco_brand,blends). has(german,house,3). has(german,color,green). has(german,pet,fish). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,house,1). has(norwegian,color,yellow). has(norwegian,pet,cat). has(norwegian,drink,water). has(norwegian,tobacco_brand,dunhill). has(swede,house,4). has(swede,color,white). has(swede,pet,dog). has(swede,drink,beer). has(swede,tobacco_brand,blue_master).
+# Explicación LN: The British person lives in the house with the number 5, it is coloured red, they keep a bird as pet, drink milk, smoke Pall Mall tobacco. The Danish person lives in the house with the number 2, it is coloured blue, they keep a horse as pet, drink tea and smoke Blends. The German person lives in the house with the number 3, it is coloured green, they keep a fish as pet, drink coffee and smoke Prince. The Norwegian person lives in the house with the number 1, it is coloured yellow, they keep a cat as pet, drink water and smoke Dunhill. The Swedish person lives in the house with the number 4, it is coloured white, they keep a dog as pet, drink beer and smoke Blue Master.
+# Módulo gráfico: OK
+
+############ [4:28] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+ person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+next_to(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(dunhill, horse).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(norwegian, blue).
+
+same_place(blends, water).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [4:28] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+color(V). color(yellow; green; white; red; blue).
+
+person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(third, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(dunhill, horse).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(norwegian, blue).
+
+same_place(blends, water).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [4:28] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swede, dog). same_place(dane, tea).
+
+left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). 
+
+same_place(3, milk). same_place(norwegian, 1). same_place(norwegian, blue). right(blends, water).
+# Answer set resuelto: 
+	has(brittish,color,red). has(brittish,house,5). has(brittish,pet,horse). has(brittish,drink,beer). has(brittish,tobacco_brand,blends). has(dane,color,yellow). has(dane,house,2). has(dane,pet,cat). has(dane,drink,tea). has(dane,tobacco_brand,dunhill). has(german,color,green). has(german,house,3). has(german,pet,bird). has(german,drink,coffee). has(german,tobacco_brand,pall_mall). has(norwegian,color,blue). has(norwegian,house,1). has(norwegian,pet,fish). has(norwegian,drink,milk). has(norwegian,tobacco_brand,blue_master). has(swede,color,white). has(swede,house,4). has(swede,pet,dog). has(swede,drink,water). has(swede,tobacco_brand,prince).
+# Explicación LN: The British person lives in the house with the number 5, owns a horse, drinks beer and smokes Blends tobacco. The Danish person lives in the yellow house with number 2, has a cat, drinks tea and smokes Dunhill tobacco. The German person's house is green, has a bird, drinks coffee and smokes Pall Mall tobacco. The Norwegian person resides in the blue house with number 1, has a fish, drinks milk and smokes Blue Master tobacco.
+# Módulo gráfico: OK
+
+############ [4:31] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+
+person(brittish; dane; german; norwegian; swede).
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+pet(dog; fish; bird; horse; cat).
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+
+left(green, white).
+living_place(house, V) :- house(V).
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(norwegian, blue).
+
+next_to(blends, cat).
+next_to(dunhill, horse).
+
+blue_master(beer).
+prince(german).
+
+right(next_to(blends, cat). water).
+
+
+I hope this meets the requirements! Let me know if you need any further adjustments.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [4:31] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+color(V). color(YELLOW; GREEN; WHITE; RED; BLUE).
+living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede).
+pet(V). pet(DOG; FISH; BIRD; HORSE; CAT).
+drink(V). drink(BEER; COFFEE; TEA; MILK; WATER).
+tobacco_brand(V). tobacco_brand(BLEND; BLUE_MASTER; DUNHILL; PALL_MALL; PRINCE).
+
+same_place(brittish, RED).
+same_place(swede, DOG).
+dane(drinks, TEA).
+
+next_to(GREEN, WHITE).
+same_place(GREEN, COFFEE).
+same_place(PALL_MALL, BIRD).
+same_place(YELLOW, DUNHILL).
+
+same_place(3, MILK).
+norwegian(drives, 1).
+next_to(NORWEGIAN, BLUE).
+same_place(NORWEGIAN, BLUE).
+same_place(BLEND, CAT).
+next_to(HORSE, DUNHILL).
+same_place(BLUE_MASTER, BEER).
+same_place(PRINCE, GERMAN).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [4:31] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+
+left(green, white).
+right(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(norwegian, blue).
+
+next_to(blends, cat).
+next_to(dunhill, horse).
+same_place(blue_master, beer).
+same_place(prince, german).
+
+next_to(blends, water).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [4:31] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+color(yellow; green; white; red; blue).
+
+
+person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+living_place(house, V) :- house(V).
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+
+next_to(green, white).
+living_place(house, V). color(V) :- house(V). color(V).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(norwegian, blue).
+
+next_to(blends, cat).
+next_to(dunhill, horse).
+next_to(blue_master, beer).
+type(tobacco_brand, V) :- tobacco_brand(V). same_place(V, prince).
+same_place(german, prince).
+
+image(image, "image").
+
+note: Please let me know if you need any further assistance!.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [4:31] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+color(V). color(YELLOW; GREEN; WHITE; RED; BLUE).
+pet(V). pet(DOG; FISH; BIRD; HORSE; CAT).
+
+drink(V). drink(BEER; COFFEE; TEA; MILK; WATER).
+tobacco_brand(V). tobacco_brand(BLENDS; BLUE_MASTER; DUNHILL; PALL_MALL; PRINCE).
+
+person(brittish; dane; german; norwegian; swede).
+
+same_place(brittish, RED).
+same_place(swede, DOG).
+
+same_place(dane, TEA).
+
+left(GREEN, WHITE).
+same_place(GREEN, COFFEE).
+same_place(PALL_MALL, BIRD).
+same_place(YELLOW, DUNHILL).
+same_place(third_house, MILK).
+same_place(norwegian, 1).
+next_to(norwegian, BLUE).
+next_to(BLUE_MASTER, BEER).
+same_place(german, PRINCE).
+next_to(northernmost, BLUE).
+next_to(BLUE_MASTER, WATER).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP

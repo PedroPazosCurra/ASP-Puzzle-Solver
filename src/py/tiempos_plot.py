@@ -18,8 +18,6 @@ def tiempos_plot(tiempos : list):
     fig, ax = plt.subplots(figsize =(6, 3), 
                         subplot_kw = dict(aspect ="equal"))
 
-
-
     # Tarta
     wedges, texts, autotexts = ax.pie(  tiempos,
                                         labels = fases,
@@ -33,5 +31,5 @@ def tiempos_plot(tiempos : list):
 
     #plt.title(f"Tiempo total = {tiempo_total} s")
     plt.setp(autotexts, size = 8, weight ="bold")
-    ax.set_title(f"Tiempo de ejecución por fase del proceso\nTiempo total = {tiempo_total} s", )
+    ax.set_title("Tiempo de ejecución por fase del proceso\nTiempo total = %.2f s" % tiempo_total)
     plt.show()
