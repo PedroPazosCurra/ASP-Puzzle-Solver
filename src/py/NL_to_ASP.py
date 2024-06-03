@@ -9,38 +9,27 @@ import re
 AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
 modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
-ASP_REGEX_LIGERO = r"((type\(([a-z\_]+\,\s?[A-Z])\)\s:-\s[a-z\_]+\([A-Z]\)\.?\s?)|(\s?[a-z]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z]+\((\s?[a-z]+\;?\s?)+\)\.?\s?)|(\s?[a-z\_]+\(([a-z\_]+\s?\,?\s?)+\)\.?\s?))+"
-ASP_REGEX_ESTRICTO = r"((type\(([a-z\_]+\,\s?V)\)\s:-\s[a-z\_]+\(V\)\.?\s?)|(\s?[a-z]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z]+\((\s?[a-z]+\s?\;?\s?)+\)\.?\s?)|(\s?(living_place|image|left|right|next_to|same_place)\(([a-z\_]+\s?\,?\s?)+\)\.?\s?))+"
+ASP_REGEX_LIGERO = r"(([a-z\_]+\(([a-z\_]+\,\s?[V])\)\s:-\s[a-z\_]+\([A-Z]\)\.?\s?)|(\s?[a-z\_]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z\_]+\((\s?[a-z\_]+\;?\s?)+\)\.?\s?)|(\s?[a-z\_]+\(([a-z\_0-9]+\s?\,?\s?)+\)\.?\s?))+"
+ASP_REGEX_ESTRICTO = r"^((living_place\(([a-z\_]+\,\s?[V])\)\s:-\s[a-z\_]+\([V]\)\.?\s?)|(type\(([a-z\_]+\,\s?V)\)\s:-\s[a-z\_]+\(V\)\.?\s?)|(\s?[a-z\_]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z\_]+\((\s?[a-z\_]+\s?\;?\s?)+\)\.?\s?)|(\s?(living_place|image|left|right|next_to|same_place)\(([a-z\_0-9]+\s?\,?\s?)+\)\.?\s?))+$"
 
 def NL_to_ASP(prompt = None, puzzle = None):
-
-    # Contexto sin ejemplos (Zero-Shot)
-    contexto_zeroshot = "### You must turn natural language sentences into atomic logical predicates.\
-    Keep a solid naming through all the generated predicates of a given state as it's very important, keep the atom name as it's being said.\
-    Instanciate every new atom different than 'person(P)' as a type with the format: 'type(new_type, V) :- new_type(V1; V2;...; Vn).'.\
-    For example: 'type(pet, V) :- pet(V). pet(dog; cat; horse).'\
-    You must also instanciate a central element with the expression 'living_place(X, V) :- X(V).'. This element will be the core of all relations. For example: 'living_place(house, V) :- house(V).'. You will be penalized if you use it more than once.\
-    Also, you can use the predicates 'image(X, Y).' to indicate the atom is represented with an image with the indicated route, 'left(X, Y).' to indicate atom X is to the left of atom Y, 'right(X, Y).' to indicate atom X is to the right of atom Y and 'next_to(X, Y)' to indicate that a person X and a person Y are neighbors.\
-    Besides, the predicate 'same_place(X,Y).' says that the atom X and the atom Y are on the same place or grouped together, for example 'John lives in the house number 3' is 'same_place(john, 3).', while 'Water is drunk in the house where Camel is smoked' would be 'same_place(water, camel).'\
-    In the case of indicating a place number, you must use the number '1,2,3' rather than the spelt word 'one, two, three'.\
-    You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification.\
-    You will be penalized if you don't describe the whole sentence perfectly as stated in the examples.\
-    You will be penalized if you're verbose and convoluted. Complete only the last iteration. ###\n"
    
     # Sale con error si alguno de los args es nulo
     if ((prompt == None) or (puzzle == None)): return([1, "NL_to_ASP recibe una entrada con uno de los valores nulos."])
     
-
     # Leemos /resources/txt/ctx... para tener el contexto para few-shot learning
     match puzzle:
         case "Einstein":
-            contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_ASP.txt"))
+            contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/zero_einstein_to_ASP.txt"))
+            contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein_to_ASP.txt"))
         case _:
             return([1, "En NL_to_ASP.py, se recibe un puzzle que no existe: "+ puzzle + ". Vigila que se pase bien."])
     
     # Construcción de prompt
+    with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
     with open(contexto_path, 'r') as file: fewshot = file.read()
-    contexto_fewshot = contexto_zeroshot + fewshot
+
+    contexto_fewshot = zeroshot + fewshot
     prompt_w_context = contexto_fewshot + prompt +"\nOUTPUT: "
 
     # Petición a la LLM (Actualmente, modelo pequeño para probar).

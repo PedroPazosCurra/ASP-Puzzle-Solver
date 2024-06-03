@@ -10,17 +10,17 @@ AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
 modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
 
-input_answer_set = "There are three houses. In them live a spanish, an english and a chinese. There are three pets: a dog, a cat and a duck. There are 3 tobacco brands: Ducados, Camel and Bluem. There are also three drinks: coffee, water and tea. The spanish man house is painted red, while the englishman house is tainted blue. The house of the chinese man is purple. The spanish man keeps a dog. The chinese man loves to drink tea. The spanish one, on the other hand, smokes Ducados."
+input_answer_set = "There are three boats. There are a Spanish, an English and a Chinese. There are three drinks: Tea, Milk and Soda. The Spanish man drinks Soda. Soda is represented with the next image: cocacola. There's a Dog, a Cat and a Horse. The Spanish keeps the Cat, while the English man has a Dog. The Horse is represented by the image called 'horse'. The Cat is represented by https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg The Spanish man has a red boat. The chinese man, on the other hand, lives in a Purple boat. Represent the boat with https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg."
 puzzle_elegido = "Einstein"
 
 # Contexto sin ejemplos (Zero-Shot)
-contexto_zeroshot = "### You MUST parse natural language sentences to atomic logical predicates. Reply only with the logical atoms. You will be penalized if you write something different from the final logical predicates. Write only the last iteration. You are provided with examples. ###\n"
+contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/zero_einstein_to_ASP.txt"))
+contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein_to_ASP.txt"))
 
-contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_ASP.txt"))
-
+with open(contexto_path, 'r') as file: zeroshot = file.read()
 with open(contexto_path, 'r') as file: fewshot = file.read()
 
-contexto_fewshot = contexto_zeroshot + fewshot
+contexto_fewshot = zeroshot + fewshot
 
 # Zero-shot o Few-shot?
 contexto = contexto_fewshot

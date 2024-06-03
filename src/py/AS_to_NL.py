@@ -9,12 +9,6 @@ modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
 
 def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
-
-    # Contexto sin ejemplos (Zero-Shot)
-    contexto_zeroshot = "### You must turn atomic logical predicates into natural language sentences. \
-      You will be penalized if you make any kind of note or clarification. \
-      You will be penalized if you're verbose or convoluted. \
-      Complete only the last iteration. ###\n"
     
     # Sale con error si alguno de los args es nulo
     if ((input_answer_set == None) or (puzzle_elegido == None)): return([1, "AS_to_NL recibe una entrada con uno de los valores nulos."])
@@ -22,14 +16,16 @@ def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
     # Leemos /resources/txt/ctx... para tener el contexto para few-shot learning
     match puzzle_elegido:
         case "Einstein":
-                contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/ctx_einstein_to_NL.txt"))
+            contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/zero_einstein_to_NL.txt"))
+            contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein_to_NL.txt"))
         case _:
             return([1, "En AS_to_NL.py, se recibe un puzzle que no existe: " + puzzle_elegido + ". Vigila que se pase bien."])
     
+    # Construcción de prompt
+    with open(contexto_zeroshot_path, 'r') as file_zero: zeroshot = file_zero.read()
+    with open(contexto_path, 'r') as file_few: fewshot = file_few.read()
 
-    with open(contexto_path, 'r') as file: fewshot = file.read()
-
-    contexto_fewshot = contexto_zeroshot + fewshot
+    contexto_fewshot = zeroshot + fewshot
 
     # Zero-shot o Few-shot?
     contexto = contexto_fewshot

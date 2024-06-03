@@ -72,8 +72,8 @@ INPUT: There is Water, Coffee and Beer. The person who drinks Beer is the same w
 OUTPUT: type(drink, V) :- drink(V). drink(beer; water; coffee). same_place(beer, coffee). right(water, beer).
 INPUT: There's a German person. The German individual's favourite drink is Tea. The Soda drinker lives in the Red house.
 OUTPUT: person(german). type(drink, V) :- drink(V). drink(tea; soda). same_place(german, tea). type(color, V) :- color(V). color(red). same_place(soda, red).
-INPUT: The norwegian keeps a dog as pet. He lives in a red house and drinks vodka.
-OUTPUT: person(norwegian). type(pet, V) :- pet(V). pet(dog). same_place(norwegian, dog). person(norwegian). type(color, V) :- color(V). color(red). same_place(norwegian, red). type(house, V) :- house(V). living_place(house, V) :- house(V). type(drink, V) :- drink(V). drink(vodka). same_place(norwegian, vodka).
+INPUT: The Norwegian keeps a Dog as pet. He lives in a Red house and drinks Vodka. The Swede keeps a Cat.
+OUTPUT: person(norwegian; swede). type(pet, V) :- pet(V). pet(dog; cat). same_place(norwegian, dog). person(norwegian). type(color, V) :- color(V). color(red). same_place(norwegian, red). type(house, V) :- house(V). living_place(house, V) :- house(V). type(drink, V) :- drink(V). drink(vodka). same_place(norwegian, vodka). same_place(swede, cat).
 INPUT: The irish person has a rabbit. The italian girl has a dog. The rabbit owner has a blue house.
 OUTPUT: person(irish). type(pet, V) :- pet(V). pet(rabbit). same_place(irish, rabbit). person(italian). type(pet, V) :- pet(V). pet(dog). same_place(italian, dog). type(color, V) :- color(V). color(blue). same_place(rabbit, blue).
 INPUT: There are five pets: a dog, a cat, a rabbit, a mole and a fish. The Dane grows a fish in his house.

@@ -1,0 +1,6 @@
+### 
+You must turn atomic logical predicates into natural language sentences. 
+You will be penalized if you make any kind of note or clarification. 
+You will be penalized if you're verbose or convoluted. 
+Complete only the last iteration. 
+###
