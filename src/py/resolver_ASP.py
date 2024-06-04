@@ -6,11 +6,8 @@ from os import path
 # Variables y Constantes
 DEBUG = False
 
-answer_sets = ""    # has(brittish,house,1). has(brittish,pet,dog).
-has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
-image_routes = []   # [['coffee', 'ruta/coffee.png']]
 reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resources/asp/einstein.lp"))
-
+reglas_comensales = path.abspath(path.join(path.dirname(__file__), "..", "../resources/asp/comensales.lp"))
 
 
 ###########################################   Funciones   ##########################################
@@ -40,9 +37,10 @@ def procesa_atom_arguments(atom_args):
 #   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un estado, Answer Set y argumentos posteriores
 def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = ["--warn=none"]):
 
-    answer_sets = ""
-    has_atoms = []
-    image_routes = []
+    answer_sets = ""    # has(brittish,house,1). has(brittish,pet,dog).
+    has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
+    image_routes = []   # [['coffee', 'ruta/coffee.png']]
+    seated_atoms = []
 
     # Sale con error si alguno de los args es nulo
     if ((modelo == None) or (puzzle == None)): return([1, "resolver_ASP recibe una entrada con uno de los valores nulos.", []])
@@ -54,6 +52,8 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
     match puzzle:
         case "Einstein":
             cc.load(reglas_einstein)
+        case "Comensales":
+            cc.load(reglas_comensales)
         case _:
             return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
 
@@ -90,19 +90,34 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
                         # Toma 2 args del image(X,Y)
                         img_arg_1, img_arg_2 = procesa_atom_arguments(atom.arguments)
                         image_routes.append([img_arg_1, img_arg_2])
+
+                case "Comensales":
+                    if(atom.name == "seated" and len(atom.arguments) == 2):
+                        seated_arg_1, seated_arg_2 = procesa_atom_arguments(atom.arguments)
+                        seated_atoms.append([seated_arg_1, seated_arg_2])
+
                 case _:
                     return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
+                
+
 
     # ¿Tiene solución?
     if (len(answer_sets) >= 1):
-        return([0, answer_sets, [has_atoms, image_routes]])
+        match puzzle:
+            case "Einstein":
+                return([0, answer_sets, [has_atoms, image_routes]])
+            case "Comensales":
+                return([0, answer_sets, seated_atoms])
+            case _:
+                return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
+
     else:
         return([1, "El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.", []])
 
 # Debug:
 if (DEBUG):
     modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
-    #modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
-    #modelo_invalido = ":-"
+    modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
+    modelo_invalido = ":-"
     status, ans_sets, [has, imageroutes] = resolver_ASP(modelo_sat, "Einstein")
     print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")

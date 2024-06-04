@@ -7708,3 +7708,1068 @@ The White house is home to the Bird-keeper, who smokes Pall Mall.
 The Red house is home to the Cat-keeper, who smokes Blends and drinks Water.
 
 This solution satisfies all the given constraints, and each element is uniquely assigned to a central element (a house).
+
+############ [20:51] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [21:2] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+color(V). color(yellow; green; white; red; blue).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(dunhill, yellow).
+
+same_place(milk, 3).
+
+same_place(norwegian, 1).
+
+right(blends, water).
+
+next_to(blends, cat).
+
+next_to(horse, dunhill).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+right(norwegian, blue).
+
+same_place(blends, water).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [21:2] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede).
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+living_place(house, V) :- house(V). same_place(norwegian, 1). same_place(brittish, red). same_place(swede, dog).
+
+next_to(green, white). living_place(house, V) :- house(V). same_place(green, coffee). same_place(white, ?).
+
+same_place(pall_mall, bird). same_place(yellow, dunhill).
+
+same_place(milk, 3). same_place(tea, dane).
+
+next_to(blends, water). next_to(dunhill, horse). same_place(blends, cat).
+
+same_place(blue_master, beer). same_place(prince, german).
+
+next_to(norwegian, blue). same_place(blends, water).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [21:2] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+ person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+living_place(2, green).
+
+same_place(3, milk).
+
+same_place(norwegian, 1).
+
+living_place(1, norwegian).
+
+next_to(green, white).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+same_place(norwegian, blue).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+
+same_place(blends, cat).
+
+same_place(dunhill, horse).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+same_place(blends, water).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:2] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+
+living_place(green, V) :- house(V). same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(third, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(horse, dunhill).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(norwegian, blue).
+
+same_place(blends, water).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:2] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+color(white; green; red; blue; yellow).
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+person(brittish; danish; german; norwegian; swede).
+
+same_place(brittish, red).
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+next_to(green, white).
+
+same_place(green, coffee).
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+same_place(norwegian, 1).
+
+next_to(norwegian, blue).
+
+next_to(blends, cat).
+
+next_to(horse, dunhill).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(blends, water).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:6] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). 
+
+type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+
+living_place(house, V) :- house(V). same_place(2, coffee). same_place(1, norwegian). same_place(2, green). same_place(3, milk). same_place(yellow, dunhill). same_place(1, norwegian). right(blends, water). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(blue, norwegian). 
+
+Please let me know if this meets your requirements.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [21:6] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; danish; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+next_to(green, white).
+
+same_place(green, coffee).
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+same_place(norwegian, 1).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+
+same_place(blends, cat).
+
+next_to(dunhill, horse).
+
+same_place(blue_master, beer).
+
+same_place(german, prince).
+
+same_place(norwegian, blue).
+
+same_place(blends, water).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:6] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V).
+color(white; green; yellow; red; blue).
+
+type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede).
+same_place(brittish, red).
+same_place(swede, dog).
+same_place(dane, tea).
+
+next_to(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(norwegian, blue).
+
+next_to(blends, cat).
+next_to(horse, dunhill).
+same_place(blends, water).
+
+same_place(prince, german).
+same_place(blue_master, beer).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:6] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; dane; german; norwegian; swede). type(house, V) :- house(V). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+same_place(brittish, red). same_place(swede, dog). same_place(dane, tea). same_place(green, coffee). same_place(yellow, dunhill). same_place(pall_mall, bird). same_place(green, coffee). same_place(third, milk). same_place(norwegian, 1). same_place(blue, norwegian). same_place(blends, water).
+# Answer set resuelto: 
+	has(brittish,color,red). has(brittish,house,3). has(brittish,drink,milk). has(brittish,tobacco_brand,blue_master). has(brittish,pet,cat). has(dane,color,white). has(dane,house,2). has(dane,drink,tea). has(dane,tobacco_brand,pall_mall). has(dane,pet,bird). has(german,color,yellow). has(german,house,4). has(german,drink,beer). has(german,tobacco_brand,dunhill). has(german,pet,horse). has(norwegian,color,blue). has(norwegian,house,1). has(norwegian,drink,water). has(norwegian,tobacco_brand,blends). has(norwegian,pet,fish). has(swede,color,green). has(swede,house,5). has(swede,drink,coffee). has(swede,tobacco_brand,prince). has(swede,pet,dog).
+# Explicación LN: Here is the output:
+
+The British person lives in the third house with a red color, drinks milk, smokes Blue Master cigarettes and keeps a cat as pet. The Danish person lives in the second house with a white color, drinks tea, smokes Pall Mall cigarettes and keeps a bird as pet. The German person lives in the fourth house with a yellow color, drinks beer, smokes Dunhill cigarettes and keeps a horse as pet. The Norwegian person lives in the first house with a blue color, drinks water, smokes Blends cigarettes and keeps a fish as pet.
+# Módulo gráfico: OK
+
+############ [21:15] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [21:21] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:21] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(claudia, german).
+
+############ [21:21] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:21] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:21] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras.seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, german). speaks(claudia, spanish).
+
+############ [21:25] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(jose, arabic).
+speaks(pedro, arabic).
+speaks(claudia, spanish).
+speaks(claudia, german).
+
+############ [21:25] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:25] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; marta; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:25] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:25] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:31] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:31] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:31] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:31] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:31] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+
+############ [21:32] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, german). speaks(martina, spanish).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second, and Pedro in the fourth.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:32] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(claudia, spanish). speaks(jose, arabic). speaks(pedro, arabic).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second, Jose is seated in the third, Pedro is seated in the fourth, no other information provided.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:32] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:32] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second one, Jose is seated in the third one, Pedro is seated in the fourth one.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:32] LOG ############:
+
+### Intento 4 de 4  ###
+
+############ [21:35] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:35] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, german). speaks(claudia, spanish).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:35] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:35] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(claudia, german).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:35] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(claudia, german).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:39] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; mart; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(mart, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(mart,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Mart in the second one, José in the third one and Pedro in the fourth.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:39] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second, José is seated in the third, and Pedro is seated in the fourth.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:39] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second one and Pedro is seated in the fourth.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:39] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Martina is seated in the second chair, Claudia is seated in the first one, Pedro is seated in the fourth.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:39] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(marta, german).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [21:40] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second and Pedro in the fourth, while Jose is seated in the 3.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:40] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Here is the output:
+
+Claudia is seated in the first chair, Martina in the second one and Pedro in the fourth seat.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:40] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second and Pedro in the fourth, while there's no mention of Jose.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:40] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Claudia is seated in the first chair, Martina in the second, José in the third, Pedro in the fourth and there is no more information available.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [21:40] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(jose, arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german).
+# Answer set resuelto: 
+	seated(jose,3). seated(martina,2). seated(claudia,1). seated(pedro,4).
+# Explicación LN: Martina is seated in the second chair, Claudia is seated in the first one and Pedro in the fourth.
+# Módulo gráfico: El módulo gráfico recibe un puzzle que no existe: Comensales.
+
+############ [22:42] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [22:45] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..20). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; brown; violet; olive; mustard).
+
+person(dominican; nicaraguan; brittish; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuatorian; italian; german; belgian; swedish; swiss; greek; russian; ukranian; palestinian; french).
+
+same_place(dominican, _). same_place(nicaraguan, _). same_place(brittish, _). same_place(irish, _). same_place(norwegian, _). same_place(spanish, _). same_place(portuguese, _). same_place(chilean, _). same_place(peruvian, _). same_place(ecuatorian, _). same_place(italian, _). same_place(german, _). same_place(belgian, _). same_place(swedish, _). same_place(swiss, _). same_place(greek, _). same_place(russian, _). same_place(ukranian, _). same_place(palestinian, _). same_place(french, _).
+
+Please let me know if this meets your requirements!.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [22:45] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; brown; violet; olive; mustard).
+
+ person(dominican; nicaraguan; brittish; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuadorian; italian; german; belgian; swedish; swiss; greek; russian; ukrainian; palestinian; french).
+
+type(house, V) :- house(V). house(1..20). living_place(house, V) :- house(V).
+# Answer set resuelto: 
+	has(portuguese,color,black). has(spanish,color,blue). has(peruvian,color,purple). has(dominican,color,magenta). has(belgian,color,navy). has(norwegian,color,yellow). has(nicaraguan,color,ocre). has(ukrainian,color,white). has(swiss,color,maroon). has(italian,color,ivory). has(chilean,color,lime). has(irish,color,cyan). has(brittish,color,rose). has(french,color,pink). has(palestinian,color,grey). has(russian,color,green). has(greek,color,brown). has(swedish,color,violet). has(german,color,olive). has(ecuadorian,color,mustard). has(spanish,house,1). has(norwegian,house,2). has(irish,house,3). has(brittish,house,4). has(nicaraguan,house,5). has(dominican,house,6). has(french,house,7). has(palestinian,house,8). has(ukrainian,house,9). has(russian,house,10). has(greek,house,11). has(swiss,house,12). has(swedish,house,13). has(belgian,house,14). has(german,house,15). has(italian,house,16). has(ecuadorian,house,17). has(peruvian,house,18). has(chilean,house,19). has(portuguese,house,20).
+# Explicación LN: Here is the output:
+
+The Swiss has a maroon coloured house. The Norwegian has a yellow house. The Peruvian house is purple, the Dominican magenta, the Belgian navy, the Ukrainian white, the Swedish violet, the Chilean lime, the Irish cyan, the British rose, the French pink, the Palestinian grey, the Russian green, the Greek brown, the Nicaraguan ocre, the Ecuadorian mustard, the Italian ivory, the Norwegian in the house number 2, the Irish in the house number 3, the British in the house number 4, the Nicaraguan in the house number 5, the Dominican in the house number 6, the French in the house number 7, the Palestinian in the house number 8, the Ukrainian in the house number 9, the Russian in the house number 10, the Greek in the house number 11, the Swiss in the house number 12, the Swedish in the house number 13, the Belgian in the house number 14, the German in the house number 15, the Italian in the house number 16, the Ecuadorian in the house number 17, the Peruvian in the house number 18, the Chilean in the house number 19, the Portuguese in the house number 20.
+# Módulo gráfico: OK
+
+############ [23:20] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..20). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; brown; violet; olive; mustard).
+
+person(dominican; nicaraguan; brittish; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuatorian; italian; german; belgian; swede; swiss; greek; russian; ukrainian; palestinian; french).
+
+same_place(dominican, _). same_place(nicaraguan, _). same_place(brittish, _). same_place(irish, _). same_place(norwegian, _). same_place(spanish, _). same_place(portuguese, _). same_place(chilean, _). same_place(peruvian, _). same_place(ecuatorian, _). same_place(italian, _). same_place(german, _). same_place(belgian, _). same_place(swede, _). same_place(swiss, _). same_place(greek, _). same_place(russian, _). same_place(ukrainian, _). same_place(palestinian, _). same_place(french, _).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [23:20] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..20).
+living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; browm; violet; olive; mustard).
+person(dominican; nicaraguan; brittish; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuatorian; italian; german; belgian; swedish; swiss; greek; russian; ukranian; palestinian; french).
+type(house_color, V) :- house_color(V).
+house_color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; browm; violet; olive; mustard).
+# Answer set resuelto: 
+	has(portuguese,house,1). has(spanish,house,2). has(peruvian,house,3). has(dominican,house,4). has(belgian,house,5). has(norwegian,house,6). has(nicaraguan,house,7). has(ukranian,house,8). has(swiss,house,9). has(italian,house,10). has(chilean,house,11). has(irish,house,12). has(brittish,house,13). has(french,house,14). has(palestinian,house,15). has(russian,house,16). has(greek,house,17). has(swedish,house,18). has(german,house,19). has(ecuatorian,house,20). has(french,color,black). has(palestinian,color,blue). has(ukranian,color,purple). has(russian,color,magenta). has(greek,color,navy). has(swiss,color,yellow). has(swedish,color,ocre). has(belgian,color,white). has(german,color,maroon). has(italian,color,ivory). has(ecuatorian,color,lime). has(peruvian,color,cyan). has(chilean,color,rose). has(portuguese,color,pink). has(spanish,color,grey). has(norwegian,color,green). has(irish,color,browm). has(brittish,color,violet). has(nicaraguan,color,olive). has(dominican,color,mustard). has(french,house_color,black). has(palestinian,house_color,blue). has(ukranian,house_color,purple). has(russian,house_color,magenta). has(greek,house_color,navy). has(swiss,house_color,yellow). has(swedish,house_color,ocre). has(belgian,house_color,white). has(german,house_color,maroon). has(italian,house_color,ivory). has(ecuatorian,house_color,lime). has(peruvian,house_color,cyan). has(chilean,house_color,rose). has(portuguese,house_color,pink). has(spanish,house_color,grey). has(norwegian,house_color,green). has(irish,house_color,browm). has(brittish,house_color,violet). has(nicaraguan,house_color,olive). has(dominican,house_color,mustard).
+# Explicación LN: The houses have the following residents:
+
+* House 1: Portuguese
+* House 2: Spanish
+* House 3: Peruvian
+* House 4: Dominican
+* House 5: Belgian
+* House 6: Norwegian
+* House 7: Nicaraguan
+* House 8: Ukrainian
+* House 9: Swiss
+* House 10: Italian
+* House 11: Chilean
+* House 12: Irish
+* House 13: British
+* House 14: French
+* House 15: Palestinian
+* House 16: Russian
+* House 17: Greek
+* House 18: Swedish
+* House 19: German
+* House 20: Ecuadorian
+
+The colors of the houses are:
+* Black (French)
+* Blue (Palestinian)
+* Purple (Ukrainian)
+* Magenta (Russian)
+* Navy (Greek)
+* Yellow (Swiss)
+* Ocre (Swedish)
+* White (Belgian)
+* Maroon (German)
+* Ivory (Italian)
+* Lime (Ecuadorian)
+* Cyan (Peruvian)
+* Rose (Chilean)
+* Pink (Portuguese)
+* Grey (Spanish)
+* Green (Norwegian)
+* Brown (Irish)
+* Violet (British)
+* Olive (Nicaraguan)
+* Mustard (Dominican)
+# Módulo gráfico: OK
+
+############ [23:22] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red). same_place(spanish, red).
+
+type(boat_color, V) :- boat_color(V). boat_color(red). same_place(spanish, red). boat_color(purple). image(purple, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,soda). has(spanish,pet,cat). has(spanish,color,red). has(spanish,boat_color,red). has(english,boat,1). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,boat_color,purple).
+# Explicación LN: Here is the output:
+
+The Spanish has a boat with the number 3, drinks soda, has a cat as a pet, his boat is painted red and he is also the owner of the red house. The English man has a boat with the number one, drinks milk, has a dog as a pet. And the chinese have a boat with the number two, drinks tea, has a horse as pet, its boat is colored purple.
+# Módulo gráfico: OK
+
+############ [23:29] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+ person(spanish; english; chinese).
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+same_place(soda, "cocacola").
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+same_place(spanish, cat). same_place(english, dog). same_place(spanish, red). same_place(chinese, purple).
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+image(horse, "horse").
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,milk). has(spanish,pet,cat). has(english,boat,2). has(english,drink,tea). has(english,pet,dog). has(chinese,boat,1). has(chinese,drink,soda). has(chinese,pet,horse).
+# Explicación LN: The English has a red boat, drinks tea, keeps a dog. The Spanish has a boat numbered 3, drinks milk, has a cat as pet. The Chinese lives on boat number 1, drinks soda, and has a horse.
+# Módulo gráfico: OK
+
+############ [23:33] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+ person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(spanish, cat). same_place(english, dog). same_place(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+image(horse, "horse").
+
+type(color, V) :- color(V). color(red). same_place(spanish, red).
+
+color(purple). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+same_place(spanish, 1). same_place(chinese, 3).
+# Answer set resuelto: 
+	has(spanish,boat,1). has(spanish,drink,soda). has(spanish,pet,cat). has(spanish,color,red). has(english,boat,2). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,3). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,color,purple).
+# Explicación LN: Here is the output:
+
+The English has a red boat, drinks milk and keeps a dog. The Spanish has a red boat, drinks soda and keeps a cat. The Chinese has a purple boat, drinks tea and keeps a horse.
+# Módulo gráfico: OK
+
+############ [23:35] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+ person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(english, dog). same_place(spanish, cat).
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+image(horse, "horse").
+
+same_place(spanish, red).
+
+living_place(boat, V) :- boat(V). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,soda). has(spanish,pet,cat). has(english,boat,1). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse).
+# Explicación LN: The English man possesses boat no. 1, drinks milk, and has a dog as pet. The English person also possesses boat no. 1. The Chinese person owns boat no. 2, drinks tea, and has a horse as pet. The Spanish person has a boat no. 3 and drinks soda, owning a cat as pet.
+# Módulo gráfico: OK
+
+############ [23:44] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+ person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+same_place(spanish, soda).
+
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(spanish, cat).
+
+same_place(english, dog).
+
+image(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red). same_place(spanish, red).
+
+color(purple). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,soda). has(spanish,pet,cat). has(spanish,color,red). has(english,boat,1). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,color,purple).
+# Explicación LN: Here is the output:
+
+The Spanish person owns boat number 3, drinks soda, has a pet cat and lives in a red-colored environment. The English has a red car, drinks milk and keeps a dog. The Chinese person owns boat number 2, drinks tea, has a pet horse and lives in a purple-colored environment.
+# Módulo gráfico: OK
+
+############ [23:49] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+ person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spain, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red; purple).
+
+same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,milk). has(spanish,pet,horse). has(spanish,color,red). has(english,boat,2). has(english,drink,tea). has(english,pet,dog). has(chinese,boat,1). has(chinese,drink,soda). has(chinese,pet,cat). has(chinese,color,purple).
+# Explicación LN: The Spanish person owns the boat numbered 3, drinks milk, keeps a horse as pet, and has a red-colored thing. The English person owns the boat numbered 2, drinks tea, keeps a dog as pet. The Chinese person owns the boat numbered 1, drinks soda, and keeps a cat as pet.
+# Módulo gráfico: OK
+
+############ [23:51] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(dog, english). same_place(cat, spanish). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). same_place(spanish, red). color(purple). same_place(chinese, purple).
+# Answer set resuelto: 
+	has(spanish,house,3). has(spanish,drink,milk). has(spanish,pet,cat). has(spanish,color,red). has(english,house,1). has(english,drink,tea). has(english,pet,dog). has(chinese,house,2). has(chinese,drink,soda). has(chinese,pet,horse). has(chinese,color,purple).
+# Explicación LN: The Spanish person lives in the third house, drinks milk, has a cat as a pet, and the house is red. The English person lives in the first house, drinks tea, and keeps a dog. The Chinese person lives in the second house, drinks soda, has a horse as a pet, and the house is purple.
+# Módulo gráfico: OK
+
+############ [23:52] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V).
+house(1..3).
+living_place(house, V) :- house(V).
+
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+
+same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+
+same_place(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+same_place(horse, "horse").
+
+color(red).
+color(purple).
+
+same_place(spanish, red).
+same_place(chinese, purple).
+
+next_to(spanish, english).
+next_to(english, chinese).
+# Answer set resuelto: 
+	has(spanish,house,3). has(spanish,drink,milk). has(spanish,pet,horse). has(english,house,2). has(english,drink,tea). has(english,pet,cat). has(chinese,house,1). has(chinese,drink,soda). has(chinese,pet,dog).
+# Explicación LN: Here is the output:
+
+The English person lives in the second house, drinks tea, and keeps a cat. The Spanish person lives in the house with the number 3, drinks milk, and has a horse as pet.
+# Módulo gráfico: OK
+
+############ [23:54] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). same_place(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). same_place(spanish, red). type(color, V) :- color(V). color(purple). same_place(chinese, purple).
+# Answer set resuelto: 
+	has(spanish,house,3). has(spanish,drink,milk). has(spanish,pet,cat). has(spanish,color,red). has(english,house,1). has(english,drink,tea). has(english,pet,dog). has(chinese,house,2). has(chinese,drink,soda). has(chinese,pet,horse). has(chinese,color,purple).
+# Explicación LN: Here is the output:
+
+The Spanish person lives in the house number 3, drinks milk, owns a cat, and the house is painted red. The English person lives in the first house, drinks tea, and keeps a dog. The Chinese person lives in the second house, drinks soda, owns a horse, and the house is purple.
+# Módulo gráfico: OK
+
+############ [23:56] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(english, dog). same_place(spanish, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red; purple).
+
+same_place(spanish, 1). same_place(spanish, red). same_place(chinese, 2). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,1). has(spanish,drink,soda). has(spanish,pet,cat). has(spanish,color,red). has(english,boat,3). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,color,purple).
+# Explicación LN: Here is the output for the final iteration:
+
+The Spanish person has a boat with number one, drinks soda, owns a cat, and the house is painted red. The English person also has a boat, but it's number 3, drinks milk, and keeps a dog. The Chinese person has a boat number two, drinks tea, and owns a horse, while his house is purple colored.
+# Módulo gráfico: OK
+
+############ [0:16] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+ person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(english, dog). same_place(spanish, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,soda). has(spanish,pet,cat). has(spanish,color,red). has(english,boat,1). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,color,purple).
+# Explicación LN: The Spanish person has a boat numbered 3 and drinks soda. The Spanish person also has a pet cat and the boat is red.
+# Módulo gráfico: OK
+
+############ [0:17] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(english, dog). same_place(spanish, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+
+type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+I hope this meets the requirements! Let me know if you need further assistance.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [0:17] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(english, dog). same_place(spanish, cat). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red). same_place(spanish, red). color(purple). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Answer set resuelto: 
+	has(spanish,boat,3). has(spanish,drink,soda). has(spanish,pet,cat). has(spanish,color,red). has(english,boat,1). has(english,drink,milk). has(english,pet,dog). has(chinese,boat,2). has(chinese,drink,tea). has(chinese,pet,horse). has(chinese,color,purple).
+# Explicación LN: Here is the output:
+
+The English person owns boat number one, drinks milk and has a dog as pet. The Spanish person possesses boat number 3, enjoys soda, owns a cat as pet and lives in a red-colored environment. Meanwhile, the Chinese person lives on boat number two, likes drinking tea, takes care of a horse as pet and resides in a purple-colored surrounding.
+# Módulo gráfico: OK

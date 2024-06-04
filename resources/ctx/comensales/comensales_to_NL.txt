@@ -1,0 +1,6 @@
+INPUT: seated(john, 1). seated(priscilla, 4). seated(alex, 2). seated(jesus, 3). seated(manolo, 5).
+OUTPUT: John is seated in the first chair, Alex in the second, Jesus in the 3, Priscilla in the number 4 and Manolo is seated in the fifth seat.
+INPUT: seated(a, 1). seated(c, 2). seated(b, 3).
+OUTPUT: Individual A is seated in the seat number 1 and person C is seated in the 2 while B is seated in the chair number 3.
+INPUT: seated(pedro, 5). seated(abel, 3). seated(jose, 4). seated(manolo, 2). seated(maria, 6). seated(teresa, 1). 
+OUTPUT: Teresa is seated in the first chair, Manolo in the second one, Abel in the third one, Jose in the number 4, Pedro is seated in the fifth chair and Maria is seated in the number 6.

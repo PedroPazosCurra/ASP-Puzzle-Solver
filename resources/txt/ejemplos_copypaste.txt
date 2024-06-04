@@ -4,7 +4,7 @@ ASP cortos
     UNSAT: hola(pedro). hola(pedra). :- hola(X), hola(Y), X!=Y.
 
 
-LN:
+### EINSTEIN:
 
   -  Ejemplo Fácil
 There are three houses. In them live a Spanish, an English and a chinese.
@@ -35,3 +35,11 @@ There are five caravans: one is purple, other is cyan, other is black, other is 
 
   - 20 Casas
   There are 20 houses. They are painted of the colors: Black, Blue, Purple, Magenta, Navy, Yellow, Ocre, White, Maroon, Ivory, Lime, Cyan, Rose, Pink, Grey, Green, Browm, Violet, Olive and Mustard. The people are a Dominican man, a Nicaraguan, a Brittish, a Irish, a Norwegian, a Spanish, a Portuguese, a Chilean, a Peruvian, a Ecuatorian, an Italian, a German, a Belgian, a Swede, a Swiss, a Greek, a Russian, an Ukranian, a Palestinian and a French.
+
+
+### COMENSALES: https://www.braingle.com/brainteasers/46203/round-table-conference-again.html
+
+ - 4 Personas, sin restricciones.
+In this table there are 4 people sitting: Jose, Martina, Claudia and Pedro. The languages spoken in the table are German, Spanish and Arabic. Pedro and Jose speak Arabic. Claudia speaks Spanish and Martina speaks German.
+
+ - 4 Personas con restricciones.

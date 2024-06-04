@@ -10,10 +10,11 @@ import traceback
 
 
 ######################################### Constantes y variables ##############################################
-TAMAÑO_DEFAULT = 70
+TAMAÑO_DEFAULT = 80
+TAMAÑO_FONDO = 1200
 DEBUG = False
 
-# Crea nueva imagen importándola. La imagen es 1000x1000
+# Crea nueva imagen importándola. La imagen es 2000x2000
 img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
 tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/tmp"))
 atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/atom_images"))
@@ -70,12 +71,12 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
     c = a + tamaño*2
     d = b + tamaño*1.5
 
-    fuente_letras = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = tamaño*0.5)
+    fuente_letras = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = round(tamaño*0.5))
 
     for i, dato in enumerate(array_datos):
 
         # Primer elemento más grande
-        if (i==0): fuente_letras = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = tamaño*0.6)
+        if (i==0): fuente_letras = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = round(tamaño*0.65))
 
         ruta_especificada = False
         
@@ -110,16 +111,16 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
                 dibujo.text(xy = (a + (c-a)/2 - tamaño*1.1, d + (d-b)*(0.75*i + 0.5)),
                             text = dato.capitalize() if (isinstance(dato, str)) else dato,
                             font= fuente_letras,
-                            stroke_width= int(tamaño * 0.06),
+                            stroke_width= round(tamaño * 0.06),
                             stroke_fill= 'black'
                             )
             
         else:
             # Dibuja texto
-            dibujo.text(xy = (a + (c-a)/2 - tamaño*1.1, d + (d-b)*(0.75*i + 0.5)),
+            dibujo.text(xy = (round(a + (c-a)/2 - tamaño*1.1), round(d + (d-b)*(0.75*i + 0.5))),
                         text = dato.capitalize() if (isinstance(dato, str)) else dato,
                         font= fuente_letras,
-                        stroke_width= int(tamaño * 0.06),
+                        stroke_width= round(tamaño * 0.06),
                         stroke_fill= 'black'
                         )
 
@@ -174,7 +175,7 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
         except:
             # No consigo la imagen: pongo el nombre del elemento en su lugar.
             fuente= ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = tamaño)
-            dibujo.text(xy = (a, b ),
+            dibujo.text(xy = (a, b),
                 text = elemento.capitalize(),
                 font= fuente,
                 stroke_width= round(tamaño * 0.1),
@@ -214,13 +215,13 @@ def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
     num_grupos = len(grupos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_elem_central = (1.1**(-num_grupos)) * 80
+    tamaño_elem_central = (1.1**(-num_grupos)) * TAMAÑO_DEFAULT
 
     # Para cada casa con índice i de la entrada
     for i, casa in enumerate(grupos):
 
-        # División de los 1000px que le toca a cada casa según cuántas casas hay
-        division_elems_centrales = (1000/(num_grupos+1)) * (i + 1)
+        # División de los 2000px que le toca a cada casa según cuántas casas hay
+        division_elems_centrales = (TAMAÑO_FONDO/(num_grupos+1)) * (i + 1)
 
         numero = str(casa[elemento_central])
         imagen_elemento = None
@@ -231,7 +232,7 @@ def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
                 imagen_elemento = par[1]
 
         # Dibuja el elemento en blanco
-        dibuja_elemento(fondo_estado_inicial, elemento_central, imagen_elemento, dibujo_estado_inicial, coordenadas= (division_elems_centrales - tamaño_elem_central, 1000 - 6* tamaño_elem_central), tamaño= tamaño_elem_central, numero= numero)
+        dibuja_elemento(fondo_estado_inicial, elemento_central, imagen_elemento, dibujo_estado_inicial, coordenadas= (division_elems_centrales - tamaño_elem_central, TAMAÑO_FONDO - 6* tamaño_elem_central), tamaño= tamaño_elem_central, numero= numero)
         
         # Recoge todos los datos de las casas y los almaceno por clave
         for key, value in casa.items():
@@ -241,13 +242,13 @@ def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
     num_datos = len(dict_datos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_datos = (1.1**(-num_grupos)) * 80
+    tamaño_datos = (1.1**(-num_grupos)) * TAMAÑO_DEFAULT
 
     for i, par in enumerate(dict_datos.items()):
 
         clave, valor = par
 
-        division_datos = (1000/(num_datos+ 1)) * (i + 1)
+        division_datos = (TAMAÑO_FONDO/(num_datos+ 1)) * (i + 1)
 
         # Se prepara el array [clave, [valores...]]
         valor.insert(0, clave)
@@ -267,7 +268,7 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
     num_elems = len(grupos)
 
     # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
-    tamaño_elems = (1.1**(-num_elems)) * 80
+    tamaño_elems = (1.1**(-num_elems)) * TAMAÑO_DEFAULT
 
     for i, grupo in enumerate(grupos):
 
@@ -276,8 +277,8 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
         imagen_elemento = None
         numero = str(grupo.get(elemento_central, []))
 
-        # División de los 1000px que le toca a cada elemento central según cuántos haya
-        division = (1000/(num_elems+1)) * (i + 1)
+        # División de los 2000px que le toca a cada elemento central según cuántos haya
+        division = (TAMAÑO_FONDO/(num_elems+1)) * (i + 1)
 
         # ¿Se le da imagen al elemento central?
         for par in rutas_imagenes:
@@ -311,7 +312,7 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
                 fill= 'gray')
         
     # Dibuja último separador
-    dibujo_solucion.line(xy= [(((1000/(num_elems+1)) * (num_elems + 1)) - tamaño_elems*1.25 - 1.068**tamaño_elems, 420), (((1000/(num_elems+1)) * (num_elems + 1)) - tamaño_elems*1.25 - 1.068**tamaño_elems, 340 + 8*tamaño_elems)],
+    dibujo_solucion.line(xy= [(((TAMAÑO_FONDO/(num_elems+1)) * (num_elems + 1)) - tamaño_elems*1.25 - 1.068**tamaño_elems, 420), (((TAMAÑO_FONDO/(num_elems+1)) * (num_elems + 1)) - tamaño_elems*1.25 - 1.068**tamaño_elems, 340 + 8*tamaño_elems)],
             width= round(1.03**tamaño_elems),
             fill= 'gray')
     
@@ -393,7 +394,7 @@ def einstein_grafico(argumentos):
 if DEBUG:
 
     # Falla, 'pedro' no tiene 'house'
-    as_prueba = [['juan', 'house', 4], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
+    as_prueba_falla = [['juan', 'house', 4], ['chema', 'house', 5], ['pedro', 'car', 'ford'], ['spanish','house', 1], ['spanish','color','red'], ['spanish','pet','dog'], ['spanish','tobacco','ducados'], ['spanish','beverage','agua'], ['english','house',2], ['english','color','blue'], ['english','pet','giraffe'], ['english','beverage','horchata']]
     
     # 3 coches, ejemplo con mucha foto.
     as_prueba2 = [['pedro', 'car', 1], ['isabel', 'car', 2], ['josito', 'car', 3], ['pedro', 'bebida', 'cocacola'], ['isabel', 'bebida', 'agua'], ['josito', 'bebida', 'leche'], ['pedro','color','red'], ['isabel','color','blue'], ['josito','color','green']]
@@ -404,7 +405,10 @@ if DEBUG:
     # 2 Casas, muchos elemetos
     as_prueba4 = [['a', 'house', 1], ['b', 'house', 2], ['a', 'pet', 'perro'], ['b', 'pet', 'gato'], ['a', 'drink', 'cocacola'], ['b', 'drink', 'water'], ['a', 'food', 'arroz'], ['b', 'food', 'macarrones'], ['a', 'car', 'ford'], ['b', 'car', 'mitshubishi']]
 
-    print(einstein_grafico([as_prueba, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
+    # 15 casas
+    as_prueba5 = [['a', 'house', 1], ['a', 'pet', 'cat'], ['a', 'drink', 'cocacola'], ['b', 'house', 2],  ['c', 'house', 3],  ['d', 'house', 4],  ['e', 'house', 5],  ['f', 'house', 6],  ['g', 'house', 7],  ['h', 'house', 8],  ['i', 'house', 9],  ['j', 'house', 10],  ['k', 'house', 11],  ['l', 'house', 12],  ['m', 'house', 13],  ['n', 'house', 14],  ['o', 'house', 15],  ['p', 'house', 16], ['q', 'house', 17], ['r', 'house', 18], ['s', 'house', 19], ['t', 'house', 20]]
+
+    print(einstein_grafico([as_prueba5, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
 
     # Enseña las imgs por pantalla
     fondo_estado_inicial.show()

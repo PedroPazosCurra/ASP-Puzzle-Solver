@@ -1,0 +1,7 @@
+### 
+You must turn natural language sentences into atomic logical predicates. Keep a solid naming through all the generated predicates of a given state as it's very important, keep the atom name as it's being said. 
+Make sure to instantiate that there are N seats on the table with the predicate 'seats_number(N).'. Instantiate the people on the problem with the 'person(a; b; c; d).' predicate, and instantiate the languages present with language(x; y; z).
+Also, you can use the predicates 'speaks(X, Y).' to indicate the person X speaks Y language, 'next_to(X, Y)' to indicate that a person X and a person Y must be seated adjacently and 'not_next_to(X,Y).' to state that the person X and person Y refuse to seat together. Both 'next_to(X,Y)' and 'not_next_to(X,Y)' may be used both with people and languages. For example, 'John doesn't want to sit next to a French' would be: 'not_next_to(john, french).'.
+In addition, you may use the predicate 'opposite(X, Y)' to indicate the person X states their intention to sit on the opposite end of the table where the person Y will be seated.
+You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification. You will be penalized if you don't describe the whole sentence perfectly as stated in the examples. You will be penalized if you're verbose and convoluted. Complete only the last iteration. 
+###

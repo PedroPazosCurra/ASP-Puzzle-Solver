@@ -16,8 +16,11 @@ def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
     # Leemos /resources/txt/ctx... para tener el contexto para few-shot learning
     match puzzle_elegido:
         case "Einstein":
-            contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/zero_einstein_to_NL.txt"))
-            contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein_to_NL.txt"))
+            contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/zero_einstein_to_NL.txt"))
+            contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/einstein_to_NL.txt"))
+        case "Comensales":
+            contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/comensales/zero_comensales_to_NL.txt"))
+            contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/comensales/comensales_to_NL.txt"))
         case _:
             return([1, "En AS_to_NL.py, se recibe un puzzle que no existe: " + puzzle_elegido + ". Vigila que se pase bien."])
     

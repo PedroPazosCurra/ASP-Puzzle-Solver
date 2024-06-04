@@ -23,12 +23,11 @@ LOG_HEADER = f"\n############ {HORA_STRING} LOG ############:\n"
 MAX_REINTENTOS = 4
 
 # Flags
-USAR_LLM_PURO = True
+USAR_LLM_PURO = False
 DEBUG = False
 
 # Variables
 log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/txt/log.txt")), "a")
-
 
 
 # Funcion auxiliar imprimir_salida()
@@ -76,7 +75,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
 
     # Inicio
     log.write(LOG_HEADER)
-    tiempo_comienzo_total = time.perf_counter()
+    #tiempo_comienzo_total = time.perf_counter()
     log.write(f"\n### Intento {n_intento} de {MAX_REINTENTOS}  ###\n")
 
 
@@ -125,14 +124,14 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     ########    4º Caso optimista: Todo OK - Representación gráfica             ########
     tiempo_comienzo_modulo_grafico = time.perf_counter()
 
-    estado, msg_grafico = modulo_grafico(salida_solver, puzzle_elegido)
+    [estado, msg_grafico] = modulo_grafico(salida_solver, puzzle_elegido)
 
     tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
     array_tiempos.append(tiempo_grafico)
 
     salida += f"# Módulo gráfico: {msg_grafico}\n"
 
-    tiempo_total = time.perf_counter() - tiempo_comienzo_total
+    #tiempo_total = time.perf_counter() - tiempo_comienzo_total
 
     # Fin
     imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
