@@ -9,7 +9,7 @@ DEBUG = False
 answer_sets = ""    # has(brittish,house,1). has(brittish,pet,dog).
 has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
 image_routes = []   # [['coffee', 'ruta/coffee.png']]
-reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resources/asp/asp_einstein.lp"))
+reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resources/asp/einstein.lp"))
 
 
 
