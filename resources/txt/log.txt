@@ -7079,3 +7079,632 @@ next_to(blends, water).
 	has(brittish,color,red). has(brittish,house,3). has(brittish,pet,bird). has(brittish,drink,water). has(brittish,tobacco_brand,pall_mall). has(dane,color,blue). has(dane,house,2). has(dane,pet,horse). has(dane,drink,tea). has(dane,tobacco_brand,blends). has(german,color,green). has(german,house,4). has(german,pet,fish). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,color,yellow). has(norwegian,house,1). has(norwegian,pet,cat). has(norwegian,drink,milk). has(norwegian,tobacco_brand,dunhill). has(swede,color,white). has(swede,house,5). has(swede,pet,dog). has(swede,drink,beer). has(swede,tobacco_brand,blue_master).
 # Explicación LN: The Britich person's house is coloured red, they live in the third house, own a bird as a pet, drink water and smoke Pall Mall tobacco. The Danish person lives in the second house with the colour blue, owns a horse as a pet, drinks tea and smokes blends tobacco. The German person lives in the fourth house, coloured green, keeps a fish as a pet, drinks coffee and smokes Prince tobacco. The Norwegian person resides in the first house, coloured yellow, has a cat as a pet, drinks milk and smokes Dunhill tobacco. The Swede lives in the fifth house, coloured white, owns a dog as a pet, drinks beer and smokes Blue Master tobacco.
 # Módulo gráfico: OK
+
+############ [19:45] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Error en el servidor del LLM: Request failed with status code 400
+
+############ [19:45] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	Error en el servidor del LLM: Request failed with status code 400
+
+############ [19:45] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Error en el servidor del LLM: Request failed with status code 400
+
+############ [19:45] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	Error en el servidor del LLM: Request failed with status code 400
+
+############ [19:45] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	Error en el servidor del LLM: Request failed with status code 400
+
+############ [19:45] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V).
+color(white; green; yellow; red; blue).
+
+type(house, V) :- house(V).
+house(1..5).
+living_place(house, V) :- house(V).
+
+person(brittish; danish; german; norwegian; swedish).
+same_place(brittish, red).
+
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+same_place(swede, dog).
+
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+next_to(green, white).
+living_place(house, V) :- house(V). color(V).
+same_place(1, yellow).
+same_place(norwegian, 1).
+right(blue, beer).
+
+type(image, V) :- image(V).
+image(_). % No images defined
+
+same_place(brittish, red).
+next_to(green, white).
+next_to(swede, bird).
+next_to(horse, dunhill).
+next_to(blends, water).
+next_to(blends, cat).
+next_to(blends, water).
+next_to(blue_master, beer).
+next_to(german, prince).
+next_to(norwegian, blue).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [19:45] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+color(red). color(yellow). color(green). color(white). color(blue).
+
+person(brittish; danish; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swede, dog).
+
+living_place(house, V) :- house(V).
+
+same_place(dane, tea). same_place(german, prince). 
+
+next_to(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(third, milk).
+
+same_place(norwegian, 1).
+
+same_place(norwegian, blue).
+
+next_to(norwegian, blue).
+
+same_place(blends, water).
+
+same_place(blends, cat).
+
+same_place(horse, dunhill).
+
+same_place(blends, water).
+
+image(image(V). V) :- image(V).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [19:45] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). type(house, V) :- house(V). house(1..5). living_place(house, V) :- house(V).
+
+ person(brittish; dane; german; norwegian; swede).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+
+same_place(swede, dog).
+
+same_place(dane, tea).
+
+left(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(horse, dunhill).
+
+same_place(blue_master, beer).
+
+same_place(prince, german).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+# Answer set resuelto: 
+	has(brittish,color,red). has(brittish,house,3). has(brittish,pet,bird). has(brittish,drink,milk). has(brittish,tobacco_brand,pall_mall). has(dane,color,blue). has(dane,house,2). has(dane,pet,horse). has(dane,drink,tea). has(dane,tobacco_brand,blends). has(german,color,green). has(german,house,4). has(german,pet,fish). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,color,yellow). has(norwegian,house,1). has(norwegian,pet,cat). has(norwegian,drink,water). has(norwegian,tobacco_brand,dunhill). has(swede,color,white). has(swede,house,5). has(swede,pet,dog). has(swede,drink,beer). has(swede,tobacco_brand,blue_master).
+# Explicación LN: Here is the output:
+
+The British person's house is painted red and he/she lives there, the British person has a bird as pet, drinks milk and smokes Pall Mall. The Danish have a blue house, keep a horse as pet, drink tea and smoke Blends. The German person's house is green, they have a fish as pet, drink coffee and smoke Prince. The Norwegian house is yellow, they have a cat as pet, drink water and smoke Dunhill.
+# Módulo gráfico: OK
+
+############ [0:20] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V).
+color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; brown; violet; olive; mustard).
+
+type(house, V) :- house(V).
+house(1..20).
+living_place(house, V) :- house(V).
+
+person(domincan; nicaraguan; brittish; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuadorian; italian; german; belgian; swedish; swiss; greek; russian; ukranian; palestinian; french).
+
+same_place(1..20, _).  % assuming the same_place predicate for all houses.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [0:20] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	type(house, V) :- house(V). house(1..20). living_place(house, V) :- house(V).
+
+type(color, V) :- color(V). color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; brown; violet; olive; mustard).
+
+person(dominican; nicaraguan; british; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuadorian; italian; german; belgian; swedish; swiss; greek; russian; ukrainian; palestinian; french).
+
+type(image, V) :- image(V). image("image(V)").
+
+same_place(dominican, _). same_place(nicaraguan, _). same_place(british, _). same_place(irish, _). same_place(norwegian, _). same_place(spanish, _). same_place(portuguese, _). same_place(chilean, _). same_place(peruvian, _). same_place(ecuadorian, _). same_place(italian, _). same_place(german, _). same_place(belgian, _). same_place(swedish, _). same_place(swiss, _). same_place(greek, _). same_place(russian, _). same_place(ukrainian, _). same_place(palestinian, _). same_place(french, _).
+
+Please let me know if this meets the requirements.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [0:20] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; browm; violet; olive; mustard). house(1..20). living_place(house, V) :- house(V). person(dominican; nicaraguan; british; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuatorian; italian; german; belgian; swedish; swiss; greek; russian; ukrainian; palestinian; french).
+# Answer set resuelto: 
+	has(french,color,black). has(palestinian,color,blue). has(ukrainian,color,purple). has(russian,color,magenta). has(swiss,color,navy). has(swedish,color,yellow). has(belgian,color,ocre). has(german,color,white). has(italian,color,maroon). has(ecuatorian,color,ivory). has(peruvian,color,lime). has(chilean,color,cyan). has(greek,color,rose). has(portuguese,color,pink). has(spanish,color,grey). has(norwegian,color,green). has(irish,color,browm). has(british,color,violet). has(nicaraguan,color,olive). has(dominican,color,mustard).
+# Explicación LN: The house colors are: black for French, blue for Palestinian, purple for Ukrainian, magenta for Russian, navy for Swiss, yellow for Swedish, ocre for Belgian, white for German, maroon for Italian, ivory for Ecuatorian, lime for Peruvian, cyan for Chilean, rose for Greek, pink for Portuguese, grey for Spanish, green for Norwegian, brown for Irish, violet for British, olive for Nicaraguan and mustard for Dominican.
+# Módulo gráfico: El script einstein_grafico no tiene todos los elementos centrales presentes en el array de elementos: Grupos: [{'person': 'french', 'color': 'black'}
+ {'person': 'palestinian', 'color': 'blue'}
+ {'person': 'ukrainian', 'color': 'purple'}
+ {'person': 'russian', 'color': 'magenta'}
+ {'person': 'swiss', 'color': 'navy'}
+ {'person': 'swedish', 'color': 'yellow'}
+ {'person': 'belgian', 'color': 'ocre'}
+ {'person': 'german', 'color': 'white'}
+ {'person': 'italian', 'color': 'maroon'}
+ {'person': 'ecuatorian', 'color': 'ivory'}
+ {'person': 'peruvian', 'color': 'lime'}
+ {'person': 'chilean', 'color': 'cyan'}
+ {'person': 'greek', 'color': 'rose'}
+ {'person': 'portuguese', 'color': 'pink'}
+ {'person': 'spanish', 'color': 'grey'}
+ {'person': 'norwegian', 'color': 'green'}
+ {'person': 'irish', 'color': 'browm'}
+ {'person': 'british', 'color': 'violet'}
+ {'person': 'nicaraguan', 'color': 'olive'}
+ {'person': 'dominican', 'color': 'mustard'}] Array_has: [['french', 'color', 'black'], ['palestinian', 'color', 'blue'], ['ukrainian', 'color', 'purple'], ['russian', 'color', 'magenta'], ['swiss', 'color', 'navy'], ['swedish', 'color', 'yellow'], ['belgian', 'color', 'ocre'], ['german', 'color', 'white'], ['italian', 'color', 'maroon'], ['ecuatorian', 'color', 'ivory'], ['peruvian', 'color', 'lime'], ['chilean', 'color', 'cyan'], ['greek', 'color', 'rose'], ['portuguese', 'color', 'pink'], ['spanish', 'color', 'grey'], ['norwegian', 'color', 'green'], ['irish', 'color', 'browm'], ['british', 'color', 'violet'], ['nicaraguan', 'color', 'olive'], ['dominican', 'color', 'mustard']]
+
+############ [0:20] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	type(color, V) :- color(V). color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; browm; violet; olive; mustard).
+
+ person(dominican; nicaraguan; brittish; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuatorian; italian; german; belgian; swede; swiss; greek; russian; ukrainian; palestinian; french).
+
+type(house, V) :- house(V). house(1..20). living_place(house, V) :- house(V).
+# Answer set resuelto: 
+	has(portuguese,color,black). has(spanish,color,blue). has(peruvian,color,purple). has(dominican,color,magenta). has(belgian,color,navy). has(norwegian,color,yellow). has(nicaraguan,color,ocre). has(ukrainian,color,white). has(swiss,color,maroon). has(italian,color,ivory). has(chilean,color,lime). has(irish,color,cyan). has(brittish,color,rose). has(french,color,pink). has(palestinian,color,grey). has(russian,color,green). has(greek,color,browm). has(swede,color,violet). has(german,color,olive). has(ecuatorian,color,mustard). has(spanish,house,1). has(norwegian,house,2). has(irish,house,3). has(brittish,house,4). has(nicaraguan,house,5). has(dominican,house,6). has(french,house,7). has(palestinian,house,8). has(ukrainian,house,9). has(russian,house,10). has(greek,house,11). has(swiss,house,12). has(swede,house,13). has(belgian,house,14). has(german,house,15). has(italian,house,16). has(ecuatorian,house,17). has(peruvian,house,18). has(chilean,house,19). has(portuguese,house,20).
+# Explicación LN: Here is the final output:
+
+The colors of the houses are:
+- Black for Portuguese,
+- Blue for Spanish,
+- Magenta for Dominican,
+- Navy for Belgian,
+- Yellow for Norwegian,
+- Ocre for Nicaraguan,
+- White for Ukrainian,
+- Maroon for Swiss,
+- Ivory for Italian,
+- Lime for Chilean,
+- Cyan for Irish,
+- Rose for British,
+- Pink for French,
+- Grey for Palestinian,
+- Green for Russian,
+- Brown for Greek,
+- Violet for Swedish,
+- Olive for German,
+- Mustard for Ecuadorian.
+
+Note: I did not write "There are" before mentioning the list, but it would also be a valid sentence.
+# Módulo gráfico: OK
+
+############ [3:19] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	The solution is:
+
+In the Red house lives the Chinese, who has a Cat, drinks Tea and smokes Rothmans cigarettes.
+
+In the Green house lives the Spanish, who has a Dog, drinks Coffee and smokes Marlboro cigarettes.
+
+In the Blue house lives the English, who has a Bird, drinks Milk and smokes Benson & Hedges cigarettes.
+
+This solution satisfies all the constraints:
+
+* Two elements of the same type are not related to the same central element (no two residents, pets, etc. share the same house).
+* All elements are accounted for and described in their respective houses.
+* The Chinese and English are indeed neighbors, as specified.
+* No unnecessary details or clarifications were provided.
+* The sentences are concise and clear.
+
+############ [3:39] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	A classic Einstein puzzle!
+
+After carefully analyzing the clues, I've arrived at the following solution:
+
+**Yellow House**: Norwegian - Smokes Dunhill - Has a Fish - Drinks Water
+**Green House**: Dane - Smokes Blends - Has a Cat - Drinks Coffee
+**White House**: German - Smokes Prince - Has a Bird - Drinks Beer
+**Red House**: British - Smokes Blue Master - Has a Dog - Drinks Milk
+**Blue House**: Swedish - Has a Horse - Drives Tea
+
+Here's how each clue relates to the solution:
+
+1. The Brittish lives in the Red house: Check!
+2. The Swede has a Dog: The Swede lives in the Blue House, which means they own the Dog.
+3. The Dane drinks Tea: The Dane lives in the Green House, which is the only house without Tea.
+4. The Green house is to the left of the White house: This determines the relative positions of the Green and White Houses.
+5. The owner of the Green house drinks Coffee: The Dane, who lives in the Green House, drinks Coffee.
+6. The person who smokes Pall Mall keeps a Bird: The German, who smokes Pall Mall, keeps a Bird.
+7. Owner of the Yellow house smokes Dunhill: The Norwegian, who owns the Yellow House, smokes Dunhill.
+8. Man living in the center house drinks Milk: The Red House is the center house, so the British, who lives there, drinks Milk.
+9. Norwegian lives in the first house: Since the Norwegian lives in the first house, the sequence is: Norwegian, Blue House, Green House, White House, Red House, Yellow House.
+10. Man who smokes Blends is neighbor of the one who keeps a Cat: The Dane, who smokes Blends, lives next to the German, who keeps a Cat.
+11. Man who keeps a Horse lives next to the man who smokes Dunhill: The Norwegian, who keeps a Horse, lives next to the German, who smokes Dunhill.
+12. Man who smokes Blue Master drinks Beer: The German, who smokes Blue Master, drinks Beer.
+
+This solution satisfies all the constraints and describes a complete state for each element.
+# Modelo ASP sacado: 
+	A classic Einstein puzzle!
+
+After carefully analyzing the clues, I've arrived at the following solution:
+
+**Yellow House**: Norwegian - Smokes Dunhill - Has a Fish - Drinks Water
+**Green House**: Dane - Smokes Blends - Has a Cat - Drinks Coffee
+**White House**: German - Smokes Prince - Has a Bird - Drinks Beer
+**Red House**: British - Smokes Blue Master - Has a Dog - Drinks Milk
+**Blue House**: Swedish - Has a Horse - Drives Tea
+
+Here's how each clue relates to the solution:
+
+1. The Brittish lives in the Red house: Check!
+2. The Swede has a Dog: The Swede lives in the Blue House, which means they own the Dog.
+3. The Dane drinks Tea: The Dane lives in the Green House, which is the only house without Tea.
+4. The Green house is to the left of the White house: This determines the relative positions of the Green and White Houses.
+5. The owner of the Green house drinks Coffee: The Dane, who lives in the Green House, drinks Coffee.
+6. The person who smokes Pall Mall keeps a Bird: The German, who smokes Pall Mall, keeps a Bird.
+7. Owner of the Yellow house smokes Dunhill: The Norwegian, who owns the Yellow House, smokes Dunhill.
+8. Man living in the center house drinks Milk: The Red House is the center house, so the British, who lives there, drinks Milk.
+9. Norwegian lives in the first house: Since the Norwegian lives in the first house, the sequence is: Norwegian, Blue House, Green House, White House, Red House, Yellow House.
+10. Man who smokes Blends is neighbor of the one who keeps a Cat: The Dane, who smokes Blends, lives next to the German, who keeps a Cat.
+11. Man who keeps a Horse lives next to the man who smokes Dunhill: The Norwegian, who keeps a Horse, lives next to the German, who smokes Dunhill.
+12. Man who smokes Blue Master drinks Beer: The German, who smokes Blue Master, drinks Beer.
+
+This solution satisfies all the constraints and describes a complete state for each element.
+
+############ [3:39] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	A classic Einstein puzzle! Let's break down the clues and build the solution step by step.
+
+**Step 1:** The Norwegian lives in the first house. Since there are only five houses, this means the Norwegian lives in either the Yellow, Green, or Blue house.
+
+**Clue 2:** The Norwegian lives next to the Blue house. This means the Norwegian cannot live in the Blue house, so they must live in either the Yellow or Green house.
+
+**Step 3:** The Green house is to the left of the White house. Since the Norwegian lives in either the Yellow or Green house, and the Green house is to the left of the White house, the Norwegian must live in the Green house.
+
+**Step 4:** The owner of the Green house drinks Coffee. We already know the Norwegian lives in the Green house, so the Norwegian drinks Coffee.
+
+**Step 5:** The person who smokes Pall Mall keeps a Bird. This clue doesn't give us much information yet, but we'll come back to it later.
+
+**Step 6:** The owner of the Yellow house smokes Dunhill. Since the Norwegian lives in the Green house, the owner of the Yellow house cannot be the Norwegian.
+
+**Step 7:** The Brittish lives in the Red house. This gives us our first fixed piece of information: the Red house is occupied by the Brittish.
+
+**Step 8:** The Swede has a Dog. We don't know which house the Swede lives in yet, but we know the Swede has a Dog.
+
+**Step 9:** The Dane drinks Tea. We don't know which house the Dane lives in yet, but we know the Dane drinks Tea.
+
+**Step 10:** The man who smokes Blends is neighbor of the one who keeps a Cat. This clue doesn't give us much information yet, but we'll come back to it later.
+
+**Step 11:** The man who keeps a Horse lives next to the man who smokes Dunhill. Since the owner of the Yellow house smokes Dunhill, the person who keeps a Horse must live in either the Yellow or White house.
+
+**Step 12:** The man who smokes Blue Master drinks Beer. We don't know which house this person lives in yet, but we know they drink Beer.
+
+**Step 13:** The German smokes Prince. We don't know which house the German lives in yet, but we know they smoke Prince.
+
+**Step 14:** The man who smokes Blends has a neighbor who drinks Water. This clue helps us narrow down the possibilities for the person who smokes Blends. Since the person who smokes Blends is neighbor of someone who drinks Water, and we've already established that the person who smokes Blue Master drinks Beer, not Water, the person who smokes Blends cannot live in the Red house (where the Brittish lives).
+
+**Conclusion:**
+
+* The Norwegian lives in the Green house and drinks Coffee.
+* The German smokes Prince, but we still need to determine their house.
+* The Brittish lives in the Red house.
+* The Swede has a Dog, but we still need to determine their house.
+* The Dane drinks Tea, but we still need to determine their house.
+* The person who smokes Pall Mall keeps a Bird, but we still need to determine their house.
+* The man who smokes Blue Master drinks Beer, but we still need to determine their house.
+* The person who smokes Blends has a neighbor who drinks Water, but we still need to determine their house.
+* The man who keeps a Horse lives next to the man who smokes Dunhill, so they both live in either the Yellow or White house.
+
+Now, let's try to fit everything together:
+
+* The Norwegian lives in the Green house, so the German cannot live in the Green house. The German must live in either the Yellow, White, or Blue house.
+* The person who smokes Blue Master drinks Beer, so they cannot live in the Green house. They must live in either the Red, Yellow, or White house.
+* The person who smokes Blends has a neighbor who drinks Water, so they cannot live in the Red house. They must live in either the Yellow or White house.
+* The man who keeps a Horse lives next to the man who smokes Dunhill, so they both live in either the Yellow or White house.
+* The owner of the Yellow house smokes Dunhill, so the person who keeps a Horse must live in the White house.
+* The person who smokes Blends has a neighbor who drinks Water, so they must live in the White house.
+
+Putting it all together, we get:
+
+* The Norwegian lives in the Green house and drinks Coffee.
+* The German smokes Prince and lives in the Blue house.
+* The Brittish lives in the Red house.
+* The Swede has a Dog and lives in the Yellow house.
+* The Dane drinks Tea and lives in the White house.
+* The
+# Modelo ASP sacado: 
+	A classic Einstein puzzle! Let's break down the clues and build the solution step by step.
+
+**Step 1:** The Norwegian lives in the first house. Since there are only five houses, this means the Norwegian lives in either the Yellow, Green, or Blue house.
+
+**Clue 2:** The Norwegian lives next to the Blue house. This means the Norwegian cannot live in the Blue house, so they must live in either the Yellow or Green house.
+
+**Step 3:** The Green house is to the left of the White house. Since the Norwegian lives in either the Yellow or Green house, and the Green house is to the left of the White house, the Norwegian must live in the Green house.
+
+**Step 4:** The owner of the Green house drinks Coffee. We already know the Norwegian lives in the Green house, so the Norwegian drinks Coffee.
+
+**Step 5:** The person who smokes Pall Mall keeps a Bird. This clue doesn't give us much information yet, but we'll come back to it later.
+
+**Step 6:** The owner of the Yellow house smokes Dunhill. Since the Norwegian lives in the Green house, the owner of the Yellow house cannot be the Norwegian.
+
+**Step 7:** The Brittish lives in the Red house. This gives us our first fixed piece of information: the Red house is occupied by the Brittish.
+
+**Step 8:** The Swede has a Dog. We don't know which house the Swede lives in yet, but we know the Swede has a Dog.
+
+**Step 9:** The Dane drinks Tea. We don't know which house the Dane lives in yet, but we know the Dane drinks Tea.
+
+**Step 10:** The man who smokes Blends is neighbor of the one who keeps a Cat. This clue doesn't give us much information yet, but we'll come back to it later.
+
+**Step 11:** The man who keeps a Horse lives next to the man who smokes Dunhill. Since the owner of the Yellow house smokes Dunhill, the person who keeps a Horse must live in either the Yellow or White house.
+
+**Step 12:** The man who smokes Blue Master drinks Beer. We don't know which house this person lives in yet, but we know they drink Beer.
+
+**Step 13:** The German smokes Prince. We don't know which house the German lives in yet, but we know they smoke Prince.
+
+**Step 14:** The man who smokes Blends has a neighbor who drinks Water. This clue helps us narrow down the possibilities for the person who smokes Blends. Since the person who smokes Blends is neighbor of someone who drinks Water, and we've already established that the person who smokes Blue Master drinks Beer, not Water, the person who smokes Blends cannot live in the Red house (where the Brittish lives).
+
+**Conclusion:**
+
+* The Norwegian lives in the Green house and drinks Coffee.
+* The German smokes Prince, but we still need to determine their house.
+* The Brittish lives in the Red house.
+* The Swede has a Dog, but we still need to determine their house.
+* The Dane drinks Tea, but we still need to determine their house.
+* The person who smokes Pall Mall keeps a Bird, but we still need to determine their house.
+* The man who smokes Blue Master drinks Beer, but we still need to determine their house.
+* The person who smokes Blends has a neighbor who drinks Water, but we still need to determine their house.
+* The man who keeps a Horse lives next to the man who smokes Dunhill, so they both live in either the Yellow or White house.
+
+Now, let's try to fit everything together:
+
+* The Norwegian lives in the Green house, so the German cannot live in the Green house. The German must live in either the Yellow, White, or Blue house.
+* The person who smokes Blue Master drinks Beer, so they cannot live in the Green house. They must live in either the Red, Yellow, or White house.
+* The person who smokes Blends has a neighbor who drinks Water, so they cannot live in the Red house. They must live in either the Yellow or White house.
+* The man who keeps a Horse lives next to the man who smokes Dunhill, so they both live in either the Yellow or White house.
+* The owner of the Yellow house smokes Dunhill, so the person who keeps a Horse must live in the White house.
+* The person who smokes Blends has a neighbor who drinks Water, so they must live in the White house.
+
+Putting it all together, we get:
+
+* The Norwegian lives in the Green house and drinks Coffee.
+* The German smokes Prince and lives in the Blue house.
+* The Brittish lives in the Red house.
+* The Swede has a Dog and lives in the Yellow house.
+* The Dane drinks Tea and lives in the White house.
+* The
+
+############ [3:39] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Here is my attempt to solve the Einstein puzzle:
+
+In the Blue house lives the Norwegian, who has a Horse, drinks Water and smokes Blends.
+
+In the Yellow house lives the Dane, who has a Cat, drinks Tea and smokes Dunhill.
+
+In the Green house lives the German, who has a Fish, drinks Coffee and smokes Prince.
+
+In the White house lives the Swede, who has a Bird, drinks Milk and smokes Pall Mall.
+
+In the Red house lives the British, who has a Dog, drinks Beer and smokes Blue Master.
+
+I hope this solution meets the requirements! Let me know if I made any mistakes.
+# Modelo ASP sacado: 
+	Here is my attempt to solve the Einstein puzzle:
+
+In the Blue house lives the Norwegian, who has a Horse, drinks Water and smokes Blends.
+
+In the Yellow house lives the Dane, who has a Cat, drinks Tea and smokes Dunhill.
+
+In the Green house lives the German, who has a Fish, drinks Coffee and smokes Prince.
+
+In the White house lives the Swede, who has a Bird, drinks Milk and smokes Pall Mall.
+
+In the Red house lives the British, who has a Dog, drinks Beer and smokes Blue Master.
+
+I hope this solution meets the requirements! Let me know if I made any mistakes.
+
+############ [3:39] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	After analyzing the given information, I'll provide the solution:
+
+In the Yellow house lives the Norwegian, who has a Bird, drinks Water and smokes Dunhill.
+
+In the Green house lives the Dane, who has a Fish, drinks Coffee and smokes Pall Mall.
+
+In the White house lives the British, who has a Cat, drinks Beer and smokes Blends.
+
+In the Red house lives the Swedish, who has a Dog, drinks Milk and smokes Prince.
+
+In the Blue house lives the German, who has a Horse, drinks Tea and smokes Blue Master.
+
+This solution satisfies all the given constraints:
+
+* Each house has a unique resident, pet, drink, and smoker.
+* No two elements of the same type are related to the same central element (house).
+* All elements are accounted for, leaving none behind.
+* The provided information is reflected in the solution without any unnecessary words or clarifications.
+# Modelo ASP sacado: 
+	After analyzing the given information, I'll provide the solution:
+
+In the Yellow house lives the Norwegian, who has a Bird, drinks Water and smokes Dunhill.
+
+In the Green house lives the Dane, who has a Fish, drinks Coffee and smokes Pall Mall.
+
+In the White house lives the British, who has a Cat, drinks Beer and smokes Blends.
+
+In the Red house lives the Swedish, who has a Dog, drinks Milk and smokes Prince.
+
+In the Blue house lives the German, who has a Horse, drinks Tea and smokes Blue Master.
+
+This solution satisfies all the given constraints:
+
+* Each house has a unique resident, pet, drink, and smoker.
+* No two elements of the same type are related to the same central element (house).
+* All elements are accounted for, leaving none behind.
+* The provided information is reflected in the solution without any unnecessary words or clarifications.
+
+############ [3:39] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	After analyzing the given information, I came up with the following solution:
+
+In the Blue house lives the German, who smokes Prince and drinks Beer.
+
+* The Norwegian lives in the first house (next to the Blue house), so he must live in the Yellow house.
+* The Swede has a Dog, and since there's only one Swede, this must be the Dog-keeper.
+* The Dane drinks Tea, so the Dane must live in the Green house.
+* The Green house is to the left of the White house, so the order of houses is: Yellow, Green, White, Blue, Red.
+* The owner of the Green house drinks Coffee, so the Dane drinks Coffee.
+* The person who smokes Pall Mall keeps a Bird, and since the Bird-keeper can't live in the same house as the Dog-keeper, they must live in different houses. Since the Bird-keeper is not yet assigned, we'll come back to them later.
+* The owner of the Yellow house smokes Dunhill, so the Norwegian smokes Dunhill.
+* The man who smokes Blends is neighbor of the one who keeps a Cat. Since the Cat-keeper isn't yet assigned, we'll come back to them later.
+* The man who keeps a Horse lives next to the man who smokes Dunhill, so the Horse-keeper lives in the White house.
+* The man who smokes Blue Master drinks Beer, so the Norwegian (who smokes Dunhill) doesn't drink Beer. This means the Blue Master drinker must live in the Red house.
+* The German smokes Prince, so the German lives in the Blue house.
+* The Norwegian lives next to the Blue house, so the Norwegian lives in the Yellow house.
+* The man who smokes Blends has a neighbor who drinks Water. Since the Water-drinker isn't yet assigned, we'll come back to them later.
+* Now, let's reassign the remaining elements:
+	+ The Cat-keeper must live in the Red house, as the Cat-keeper is neighbor of the Blends smoker.
+	+ The Water-drinker must live in the Green house, as the Blends smoker has a neighbor who drinks Water.
+	+ The Bird-keeper must live in the White house, as the Bird-keeper is not yet assigned and the House-keeper hasn't been assigned twice.
+
+So, the final solution is:
+
+In the Blue house lives the German, who smokes Prince and drinks Beer.
+
+The Yellow house is home to the Norwegian, who smokes Dunhill and has a Dog.
+
+The Green house is occupied by the Dane, who drinks Coffee and keeps a Fish.
+
+The White house is home to the Bird-keeper, who smokes Pall Mall.
+
+The Red house is home to the Cat-keeper, who smokes Blends and drinks Water.
+
+This solution satisfies all the given constraints, and each element is uniquely assigned to a central element (a house).
+# Modelo ASP sacado: 
+	After analyzing the given information, I came up with the following solution:
+
+In the Blue house lives the German, who smokes Prince and drinks Beer.
+
+* The Norwegian lives in the first house (next to the Blue house), so he must live in the Yellow house.
+* The Swede has a Dog, and since there's only one Swede, this must be the Dog-keeper.
+* The Dane drinks Tea, so the Dane must live in the Green house.
+* The Green house is to the left of the White house, so the order of houses is: Yellow, Green, White, Blue, Red.
+* The owner of the Green house drinks Coffee, so the Dane drinks Coffee.
+* The person who smokes Pall Mall keeps a Bird, and since the Bird-keeper can't live in the same house as the Dog-keeper, they must live in different houses. Since the Bird-keeper is not yet assigned, we'll come back to them later.
+* The owner of the Yellow house smokes Dunhill, so the Norwegian smokes Dunhill.
+* The man who smokes Blends is neighbor of the one who keeps a Cat. Since the Cat-keeper isn't yet assigned, we'll come back to them later.
+* The man who keeps a Horse lives next to the man who smokes Dunhill, so the Horse-keeper lives in the White house.
+* The man who smokes Blue Master drinks Beer, so the Norwegian (who smokes Dunhill) doesn't drink Beer. This means the Blue Master drinker must live in the Red house.
+* The German smokes Prince, so the German lives in the Blue house.
+* The Norwegian lives next to the Blue house, so the Norwegian lives in the Yellow house.
+* The man who smokes Blends has a neighbor who drinks Water. Since the Water-drinker isn't yet assigned, we'll come back to them later.
+* Now, let's reassign the remaining elements:
+	+ The Cat-keeper must live in the Red house, as the Cat-keeper is neighbor of the Blends smoker.
+	+ The Water-drinker must live in the Green house, as the Blends smoker has a neighbor who drinks Water.
+	+ The Bird-keeper must live in the White house, as the Bird-keeper is not yet assigned and the House-keeper hasn't been assigned twice.
+
+So, the final solution is:
+
+In the Blue house lives the German, who smokes Prince and drinks Beer.
+
+The Yellow house is home to the Norwegian, who smokes Dunhill and has a Dog.
+
+The Green house is occupied by the Dane, who drinks Coffee and keeps a Fish.
+
+The White house is home to the Bird-keeper, who smokes Pall Mall.
+
+The Red house is home to the Cat-keeper, who smokes Blends and drinks Water.
+
+This solution satisfies all the given constraints, and each element is uniquely assigned to a central element (a house).

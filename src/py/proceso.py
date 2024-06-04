@@ -23,7 +23,7 @@ LOG_HEADER = f"\n############ {HORA_STRING} LOG ############:\n"
 MAX_REINTENTOS = 4
 
 # Flags
-USAR_LLM_PURO = False
+USAR_LLM_PURO = True
 DEBUG = False
 
 # Variables
@@ -33,6 +33,11 @@ log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/tx
 
 # Funcion auxiliar imprimir_salida()
 def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, intento : int):
+
+    # Modo LLM puro -> Sale
+    if(USAR_LLM_PURO): 
+        log.write(msg)
+        log.close
 
     # Fallo sin máximo alcanzado -> reintento
     if(estado != 0 and intento < MAX_REINTENTOS):
@@ -78,18 +83,15 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     ########    1º - Pasa el mensaje del usuario a declaraciones ASP.           ########
     tiempo_comienzo_nl_to_asp = time.perf_counter()
 
-    estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido)
+    estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido, USAR_LLM_PURO)
 
     tiempo_nl_to_asp = time.perf_counter() - tiempo_comienzo_nl_to_asp
     array_tiempos.append(tiempo_nl_to_asp)
 
     salida += f"Modelo ASP sacado: \n\t{modelo_asp}\n"
 
-    ## Fallo en NL_to_ASP (1)
-    if (estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
-
-    # Si modo LLM Puro, se sale ya.
-    if (USAR_LLM_PURO): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
+    ## Fallo en NL_to_ASP (1) o modo LLM Puro
+    if ((estado != 0) or USAR_LLM_PURO): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
 
 
     ########    2º - Pasa el ASP al solver para obtener el Answer Set solución. ########

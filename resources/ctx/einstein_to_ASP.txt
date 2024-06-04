@@ -16,7 +16,7 @@ INPUT: In my puzzle there is a Brit, a Norwegian, a German and a Dane. There are
 OUTPUT: person(brit; norwegian; german; dane). type(building, V) :- building(V). building(1..4). living_place(building, V) :- building(V). type(icecream_flavor, V) :- icecream_flavor(V). icecream_flavor(vanilla; soda; cookie; chocolate).
 INPUT: I have 3 people: a Swede, a Dane and a Norwegian. Each one of them lives in one house.
 OUTPUT: person(swede; dane; norwegian). type(house, V) :- house(V).  house(1..3). living_place(house, V) :- house(V).
-INPUT: There are 5 buildings and 5 people: a German, an Italian; a Brittish, a Spanish and a Chinese. The german person drinks Milk. The Water drinker lives on the right side of the Wine drinker. The Soda drinker lives next to the Milk drinker. The Beer drinker lives to the left of the Chinese.
+INPUT: There are 5 buildings and 5 people: a German, an Italian; a Brittish, a Spanish and a Chinese. The German person drinks Milk. The Water drinker lives on the right side of the Wine drinker. The Soda drinker lives next to the Milk drinker. The Beer drinker lives to the left of the Chinese.
 OUTPUT: type(building, V) :- building(V). building(1..4). living_place(building, V) :- building(V). person(german; italian; brittish; spanish; chinese). type(drink, V) :- drink(V). drink(milk; water; wine; soda; beer). same_place(german, milk). right(water, wine). next_to(soda, milk). left(beer, chinese).
 INPUT: In my puzzle there are only 2 people, that own one house each: one is a German, and the other one is from Sweden. The German man lives in the second house.
 OUTPUT: person(german; swede). type(house, V) :- house(V). house(1..2). living_place(house, V) :- house(V). same_place(german, 2).
