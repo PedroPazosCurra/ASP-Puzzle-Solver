@@ -31,7 +31,7 @@ log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/tx
 
 
 # Funcion auxiliar imprimir_salida()
-def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, intento : int):
+def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, intento : int, contador_tiempo_total):
 
     # Modo LLM puro -> Sale
     if(USAR_LLM_PURO): 
@@ -41,15 +41,17 @@ def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, 
     # Fallo sin máximo alcanzado -> reintento
     if(estado != 0 and intento < MAX_REINTENTOS):
         log.write(msg)
-        proceso(prompt, puzzle_elegido, intento + 1)
+        proceso(prompt, puzzle_elegido, intento + 1, contador_tiempo_total)
 
     else:
+        # Fin de proceso
+        tiempo_total = time.perf_counter() - contador_tiempo_total
         
         # Sal con el mensaje
         print(f"{str(estado)}|{msg}", flush= True)
         log.write(msg)
         log.close
-        tiempos_plot(tiempos)
+        tiempos_plot(tiempos, tiempo_total, intento)
 
     exit(0)
 
@@ -61,7 +63,7 @@ def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, 
 #       3 - ASP_to_NL(answerset, puzzle) -> [estado, msg]
 #       4 - Módulo gráfico ([args_solver], puzzle) -> [estado, msg]
 #
-def proceso(prompt_usuario, puzzle_elegido, n_intento):
+def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
 
     # Variables
     modelo_asp = ""
@@ -75,8 +77,8 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
 
     # Inicio
     log.write(LOG_HEADER)
-    #tiempo_comienzo_total = time.perf_counter()
     log.write(f"\n### Intento {n_intento} de {MAX_REINTENTOS}  ###\n")
+    if(n_intento == 0): contador_tiempo_total = time.perf_counter()
 
 
     ########    1º - Pasa el mensaje del usuario a declaraciones ASP.           ########
@@ -90,7 +92,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     salida += f"Modelo ASP sacado: \n\t{modelo_asp}\n"
 
     ## Fallo en NL_to_ASP (1) o modo LLM Puro
-    if ((estado != 0) or USAR_LLM_PURO): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
+    if ((estado != 0) or USAR_LLM_PURO): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
 
 
     ########    2º - Pasa el ASP al solver para obtener el Answer Set solución. ########
@@ -104,7 +106,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     salida += f"# Answer set resuelto: \n\t{answer_set}\n"
 
     ##   Fallo en resolver_ASP (2)
-    if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
+    if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
 
 
     ########    3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.       ########
@@ -118,7 +120,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
     salida += f"# Explicación LN: {nl_salida}\n"
 
     ##   Fallo en AS_to_NL (3)
-    if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
+    if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
 
 
     ########    4º Caso optimista: Todo OK - Representación gráfica             ########
@@ -131,10 +133,10 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento):
 
     salida += f"# Módulo gráfico: {msg_grafico}\n"
 
-    #tiempo_total = time.perf_counter() - tiempo_comienzo_total
+    
 
     # Fin
-    imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento)
+    imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
 
     if(DEBUG):
 
@@ -157,4 +159,4 @@ n_intento = 0
 num_args = len(args)
 if (num_args >= 3): _, prompt, puzzle, n_intento = args
 
-proceso(prompt, puzzle, int(n_intento))
+proceso(prompt, puzzle, int(n_intento), None)

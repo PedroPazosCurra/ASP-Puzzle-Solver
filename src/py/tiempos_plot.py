@@ -8,12 +8,10 @@ def calcula_porcentaje(pct, tiempos):
 
 
 # Función exportada: Dada una lista de tiempos (con los tiempos en segundos de cada fase del proceso), saca una gráfica tipo Pie.
-def tiempos_plot(tiempos : list):
+def tiempos_plot(tiempos : list, tiempo_total, intentos : int):
     num_fases = len(tiempos)
     fases_all = ["1.- NL_to_ASP", "2.- resolver_ASP", "3.- AS_to_NL", "4.- Módulo gráfico"]
     fases  = fases_all[ : num_fases]
-
-    tiempo_total = sum(tiempos)
 
     fig, ax = plt.subplots(figsize =(6, 3), 
                         subplot_kw = dict(aspect ="equal"))
@@ -31,5 +29,5 @@ def tiempos_plot(tiempos : list):
 
     #plt.title(f"Tiempo total = {tiempo_total} s")
     plt.setp(autotexts, size = 8, weight ="bold")
-    ax.set_title("Tiempo de ejecución por fase del proceso\nTiempo total = %.2f s" % tiempo_total)
+    ax.set_title(f"Tiempo de ejecución por fase del proceso\nTiempo total = {tiempo_total:.2f} s\n({intentos + 1} intentos)")
     plt.show()
