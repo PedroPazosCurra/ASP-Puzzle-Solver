@@ -7,12 +7,13 @@ from io import BytesIO
 from webcolors import name_to_rgb
 from collections import defaultdict
 import traceback
+from utils_graficos import escala_imagen
 
 
 ######################################### Constantes y variables ##############################################
 TAMAÑO_DEFAULT = 80
 TAMAÑO_FONDO = 1200
-DEBUG = False
+DEBUG = True
 
 # Crea nueva imagen importándola. La imagen es 2000x2000
 img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
@@ -95,9 +96,7 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
                 img = busca_imagen(ruta_imagen)
 
                 # Escala la imagen según tamaños
-                wpercent = (tamaño / float(img.size[0]))
-                hsize = round((float(img.size[1]) * float(wpercent)))
-                img = img.resize((round(tamaño), hsize), Image.Resampling.LANCZOS)
+                img, hsize = escala_imagen(img, round(tamaño))
 
                 # Coloca la imagen donde toque
                 fondo.paste(
@@ -161,10 +160,8 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
             img = busca_imagen(imagen_elemento)
 
             # Escala la imagen según tamaños
-            tamaño_escala = 2*tamaño
-            wpercent = (tamaño_escala / float(img.size[0]))
-            hsize = round((float(img.size[1]) * float(wpercent)))
-            img = img.resize((round(tamaño_escala), hsize), Image.Resampling.LANCZOS)
+            tamaño_escala = round(2*tamaño)
+            img, hsize = escala_imagen(img, tamaño_escala)
 
             # Coloca la imagen donde toque
             fondo.paste(
@@ -408,7 +405,7 @@ if DEBUG:
     # 15 casas
     as_prueba5 = [['a', 'house', 1], ['a', 'pet', 'cat'], ['a', 'drink', 'cocacola'], ['b', 'house', 2],  ['c', 'house', 3],  ['d', 'house', 4],  ['e', 'house', 5],  ['f', 'house', 6],  ['g', 'house', 7],  ['h', 'house', 8],  ['i', 'house', 9],  ['j', 'house', 10],  ['k', 'house', 11],  ['l', 'house', 12],  ['m', 'house', 13],  ['n', 'house', 14],  ['o', 'house', 15],  ['p', 'house', 16], ['q', 'house', 17], ['r', 'house', 18], ['s', 'house', 19], ['t', 'house', 20]]
 
-    print(einstein_grafico([as_prueba5, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
+    print(einstein_grafico([as_prueba2, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
 
     # Enseña las imgs por pantalla
     fondo_estado_inicial.show()
