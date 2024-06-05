@@ -1,4 +1,4 @@
-# IMPORTS
+############ Imports ############
 from PIL import Image, ImageDraw, ImageFont
 import requests
 import numpy as np
@@ -13,7 +13,7 @@ from utils_graficos import escala_imagen
 ######################################### Constantes y variables ##############################################
 TAMAÑO_DEFAULT = 80
 TAMAÑO_FONDO = 1200
-DEBUG = True
+DEBUG = False
 
 # Crea nueva imagen importándola. La imagen es 2000x2000
 img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
@@ -373,8 +373,8 @@ def einstein_grafico(argumentos):
         if(all(elemento_central in grupo for grupo in grupos)):
             grupos = sorted(grupos, key=lambda d: d[elemento_central])
 
-            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/estado_inicial_einstein.png")
-            representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion_einstein.png")
+            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/estado_inicial.png")
+            representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion.png")
 
             return [0, "OK"]
         

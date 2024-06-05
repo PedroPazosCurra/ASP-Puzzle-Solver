@@ -14,7 +14,7 @@ reglas_comensales = path.abspath(path.join(path.dirname(__file__), "..", "../res
 
 
 # Función auxiliar para procesar los argumentos de los átomos
-def procesa_atom_arguments(atom_args):
+def procesa_argumentos_atomo(atom_args):
 
     lista_args = []
     arg_listo = ""
@@ -41,6 +41,7 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
     has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
     image_routes = []   # [['coffee', 'ruta/coffee.png']]
     seated_atoms = []
+    speaks_atoms = []
 
     # Sale con error si alguno de los args es nulo
     if ((modelo == None) or (puzzle == None)): return([1, "resolver_ASP recibe una entrada con uno de los valores nulos.", []])
@@ -74,27 +75,31 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
 
 
     # En caso de que haya modelos, se recogen los átomos en listas.
-    for model in solve_handle:
-        answer_sets = (str(model).replace(" ", ". ") + ".")
-        for atom in model.symbols(atoms=True):
+    for modelo in solve_handle:
+        answer_sets = (str(modelo).replace(" ", ". ") + ".")
+        for atomo in modelo.symbols(atoms=True):
 
             match puzzle:
                 case "Einstein":
-                    if(atom.name == "has" and len(atom.arguments) == 3):
+                    if(atomo.name == "has" and len(atomo.arguments) == 3):
                         # Toma los 3 argumentos del has(X,Y,Z)
-                        has_arg_1, has_arg_2, has_arg_3 = procesa_atom_arguments(atom.arguments)  
+                        has_arg_1, has_arg_2, has_arg_3 = procesa_argumentos_atomo(atomo.arguments)  
                         has_atoms.append([has_arg_1, has_arg_2, has_arg_3])
 
-                    elif(atom.name == "image" and len(atom.arguments) == 2):
+                    elif(atomo.name == "image" and len(atomo.arguments) == 2):
 
                         # Toma 2 args del image(X,Y)
-                        img_arg_1, img_arg_2 = procesa_atom_arguments(atom.arguments)
+                        img_arg_1, img_arg_2 = procesa_argumentos_atomo(atomo.arguments)
                         image_routes.append([img_arg_1, img_arg_2])
 
                 case "Comensales":
-                    if(atom.name == "seated" and len(atom.arguments) == 2):
-                        seated_arg_1, seated_arg_2 = procesa_atom_arguments(atom.arguments)
+                    if(atomo.name == "seated" and len(atomo.arguments) == 2):
+                        seated_arg_1, seated_arg_2 = procesa_argumentos_atomo(atomo.arguments)
                         seated_atoms.append([seated_arg_1, seated_arg_2])
+
+                    elif(atomo.name == "speaks" and len(atomo.arguments) == 2):
+                        speaks_arg_1, speaks_arg_2 = procesa_argumentos_atomo(atomo.arguments)
+                        speaks_atoms.append([speaks_arg_1, speaks_arg_2])
 
                 case _:
                     return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
@@ -107,7 +112,7 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
             case "Einstein":
                 return([0, answer_sets, [has_atoms, image_routes]])
             case "Comensales":
-                return([0, answer_sets, seated_atoms])
+                return([0, answer_sets, [seated_atoms, speaks_atoms]])
             case _:
                 return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
 
@@ -119,5 +124,5 @@ if (DEBUG):
     modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
     modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
     modelo_invalido = ":-"
-    status, ans_sets, [has, imageroutes] = resolver_ASP(modelo_sat, "Einstein")
-    print(f"Answer sets:\t{ans_sets}\nHas:\t{has}\nRutas:\t{image_routes}")
+    status, ans_sets, args = resolver_ASP(modelo_sat, "Einstein")
+    print(status, ans_sets, args)

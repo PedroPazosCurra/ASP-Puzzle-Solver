@@ -75,7 +75,7 @@ app.get("/imagen-inicial", function (req, res) {
 
   // LOG + Envía html 
   console.log("LOG: GET /imagen-inicial");
-  res.sendFile(path.join(__dirname, '../../resources/tmp/', 'estado_inicial_einstein.png'));
+  res.sendFile(path.join(__dirname, '../../resources/tmp/', 'estado_inicial.png'));
 
 });
 
@@ -84,7 +84,7 @@ app.get("/imagen-final", function (req, res) {
 
   // LOG + Envía html 
   console.log("LOG: GET /imagen-final");
-  res.sendFile(path.join(__dirname, '../../resources/tmp/', 'solucion_einstein.png'));
+  res.sendFile(path.join(__dirname, '../../resources/tmp/', 'solucion.png'));
 
 });
 
