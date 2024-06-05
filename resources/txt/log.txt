@@ -12331,3 +12331,538 @@ next_to(blends, water).
 
 The British person lives in the house number 3, owns a bird, drinks milk, and smokes Pall Mall. The Danish person lives in the house number 2, owns a horse, drinks tea, and smokes Blends. The German person lives in the house number 4, owns a fish, drinks coffee, and smokes Prince. The Norwegian person lives in the house number 1, owns a cat, drinks water, and smokes Dunhill.
 # Módulo gráfico: OK
+
+############ [22:29] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(_, _). % incomplete information
+opposite(martina, jose).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [22:29] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(_, _).
+opposite(martina, jose).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [22:29] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(_, pedro). opposite(martina, jose).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [22:29] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, ?). opposite(martina, jose).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [22:29] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(_, _). opposite(martina, jose).
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [23:34] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [23:34] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [23:34] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [23:34] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [23:34] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [23:43] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+# Answer set resuelto: 
+	seated(jose,4). seated(martina,2). seated(claudia,3). seated(pedro,1).
+# Explicación LN: Pedro is seated in the first chair, Claudia is seated in the 2, Martin in the third and none other person is seated.
+# Módulo gráfico: OK
+
+############ [23:45] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose).
+# Answer set resuelto: 
+	seated(alberto,1). seated(carlos,3). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(isabel,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8).
+# Explicación LN: Here is the output:
+
+Teresa is seated in the first chair, Alberto in the same position, Claudia is seated in the second one, Carlos in the 3, Lucia in the 5, Isabel in the 7, Paco in the tenth and finally Jose in the ninth, Carolina in the sixth, Martina in the 4 and Pedro in Manolo's usual spot at the eighth.
+# Módulo gráfico: OK
+
+############ [23:54] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). next_to(isabel, french). opposite(paco, lucia). next_to(claudia, carlos). speaks(carolina, basque). next_to(carl.
+# Answer set resuelto: 
+	Ha habido un problema en el proceso de grounding ASP
+
+############ [23:54] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; arabic).
+
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, french).
+next_to(paco, lucia).
+next_to(carolina, french).
+next_to(claudia, carlos).
+not_next_to(carolina, french).
+# Answer set resuelto: 
+	seated(alberto,5). seated(carlos,3). seated(carolina,10). seated(paco,8). seated(lucia,9). seated(isabel,1). seated(jose,7). seated(martina,2). seated(claudia,4). seated(pedro,6).
+# Explicación LN: Isabel is seated in the first chair, Martina in the second one, Claudia in the fourth one, Jose is seated in the seventh, Alberto is seated in the fifth, Carolina is seated in the ninth, Lucia is seated in the tenth and Paco is nowhere mentioned in the data.
+# Módulo gráfico: OK
+
+############ [23:59] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, french).
+next_to(carla, french).
+next_to(claudia, carlos).
+not_next_to(claudia, pedro).
+not_next_to(carlitos, julian).
+next_to(paco, lucia).
+# Answer set resuelto: 
+	seated(alberto,1). seated(carlos,9). seated(carolina,6). seated(paco,3). seated(lucia,2). seated(isabel,7). seated(jose,10). seated(martina,5). seated(claudia,8). seated(pedro,4).
+# Explicación LN: Teresa is seated in the first chair, Lucia in the second, Paco in the third, Alberto in the 1, Jose in the 4, Pedro in the 4, Manolo missing, Martina in the 5, Claudia in the 8, Carolina in the 6, Isabel in the 7, Carlos in the 9 and another one José in the 10.
+# Módulo gráfico: OK
+
+############ [0:1] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, french).
+next_to(paco, lucia).
+opposite(paco, lucia).
+next_to(claudia, carlos).
+next_to(carolina, french).
+speaks(carolina, basque).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:1] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, french).
+next_to(paco, lucia).
+opposite(paco, lucia).
+next_to(claudia, carlos).
+next_to(carolina, french).
+speaks(carolina, basque).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:1] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(carlos, claudia).
+next_to(carolina, french).
+next_to(paco, lucia).
+next_to(carlos, claudia).
+next_to(carolina, french).
+speaks(carolina, basque).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:1] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(paco, lucia).
+opposite(paco, lucia).
+next_to(claudia, carlos).
+speaks(carolina, basque).
+next_to(carolina, french).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:1] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(carolina, french).
+next_to(paco, lucia).
+opposite(paco, lucia).
+next_to(claudia, carlos).
+speaks(carolina, basque).
+next_to(carolina, french).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:5] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(carolina, french).
+next_to(claudia, carlos).
+next_to(paco, lucia).
+opposite(paco, lucia).
+speaks(carolina, basque).
+next_to(carolina, french).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:5] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, french).
+next_to(carolina, french).
+next_to(paco, lucia).
+next_to(clausia, carlos).
+not_next_to(claudia, pedro).
+not_next_to(carolina, french).
+# Answer set resuelto: 
+	seated(alberto,4). seated(carlos,3). seated(carolina,9). seated(paco,10). seated(lucia,1). seated(isabel,5). seated(jose,7). seated(martina,2). seated(claudia,8). seated(pedro,6).
+# Explicación LN: Lucia is seated in the first chair, Martina in the second, Claudia in the eighth, Alberto in the fourth, Carlos in the third, Carolina is seated in the ninth, Paco in the tenth, Jose is seated in the seventh and Isabel is seated in the fifth seat.
+# Módulo gráfico: OK
+
+############ [0:20] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(carolina, french).
+next_to(claudia, carlos).
+next_to(carlos, carolina).
+opposite(paco, lucia).
+opposite(carolina, french).
+next_to(carolina, french).
+# Answer set resuelto: 
+	seated(alberto,5). seated(carlos,1). seated(carolina,10). seated(paco,4). seated(lucia,9). seated(isabel,6). seated(jose,8). seated(martina,3). seated(claudia,2). seated(pedro,7).
+# Explicación LN: Pedro is seated in the seventh chair, Claudia is seated in the second, Martina is seated in the third, Paco is seated in the fourth, Alberto is seated in the fifth, Carlos is seated in the first one, Isabel is seated in the sixth, Lucia is seated in the ninth and Carolina is seated in the tenth.
+# Módulo gráfico: OK
+
+############ [0:32] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german).
+not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina).
+next_to(isabel, french). next_to(carolina, french). next_to(claudia, carlos).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:32] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; pedro).
+language(german; spanish; galician; catalan; basque; french; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(paco, lucia).
+opposite(paco, lucia).
+next_to(claudia, carlos).
+speaks(carolina, basque).
+next_to(carolina, french).
+next_to(carlos, claudia).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:32] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10). 
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). 
+language(german; spanish; galician; catalan; basque; french; english; arabic). 
+speaks(claudia, spanish). speaks(martina, german). 
+speaks(pedro, arabic). speaks(jose, arabic). 
+not_next_to(claudia, pedro). next_to(pedro, arabic). 
+opposite(martina, jose). opposite(alberto, carolina). 
+next_to(isabel, french). next_to(carolina, french). 
+next_to(claudia, carlos). opposite(paco, lucia).
+# Answer set resuelto: 
+	seated(alberto,3). seated(carlos,7). seated(carolina,8). seated(paco,4). seated(lucia,9). seated(isabel,2). seated(jose,10). seated(martina,5). seated(claudia,6). seated(pedro,1).
+# Explicación LN: Teresa is seated in the first chair, Manolo in the second one, Alberto is not present, Carlos is not present, Carolina is not present, Paco is not present, Lucia is not present, Isabel is seated in the 2nd one, Jose is seated in the 10th one, Martina is seated in the 5th one and Claudia is seated in the 6th one.
+# Módulo gráfico: OK
+
+############ [0:42] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; pacific; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(carolina, french).
+next_to(carlos, claudia).
+next_to(paco, lucia).
+next_to(carolina, french).
+not_next_to(carolina, french).
+next_to(carlos, claudia).
+next_to(pedro, arabic).
+next_to(isabel, pedro).
+next_to(carolina, french).
+# Answer set resuelto: 
+	seated(alberto,1). seated(carlos,3). seated(carolina,6). seated(pacific,5). seated(lucia,10). seated(isabel,9). seated(jose,7). seated(martina,2). seated(claudia,4). seated(pedro,8).
+# Explicación LN: Teresa is seated in the first chair, Alberto in the same, Manolo in the second, Jose in the seventh, Claudia in the fourth one, Isabel in the ninth, Carlos in the third, Maria in the sixth, Martina in the second one, Pacific is seated in the fifth and Lucia is seated in the tenth.
+# Módulo gráfico: OK
+
+############ [0:46] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10).
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro).
+language(german; spanish; galician; catalan; basque; french; english; arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+speaks(pedro, arabic).
+next_to(pedro, arabic).
+not_next_to(claudia, pedro).
+opposite(martina, jose).
+opposite(alberto, carolina).
+next_to(isabel, pedro).
+next_to(carolina, french).
+next_to(paco, lucia).
+opposite(paco, lucia).
+next_to(carlos, claudia).
+next_to(carlos, carolina).
+next_to(carolina, french).
+next_to(carlos, pedro).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:46] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(carolina, french). next_to(paco, lucia). opposite(paco, lucia). next_to(claudia, carlos). speaks(carolina, basque).
+# Answer set resuelto: 
+	El programa que he inferido en base a tu mensaje no es resoluble. Asegúrate de escribir todas las variables del sistema, aunque no estén relacionadas con ningún elemento.
+
+############ [0:46] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). opposite(paco, lucia). next_to(claudia, carlos). speaks(carolina, basque). next_to(carolina, french).
+# Answer set resuelto: 
+	seated(alberto,4). seated(carlos,2). seated(carolina,9). seated(paco,5). seated(lucia,10). seated(isabel,8). seated(jose,6). seated(martina,1). seated(claudia,3). seated(pedro,7).
+# Explicación LN: Martina is seated in the first chair, Claudia is seated in the third, Alberto is not mentioned, Carlos in the second, Paco in the fifth, Lucia in the tenth, Isabel in the eighth, Jose in the sixth, Carolina is seated in the ninth and Pedro in the seventh.
+# Módulo gráfico: OK
