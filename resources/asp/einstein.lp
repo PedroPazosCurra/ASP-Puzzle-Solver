@@ -13,9 +13,19 @@
 %neighbor(dog,red).
 %neighbor(a,b).
 
+% Filtrado previo de entradas erróneas en cuanto a lógica de puzzle
+:- same_place(X,Y), person(X), not type(_,Y).
+:- same_place(X,Y), not type(_,X), person(Y).
+:- same_place(X,Y), not type(_,X), not type(_,Y).
+:- same_place(X,Y), not person(X), not type(_,X).
+:- same_place(X,Y), not person(Y), not type(_,Y).
+:- same_place(X,Y), person(X), person(Y).
+:- not living_place(_,_).
+
 % Reglas para determinar cosas de un elem. central (oculto a llm)
 place_of(X,N) :- has(P,_,X), has(P,Y,N), X!=N, living_place(Y,N).
 place_of(P,N) :- has(P,Y,N), living_place(Y,N).
+type(P, V) :- living_place(P,V).
 
 % Generar soluciones
 1 { has(X,T,V): person(X) } 1 :- type(T,V).

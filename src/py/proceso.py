@@ -89,7 +89,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
     tiempo_nl_to_asp = time.perf_counter() - tiempo_comienzo_nl_to_asp
     array_tiempos.append(tiempo_nl_to_asp)
 
-    salida += f"Modelo ASP sacado: \n\t{modelo_asp}\n"
+    salida += f"# Modelo ASP sacado: \n\t{modelo_asp}\n"
 
     ## Fallo en NL_to_ASP (1) o modo LLM Puro
     if ((estado != 0) or USAR_LLM_PURO): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
@@ -102,8 +102,6 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
 
     tiempo_resolver_asp = time.perf_counter() - tiempo_comienzo_resolver_asp
     array_tiempos.append(tiempo_resolver_asp)
-
-    salida += f"# Answer set resuelto: \n\t{answer_set}\n"
 
     ##   Fallo en resolver_ASP (2)
     if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
@@ -131,9 +129,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
     tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
     array_tiempos.append(tiempo_grafico)
 
-    salida += f"# Módulo gráfico: {msg_grafico}\n"
-
-    
+    if (estado != 0) : salida += f"# Módulo gráfico: {msg_grafico}\n"
 
     # Fin
     imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)

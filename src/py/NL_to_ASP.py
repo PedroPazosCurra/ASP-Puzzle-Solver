@@ -42,7 +42,7 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
         with open(contexto_path, 'r') as file: fewshot = file.read()
 
     contexto_fewshot = zeroshot + fewshot
-    prompt_w_context = contexto_fewshot + prompt +"\nOUTPUT: "
+    prompt_w_context = f"{contexto_fewshot} {prompt}\nOUTPUT: "
 
 
     ###  Petición al LLM
