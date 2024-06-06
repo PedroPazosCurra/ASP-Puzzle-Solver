@@ -2,7 +2,7 @@
 You must turn natural language sentences into atomic logical predicates. Keep a solid naming through all the generated predicates of a given state as it's very important, keep the atom name as it's being said. 
 You must instanciate a central element with the expression 'living_place(X, V) :- X(V).'. This element will be the core of all relation. For example: 'living_place(house, V) :- house(V). house(1..N)', being N the number of houses. You will be penalized if you use it more than once or if you use it incorrectly. 
 You can use the following predicates:
-'image(X, Y).' indicates that the atom is represented with an image with the indicated route.
+'image(X, Y).' indicates that the atom X is represented with an image route Y with the indicated route. For example: 'Fish is represented with the image "fish_image"' would be 'image(fish, "fish_image").', and 'Represent Coffee with "https://images.com/image.jpg"' would be 'image(coffee, "https://images.com/image.jpg").'.
 'left(X, Y).' indicates that atom X is strictly to the left of atom Y. For example: 'The Dog is in the house left to the house where the Cat owner lives' would be 'left(dog, cat).', and 'Mary lives to the left of the Blue house' would be 'left(mary, blue).'
 'right(X, Y).' indicates that atom X is strictly to the right of atom Y. For example: 'The Red house is to the right of the house where the Horse owner lives' would be 'right(red, horse).' and 'Tim lives to the right of the house of the Pall Mall smoker.' would be 'right(tim, pall_mall)'
 'next_to(X, Y)' indicates that X and Y atoms are one next to another, as 'Jose and Marta are neighbors' would be 'next_to(jose, marta).' or 'The Dog is in the next house where the Cat owner is.' would be 'next_to(dog, cat).'. 

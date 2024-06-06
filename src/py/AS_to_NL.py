@@ -4,7 +4,7 @@ import json
 from os import path
 
 # Constantes
-AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
+AWANLLM_API_KEY = "4b8749be-38d2-4f66-9417-e05debfce1c6"
 modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
 

@@ -21,6 +21,7 @@
 :- same_place(X,Y), not person(Y), not type(_,Y).
 :- same_place(X,Y), person(X), person(Y).
 :- not living_place(_,_).
+:- image(X, Y), not person(X), not type(_,X), not type(X,_).
 
 % Reglas para determinar cosas de un elem. central (oculto a llm)
 place_of(X,N) :- has(P,_,X), has(P,Y,N), X!=N, living_place(Y,N).

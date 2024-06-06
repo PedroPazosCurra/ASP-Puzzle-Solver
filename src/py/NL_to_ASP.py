@@ -6,7 +6,7 @@ from os import path
 import re
 
 # Constantes
-AWANLLM_API_KEY = "59053288-c83e-4da7-bb4e-d0c0c1c885f9"
+AWANLLM_API_KEY = "4b8749be-38d2-4f66-9417-e05debfce1c6"
 modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
 ASP_REGEX_LIGERO = r"(([a-z\_]+\(([a-z\_]+\,\s?[V])\)\s:-\s[a-z\_]+\([A-Z]\)\.?\s?)|(\s?[a-z\_]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z\_]+\((\s?[a-z\_]+\;?\s?)+\)\.?\s?)|(\s?[a-z\_]+\(([a-z\_0-9]+\s?\,?\s?)+\)\.?\s?))+"
@@ -42,7 +42,7 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
         with open(contexto_path, 'r') as file: fewshot = file.read()
 
     contexto_fewshot = zeroshot + fewshot
-    prompt_w_context = f"{contexto_fewshot} {prompt}\nOUTPUT: "
+    prompt_w_context = f"{contexto_fewshot} {prompt}\nOUT: "
 
 
     ###  Petición al LLM

@@ -15735,3 +15735,652 @@ next_to(blends, water).
 
 The British person lives in the red house #3, drinks milk, keeps a bird as pet and smokes Pall Mall tobacco. The Danish person lives in the blue house #2, keeps a horse as pet, drinks tea and smokes Blends tobacco. The German person lives in the green house #4, keeps a fish as pet, drinks coffee and smokes Prince tobacco. The Norwegian person lives in the yellow house #1, keeps a cat as pet, drinks water and smokes Dunhill tobacco.
 # Módulo gráfico: OK
+
+############ [16:46] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+color(red; purple). same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [16:46] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	person(spanish; english; chinese).
+
+type(boat, V) :- boat(V).
+boat(red; purple).
+
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+living_place(boat, V) :- boat(V).
+living_place(person, V) :- person(V).
+
+same_place(spanish, soda).
+same_place(spanish, red).
+same_place(chinese, purple).
+next_to(spanish, english).
+next_to(chinese, english).
+
+same_place(spanish, cat).
+same_place(english, dog).
+same_place(spanish, horse).
+
+image(red, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [16:46] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V).
+boat(1..3).
+
+person(spanish; english; chinese).
+drink(tea; milk; soda).
+
+image(drink, V) :- drink(V).
+image(soda, "cocacola").
+
+pet(dog; cat; horse).
+
+image(pet, V) :- pet(V).
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+image(horse, "horse").
+
+color(V) :- color(V).
+color(red; purple).
+
+living_place(boat, V) :- boat(V).
+same_place(spanish, 1, red).
+same_place(chinese, 2, purple).
+# Explicación LN: The English lives on boat number 2.
+
+############ [16:50] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V).
+color(red; purple).
+
+type(boat, V) :- boat(V).
+boat(red). boat(purple).
+image(red, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+same_place(spanish, soda).
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+same_place(spanish, cat).
+same_place(english, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+############ [16:50] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+boat(1..3).
+
+living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+image(dog, "" .
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+image(horse, "horse").
+
+drink(tea; milk; soda).
+
+same_place(soda, "cocacola").
+
+same_place(spanish, red).
+
+same_place(chinese, purple).
+
+same_place(spanish, cat).
+
+same_place(english, dog).
+
+next_to(spanish, english).
+
+next_to(english, chinese).
+
+same_place(spanish, soda).
+
+same_place(spanish, red).
+
+same_place(chinese, purple).
+
+same_place(horse, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [16:50] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, spanish).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(dog, english). same_place(cat, spanish). same_place(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+image(horse, "horse").
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+same_place(spanish, 1). same_place(english, dog). same_place(chinese, 3).
+
+color(boat, V) :- color(V). color(red). same_place(spanish, red). color(purple). same_place(chinese, purple).
+
+############ [16:50] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V).
+boat(1..3).
+living_place(boat, V) :- boat(V).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+same_place(soda, "cocacola").
+pet(dog; cat; horse).
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+image(horse, "horse").
+
+color(red; purple).
+same_place(spanish, red).
+same_place(chinese, purple).
+
+living_place(spanish, 1).
+living_place(chinese, 3).
+
+############ [16:50] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+person(spanish; english; chinese).
+
+boat(1..3). living_place(boat, V) :- boat(V). 
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(dog, english). same_place(cat, spanish). same_place(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+same_place(english, dog). same_place(spanish, cat). same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [16:54] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+person(spanish; english; chinese).
+
+boat(1..3).
+
+living_place(boat, V) :- boat(V).
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+image(dog, "_").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+image(horse, "horse").
+
+same_place(spanish, soda). image(soda, "cocacola").
+
+same_place(english, dog).
+
+same_place(spanish, cat).
+
+same_place(spanish, red).
+
+same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+next_to(spanish, english).
+
+next_to(english, chinese).
+
+same_place(spanish, soda).
+
+same_place(english, dog).
+
+same_place(chinese, purple).
+
+############ [16:54] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(spanish, cat). same_place(english, dog). same_place(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [16:54] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(english, dog). same_place(spanish, cat). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [16:54] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V).
+color(red; purple).
+
+boat(1..3).
+living_place(boat, V) :- boat(V).
+person(spanish; english; chinese).
+drink(tea; milk; soda).
+same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+same_place(dog, english).
+same_place(cat, spanish).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+same_place(spanish, red).
+same_place(chinese, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [16:54] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+person(spanish; english; chinese).
+
+boat(1..3). living_place(boat, V) :- boat(V). 
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+
+type(color, V) :- color(V). color(red; purple). 
+
+same_place(spanish, red). same_place(chinese, purple).
+
+same_place(spanish, soda). same_place(soda, spanish). 
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [17:28] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [17:45] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [18:46] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+house(1..5).
+living_place(house, V) :- house(V).
+
+person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swedish, dog).
+same_place(danish, tea).
+left(green, white).
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(dunhill, horse).
+
+next_to(blue_master, beer).
+same_place(prince, german).
+next_to(norwegian, blue).
+next_to(blends, water).
+# Explicación LN: Here is the final output:
+
+The British person lives in the house with number 3, having a red color, keeping a bird as pet, drinking milk, and smoking Pall Mall tobacco. The Danish person lives in the house with number 2, having a blue color, owning a horse, drinking tea, and smoking Blue Master tobacco. The German person lives in the house with number 5, having a white color, owning a cat, drinking water, and smoking Prince tobacco. The Norwegian person lives in the house with number 1, having a yellow color, owning a fish, drinking beer, and smoking Dunhill tobacco. Finally, there is no information about the Swedish person.
+
+############ [18:53] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	person(spanish; english; chinese).
+
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+
+type(image, V) :- image(V).
+image("https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg", cat).
+image("horse").
+
+boat(1..3).
+
+living_place(boat, V) :- boat(V).
+same_place(spanish, 1).
+color(red).
+same_place(spanish, red).
+
+type(color, V) :- color(V).
+color(red; purple).
+
+image("https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg", purple).
+same_place(chinese, 3).
+
+same_place(spanish, soda).
+image("cocacola", soda).
+type(pet, V) :- pet(V).
+pet(cat; dog; horse).
+same_place(spanish, cat).
+same_place(english, dog).
+same_place(chinese, horse).
+
+############ [18:53] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(drink, V) :- drink(V). drink(tea; milk; soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+
+person(spanish; english; chinese).
+
+house(1..3). living_place(house, V) :- house(V). type(color, V) :- color(V). color(red; purple).
+
+same_place(spanish, soda). same_place(spanish, cat). same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). same_place(chinese, boat).
+
+############ [18:53] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(spanish, cat). same_place(english, dog). same_place(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+
+same_place(spanish, red). same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [18:53] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V).
+boat(1..3).
+living_place(boat, V) :- boat(V).
+person(spanish; english; chinese).
+type(drink, V) :- drink(V).
+drink(tea; milk; soda).
+same_place(spanish, soda).
+image(soda, "cocacola").
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+same_place(spanish, cat).
+same_place(english, dog).
+image(horse, "horse").
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+type(color, V) :- color(V).
+color(red; purple).
+same_place(spanish, red).
+same_place(chinese, purple).
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [18:53] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(cat, spanish).
+
+same_place(dog, english).
+
+image(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+type(color, V) :- color(V). color(red; purple).
+
+same_place(spanish, red).
+
+same_place(chinese, purple).
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [18:58] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3).
+
+ person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(spanish, cat).
+
+same_place(english, dog).
+
+image(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+same_place(spanish, red).
+
+same_place(chinese, purple).
+
+### This is the end of the processing.
+
+############ [18:58] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V). same_place(red, 1). same_place(purple, 3).
+
+person(spanish; english; chinese). living_place(house, V) :- house(V). house(1..3).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). same_place(horse, "horse"). same_place(cat, spanish).
+
+same_place(spanish, 1). same_place(spanish, red). same_place(spanish, cat).
+
+same_place(english, 2). same_place(english, dog).
+
+same_place(chinese, 3). same_place(chinese, purple).
+
+############ [18:58] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse").
+
+color(red; purple). same_place(spanish, red). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [18:58] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple). boat(1). same_place(spanish, 1). boat(3). same_place(chinese, 3). boat(2). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). same_place(spanish, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [18:58] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	type(drink, V) :- drink(V). drink(tea; milk; soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, soda). same_place(spanish, cat). same_place(english, dog). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). image(horse, "horse"). same_place(spanish, red). type(color, V) :- color(V). color(red; purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg"). person(spanish; english; chinese). same_place(spanish, red). same_place(chinese, purple).
+
+############ [1:6] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [1:14] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [1:21] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [1:26] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V).
+
+person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+same_place(spanish, red). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [1:26] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Explicación LN: The Spanish person has a boat with number 3, drinks soda, has a cat as pet and his house is painted red. The English person has a boat with number 1, drinks milk and has a dog. The Chinese person has a boat with number 2, drinks tea and keeps a horse, and his house is painted purple.
+
+############ [1:28] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+building(1..3). living_place(building, V) :- building(V).
+person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place/english, dog/. same_place(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). same_place(horse, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [1:28] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; purple).
+
+building(1..3). living_place(building, V) :- building(V).
+
+person(spanish; english; chinese).
+
+type(drink, V) :- drink(V). drink(tea; milk; soda).
+
+same_place(spanish, soda).
+
+image(soda, "cocacola").
+
+type(pet, V) :- pet(V). pet(dog; cat; horse).
+
+same_place(spanish, cat). same_place(english, dog). same_place(horse, "horse").
+
+image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg").
+
+image(horse, "horse").
+
+type(color, V) :- color(V). color(red). same_place(red, spanish).
+
+living_place(building, V) :- building(V). same_place(chinese, purple).
+
+image(building, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+
+############ [1:28] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
+# Explicación LN: The Spanish person owns the boat numbered 3, drinks soda, and has a cat as a pet. The boat is also coloured red.
