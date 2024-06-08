@@ -8,7 +8,7 @@ from webcolors import name_to_rgb
 from collections import defaultdict
 import traceback
 import math
-from utils_graficos import escala_imagen, dibuja_silla, dibuja_mesa
+from modulo_grafico.utils_graficos import escala_imagen, dibuja_silla, dibuja_mesa
 
 
 ######################################### Constantes y variables ##############################################
@@ -18,10 +18,10 @@ TAMAÑO_FONDO = 1200
 DEBUG = False
 
 # Crea nueva imagen importándola. La imagen es 2000x2000
-img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
-tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/tmp"))
-atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/atom_images"))
-font_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/fonts"))
+img_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/img"))
+tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/tmp"))
+atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/atom_images"))
+font_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/fonts"))
 
 
 ######################################### Funciones ##############################################

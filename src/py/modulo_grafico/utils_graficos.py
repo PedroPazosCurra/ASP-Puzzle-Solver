@@ -2,7 +2,7 @@ from PIL import Image
 import math
 from os import path
 
-img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
+img_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/img"))
 imagen_silla = Image.open(img_path + '/silla.jpg')
 
 # Escala una imagen a determinado tamaño y la devuelve

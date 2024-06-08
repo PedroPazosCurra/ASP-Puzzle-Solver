@@ -1,5 +1,5 @@
-from einstein_grafico import einstein_grafico
-from comensales_grafico import comensales_grafico
+from modulo_grafico.einstein_grafico import einstein_grafico
+from modulo_grafico.comensales_grafico import comensales_grafico
 
 # Función pequeña encargada de segregar el programa para generar imágenes según el puzzle, abstrayendo a proceso.py de esta labor. 
 def modulo_grafico(args : list, puzzle : str):

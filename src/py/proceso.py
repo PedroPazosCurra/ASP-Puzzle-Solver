@@ -12,8 +12,8 @@ import time
 from NL_to_ASP import NL_to_ASP
 from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
-from modulo_grafico import modulo_grafico
-from tiempos_plot import tiempos_plot
+from modulo_grafico.modulo_grafico import modulo_grafico
+from utils.tiempos_plot import tiempos_plot
 
 
 # Constantes

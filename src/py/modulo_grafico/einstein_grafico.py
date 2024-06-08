@@ -7,7 +7,7 @@ from io import BytesIO
 from webcolors import name_to_rgb
 from collections import defaultdict
 import traceback
-from utils_graficos import escala_imagen
+from modulo_grafico.utils_graficos import escala_imagen
 
 
 ######################################### Constantes y variables ##############################################
@@ -16,12 +16,12 @@ TAMAÑO_FONDO = 1200
 DEBUG = False
 
 # Crea nueva imagen importándola. La imagen es 2000x2000
-img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
-tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/tmp"))
+img_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/img"))
+tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/tmp"))
 inicial_save_path = path.join(tmp_path,"estado_inicial.png")
 solucion_save_path = path.join(tmp_path,"solucion.png")
-atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/atom_images"))
-font_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/fonts"))
+atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/atom_images"))
+font_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/fonts"))
 
 fondo_estado_inicial = Image.open(img_path + '/fondo_imagen_generada.png')
 fondo_solucion = Image.open(img_path + '/fondo_imagen_generada.png')

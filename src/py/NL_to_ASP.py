@@ -1,14 +1,9 @@
 # Imports
-import sys
-import requests
-import json
 from os import path
 import re
+from utils.llamada_llm import llamada_llm
 
 # Constantes
-AWANLLM_API_KEY = "4b8749be-38d2-4f66-9417-e05debfce1c6"
-modelo = "Meta-Llama-3-8B-Instruct"
-url = "https://api.awanllm.com/v1/chat/completions"
 ASP_REGEX_LIGERO = r"(([a-z\_]+\(([a-z\_]+\,\s?[V])\)\s:-\s[a-z\_]+\([A-Z]\)\.?\s?)|(\s?[a-z\_]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z\_]+\((\s?[a-z\_]+\;?\s?)+\)\.?\s?)|(\s?[a-z\_]+\(([a-z\_0-9]+\s?\,?\s?)+\)\.?\s?))+"
 ASP_REGEX_ESTRICTO_EINSTEIN = r"^((living_place\(([a-z\_]+\,\s?[V])\)\s:-\s[a-z\_]+\([V]\)\.?\s?)|(type\(([a-z\_]+\,\s?V)\)\s:-\s[a-z\_]+\(V\)\.?\s?)|(\s?[a-z\_]+\([0-9]+\.\.[0-9]+\)\.?\s?)|(\s?[a-z\_]+\((\s?[a-z\_]+\s?\;?\s?)+\)\.?\s?)|(\s?(living_place|image|left|right|next_to|same_place)\(([a-z\_0-9]+\s?\,?\s?)+\)\.?\s?))+$"
 
@@ -46,15 +41,7 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
 
 
     ###  Petición al LLM
-    payload = json.dumps({ 
-                        "model": modelo, 
-                        "messages": [{"role" : "user", "content" : prompt_w_context}],
-                        "max_tokens": 1024,
-                        "temperature": 0.7,
-                        "stream": False
-                        })   
-    headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
-    response = requests.request("POST", url, headers=headers, data=payload).json()
+    response = llamada_llm(prompt=prompt_w_context, temperatura= 0.7)
 
     # Maneja la respuesta por si trae algún error por parte de servidor.
     try:

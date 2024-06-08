@@ -1,12 +1,6 @@
 # Imports
-import requests
-import json
 from os import path
-
-# Constantes
-AWANLLM_API_KEY = "4b8749be-38d2-4f66-9417-e05debfce1c6"
-modelo = "Meta-Llama-3-8B-Instruct"
-url = "https://api.awanllm.com/v1/chat/completions"
+from utils.llamada_llm import llamada_llm
 
 def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
     
@@ -34,18 +28,10 @@ def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
     contexto = contexto_fewshot
 
     # Construcción de prompt completo
-    prompt_w_context = contexto + input_answer_set +"\nOutput: "
+    prompt_w_context = contexto + input_answer_set +"\nOUT: "
 
-    # Petición a la LLM (Actualmente, modelo pequeño para probar)
-    payload = json.dumps({ 
-                        "model": modelo, 
-                        "messages": [{"role" : "user", "content" : prompt_w_context}],
-                        "max_tokens": 1024,
-                        "temperature": 1.0,  
-                        "stream": False
-                        })
-    headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
-    response = requests.request("POST", url, headers=headers, data=payload).json()
+    # Petición a la LLM
+    response = llamada_llm(prompt=prompt_w_context, temperatura= 1.0)
 
     # Maneja la respuesta por si trae algún error por parte de servidor.
     try:

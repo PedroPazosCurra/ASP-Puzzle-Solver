@@ -1,47 +1,47 @@
-INPUT: has(norwegian,house,3).
-OUTPUT: The Norwegian person lives in the third house.
-INPUT: has(brittish,house,1). has(john,house,2). has(alex,house,3). has(alex,pet,dog).
-OUTPUT: The Brittish person lives in the house number 1. John lives in the second house. Alex lives in the third house and has a dog.
-INPUT: has(japanese,house,15).
-OUTPUT: There's a japanese living in the 15th house.
-INPUT: has(brittish,pet,dog).
-OUTPUT: The person from Britain has a dog.
-INPUT: has(nigerian,pet,horse).
-OUTPUT: The nigerian is the owner of the horse.
-INPUT: has(portuguese,pet,cat). has(portuguese, house, 1). has(portuguese, color, purple).
-OUTPUT: The portuguese person grows a cat in the purple house.
-INPUT: has(dane,pet,raccoon).
-OUTPUT: The Dane has a raccoon as a pet.
-INPUT: has(nigerian,pet,horse).
-OUTPUT: The nigerian is the owner of the horse.
-INPUT: has(scottish,color,green).
-OUTPUT: The scottish's house is painted green.
-INPUT: has(irish, color, blue).
-OUTPUT: The house of the irish is blue.
-INPUT: has(french,house,2). has(french,color,red).
-OUTPUT: The house of the french  is the number 2 and is painted red.
-INPUT: has(albanian,tobacco,camel).
-OUTPUT: The Albanian smokes Camel cigarettes.
-INPUT: has(afghan,tobacco,winston).
-OUTPUT: The Afghan person's favourite brand of tobacco is Winston.
-INPUT: has(german,tobacco,winston). has(german,pet,dog). has(ukranian,building,2). has(german,drink_brand,fanta). has(german,car,ford). has(german,building,3).
-OUTPUT: The German person smokes Winston tobacco, has a Dog as a pet, drinks fanta, has a Ford car and lives in the building number three. On the other hand, the Ukranian lives in the second building.
-INPUT: has(italian,tobacco,marlboro).
-OUTPUT: The Italian person is used to smoking Marlboro.
-INPUT: has(brittish,beverage,milk).
-OUTPUT: The brittish person drinks milk.
-INPUT: has(palestinian,beverage,coffee).
-OUTPUT: The palestinian person has coffee as a drink.
-INPUT: has(russian,beverage,water). has(german,beverage,beer).
-OUTPUT: The russian person drinks water and the german person deinks beer.
-INPUT: has(swede,tobacco,camel). has(swede,beverage,milk). has(swede,pet,fish). has(swede,house,3).
-OUTPUT: The Swede person smokes Camel, drinks mild, keeps a fish as pet and lives in the house number 3.
-INPUT: has(albanian,house,3). has(chinese,pet,duck). has(english,tobacco,bluem). has(norwegian,color,blue). has(italian,beverage,lemonade).
-OUTPUT: The Albanian lives in the house number 3. The Chinese person owns a duck. The English neighbor smokes Bluem tobacco. The norwegian house is colored blue. The Italian drinks lemonade.
-INPUT: has(argentinian,tobacco,palls). has(chilean,beverage,soda). has(argentinian,caravan,1). has(chilean,caravan,2).
-OUTPUT: The Argentinian smokes Palls tobacco and lives in the Caravan 1. The Chilean drinks Soda and lives in the caravan 2.
-INPUT: has(spanish,house,1). has(spanish,beverage,water). has(spanish,food,sandwich). has(spanish,cigarettes,bluem). has(spanish, color, blue).
-OUTPUT: In the blue house, that has the number 1, lives the Spanish person, Water is drank, Sandwich is eaten and Bluem cigarettes are smoked.
-INPUT: has(english,car,1). has(english,color,red). has(english,drink,milk). has(english,pet,dog). 
-OUTPUT: The english has a red car, drinks milk and keeps a dog.
-INPUT: 
+IN: has(norwegian,house,3).
+OUT: The Norwegian person lives in the third house.
+IN: has(brittish,house,1). has(john,house,2). has(alex,house,3). has(alex,pet,dog).
+OUT: The Brittish person lives in the house number 1. John lives in the second house. Alex lives in the third house and has a dog.
+IN: has(japanese,house,15).
+OUT: There's a japanese living in the 15th house.
+IN: has(brittish,pet,dog).
+OUT: The person from Britain has a dog.
+IN: has(nigerian,pet,horse).
+OUT: The nigerian is the owner of the horse.
+IN: has(portuguese,pet,cat). has(portuguese, house, 1). has(portuguese, color, purple).
+OUT: The portuguese person grows a cat in the purple house.
+IN: has(dane,pet,raccoon).
+OUT: The Dane has a raccoon as a pet.
+IN: has(nigerian,pet,horse).
+OUT: The nigerian is the owner of the horse.
+IN: has(scottish,color,green).
+OUT: The scottish's house is painted green.
+IN: has(irish, color, blue).
+OUT: The house of the irish is blue.
+IN: has(french,house,2). has(french,color,red).
+OUT: The house of the french  is the number 2 and is painted red.
+IN: has(albanian,tobacco,camel).
+OUT: The Albanian smokes Camel cigarettes.
+IN: has(afghan,tobacco,winston).
+OUT: The Afghan person's favourite brand of tobacco is Winston.
+IN: has(german,tobacco,winston). has(german,pet,dog). has(ukranian,building,2). has(german,drink_brand,fanta). has(german,car,ford). has(german,building,3).
+OUT: The German person smokes Winston tobacco, has a Dog as a pet, drinks fanta, has a Ford car and lives in the building number three. On the other hand, the Ukranian lives in the second building.
+IN: has(italian,tobacco,marlboro).
+OUT: The Italian person is used to smoking Marlboro.
+IN: has(brittish,beverage,milk).
+OUT: The brittish person drinks milk.
+IN: has(palestinian,beverage,coffee).
+OUT: The palestinian person has coffee as a drink.
+IN: has(russian,beverage,water). has(german,beverage,beer).
+OUT: The russian person drinks water and the german person deinks beer.
+IN: has(swede,tobacco,camel). has(swede,beverage,milk). has(swede,pet,fish). has(swede,house,3).
+OUT: The Swede person smokes Camel, drinks mild, keeps a fish as pet and lives in the house number 3.
+IN: has(albanian,house,3). has(chinese,pet,duck). has(english,tobacco,bluem). has(norwegian,color,blue). has(italian,beverage,lemonade).
+OUT: The Albanian lives in the house number 3. The Chinese person owns a duck. The English neighbor smokes Bluem tobacco. The norwegian house is colored blue. The Italian drinks lemonade.
+IN: has(argentinian,tobacco,palls). has(chilean,beverage,soda). has(argentinian,caravan,1). has(chilean,caravan,2).
+OUT: The Argentinian smokes Palls tobacco and lives in the Caravan 1. The Chilean drinks Soda and lives in the caravan 2.
+IN: has(spanish,house,1). has(spanish,beverage,water). has(spanish,food,sandwich). has(spanish,cigarettes,bluem). has(spanish, color, blue).
+OUT: In the blue house, that has the number 1, lives the Spanish person, Water is drank, Sandwich is eaten and Bluem cigarettes are smoked.
+IN: has(english,car,1). has(english,color,red). has(english,drink,milk). has(english,pet,dog). 
+OUT: The english has a red car, drinks milk and keeps a dog.
+IN: 
