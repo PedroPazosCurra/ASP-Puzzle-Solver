@@ -1,8 +1,5 @@
 # Ignora imágenes temporales
-resources/tmp/
 resources/tmp/*
-resources/tmp/estado_inicial_einstein.png
-resources/tmp/solucion_einstein.png
 
 # Logs
 logs

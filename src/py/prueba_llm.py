@@ -10,7 +10,7 @@ AWANLLM_API_KEY = "4b8749be-38d2-4f66-9417-e05debfce1c6"
 modelo = "Meta-Llama-3-8B-Instruct"
 url = "https://api.awanllm.com/v1/chat/completions"
 
-input_answer_set = "There are three boats. There are a Spanish, an English and a Chinese. There are three drinks: Tea, Milk and Soda. The Spanish man drinks Soda. Soda is represented with the next image: cocacola. There's a Dog, a Cat and a Horse. The Spanish keeps the Cat, while the English man has a Dog. The Horse is represented by the image called 'horse'. The Cat is represented by https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg The Spanish man has a red boat. The chinese man, on the other hand, lives in a Purple boat. Represent the boat with https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg."
+input_answer_set = "There are three houses. In them live a Spanish, an nglish and a chinese. There are three pets: a dog, a cat and a duck. There are 3 tobacco brands: Ducados, Camel and Blue Master. There are also three drinks: coffee, water and tea. The Spanish man house is painted red, while the Englishman house is tainted blue. The house of the chinese man is purple. The Spanish man keeps a dog. The chinese man loves to drink tea. The Spanish one, on the other hand, smokes Ducados."
 puzzle_elegido = "Einstein"
 
 # Contexto
@@ -26,7 +26,7 @@ contexto_fewshot = zeroshot + fewshot
 contexto = contexto_fewshot
 
 # Construcción de prompt completo
-prompt_w_context = contexto + input_answer_set +"\nOUTPUT: "
+prompt_w_context = zeroshot + input_answer_set +"\nOUTPUT: "
 
 # Petición a la LLM (Actualmente, modelo pequeño para probar)
 payload = json.dumps({  
@@ -34,6 +34,7 @@ payload = json.dumps({
                         "messages": [{"role" : "user", "content" : input_answer_set}],
                         "max_tokens": 1024,
                         "temperature": 0.7,
+                        "stream": False
                     })
 
 headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
@@ -41,8 +42,8 @@ response = requests.request("POST", url, headers=headers, data=payload).json()
 
 
 try:
-    print(response)
-    #print(response['choices'][0]['message']['content'])
+    #print(response)
+    print(response['choices'][0]['message']['content'])
 except KeyError:
     print("Error en el servidor del LLM: " + response)
 except:

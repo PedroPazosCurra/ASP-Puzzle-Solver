@@ -41,7 +41,8 @@ def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
                         "model": modelo, 
                         "messages": [{"role" : "user", "content" : prompt_w_context}],
                         "max_tokens": 1024,
-                        "temperature": 1.0  
+                        "temperature": 1.0,  
+                        "stream": False
                         })
     headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
     response = requests.request("POST", url, headers=headers, data=payload).json()

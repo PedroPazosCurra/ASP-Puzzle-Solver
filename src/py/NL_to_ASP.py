@@ -50,7 +50,8 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
                         "model": modelo, 
                         "messages": [{"role" : "user", "content" : prompt_w_context}],
                         "max_tokens": 1024,
-                        "temperature": 0.7
+                        "temperature": 0.7,
+                        "stream": False
                         })   
     headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {AWANLLM_API_KEY}" }
     response = requests.request("POST", url, headers=headers, data=payload).json()

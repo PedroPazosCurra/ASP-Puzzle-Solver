@@ -18,6 +18,8 @@ DEBUG = False
 # Crea nueva imagen importándola. La imagen es 2000x2000
 img_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/img"))
 tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/tmp"))
+inicial_save_path = path.join(tmp_path,"estado_inicial.png")
+solucion_save_path = path.join(tmp_path,"solucion.png")
 atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/atom_images"))
 font_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/fonts"))
 
@@ -373,8 +375,8 @@ def einstein_grafico(argumentos):
         if(all(elemento_central in grupo for grupo in grupos)):
             grupos = sorted(grupos, key=lambda d: d[elemento_central])
 
-            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/estado_inicial.png")
-            representa_solucion(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/solucion.png")
+            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(inicial_save_path)
+            representa_solucion(elemento_central, grupos, rutas_imagenes).save(solucion_save_path)
 
             return [0, "OK"]
         

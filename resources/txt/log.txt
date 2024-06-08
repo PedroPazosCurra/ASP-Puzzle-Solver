@@ -16384,3 +16384,113 @@ image(building, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvi
 # # Modelo ASP sacado: 
 	type(boat, V) :- boat(V). boat(1..3). living_place(boat, V) :- boat(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). image(soda, "cocacola"). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). image(horse, "horse"). image(cat, "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple). image(boat, "https://t3.ftcdn.net/jpg/00/41/60/94/360_F_41609453_X3A8NNRDWvihqMLoJUVNmrQyKQgwgvh4.jpg").
 # Explicación LN: The Spanish person owns the boat numbered 3, drinks soda, and has a cat as a pet. The boat is also coloured red.
+
+############ [16:5] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [16:7] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [17:30] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple).
+house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). same_place(spanish, red). same_place(english, blue). same_place(chinese, purple). same_place(spanish, dog). same_place(chinese, tea). same_place(spanish, ducados).
+# Explicación LN: Here is the final output:
+
+The Spanish person lives in the house with the number 1, drinks water, eats sandwiches, and smokes Ducados cigarettes, while his house is coloured blue. The house at number 2 belongs to the English person who drives a red car, has a dog, drinks coffee, keeps a pet duck, and prefers Blue Master tobacco. The Chinese person resides in the purple house with the number 1, is fond of Camels cigarettes, enjoys tea, and owns a cat.
+# Módulo gráfico: ['Traceback (most recent call last):\n', '  File "C:\\Users\\Pedro_fyktqtb\\Desktop\\TFG_repo\\ASP-Puzzle-Solver\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 376, in einstein_grafico\n    representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/estado_inicial.png")\n', '  File "C:\\Users\\Pedro_fyktqtb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python310\\site-packages\\PIL\\Image.py", line 2456, in save\n    fp = builtins.open(filename, "w+b")\n', "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Pedro_fyktqtb\\\\Desktop\\\\TFG_repo\\\\ASP-Puzzle-Solver\\\\ASP-Puzzle-Solver\\\\resources\\\\tmp\\\\estado_inicial.png'\n"]
+
+############ [17:30] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple). house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). same_place(spanish, dog). same_place(chinese, tea). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). same_place(spanish, ducados).
+
+############ [17:30] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple). house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). same_place(spanish, red). same_place(english, blue). same_place(chinese, purple). same_place(spanish, dog). same_place(chinese, tea). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados). same_place(spanish, ducados).
+
+############ [17:30] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple). 
+house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). same_place(spanish, dog). same_place(chinese, tea). same_place(spanish, ducados). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). same_place(spanish, red). same_place(english, blue). same_place(chinese, purple).
+
+Let me know if this is correct!.
+
+############ [17:30] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple). house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). same_place(spanish, red). same_place(english, blue). same_place(chinese, purple). same_place(spanish, dog). same_place(chinese, tea). same_place(spanish, ducados).
+# Explicación LN: Here is the output:
+
+The Spanish person lives in the house number 3, has the house painted red, has a dog as a pet, and smokes Ducados tobacco. They also drink water. The English person lives in the house number 2, has the house painted blue, has a duck as a pet, and smokes Blue Master tobacco. They also drink coffee. The Chinese person lives in the house number 1, has the house painted purple, has a cat as a pet, and smokes Camel tobacco. They also drink tea.
+# Módulo gráfico: ['Traceback (most recent call last):\n', '  File "C:\\Users\\Pedro_fyktqtb\\Desktop\\TFG_repo\\ASP-Puzzle-Solver\\ASP-Puzzle-Solver\\src\\py\\einstein_grafico.py", line 376, in einstein_grafico\n    representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(tmp_path + "/estado_inicial.png")\n', '  File "C:\\Users\\Pedro_fyktqtb\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python310\\site-packages\\PIL\\Image.py", line 2456, in save\n    fp = builtins.open(filename, "w+b")\n', "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Pedro_fyktqtb\\\\Desktop\\\\TFG_repo\\\\ASP-Puzzle-Solver\\\\ASP-Puzzle-Solver\\\\resources\\\\tmp\\\\estado_inicial.png'\n"]
+
+############ [17:43] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple).
+
+house(1..3).
+
+person(spanish; english; chinese).
+
+type(pet, V) :- pet(V). pet(dog; cat; duck).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master).
+
+type(drink, V) :- drink(V). drink(coffee; water; tea).
+
+same_place(chinese, tea).
+
+same_place(duck, purple).
+
+same_place(spanish, red).
+
+same_place(english, blue).
+
+############ [17:43] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple).
+house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). same_place(spanish, red). same_place(english, blue). same_place(chinese, tea). same_place(duck, purple).
+
+Let me know if this meets your requirements!.
+
+############ [17:43] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple).
+house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). same_place(spanish, red). same_place(english, blue). same_place(chinese, tea). same_place(duck, purple). 
+
+Please let me know if this is correct!.
+
+############ [17:43] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(pet, V) :- pet(V). pet(dog; cat; duck). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). living_place(house, V) :- house(V). type(color, V) :- color(V). color(red; blue; purple). same_place(spanish, red). same_place/english, blue). same_place(chinese, tea). type(pet, V) :- pet(V). pet(duck). same_place(duck, purple). 
+
+Let me know if this meets your requirements!.
+
+############ [17:43] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(red; blue; purple). 
+house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). same_place(spanish, red). same_place(english, blue). same_place(chinese, tea). same_place(duck, purple).
+# Explicación LN: Here is the output:
+
+The Spanish person lives in the third house with a red color, owns a cat, smokes Camel tobacco, drinks water. The English person lives in the second house with a blue color, has a dog, smokes Ducados tobacco and drinks Coffee. The Chinese person lives in the first house with a purple color, owns a duck and drinks Tea.
