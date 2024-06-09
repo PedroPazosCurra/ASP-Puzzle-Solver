@@ -15,11 +15,20 @@
 %opposite(a,c).
 
 %% Prohibiciones para la entrada (filtrar entradas incorrectas ya)
+:- next_to(X,Y), not person(X), not language(X).
+:- next_to(X,Y), not person(Y), not language(Y).
+:- next_to(P,P'), P == P'.
+:- not_next_to(X,Y), not person(X), not language(X).
+:- not_next_to(X,Y), not person(Y), not language(Y).
+:- not_next_to(P,P'), P == P'.
 :- speaks(A,L), person(A), not language(L).
 :- speaks(A,L), not person(A), language(L).
 :- speaks(A,L), not person(A) , not language(L).
 :- speaks(A,L), speaks(A,L'), L!=L'.
-:- next_to(P,P'), P == P'.
+:- opposite(P,P'), not person(P).
+:- opposite(P,P'), not person(P').
+:- opposite(P,P'), P == P'.
+
 
 %% seats_number(N) -> seat(1..N)
 seat(1..N) :- seats_number(N).
