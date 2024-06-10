@@ -5,6 +5,7 @@ Este es el repositorio para mi Trabajo de Fin de Grado en Ingeniería Informáti
 - [ASP-Puzzle-Solver](#asp-puzzle-solver)
   * [¿Qué es?](#qué-es)
   * [¿Cómo funciona?](#cómo-funciona)
+  * [Tecnologías Usadas](#tecnologías-usadas)
   * [Instalación](#instalación)
   * [Documentación](#documentación)
 
@@ -22,6 +23,15 @@ Este sistema, mediante una aproximación **neuro-simbólica**, simbiotiza la ág
 
 ![enter image description here](https://cdn.reludi.com/media/post-images/types-of-puzzle-games.jpg)  
 
+## Tecnologías Usadas
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+
 ## Instalación
 
 **(temporal)** El programa hace uso de node.js, por lo que deberá ser ([instalado en el sistema](https://developer.ibm.com/tutorials/learn-nodejs-installing-node-nvm-and-vscode/)).
@@ -36,3 +46,6 @@ En cuanto al programa, puedes ejecutarlo en Windows, Linux y Mac ejecutando sus 
 
 ## Documentación
 A disposición de quien lo considere de interés, dejo un enlace a la memoria del presente trabajo: (...)  
+
+
+
