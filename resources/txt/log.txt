@@ -16894,3 +16894,216 @@ speaks(carolina, basque).
 next_to(isabel, pedro).
 next_to(carolina, french).
 # Explicación LN: Pedro is seated in the eighth place, Claudia in the fourth seat, Martina in the second, Jose is seated in the seventh seat, Isabel in the ninth, Carolina is seated in the sixteenth, Alberto in the first, Carlos is seated in the third and Paco is seated in the fifth.
+
+############ [21:55] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). opposite(martina, jose).
+
+############ [21:55] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+# Explicación LN: Pedro is seated in the first chair, Martina is seated in the second, Claudia is seated in the third, and Jose is seated in the fourth.
+
+############ [22:10] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). next_to(isabel, french). next_to(carolina, french). next_to(claudia, carlos).
+# Explicación LN: Pedro is seated in the 5th, Alberta is not present, Carolina is not present, Lucia is not present, Isabel is not present, Alberto is not present, Claudia is seated in the 2nd, Jose is seated in the 9th, Martina is seated in the 4th, Paco is seated in the 6th, Carlos is seated in the 1st.
+
+############ [22:23] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the translation:
+
+seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(carolina, basque). next_to(isabel, pedro). next_to(carolina, french). next_to(claudia, carlos).
+
+############ [22:23] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	OUT: seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). next_to(isabel, pedro). next_to(carolina, french). speaks(carolina, basque).
+
+############ [22:23] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). opposite(paco, lucia). next_to(carolina, french).
+# Explicación LN: Here's my attempt to translate the final input:
+
+Martina is seated in the first chair, Claudia in the third, Alberto not mentioned, Isabel in the eighth, Lucia in the tenth, Carlos in the second, Paco in the fifth, Pedro in the seventh.
+
+############ [23:26] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	seats_number(10). 
+person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). 
+language(german; spanish; galician; catalan; basque; french; english; arabic). 
+speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). next_to(alberto, carolina). opposite(carolina, alberto). speaks(isabel, french). next_to(isabel, pedro). opposite(paco, lucia). next_to(claudia, carlos). speaks(carolina, basque). next_to(carolina, french).
+
+############ [23:26] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). language(german; spanish; galician; catalan; basque; french; english; arabic). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(carolina, basque). next_to(carolina, french). next_to(claudia, carlos). speaks(isabel, french). next_to(isabel, pedro). opposite(paco, lucia).
+# Explicación LN: Isabel is seated in the first chair, Pedro is seated in the second one, Paco is seated in the third one, Martina is seated in the fourth, Claudia is seated in the sixth and Alberto is seated in the seventh, Carolina is seated in the tenth, Jose is seated in the ninth.
+
+############ [0:7] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). next_to(isabel, pedro). next_to(claudia, carlos). speaks(carolina, basque). next_to(carolina, french).
+
+############ [0:7] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(carolina, basque). next_to(isabel, french). next_to(isabel, pedro). next_to(carlos, claudia).
+
+############ [0:7] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). next_to(carolina, french).
+
+############ [0:7] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the translation:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). next_to(alberto, carolina). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). next_to(carolina, french). speaks(carolina, basque).
+
+############ [0:7] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). next_to(pedro, arabic). not_next_to(claudia, pedro). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). next_to(carolina, french). speaks(carolina, basque).
+
+############ [0:9] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). speaks(pedro, arabic). next_to(martina, jose). opposite(martina, jose). next_to(carolina, french). speaks(carolina, basque). next_to(isabel, pedro). opposite(paco, lucia). next_to(claudia, carlos). speaks(paco, arabic).
+
+############ [0:9] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). next_to(alberto, carolina). opposite(carolina, alberto). speaks(isabel, french). next_to(isabel, pedro). opposite(paco, lucia). next_to(carolina, french).
+
+############ [0:9] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(claudia, spanish). speaks(martina, german). not_next_to(pedro, claudia). next_to(pedro, arabic). opposite(martina, jose). next_to(carolina, french). opposite(carolina, french). next_to(carolina, french). speaks(carolina, basque). next_to(alberto, carolina). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). next_to(paco, lucia). opposite(paco, lucia). speaks(carlos, carolina). next_to(carlos, claudia).
+
+############ [0:9] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(claudia, spanish). speaks(martina, german). speaks(pedro, arabic). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). next_to(carolina, french). next_to(carlos, claudeia). opposite(alberto, carolina). speaks(carolina, basque). speaks(isabel, french). next_to(paco, lucia). opposite(paco, lucia). speaks(carolina, french).
+
+############ [0:9] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(paco, lucia). opposite(paco, lucia). next_to(claudia, carlos). speaks(carolina, basque). next_to(carolina, french).
+
+############ [0:12] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). next_to(carolina, french). speaks(carolina, basque).
+
+############ [0:12] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(martina, jose). opposite(martina, jose). next_to(pedro, arabic). opposite(carolina, alberto). speaks(carolina, basque). next_to(isabel, french). next_to(carolina, french).
+
+############ [0:12] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the answer:
+
+languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). next_to(carolina, french). next_to(carolina, french). next_to(isabel, pedro). opposite(paco, lucia). next_to(claudia, carlos).
+
+############ [0:12] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(carolina, basque). speaks(isabel, french). next_to(isabel, pedro). opposite(paco, lucia). next_to(claudia, carlos).
+
+############ [0:12] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	languages(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). speaks(carolina, basque). next_to(carolina, french).
+
+############ [0:20] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+language(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). next_to(carolina, french). next_to(carlos, carolina). next_to(claudia, carlos). opposite(alberto, carolina). speaks(carolina, basque). next_to(isabel, pedro). next_to(paco, lucia). opposite(paco, lucia).
+
+############ [0:20] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	language(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). next_to(pedro, arabic). not_next_to(claudia, pedro). speaks(pedro, arabic). next_to(martina, jose). opposite(martina, jose). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(claudia, carlos). speaks(carolina, basque). next_to(carolina, french).
+
+############ [0:20] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+language(spanish; german; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(carolina, alberto). next_to(isabel, pedro). next_to(paco, lucia). next_to(carlos, claudia). speaks(carolina, basque). speaks(carolina, french).
+
+############ [0:20] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	language(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). next_to(isabel, pedro). next_to(paco, opposite(lucia)). next_to(claudia, carlos). speaks(carolina, basque). next_to(carolina, french).
+
+############ [0:20] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	language(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). next_to(carolina, french). speaks(carolina, basque).
+# Explicación LN: Here's the output:
+
+Teresa is seated in the first chair, Alberto, Carlos, Carolina are not mentioned, Paco in the second, JosÃ¨ is absent, Manolo is not here, Abel, Jose, Martina are not sitting, Claudia is missing, Lucia and Isabel are not there and Pedro in the eighth place.
