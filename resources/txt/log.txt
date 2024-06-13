@@ -17107,3 +17107,203 @@ language(spanish; german; galician; catalan; basque; french; english; arabic). s
 # Explicación LN: Here's the output:
 
 Teresa is seated in the first chair, Alberto, Carlos, Carolina are not mentioned, Paco in the second, JosÃ¨ is absent, Manolo is not here, Abel, Jose, Martina are not sitting, Claudia is missing, Lucia and Isabel are not there and Pedro in the eighth place.
+
+############ [23:49] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+house(1..5). living_place(house, V) :- house(V).
+person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swedish, dog).
+same_place(danish, tea).
+left(green, white).
+same_place(green, coffee).
+next_to(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(horse, dunhill).
+same_place(blue_master, beer).
+same_place(german, prince).
+next_to(norwegian, blue).
+next_to(blends, water).
+# Explicación LN: The British person lives in the third house with a red color, keeps a fish as pet, drinks milk and smokes Pall Mall. The Danish person lives in the second house with a blue color, owns a horse as pet, drinks tea and prefers Blend cigarettes. The German lives in the fourth house with a green color, takes care of a bird as pet, drinks coffee and smokes Prince. The Norwegian person resides in the first house with a yellow color, has a cat as pet, drinks water and enjoys Dunhill cigarettes. Lastly, the Swedish individual inhabits the fifth house with a white color, keeps a dog as pet, drinks beer and smokes Blue Master.
+
+############ [0:9] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	house(1..20).
+
+living_place(house, V) :- house(V).
+
+person(dominican; nicaraguan; british; irish; norwegian; spanish; portuguese; chilean; peruvian; ecuadorian; italian; german; belgian; swedish; swiss; greek; russian; ukranian; palestinian; french).
+
+type(color, V) :- color(V). color(black; blue; purple; magenta; navy; yellow; ocre; white; maroon; ivory; lime; cyan; rose; pink; grey; green; brown; violet; olive; mustard).
+# Explicación LN: The Portuguese live in the first house. The Spanish person lives in the second house. Peruvian people reside in the third house. The Dominican live in the fourth house. The Belgian inhabit the fifth house. Norwegians live in the sixth house. Nicaraguans dwell in the seventh house. Ukrainians reside in the eighth house. Swiss people live in the ninth house. Italians inhabit the tenth house. Chileans reside in the eleventh house. Irish people live in the twelfth house. British inhabitants are in the thirteenth house. French people reside in the fourteenth house. Palestinians dwell in the fifteenth house. Russians live in the sixteenth house. Greeks inhabit the seventeenth house. Swedes live in the eighteenth house. Germans reside in the nineteenth house. Ecuadorians dwell in the twentieth house. The houses of the Spanish have black color, of the Norwegian - blue, of the Irish - purple, of the British - magenta, of the Nicaraguan - navy, of the Dominican - yellow, of the French - ocre, of the Palestinian - white, of the Ukrainian - maroon, of the Russian - ivory, of the Greek - lime, of the Swiss - cyan, of the Swedish - rose, of the Belgian - pink, of the German - grey, of the Italian - green, of the Ecuadorian - brown and of the Peruvian - violet. Of the Chilean - olive.
+
+############ [0:14] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the answer:
+
+language(spanish; italian; german; esperanto; galician; english; brazilian; portuguese; french). seats_number(25). person(a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y). speaks(a, brazilian). speaks(d, brazilian). speaks(c, brazilian). speaks(b, spanish). speaks(t, spanish). speaks(s, spanish).
+
+############ [0:14] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	language(spanish; italian; german; esperanto; galician; english; brazilian; portuguese; french). seats_number(25). person(a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y). speaks(a, brazilian). speaks(d, brazilian). speaks(c, brazilian). speaks(b, spanish). speaks(t, spanish). speaks(s, spanish).
+# Explicación LN: Y is seated in the first chair, X in the second, W in the third, V in the fourth, U in the fifth, T in the sixth, S in the seventh, R in the eighth, Q in the ninth, P in the tenth, O in the eleventh, N in the twelfth, M in the thirteenth, L is seated in the twenty-first chair, K in the fourteenth, J in the fifteenth, I in the sixteenth, H in the seventeenth, G in the eighteenth, F in the nineteenth, E in the twentieth and A in the twenty-fifth chair, and finally individual B is seated in the twenty-fourth and individuals C, D are not present in this representation.
+
+############ [0:16] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	language(spanish; italian; german; esperanto; galician; english; brazilian; portuguese; french). seats_number(25). person(a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y). speaks(a, brazilian). speaks(d, brazilian). speaks(c, brazilian). speaks(b, spanish). speaks(t, spanish). speaks(s, spanish).
+# Explicación LN: Individual Y is seated in the seat number 1, X in the 2, W in the 3, V in the 4, U in the 5, T in the 6, S in the 7, R in the 8, Q in the 9, P in the 10, O in the 11, N in the 12, M in the 13, L is seated in the 21, K in the 14, J in the 15, I in the 16, H in the 17, G in the 18, F in the 19, E in the 20 and finally, A is seated in the 25 and B in the 24 and C in the 23 and D in the 22.
+
+############ [1:28] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+
+house(1..5). living_place(house, V) :- house(V).
+person(brittish; danish; german; norwegian; swedish).
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swedish, dog).
+same_place(danish, tea).
+left(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(horse, dunhill).
+same_place(blue_master, beer).
+same_place(german, prince).
+next_to(norwegian, blue).
+next_to(blends, water).
+
+color(white; green; yellow; red; blue).
+
+############ [1:28] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	house(1..5). living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+house(1). living_place(house, V) :- house(V). same_place(1, norwegian).
+
+same_place(brittish, red).
+
+same_place(swedish, dog).
+
+same_place(danish, tea).
+
+next_to(green, white).
+
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+next_to(blends, cat).
+
+next_to(dunhill, horse).
+
+same_place(blue_master, beer).
+
+same_place(german, prince).
+
+next_to(norwegian, blue).
+
+same_place(blends, water).
+
+Let me know if this is what you were looking for!.
+
+############ [1:28] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	house(1..5). living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+house(1..5). living_place(house, V) :- house(V). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). same_place(blends, cat). next_to(blends, water). left(blends, cat). left(blends, water).
+
+############ [1:28] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+house(1..5). living_place(house, V) :- house(V).
+
+person(brittish; danish; german; norwegian; swedish).
+
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red).
+same_place(swedish, dog).
+same_place(danish, tea).
+
+left(green, white).
+same_place(green, coffee).
+
+same_place(pall_mall, bird).
+
+same_place(yellow, dunhill).
+
+same_place(3, milk).
+
+same_place(norwegian, 1).
+
+next_to(blends, cat).
+
+next_to(horse, dunhill).
+
+same_place(blue_master, beer).
+
+same_place(german, prince).
+
+next_to(norwegian, blue).
+
+next_to(blends, water).
+# Explicación LN: The British person lives in the third house with a red colour, has a bird as a pet, drinks milk and smokes Pall Mall tobacco. The Danish person lives in the second house with a blue colour, has a horse as a pet, drinks tea and prefers Blend tobacco. The German person resides in the fourth house with a green colour, has a fish as a pet, drinks coffee and smokes Prince tobacco. The Norwegian person lives in the first house with a yellow colour, keeps a cat as pet, drinks water and enjoys Dunhill tobacco. Lastly, the Swedish person resides in the fifth house with a white colour, has a dog as pet, drinks beer and smokes Blue Master tobacco.

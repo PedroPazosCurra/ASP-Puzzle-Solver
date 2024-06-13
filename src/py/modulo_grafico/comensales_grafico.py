@@ -58,7 +58,7 @@ def representa_estado_inicial(array_seated, array_speaks):
         dibujo_estado_inicial.text(xy = (x_local, 500),
                 text = texto_persona,
                 font= fuente_texto,
-                stroke_width= round( (0.15 * TAMAÑO_DEFAULT )/ num_asientos),
+                stroke_width= round(((0.15 * TAMAÑO_DEFAULT )/ num_asientos) + 1),
                 stroke_fill='black'
                 )
 

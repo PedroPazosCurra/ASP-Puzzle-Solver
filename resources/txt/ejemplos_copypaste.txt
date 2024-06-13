@@ -47,3 +47,6 @@ In this table there are 4 people sitting: Jose, Martina, Claudia and Pedro. The 
 
 - 10 personas con restricciones.
 In this table there are 10 people sitting: Alberto, Carlos, Carolina, Paco, Lucia, Isabel, Jose, Martina, Claudia and Pedro. The languages spoken in the table are German, Spanish, Galician, Catalan, Basque, French, English and Arabic. Pedro and Jose speak Arabic. Claudia speaks Spanish and Martina speaks German. Claudia refuses to sit next to Pedro. Pedro, on the other hand, wants to sit next to someone who speaks Arabic. Martina wants Jose to be on the opposite side of the table. Alberto only agrees to sit if Carolina is on the opposite side of the table. Isabel speaks French and wants to sit next to Pedro. Paco wants Lucía sitting on the opposite end of the table. Claudia wants to sit next to Carlos. Carolina speaks Basque and needs to sit next to someone who speaks French.
+
+- 25 personas
+In this table there are 25 people: A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X and Y. The languages that are spoken are Spanish, Italian, German, Esperanto, Galician, English, Brazilian, Portuguese and French. A, D and C speak Brazilian. B, T and S are Spanish speakers.

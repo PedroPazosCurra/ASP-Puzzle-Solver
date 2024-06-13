@@ -1,13 +1,11 @@
 ############ Imports ############
 from PIL import Image, ImageDraw, ImageFont
-import requests
 import numpy as np
 from os import path
-from io import BytesIO
 from webcolors import name_to_rgb
 from collections import defaultdict
 import traceback
-from modulo_grafico.utils_graficos import escala_imagen
+from modulo_grafico.utils_graficos import escala_imagen, busca_imagen
 
 
 ######################################### Constantes y variables ##############################################
@@ -20,7 +18,6 @@ img_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources
 tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/tmp"))
 inicial_save_path = path.join(tmp_path,"estado_inicial.png")
 solucion_save_path = path.join(tmp_path,"solucion.png")
-atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/atom_images"))
 font_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/fonts"))
 
 fondo_estado_inicial = Image.open(img_path + '/fondo_imagen_generada.png')
@@ -32,37 +29,6 @@ dibujo_solucion = ImageDraw.Draw(fondo_solucion)
 
 
 ######################################### Funciones ##############################################
-
-# Función auxiliar que abstrae la búsqueda de una imagen dado un nombre. Primero, de forma estática. Después, busca URL.
-def busca_imagen(nombre : str):
-
-    nombre = nombre.replace(r'"', '')
-
-    # jpg
-    try:
-        img = Image.open(atom_imgs_path + f'/{nombre}.jpg')
-    except:
-
-        # png
-        try:
-            img = Image.open(atom_imgs_path + f'/{nombre}.png').convert("RGB")
-        except:
-
-            # jpeg
-            try:
-                img = Image.open(atom_imgs_path + f'/{nombre}.jpeg')
-            except:
-
-                # url
-                try:
-                    response = requests.get(nombre)
-                    img = Image.open(BytesIO(response.content))
-                except:
-                    img = None
-
-    # return
-    finally:
-        return img
 
 
 # Función auxiliar que dibuja un array de texto en determinadas coordenadas y tamaño. 
