@@ -35,17 +35,11 @@ Este sistema, mediante una aproximación **neuro-simbólica**, simbiotiza la ág
 
 ## Instalación
 
-**(temporal)** El programa hace uso de node.js, por lo que deberá ser [instalado en el sistema](https://developer.ibm.com/tutorials/learn-nodejs-installing-node-nvm-and-vscode/).
+El programa usa [node.js](https://developer.ibm.com/tutorials/learn-nodejs-installing-node-nvm-and-vscode/), por lo que deberá ser instalado en el sistema previamente.
 
-    pip install -r .requirements
-    
-    cd ./src
-  
-    npm install
-    
-    node ./js/server.js
+Primero, debes preparar el entorno haciendo doble click en **setup**
 
-En cuanto al programa, puedes ejecutarlo en Windows, Linux y Mac ejecutando sus respectivos archivos (Puzzle-Solver-Windows.bat, Puzzle-Solver-Linux.sh, Puzzle-Solver-Mac.sh, respectivamente).
+Con todo listo, puedes ejecutar el servidor haciendo doble click en run_[Sistema Operativo] según el SO que estés usando.  Se abrirá la consola de comandos con el servidor ejecutándose y una ventana de tu navegador predeterminado con la página de ASP Puzzle Solver lista para que la uses.
 
 ## Documentación
 A disposición de quien lo considere de interés, dejo un enlace a la memoria del presente trabajo: (...)  

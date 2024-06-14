@@ -27,7 +27,7 @@ def tiempos_plot(tiempos : list, tiempo_total, intentos : int):
         texts[i].set_color(patch.get_facecolor())
         plt.setp(texts, fontweight = 600)
 
-    #plt.title(f"Tiempo total = {tiempo_total} s")
     plt.setp(autotexts, size = 8, weight ="bold")
     ax.set_title(f"Tiempo de ejecución por fase del proceso\nTiempo total = {tiempo_total:.2f} s\n({intentos + 1} intentos)")
-    plt.show()
+    
+    plt.show(block = False)
