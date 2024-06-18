@@ -5,6 +5,7 @@ from os import path
 from webcolors import name_to_rgb
 from collections import defaultdict
 import traceback
+import os
 from modulo_grafico.utils_graficos import escala_imagen, busca_imagen
 
 
@@ -13,13 +14,25 @@ TAMAÑO_DEFAULT = 80
 TAMAÑO_FONDO = 1200
 DEBUG = False
 
-# Crea nueva imagen importándola. La imagen es 2000x2000
+
 img_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/img"))
 tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/tmp"))
-inicial_save_path = path.join(tmp_path,"estado_inicial.png")
-solucion_save_path = path.join(tmp_path,"solucion.png")
 font_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/fonts"))
 
+# Si no existe /tmp, lo crea.
+try:
+    os.mkdir(tmp_path)
+except FileExistsError:
+    pass
+except:
+    pass
+
+# Crea imágenes temporales con las que trabajar. Cada imagen es 2000x2000
+inicial_save_path = path.join(tmp_path,"estado_inicial.png")
+solucion_save_path = path.join(tmp_path,"solucion.png")
+
+
+# Recoge los fondos de las imgs
 fondo_estado_inicial = Image.open(img_path + '/fondo_imagen_generada.png')
 fondo_solucion = Image.open(img_path + '/fondo_imagen_generada.png')
 
