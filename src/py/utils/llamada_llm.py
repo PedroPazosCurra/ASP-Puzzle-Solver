@@ -1,13 +1,6 @@
 import requests
 import json
-from dotenv import load_dotenv
-import os
-
-# Obtención de secretos (archivo .env)
-load_dotenv()
-secret_key = os.getenv('AWANLLM_API_KEY')
-modelo = os.getenv('MODELO')
-url = os.getenv('URL')
+from utils.carga_dotenv import carga_dotenv
 
 # Función para llamar al LLM con una petición JSON (el contrato de AWANLLM es prácticamente igual a OPENAI)
 #
@@ -15,8 +8,13 @@ url = os.getenv('URL')
 #
 def llamada_llm(prompt : str, temperatura : float):
 
+    # Carga variables de entorno
+    estado, mensaje, secret_key, modelo, url = carga_dotenv()
+    if estado != 0:
+        return [1, mensaje]
+
     # Creación de paquete JSON
-    payload = json.dumps({ 
+    payload = json.dumps({
                         "model": modelo,
                         "messages": [{"role" : "user", "content" : prompt}],
                         "max_tokens": 1024,
@@ -25,7 +23,7 @@ def llamada_llm(prompt : str, temperatura : float):
                         "top_p": 0.9,
                         "top_k": 40,
                         "stream": False
-                        })   
+                        })
     headers = { 'Content-Type': 'application/json',
                 'Authorization': f"Bearer {secret_key}" }
     
