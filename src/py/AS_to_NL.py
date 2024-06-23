@@ -30,24 +30,13 @@ def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
     # Construcción de prompt completo
     prompt_w_context = contexto + input_answer_set +"\nOUT: "
 
-    # Petición a la LLM
-    response = llamada_llm(prompt=prompt_w_context, temperatura= 1.0)
+    ###  Petición a la API del LLM
+    estado_peticion, salida_llm = llamada_llm(prompt=prompt_w_context, temperatura= 0.7)
 
-    # Maneja la respuesta por si trae algún error por parte de servidor.
-    try:
-        salida_llm = response['choices'][0]['message']['content']
-    except KeyError:
-        return([1, "Error en el servidor del LLM: " + response['message']])
-    except:
-        return([1, "Error no manejado en la comunicación con el LLM"])
+    # Caso de error de peticion API LLM
+    if (estado_peticion == 1): return([1, salida_llm])
 
     if (salida_llm == ""):
         return([1, "El puzzle tiene una solucion y la he encontrado, pero no soy capaz de explicarla en lenguaje natural. El Answer Set encontrado, de todas formas, es: " + input_answer_set])
     else:
         return([0, salida_llm])
-
-
-    # Logs para debug
-    #print("[Context]  " + contexto)
-    #print("[Prompt]  " +  prompt)
-    #print("[Answer]  " + json_res['choices'][0]['text'])

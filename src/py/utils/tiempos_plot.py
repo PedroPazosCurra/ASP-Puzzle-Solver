@@ -30,4 +30,4 @@ def tiempos_plot(tiempos : list, tiempo_total, intentos : int):
     plt.setp(autotexts, size = 8, weight ="bold")
     ax.set_title(f"Tiempo de ejecución por fase del proceso\nTiempo total = {tiempo_total:.2f} s\n({intentos + 1} intentos)")
     
-    plt.show(block = False)
+    plt.show(block = True)

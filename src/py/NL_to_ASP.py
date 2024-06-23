@@ -39,17 +39,11 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
     contexto_fewshot = zeroshot + fewshot
     prompt_w_context = f"{contexto_fewshot} {prompt}\nOUT: "
 
+    ###  Petición a la API del LLM
+    estado_peticion, salida_llm = llamada_llm(prompt=prompt_w_context, temperatura= 0.7)
 
-    ###  Petición al LLM
-    response = llamada_llm(prompt=prompt_w_context, temperatura= 0.7)
-
-    # Maneja la respuesta por si trae algún error por parte de servidor.
-    try:
-        salida_llm = response['choices'][0]['message']['content']
-    except KeyError:
-        return([1, "Error en el servidor del LLM: " + response['message']])
-    except:
-        return([1, "Error no manejado en la comunicación con el LLM para NL_to_ASP"])
+    # Caso de error de peticion API LLM
+    if (estado_peticion == 1): return([1, salida_llm])
 
 
     ###  Postprocesado:
@@ -57,18 +51,7 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
     # Sale sin postprocesado si flag de iteración pura
     if(llm_puro_flag): return[1, salida_llm]
 
-    # El modelo tiene tendencia a seguir los ejemplos con alucinaciones. Diga lo que diga, intento aprovechar la primera salida (previa al primer '\n', 'INPUT', 'Note'...)
-    # Además, preprocesado de caracteres extraños que a veces el LLM mete por el medio con intención de ejemplificar.
-    if (salida_llm.find("\\") != -1):
-        salida_llm = salida_llm.strip().split("\\", 1)[0]
-    if (salida_llm.find("INPUT:") != -1):
-        salida_llm = salida_llm.strip().split("INPUT", 1)[0]
-    if (salida_llm.find("output:") != -1):
-        salida_llm = salida_llm.strip().split("output:", 1)[1]
-    if (salida_llm.find("input:") != -1):
-        salida_llm = salida_llm.strip().split("input:", 1)[1]
-    if (salida_llm.find("Note") != -1):
-        salida_llm = salida_llm.strip().split("Note", 1)[0]
+    # Preprocesado de caracteres extraños que a veces el LLM mete por formato. También estructuras ilegales en el programa ASP, por mejorar resultados marginalmente.
     if (salida_llm.find("`") != -1):
         salida_llm = salida_llm.replace("`", "")
     if (salida_llm.find("),") != -1):
@@ -76,25 +59,23 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
     if (salida_llm.find("type(person, V) :- person(V).") != -1):
         salida_llm = salida_llm.replace("type(person, V) :- person(V).", "")
 
-    # A veces se olvida de poner el punto en el último predicado. Intento rescatarlo.
-    salida_llm = salida_llm.strip()
+    salida_llm = salida_llm.strip()    # A veces se olvida de poner el punto en el último predicado.
     if (salida_llm[-1] != "."):
         salida_llm += "."
 
     # Comprobación de respuesta válida mediante REGEX con sintaxis ASP. Nota: REGEX en dos niveles para filtrar preámbulos y coletillas en nivel ligero y filtrar comandos erróneos en nivel estricto.
-
     match_regex_ligero = re.search(ASP_REGEX_LIGERO, salida_llm, flags=0).group()
     
     if(puzzle == "Einstein"):
         match_regex_estricto_einstein = re.search(ASP_REGEX_ESTRICTO_EINSTEIN, match_regex_ligero, flags=0).group()
         if match_regex_estricto_einstein == match_regex_ligero: 
-            return([0, salida_llm])
+            return([0, match_regex_estricto_einstein])
 
     elif(puzzle == "Comensales" and match_regex_ligero):
-        return([0, salida_llm])
+        return([0, match_regex_ligero])
         
-
-    return([1, "Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. " + salida_llm])
+    else:
+        return([1, "Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. " + salida_llm])
 
         
 # Logs para debug

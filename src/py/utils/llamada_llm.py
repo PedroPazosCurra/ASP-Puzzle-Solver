@@ -11,7 +11,7 @@ url = os.getenv('URL')
 
 # Función para llamar al LLM con una petición JSON (el contrato de AWANLLM es prácticamente igual a OPENAI)
 #
-#   prompt : string, temperatura : float -> response : JSON
+#   prompt : string, temperatura : float -> [status: int, response : JSON]
 #
 def llamada_llm(prompt : str, temperatura : float):
 
@@ -21,8 +21,24 @@ def llamada_llm(prompt : str, temperatura : float):
                         "messages": [{"role" : "user", "content" : prompt}],
                         "max_tokens": 1024,
                         "temperature": temperatura,
+                        "repetition_penalty": 1.1,
+                        "top_p": 0.9,
+                        "top_k": 40,
                         "stream": False
                         })   
-    headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {secret_key}" }
+    headers = { 'Content-Type': 'application/json',
+                'Authorization': f"Bearer {secret_key}" }
+    
+    response = requests.request("POST", url, headers=headers, data=payload)
 
-    return requests.request("POST", url, headers=headers, data=payload).json()
+    try:
+        response = response.json()
+        salida_llm = response['choices'][0]['message']['content']
+        return [0, salida_llm]
+    
+    except KeyError:
+        return [1, "Error con la peticion a API del LLM. Respuesta recibida: " + str(response)]
+    except requests.exceptions.JSONDecodeError:
+        return [1, f"Error en servidor: {response.status_code}"]
+    except:
+        return [1, "Error no manejado en la comunicación con el LLM"]

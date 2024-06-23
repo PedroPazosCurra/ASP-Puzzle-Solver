@@ -19293,3 +19293,757 @@ person(irish; welsh; scottish; belgian; moroccan). type(pet, V) :- pet(V). pet(d
 
 same_place(irish, crimson). same_place(moroccan, dragon). same_place(welsh, gin). left(olive, ivory). same_place(olive, whiskey). same_place(wyvern, pueblo). same_place(gold, winston). same_place(3, vodka). same_place(belgian, 1). next_to(ducados, wyrm). next_to(wyrm, winton). next_to(camels, wine). same_place(scottish, lucky_strike). next_to(indigo, belgian). next_to(ducados, vermut).
 # Explicación LN: The Irish person lives in the house number 3, with a crimson-colored home, owning a wyvern as a pet, drinking vodka and smoking Pueblo tobacco. The Welsh person resides in the house number 2, with an indigo-colored home, keeping a gryphon as a pet, drinking gin and smoking Ducados tobacco. The Scottish person lives in the house number 4, with an olive-colored home, owning a chimera as a pet, drinking whiskey and smoking Lucky Strike tobacco. The Belgian person resides in the house number 1, with a gold-colored home, having a wyrm as a pet, drinking Vermut and smoking Winston tobacco. Finally, the Moroccan person lives in the house number 5, with an ivory-colored home, owning a dragon as a pet, drinking wine and smoking Camel tobacco.
+
+############ [17:32] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [17:32] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [18:40] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [18:41] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	language(german; spanish; galician; catalan; basque; french; english; arabic). seats_number(10). person(alberto; carlos; carolina; paco; lucia; isabel; jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). opposite(alberto, carolina). speaks(isabel, french). next_to(isabel, pedro). next_to(claudia, carlos). speaks(carolina, basque). next_to(carolina, french).
+# Explicación LN: Martina is seated in the first chair, Claudia in the second, Pedro in the seventh, Isabel in the eighth, Carolina in the ninth, Lucia in the tenth, Alberto is seated in the fourth, Carlos in the third and finally Paco is seated in the fifth as well as Jose is seated in the sixth.
+
+############ [19:12] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:13] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:14] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM
+
+############ [19:14] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM
+
+############ [19:14] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM
+
+############ [19:14] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM
+
+############ [19:14] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM
+
+############ [19:17] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:18] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:19] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:19] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:21] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:21] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:21] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:21] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:21] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:22] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:22] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:22] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:22] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:22] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:25] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:25] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:25] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:25] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:25] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:26] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	4b8749be-38d2-4f66-9417-e05debfce1c6, Meta-Llama-3-8B-Instruct, https://api.awanllm.com/v1/chat/completions
+
+############ [19:26] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	4b8749be-38d2-4f66-9417-e05debfce1c6, Meta-Llama-3-8B-Instruct, https://api.awanllm.com/v1/chat/completions
+
+############ [19:26] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	4b8749be-38d2-4f66-9417-e05debfce1c6, Meta-Llama-3-8B-Instruct, https://api.awanllm.com/v1/chat/completions
+
+############ [19:26] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	4b8749be-38d2-4f66-9417-e05debfce1c6, Meta-Llama-3-8B-Instruct, https://api.awanllm.com/v1/chat/completions
+
+############ [19:26] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	4b8749be-38d2-4f66-9417-e05debfce1c6, Meta-Llama-3-8B-Instruct, https://api.awanllm.com/v1/chat/completions
+
+############ [19:28] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:33] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [19:33] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>openresty</center>
+</body>
+</html>
+
+
+############ [19:33] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>openresty</center>
+</body>
+</html>
+
+
+############ [19:33] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>openresty</center>
+</body>
+</html>
+
+
+############ [19:33] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	{"id":"cmpl-9c7ffba5a5664d8f8e10dd20e7653b23","object":"chat.completion","created":1719077645,"model":"Meta-Llama-3-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Here is the output:\n\nseats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(martina, jose). opposite(martina, jose)."},"logprobs":null,"finish_reason":"stop","stop_reason":128009}],"usage":{"prompt_tokens":2120,"total_tokens":2209,"completion_tokens":89}}
+
+############ [19:33] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>openresty</center>
+</body>
+</html>
+
+
+############ [19:39] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:39] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:39] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:39] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:39] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error decodificando la respuesta de la API de LLM. Respuesta recibida: <Response [502]>
+
+############ [19:50] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [19:50] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [19:50] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [19:50] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [19:50] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [20:16] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [20:16] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [20:16] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [20:16] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [20:16] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [12:45] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here are the outputs:
+
+**Output 1**
+
+living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(red; yellow; green; blue; white).
+person(brittish; danish; german; norwegian; swedish).
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+same_place(brittish, red).
+same_place(swedish, dog).
+same_place(danish, tea).
+left(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(horse, dunhill).
+same_place(blue_master, beer).
+same_place(prince, german).
+next_to(norwegian, blue).
+same_place(blends, water).
+
+
+**Output 2**
+
+living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(white; red; green; blue; yellow).
+person(brittish; german; japanese; albanese; norwegian).
+type(pet, V) :- pet(V).
+pet(dog; cat; raccoon).
+type(drink, V) :- drink(V).
+drink(tea; wine; beer; juice; milk; coffee; horchata; gazpacho; water).
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(marlboro; blue_master; dunhill; pall_mall; blends).
+same_place(brittish, red).
+same_place(german, 2).
+same_place(japanese, 3).
+same_place(albanese, 4).
+same_place(norwegian, 5).
+right(whiskey, water).
+next_to(soda, water).
+same_place(water, tea).
+left(soda, tea).
+right(yellow, blue).
+
+
+**Output 3**
+
+living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(white; yellow; blue; green; red).
+person(brittish; italian; romanian; congolese; swedish).
+type(pet, V) :- pet(V).
+pet(dog; cat; rabbit; mole; fish).
+type(drink, V) :- drink(V).
+drink(water; tea; whiskey; soda; juice; milk; coffee; horchata; gazpacho; beer).
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(marlboro; blue_master; dunhill; pall_mall; blends).
+same_place(brittish, 1).
+same_place(italian, 2).
+same_place(romanian, 3).
+same_place(congolese, 4).
+same_place(swedish, 5).
+right(whiskey, water).
+next_to(soda, water).
+same_place(water, tea).
+left(soda, tea).
+right(yellow, blue).
+
+
+**Output 4**
+
+living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(white; yellow; blue; green; red).
+person(brittish; galician; irish; sudafrican; turkish).
+type(pet, V) :- pet(V).
+pet(dog; cat; horse).
+type(drink, V) :- drink(V).
+drink(tea; water; beer; juice; milk; coffee; horchata; gazpacho).
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(marlboro; blue_master; dunhill; pall_mall; blends).
+same_place(brittish, 1).
+same_place(galician, 2).
+same_place(irish, 3).
+same_place(sudafrican, 4).
+same_place(turkish, 5).
+right(whiskey, water).
+next_to(soda, water).
+same_place(water, tea).
+left(soda, tea).
+right(yellow, blue).
+
+
+**Output 5**
+
+living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(white; yellow; blue; green; red).
+person(brittish; italian; romanian; congolese; swedish).
+type(pet, V) :- pet(V).
+pet(dog; cat; rabbit; mole; fish).
+type(drink, V) :- drink(V).
+drink(water; tea; whiskey; soda; juice; milk; coffee; horchata; gazp.
+
+############ [12:45] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Here are the outputs:
+
+
+person(brittish; danish; german; norwegian; swedish).
+
+house(1..5).
+type(color, V) :- color(V). color(yellow; green; white; red; blue).
+type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat).
+type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+same_place(brittish, red).
+same_place(swedish, dog).
+same_place(danish, tea).
+left(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(3, milk).
+same_place(norwegian, 1).
+same_place(blends, cat).
+next_to(blends, cat).
+next_to(dog, dunhill).
+same_place(blue_master, beer).
+same_place(german, prince).
+next_to(norwegian, blue).
+next_to(blends, water).
+
+############ [12:45] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	house(1..5). living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). right(norwegian, blue). same_place(blends, water).
+
+Please let me know if I made any mistakes!.
+
+############ [12:45] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [12:45] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [12:53] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). house(1..5). living_place(house, V) :- house(V). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). same_place(blends, cat). next_to(blends, water). next_to(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). right(norwegian, blue).
+
+############ [12:53] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Here are the outputs:
+
+
+living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). house(1..5).
+
+person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). same_place(blue, norwegian). same_place(blends, water). 
+
+next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(prince, german). next_to(blue, beer). next_to(blends, water).
+
+############ [12:53] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [12:53] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [12:53] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [12:55] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error con la petición a API LLM. Respuesta recibida: {'statusCode': 429, 'message': 'Ratelimit exceeded per day. Please upgrade your plan or wait 24 hours'}
+
+############ [12:55] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error con la petición a API LLM. Respuesta recibida: {'statusCode': 429, 'message': 'Ratelimit exceeded per day. Please upgrade your plan or wait 24 hours'}
+
+############ [12:55] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error con la petición a API LLM. Respuesta recibida: {'statusCode': 429, 'message': 'Ratelimit exceeded per day. Please upgrade your plan or wait 24 hours'}
+
+############ [12:55] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error con la petición a API LLM. Respuesta recibida: {'statusCode': 429, 'message': 'Ratelimit exceeded per day. Please upgrade your plan or wait 24 hours'}
+
+############ [12:55] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Error con la petición a API LLM. Respuesta recibida: {'statusCode': 429, 'message': 'Ratelimit exceeded per day. Please upgrade your plan or wait 24 hours'}
+
+############ [13:20] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V).
+color(gold; olive; ivory; crimson; indigo).
+
+person(irish; welsh; scottish; belgian; moroccan).
+
+type(pet, V) :- pet(V).
+pet(dragon; gryphon; wyvern; chimera; wyrm).
+
+type(drink, V) :- drink(V).
+drink(wine; whiskey; gin; vodka; vermut).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(ducados; camel; winston; pueblo; lucky_strike).
+
+house(1..5).
+living_place(house, V) :- house(V).
+same_place(irish, crimson).
+same_place(moroccan, dragon).
+same_place(welsh, gin).
+
+left(olive, ivory).
+same_place(olive, whiskey).
+
+same_place(wyvern, pueblo).
+same_place(gold, winston).
+
+same_place(3, vodka).
+
+same_place(belgian, 1).
+
+next_to(ducados, wyrm).
+next_to(chimera, winston).
+
+same_place.camel, wine).
+
+same_place(scottish, lucky_strike).
+
+next_to(indigo, belgian).
+next_to(vermut, ducados).
+
+############ [13:20] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Here are the outputs:
+
+
+living_place(house, V) :- house(V). type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo). person(irish; welsh; scottish; belgian; moroccan). type(pet, V) :- pet(V). pet(dragon; gryphon; wyvern; chimera; wyrm). type(drink, V) :- drink(V). drink(wine; whiskey; gin; vodka; vermut). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; winston; pueblo; lucky_strike).
+
+house(1..5).
+
+living_place(house, V) :- house(V). same_place(irish, crimson). same_place(moroccan, dragon). same_place(welsh, gin). left(olive, ivory). same_place(olive, whiskey). same_place(3, vodka). same_place(belgian, 1). next_to(ducados, wyrm). next_to(wyrm, winton). next_to(wyrm, camel). same_place(scottish, lucky_strike). next_to(indigo, belgian). next_to(ducados, vermut).
+
+############ [13:20] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Here are the outputs:
+
+
+living_place(house, V) :- house(V). type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo). person(irish; welsh; scottish; belgian; moroccan). type(pet, V) :- pet(V). pet(dragon; gryphon; wyvern; chimera; wyrm). type(drink, V) :- drink(V). drink(wine; whiskey; gin; vodka; vermut). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; winston; pueblo; lucky_strike). same_place(irish, crimson). same_place(moroccan, dragon). same_place(welsh, gin). left(olive, ivory). same_place(olive, whiskey). same_place(3, vodka). same_place(1, belgian). same_place(3, ducados). next_to(ducados, wyrm). next_to(wyrm, winton). same_place(wyrm, winton). same_place(wyrm, wyrm). next_to(wyrm, camels). same_place(camels, wine). same_place(scottish, lucky_strike). next_to(indigo, belgian). same_place(indigo, vermut).
+
+############ [13:20] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Here are the outputs:
+
+
+living_place(house, V) :- house(V). type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo). house(1..5). person(irish; welsh; scottish; belgian; moroccan). type(pet, V) :- pet(V). pet(dragon; gryphon; wyvern; chimera; wyrm). type(drink, V) :- drink(V). drink(wine; whiskey; gin; vodka; vermut). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; winston; pueblo; lucky_strike). same_place(irish, crimson). same_place(moroccan, dragon). same_place(welsh, gin). left(olive, ivory). same_place(olive, whiskey). same_place(3, vodka). same_place(belgian, 1). next_to(ducados, wyrm). next_to(wyrm, winton). next_to(wyrm, camel). same_place(scottish, lucky_strike). next_to(indigo, belgian). same_place(ducados, vermut).
+
+############ [13:20] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Here are the outputs:
+
+
+living_place(house, V) :- house(V). type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo). house(1..5).
+
+person(irish; welsh; scottish; belgian; moroccan). type(pet, V) :- pet(V). pet(dragon; gryphon; wyvern; chimera; wyrm). type(drink, V) :- drink(V). drink(wine; whiskey; gin; vodka; vermut). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; winston; pueblo; lucky_strike).
+
+same_place(irish, crimson). same_place(moroccan, dragon). same_place(welsh, gin). left(olive, ivory). same_place(olive, whiskey). same_place(3, vodka). same_place(belgian, 1). next_to(ducados, wyrm). next_to(wyrm, winston). same_place(wyrm, winton). same_place(chimera, winston). same_place.camel, wine). same_place(scottish, lucky_strike). next_to(indigo, belgian). next_to(ducados, vermut).
+
+############ [13:40] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the output:
+
+language(german; spanish; arabic). seats_number(4). person(jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose).
+
+############ [13:40] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the answer:
+
+language(german; spanish; arabic). seats_number(4). person(jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). opposite(martina, jose).
+
+Note: I followed the exact format and predicate names as specified in the instructions. Let me know if this meets your requirements!.
+
+############ [13:40] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the solution:
+
+language(german; spanish; arabic). seats_number(4). person(jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose).
+
+############ [13:40] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the output:
+
+language(german; spanish; arabic). seats_number(4). person(jose; martina; claudia; pedro). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). opposite(martina, jose).
+
+Note: I've followed the exact format and predicate naming conventions as specified in the instructions.
+
+############ [13:40] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	Here is the answer:
+
+seats_number(4).
+person(jose; martina; claudia; pedro).
+language(german; spanish; arabic).
+speaks(pedro, arabic).
+speaks(jose, arabic).
+speaks(claudia, spanish).
+speaks(martina, german).
+not_next_to(claudia, pedro).
+next_to(pedro, arabic).
+opposite(martina, jose).
+
+############ [13:43] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	
+seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). opposite(martina, jose).
+# Explicación LN: Claudia is seated in the first chair, Pedro is seated in the third, Martina in the second and Jose is seated in the fourth.
+
+############ [13:44] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	
+seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose).
+# Explicación LN: Pedro is seated in the first chair, Martina in the second, Claudia in the third and Jose is seated in the fourth.
+
+############ [13:47] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	
+house(1..5). type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo). type(pet, V) :- pet(V). pet(dragon; gryphon; wyvern; chimera; wyrm). type(drink, V) :- drink(V). drink(wine; whiskey; gin; vodka; vermut). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; winston; pueblo; lucky_strike). person(irish; welsh; scottish; belgian; moroccan). living_place(house, V) :- house(V). same_place(irish, crimson). same_place(moroccan, dragon). same_place(welsh, gin). left(olive, ivory). same_place(olive, whiskey). same_place(3, vodka). same_place(1, belgian). same_place(indigo, belgian). next_to(ducados, wyrm). next_to(wyrm, winston). same_place(chimera, winston). same_place(camel, wine). same_place(scottish, lucky_strike).
+# Explicación LN: The Irish live in the crimson house number 1 with a wyvern as pet, drinking wine and smoking Camel tobacco. The Welsh inhabit the ivory house number 5 with a gryphon, consuming gin and preferring Pueblo cigarettes. The Scottish reside in the gold house number 3, keeping a wyrm, drinking vodka, and enjoying Lucky Strike tobacco. The Belgian occupy the indigo house number 2, having a chimera as pet, drinking Vermut, and smoking Winston cigarettes. The Moroccan live in the olive house number 4, owning a dragon, drinking whiskey, and preferring Ducados tobacco.
