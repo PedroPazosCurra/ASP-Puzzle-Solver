@@ -7,27 +7,52 @@ def calcula_porcentaje(pct, tiempos):
     return "{:.3f} s\n({:.1f} %)".format( absolute, pct)
 
 
-# Función exportada: Dada una lista de tiempos (con los tiempos en segundos de cada fase del proceso), saca una gráfica tipo Pie.
-def tiempos_plot(tiempos : list, tiempo_total, intentos : int):
+# Función exportada: tiempos_plot
+#  Dada una lista de tiempos (con los tiempos en segundos de cada fase del proceso), saca una gráfica tipo barra horizontal.
+#   list, int, int -> void
+#   
+def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int):
     num_fases = len(tiempos)
     fases_all = ["1.- NL_to_ASP", "2.- resolver_ASP", "3.- AS_to_NL", "4.- Módulo gráfico"]
     fases  = fases_all[ : num_fases]
+    colores_barra = ['#8d02ff', '#ff00c8', '#ff001e', '#ff7300']
+    colores_texto = ['#490163', '#61003e', '#660000', '#663d00']
 
-    fig, ax = plt.subplots(figsize =(6, 3), 
+    fig, ax = plt.subplots(figsize =(10, 3), 
                         subplot_kw = dict(aspect ="equal"))
 
-    # Tarta
-    wedges, texts, autotexts = ax.pie(  tiempos,
-                                        labels = fases,
-                                        wedgeprops={'linewidth' : 3.0, 'edgecolor' : 'white'},
-                                        textprops= dict(color = "w"),
-                                        autopct= lambda pct: calcula_porcentaje(pct, tiempos))
+    left_count = 0
+    left_sum = [0]
     
-    for i, patch in enumerate(wedges):
-        texts[i].set_color(patch.get_facecolor())
-        plt.setp(texts, fontweight = 600)
+    for i, tiempo in enumerate(tiempos):
+        ax.barh(
+                y= " ",
+                width= tiempo,
+                left= left_count,
+                label= fases[i],
+                color= colores_barra[i],
+                edgecolor= colores_texto[i],
+                linewidth= 1
+                )
 
-    plt.setp(autotexts, size = 8, weight ="bold")
-    ax.set_title(f"Tiempo de ejecución por fase del proceso\nTiempo total = {tiempo_total:.2f} s\n({intentos + 1} intentos)")
+        texto_x = left_count + tiempo / 2
+        texto_y =  0.5
+        ax.text(texto_x, texto_y, fases[i], ha='center', va='bottom', fontsize=8, color=colores_texto[i])
+
+        left_count += tiempo
+        left_sum.append(round(left_count, 2))
+
+    ax.text(0, -3.5, f"Tiempo total sistema: {tiempo_total:.2f} s", ha='left', va='bottom', fontsize=12)
+    ax.text(0, -5, f"Iteraciones previas: {intentos}", ha='left', va='bottom', fontsize=12)
+
+    ax.set_xticks(left_sum, labels=left_sum, rotation=-25)      # Marcas de tiempo en separaciones
+    ax.get_yaxis().set_visible(False)                           # Borra etiquetas en Y
+    ax.set_xlim(right=left_count)                               # Ajusta el límite
+
+    ax.set_title(f"Tiempo de ejecución por fase (s.)", loc='center', y=2.8)
     
     plt.show(block = True)
+
+
+# Debug
+#tiempos_plot([23.123, 2.3, 15.4, 8.3], 150, 3)

@@ -20064,3 +20064,7 @@ not_next_to(claudia, pedro).
 next_to(pedro, arabic).
 opposite(martina, jose).
 # Explicación LN: Pedro is seated in the first chair, Martina in the second, Claudia in the third and Jose is seated in the fourth.
+
+############ [22:38] LOG ############:
+
+### Intento 0 de 4  ###
