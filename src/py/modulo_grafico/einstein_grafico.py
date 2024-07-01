@@ -6,8 +6,8 @@ from webcolors import name_to_rgb
 from collections import defaultdict
 import traceback
 import os
-from modulo_grafico.utils_graficos import escala_imagen, busca_imagen
-
+import sys
+from modulo_grafico.utils_graficos import busca_imagen, escala_imagen
 
 ######################################### Constantes y variables ##############################################
 TAMAÑO_DEFAULT = 80
@@ -45,7 +45,7 @@ dibujo_solucion = ImageDraw.Draw(fondo_solucion)
 
 
 # Función auxiliar que dibuja un array de texto en determinadas coordenadas y tamaño. 
-def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:float, array_datos:list, array_rutas_imagenes:list):
+def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:float, array_datos:list):
 
     #print(f"Coordenadas {coordenadas}, tamaño {tamaño}, array datos {array_datos}, array_rutas {array_rutas_imagenes}\n")
     
@@ -57,25 +57,15 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
 
     for i, dato in enumerate(array_datos):
 
-        # Primer elemento más grande
+        # Primer elemento con texto más grande
         if (i==0): fuente_letras = ImageFont.truetype(font_path + "/OpenSans-Regular.ttf", size = round(tamaño*0.65))
-
-        ruta_especificada = False
         
-        # Para este dato, ¿tenemos ruta de imagen?
-        for ruta in array_rutas_imagenes:
+        # Busca la imagen. Si no existe, texto.
+        img = busca_imagen(dato)
 
-            if(ruta[0] == dato):
-                ruta_especificada = True
-                ruta_imagen = ruta[1]
+        if img != None:
 
-        if ruta_especificada:
-
-            # Busca la imagen. Si no existe, texto.
             try:
-
-                img = busca_imagen(ruta_imagen)
-
                 # Escala la imagen según tamaños
                 img, hsize = escala_imagen(img, round(tamaño))
 
@@ -106,7 +96,7 @@ def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:f
 
 
 # Función auxiliar que dibuja un elemento en determinadas coordenadas, tamaño, color y número. 
-def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tamaño, color = 'white', numero = ''):
+def dibuja_elemento(fondo, elemento, dibujo, coordenadas, tamaño, color = 'white', numero = ''):
 
     a, b = coordenadas
     c = a + tamaño*2
@@ -138,7 +128,7 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
     # Si no es una casa, ponemos la imagen del elemento y indicamos el color en un círculo de color.
     else:
         try:
-            img = busca_imagen(imagen_elemento)
+            img = busca_imagen(elemento)
 
             # Escala la imagen según tamaños
             tamaño_escala = round(2*tamaño)
@@ -178,42 +168,36 @@ def dibuja_elemento(fondo, elemento, imagen_elemento, dibujo, coordenadas, tama�
                     )
 
 
-def representa_elemento(fondo, elemento, imagen_elemento, coordenadas, elems, tamaño, color = 'white', numero = '', rutas_imagenes = []):
+def representa_elemento(fondo, elemento, coordenadas, elems, tamaño, color = 'white', numero = ''):
 
     # Dibuja la casa
-    dibuja_elemento(fondo, elemento, imagen_elemento, dibujo_solucion, coordenadas, tamaño, color, numero)
+    dibuja_elemento(fondo, elemento, dibujo_solucion, coordenadas, tamaño, color, numero)
 
     # Escribe los datos debajo de la casa
-    dibuja_datos(fondo, dibujo_solucion, coordenadas, tamaño, elems, rutas_imagenes)
+    dibuja_datos(fondo, dibujo_solucion, coordenadas, tamaño, elems)
 
 
-def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
+def representa_estado_inicial(elemento_central, grupos):
 
-    dict_datos = defaultdict(list)         # Aquí van a ir recopilados los datos sin asociar a casas ("num" : [1,2,3]...)
+    dict_datos = defaultdict(list)         # Aquí van a ir recopilados los datos sin asociar a elementos centrales ("num" : [1,2,3]...)
     num_grupos = len(grupos)
 
-    # Función exponencial para ajustar el tamaño de las casas para que quepan en el fondo 
+    # Función exponencial para ajustar el tamaño de los elementos centrales para que quepan en el fondo 
     tamaño_elem_central = (1.1**(-num_grupos)) * TAMAÑO_DEFAULT
 
-    # Para cada casa con índice i de la entrada
-    for i, casa in enumerate(grupos):
+    # Para cada grupo con índice i de la entrada
+    for i, grupo in enumerate(grupos):
 
         # División de los 2000px que le toca a cada casa según cuántas casas hay
         division_elems_centrales = (TAMAÑO_FONDO/(num_grupos+1)) * (i + 1)
 
-        numero = str(casa[elemento_central])
-        imagen_elemento = None
-
-        # ¿Se le da imagen al elemento central?
-        for par in rutas_imagenes:
-            if par[0] == elemento_central:
-                imagen_elemento = par[1]
+        numero = str(grupo[elemento_central])
 
         # Dibuja el elemento en blanco
-        dibuja_elemento(fondo_estado_inicial, elemento_central, imagen_elemento, dibujo_estado_inicial, coordenadas= (division_elems_centrales - tamaño_elem_central, TAMAÑO_FONDO - 6* tamaño_elem_central), tamaño= tamaño_elem_central, numero= numero)
+        dibuja_elemento(fondo_estado_inicial, elemento_central, dibujo_estado_inicial, coordenadas= (division_elems_centrales - tamaño_elem_central, TAMAÑO_FONDO - 6* tamaño_elem_central), tamaño= tamaño_elem_central, numero= numero)
         
         # Recoge todos los datos de las casas y los almaceno por clave
-        for key, value in casa.items():
+        for key, value in grupo.items():
             dict_datos[key].append(str(value))
         
     # Ya tengo los datos filtrados por clave
@@ -235,13 +219,12 @@ def representa_estado_inicial(elemento_central, grupos, rutas_imagenes = []):
                     dibujo= dibujo_estado_inicial,
                     tamaño= tamaño_datos,
                     coordenadas= (division_datos- tamaño_datos,100),
-                    array_datos= valor,
-                    array_rutas_imagenes= rutas_imagenes)
+                    array_datos= valor)
 
     return fondo_estado_inicial
 
 
-def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
+def representa_solucion(elemento_central, grupos):
 
     num_elems = len(grupos)
 
@@ -252,16 +235,10 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
 
         color = "gray" 
         numero = ""
-        imagen_elemento = None
         numero = str(grupo.get(elemento_central, []))
 
         # División de los 2000px que le toca a cada elemento central según cuántos haya
         division = (TAMAÑO_FONDO/(num_elems+1)) * (i + 1)
-
-        # ¿Se le da imagen al elemento central?
-        for par in rutas_imagenes:
-            if par[0] == elemento_central:
-                imagen_elemento = par[1]
 
         # Argumentos de representa_elemento (los quitamos del array casa porque ya no los queremos)
         if(elemento_central in grupo):
@@ -275,13 +252,11 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
         # Dibuja el elemento central y escribe sus datos
         representa_elemento(fondo       = fondo_solucion,
                         elemento        = elemento_central,
-                        imagen_elemento = imagen_elemento,
                         coordenadas     = (division - tamaño_elems, 400),
                         numero          = numero,
                         color           = color,
                         tamaño          = tamaño_elems,
-                        elems           = grupo.values(),
-                        rutas_imagenes= rutas_imagenes
+                        elems           = grupo.values()
                         )
         
         # Dibuja separador
@@ -303,7 +278,6 @@ def representa_solucion(elemento_central, grupos, rutas_imagenes = []):
 #   Ejemplo de uso:
 #
 #   einstein_grafico(   array_has       = [['pedro', 'house', 1], ['pedro', 'drink', 'water']], 
-#                       rutas_imagenes  = [['coffee', '/img/cafe.png']]
 #                   )
 #
 def einstein_grafico(argumentos):
@@ -311,7 +285,7 @@ def einstein_grafico(argumentos):
     tipo = ""
     elemento_central = "house"
     grupos = np.array([])
-    [array_has, rutas_imagenes] = argumentos
+    [array_has] = argumentos
 
     try:
 
@@ -350,12 +324,12 @@ def einstein_grafico(argumentos):
                     elemento_central = k
                     break
 
-        # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número de elemento central y representamos. Añadimos el array de urls de imágenes
+        # Ya tenemos un array de diccionarios con todos los datos de las casas. Ordenamos por número de elemento central y representamos.
         if(all(elemento_central in grupo for grupo in grupos)):
             grupos = sorted(grupos, key=lambda d: d[elemento_central])
 
-            representa_estado_inicial(elemento_central, grupos, rutas_imagenes).save(inicial_save_path)
-            representa_solucion(elemento_central, grupos, rutas_imagenes).save(solucion_save_path)
+            representa_estado_inicial(elemento_central, grupos).save(inicial_save_path)
+            representa_solucion(elemento_central, grupos).save(solucion_save_path)
 
             return [0, "OK"]
         
@@ -386,7 +360,7 @@ if DEBUG:
     # 15 casas
     as_prueba5 = [['a', 'house', 1], ['a', 'pet', 'cat'], ['a', 'drink', 'cocacola'], ['b', 'house', 2],  ['c', 'house', 3],  ['d', 'house', 4],  ['e', 'house', 5],  ['f', 'house', 6],  ['g', 'house', 7],  ['h', 'house', 8],  ['i', 'house', 9],  ['j', 'house', 10],  ['k', 'house', 11],  ['l', 'house', 12],  ['m', 'house', 13],  ['n', 'house', 14],  ['o', 'house', 15],  ['p', 'house', 16], ['q', 'house', 17], ['r', 'house', 18], ['s', 'house', 19], ['t', 'house', 20]]
 
-    print(einstein_grafico([as_prueba2, [['cocacola', 'cocacola'], ['horse', 'horse'], ['agua', 'agua'], ['water', 'agua'], ['car', '"car"'], ['coche', 'car'], ['leche', "https://media.istockphoto.com/id/1206080627/es/foto/vaso-de-leche.jpg?s=612x612&w=0&k=20&c=7FqLtngMMi-8XShmhgmfBvEtcjJ7MQGxaZeWFeO6ijQ="], ['isabel', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"]]]))
+    print(einstein_grafico([as_prueba2]))
 
     # Enseña las imgs por pantalla
     fondo_estado_inicial.show()

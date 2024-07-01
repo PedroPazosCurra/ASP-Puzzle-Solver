@@ -1,8 +1,5 @@
 from PIL import Image
-import math
 from os import path
-import requests
-from io import BytesIO
 
 # Rutas a elementos estáticos de la BD
 atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/atom_images"))
@@ -58,13 +55,7 @@ def busca_imagen(nombre : str):
             try:
                 img = Image.open(atom_imgs_path + f'/{nombre}.jpeg')
             except:
-
-                # url
-                try:
-                    response = requests.get(nombre)
-                    img = Image.open(BytesIO(response.content))
-                except:
-                    img = None
+                img = None
 
     # return
     finally:

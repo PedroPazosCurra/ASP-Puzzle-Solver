@@ -70,7 +70,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
     answer_set = ""
     nl_salida = ""
     msg_grafico = ""
-    salida_solver = [{},{}]
+    salida_solver = []
     array_tiempos = []
     salida = "# "
     estado = 0
@@ -145,6 +145,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
         #print(f"########### TIEMPO TOTAL ###########:      {tiempo_total}:\n\tNL_to_ASP:\t\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t\t{tiempo_resolver_asp}\n\tAS_to_NL:\t\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t\t{tiempo_grafico}")
         
 ##############################################################  Ejecución  #############################################################################
+
 
 # Default
 prompt = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image \"cocacola\". There's a dog, a cat and a horse. The spanish keeps the cat, while the english man has a dog. The horse is represented by the image called \"horse\". The cat is represented by \"https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg\" The spanish man has a red house. The chinese man, on the other hand, lives in a purple house."

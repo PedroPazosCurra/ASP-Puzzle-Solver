@@ -6,5 +6,5 @@ def modulo_grafico(args : list, puzzle : str):
 
     match puzzle:
         case "Einstein": return einstein_grafico(args)
-        case "Comensales": return comensales_grafico(args)
+        case "Comensales": return comensales_grafico.comensales_grafico(args)
         case _: return [1, f"El módulo gráfico recibe un puzzle que no existe: {puzzle}."]

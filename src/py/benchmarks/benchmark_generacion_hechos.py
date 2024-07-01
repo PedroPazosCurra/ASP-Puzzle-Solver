@@ -29,8 +29,9 @@ tests = open(path.abspath(path.join(path.dirname(__file__), "..", "../../resourc
 # Bucle
 for line in tests.readlines():
 
-    if line[0] == "#":  # Comentario -> ignorar
+    if (line[0] == "#") or (line.__len__ == 0):  # Comentario o linea vacía -> ignorar
         continue
+
 
     puzzle, sat,  prompt = line.split("|")
     puzzle = puzzle.strip()

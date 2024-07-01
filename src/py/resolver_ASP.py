@@ -1,5 +1,4 @@
 # Imports
-import sys
 import clingo
 from os import path
 
@@ -35,11 +34,11 @@ def procesa_argumentos_atomo(atom_args):
 # Función a exportar: resolver_ASP
 #
 #   Dada la salida de NL_to_ASP, que devuelve un conjunto de declaraciones, devuelve un estado, Answer Set y argumentos posteriores
+#   Nota: En la lista de argumentos podríamos añadir "--models=0" para enumerar todos los modelos encontrados, pero sirve con el primero que encuentre (+ rendimiento)
 def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = ["--warn=none"]):
 
     answer_sets = ""    # has(brittish,house,1). has(brittish,pet,dog).
     has_atoms = []      # [['norwegian', 'beverage', 'coffee'], ['english', 'house', '1']]
-    image_routes = []   # [['coffee', 'ruta/coffee.png']]
     seated_atoms = []
     speaks_atoms = []
 
@@ -80,19 +79,16 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
         for atomo in modelo.symbols(atoms=True):
 
             match puzzle:
+
                 case "Einstein":
+
                     if(atomo.name == "has" and len(atomo.arguments) == 3):
                         # Toma los 3 argumentos del has(X,Y,Z)
                         has_arg_1, has_arg_2, has_arg_3 = procesa_argumentos_atomo(atomo.arguments)  
                         has_atoms.append([has_arg_1, has_arg_2, has_arg_3])
 
-                    elif(atomo.name == "image" and len(atomo.arguments) == 2):
-
-                        # Toma 2 args del image(X,Y)
-                        img_arg_1, img_arg_2 = procesa_argumentos_atomo(atomo.arguments)
-                        image_routes.append([img_arg_1, img_arg_2])
-
                 case "Comensales":
+
                     if(atomo.name == "seated" and len(atomo.arguments) == 2):
                         seated_arg_1, seated_arg_2 = procesa_argumentos_atomo(atomo.arguments)
                         seated_atoms.append([seated_arg_1, seated_arg_2])
@@ -103,15 +99,12 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
 
                 case _:
                     return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
-        
-        break # Si se encuentra un modelo válido, no sigo explorándolos
-                
 
     # ¿Tiene solución?
     if (len(answer_sets) >= 1):
         match puzzle:
             case "Einstein":
-                return([0, answer_sets, [has_atoms, image_routes]])
+                return([0, answer_sets, [has_atoms]])
             case "Comensales":
                 return([0, answer_sets, [seated_atoms, speaks_atoms]])
             case _:

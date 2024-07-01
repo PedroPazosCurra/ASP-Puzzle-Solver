@@ -1,15 +1,9 @@
 ############ Imports ############
 from PIL import Image, ImageDraw, ImageFont
-import requests
-import numpy as np
 from os import path
-from io import BytesIO
-from webcolors import name_to_rgb
-from collections import defaultdict
 import traceback
 import math
-from modulo_grafico.utils_graficos import escala_imagen, dibuja_silla, dibuja_mesa
-
+from modulo_grafico.utils_graficos import dibuja_mesa, dibuja_silla
 
 ######################################### Constantes y variables ##############################################
 

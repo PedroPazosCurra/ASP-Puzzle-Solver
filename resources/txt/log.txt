@@ -20354,3 +20354,118 @@ house(1..3). living_place(house, V) :- house(V).
 
 # Explicación LN: The Spanish person lives in the third house.
 # Módulo gráfico: OK
+
+############ [1:18] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [1:33] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	
+person(spanish; english; chinese).
+
+house(1..3).
+
+
+############ [1:33] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(red; purple). house(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). 
+# Explicación LN: The English person lives in the first house, which is purple, drinks milk, but there is no mention of their car. The Spanish person lives in the third house and drinks soda. The Chinese person lives in the second house, which is red, and drinks tea.
+
+############ [1:35] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+house(1..5).
+
+person(british; danish; german; norwegian; swedish).
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+# Explicación LN: The British person lives in the green house number 2 with a bird as a pet. The Danish person resides in the yellow house number 3 with a fish as a pet. The German person dwells in the blue house number 1 with a dog as a pet. The Norwegian person lives in the red house number 5 with a cat as a pet. The Swedish person inhabits the white house number 4 with a horse as a pet.
+
+############ [1:37] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	
+house(1..5). living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). same_place(green, coffee). same_place(2, green). same_place(3, milk). same_place(norwegian, 1). same_place(blends, cat). next_to(blends, cat). next_to(dog, dunhill). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). next_to(blends, water).
+
+
+############ [1:37] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+house(1..5).
+
+person(brittish; danish; german; norwegian; swedish).
+
+
+############ [1:37] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). left(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(prince, german). next_to(blue, norwegian). same_place(blends, water).
+
+############ [1:37] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). house(1..5).
+
+person(brittish; danish; german; norwegian; swedish).
+
+# Explicación LN: The German person lives in the blue house, the British person lives in the green house, the Danish person lives in the yellow house, the Swedish person lives in the white house, and the Norwegian person lives in the red house.
+OK
+############ [1:40] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). house(1..5). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). same_place(blends, water).
+
+############ [1:40] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue).
+
+house(1..5).
+
+person(brittish; danish; german; norwegian; swedish).
+
+
+############ [1:40] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). same_place(blends, water).
+
+############ [1:40] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). next_to(blends, water).
+
+############ [1:40] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). house(1..5). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). same_place(green, coffee). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(prince, german). next_to(blue_master, water).
+
+############ [1:41] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). house(1..5). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(british; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). same_place(blends, cat). same_place(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). next_to(blends, water). next_to(norwegian, blue).
+# Explicación LN: The British person lives in the house number 3, has a red-colored house, keeps a bird as pet, drinks milk, and prefers Pall Mall tobacco. The Danish person resides in the house number 2 with a blue-colored house, owns a cat, consumes tea, and smokes blends. The German person lives in the house number 4 with a green-colored house, keeps a fish as pet, drinks coffee, and prefers Prince tobacco. The Norwegian person lives in the house number 1 with a yellow-colored house, owns a horse, drinks water, and smokes Dunhill tobacco. The Swedish person lives in the house number 5 with a white-colored house, keeps a dog as pet, drinks beer, and prefers Blue Master tobacco.
