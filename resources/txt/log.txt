@@ -20068,3 +20068,289 @@ opposite(martina, jose).
 ############ [22:38] LOG ############:
 
 ### Intento 0 de 4  ###
+
+############ [17:2] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:2] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:2] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:2] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo).
+
+house(1..5).
+
+person(irish; welsh; scottish; belgian; moroccan).
+
+
+############ [17:2] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo). person(irish; welsh; scottish; belgian; moroccan). type(pet, V) :- pet(V). pet(dragon; gryphon; wyvern; chimera; wyrm). type(drink, V) :- drink(V). drink(wine; whiskey; gin; vodka; vermut). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; winston; pueblo; lucky_strike).
+
+house(1..5). living_place(house, V) :- house(V). same_place(irish, crimson). same_place(moroccan, dragon). same_place(welsh, gin). same_place(i, olive). same_place(whiskey, olive). same_place(wyvern, pueblo). same_place(winston, gold). same_place(vodka, 3). same_place(belgian, 1). next_to(ducados, wyrm). next_to(chimera, winston). same_place(wine, camel). same_place(scottish, lucky_strike). next_to(indigo, belgian). same_place(vermut, ducados).
+
+############ [17:5] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo).
+
+house(1..5).
+
+person(irish; welsh; scottish; belgian; moroccan).
+
+
+############ [17:5] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:5] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:5] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:5] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(gold; olive; ivory; crimson; indigo). person(irish; welsh; scottish; belgian; moroccan). type(pet, V) :- pet(V). pet(dragon; gryphon; wyvern; chimera; wyrm). type(drink, V) :- drink(V). drink(wine; whiskey; gin; vodka; vermut). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; winston; pueblo; lucky_strike).
+
+house(1..5).
+
+same_place(irish, crimson).
+same_place(moroccan, dragon).
+same_place(welsh, gin).
+right(olive, ivory).
+same_place(whiskey, olive).
+same_place(wyvern, pueblo).
+same_place(winston, gold).
+same_place(3, vodka).
+same_place(1, belgian).
+next_to(ducados, wyrm).
+next_to(winston, chimera).
+same_place(camel, wine).
+same_place(scottish, lucky_strike).
+next_to(indigo, belgian).
+same_place(vermut, ducados).
+# Explicación LN: The Irish person lives in the first house with a crimson color, has a wyrm as a pet, drinks wine, and smokes Camel tobacco. The Welsh person lives in the fifth house with a gold color, has a gryphon as a pet, drinks gin, and smokes Winston tobacco. The Scottish person lives in the fourth house with an olive color, has a chimera as a pet, drinks whiskey, and smokes Lucky Strike tobacco. The Belgian person lives in the third house with an ivory color, has a wyvern as a pet, drinks vodka, and smokes Pueblo tobacco. The Moroccan person lives in the second house with an indigo color, has a dragon as a pet, drinks vermouth, and smokes Ducados tobacco.
+
+############ [17:36] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:36] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:36] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [17:36] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(white; yellow; green; red; blue).
+house(1..5).
+
+person(brittish; danish; german; norwegian; swedish).
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+# Explicación LN: The British person lives in the yellow house number 2 and has a bird as a pet. The Danish person lives in the white house number 3 and has a fish as a pet. The German person lives in the blue house number 1 and has a dog as a pet. The Norwegian person lives in the red house number 5 and has a cat as a pet. The Swedish person lives in the green house number 4 and has a horse as a pet.
+
+############ [18:0] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). house(1..5).
+
+person(brittish; danish; german; norwegian; swedish).
+
+# Explicación LN: The German person lives in the blue house. The British person lives in the green house. The Danish person lives in the yellow house. The Swedish person lives in the white house. The Norwegian person lives in the red house.
+
+############ [18:12] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V).
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+
+person(brittish; danish; german; norwegian; swedish).
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+house(1..5).
+living_place(house, V) :- house(V).
+
+same_place(brittish, red).
+same_place(swedish, dog).
+same_place(danish, tea).
+left(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(dunhill, horse).
+same_place(blue_master, beer).
+same_place(prince, german).
+right(norwegian, blue).
+next_to(blends, water).
+
+
+############ [18:12] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [18:12] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	Error en servidor: 502
+
+############ [18:12] LOG ############:
+
+### Intento 3 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). same_place(blends, water).
+
+############ [18:12] LOG ############:
+
+### Intento 4 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). house(1..5). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). right(norwegian, blue). next_to(blends, water).
+
+############ [18:59] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	
+person(brittish; danish; german; norwegian; swedish).
+house(1..5).
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+
+
+############ [18:59] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	type(color, V) :- color(V). color(yellow; green; white; red; blue). house(1..5). living_place(house, V) :- house(V). person(brittish; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). same_place(blends, water).
+
+
+############ [18:59] LOG ############:
+
+### Intento 2 de 4  ###
+# # Modelo ASP sacado: 
+	
+person(brittish; danish; german; norwegian; swedish). house(1..5). living_place(house, V) :- house(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(brittish, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+# Explicación LN: The British person lives in the house number 3, has a red house, keeps a bird as pet, drinks milk and smokes Pall Mall tobacco. The Danish person lives in the house number 2, has a blue house, keeps a horse as pet, drinks tea and smokes Blends tobacco. The German person lives in the house number 4, has a green house, keeps a fish as pet, drinks coffee and smokes Prince tobacco. The Norwegian person lives in the house number 1, has a yellow house, keeps a cat as pet, drinks water and smokes Dunhill tobacco. The Swedish person lives in the house number 5, has a white house, keeps a dog as pet, drinks beer and smokes Blue Master tobacco.
+
+############ [19:43] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	
+person(spanish; english; chinese).
+
+house(1..3). living_place(house, V) :- house(V).
+# Explicación LN: The English person lives in the second house, the Spanish person lives in the third house, and the Chinese person lives in the first house.
+
+############ [19:45] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(white; red; green; yellow). person(german; polish; english). next_to(red, green).
+
+
+############ [19:45] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). house(1..3). person(spanish; english; chinese).
+
+# Explicación LN: The Chinese person lives in the first house. The English person lives in the second house. The Spanish person lives in the third house.
+
+############ [19:48] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(white; red; green; yellow). person(german; polish; english). next_to(red, green). color(white).
+
+
+############ [19:48] LOG ############:
+
+### Intento 1 de 4  ###
+
+############ [19:54] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). color(white; red; green; yellow). person(german; polish; english). next_to(red, green).
+
+
+############ [19:54] LOG ############:
+
+### Intento 1 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). house(1..3). person(spanish; english; chinese).
+
+# Explicación LN: The English person lives in the house number 2.
+# Módulo gráfico: OK
+
+############ [19:57] LOG ############:
+
+### Intento 0 de 4  ###
+# # Modelo ASP sacado: 
+	living_place(house, V) :- house(V). person(spanish; english; chinese). house(1..3).
+
+# Explicación LN: The Spanish person lives in the third house.
+# Módulo gráfico: OK

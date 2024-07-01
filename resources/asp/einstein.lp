@@ -1,17 +1,3 @@
-%person(a;b;c).
-%type(house, V) :- house(V).
-%house(1..3).
-%living_place(house, V) :- house(V).
-%type(pet, V) :- pet(V).
-%pet(dog;cat;mouse;).
-%type(color, V) :- color(V).
-%color(red;blue;yellow).
-%has(a,pet,cat).
-%has(b,pet,dog).
-%same_place(dog,red).
-%same_place(cat,yellow).
-%neighbor(dog,red).
-%neighbor(a,b).
 
 % Filtrado previo de entradas erróneas en cuanto a lógica de puzzle
 :- same_place(X,Y), person(X), not type(_,Y).

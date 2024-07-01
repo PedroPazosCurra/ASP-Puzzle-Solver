@@ -42,7 +42,7 @@ def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int):
         left_count += tiempo
         left_sum.append(round(left_count, 2))
 
-    ax.text(0, -3.5, f"Tiempo total sistema: {tiempo_total:.2f} s", ha='left', va='bottom', fontsize=12)
+    ax.text(0, -3.5, f"Tiempo total iteración: {tiempo_total:.2f} s", ha='left', va='bottom', fontsize=12)
     ax.text(0, -5, f"Iteraciones previas: {intentos}", ha='left', va='bottom', fontsize=12)
 
     ax.set_xticks(left_sum, labels=left_sum, rotation=-25)      # Marcas de tiempo en separaciones

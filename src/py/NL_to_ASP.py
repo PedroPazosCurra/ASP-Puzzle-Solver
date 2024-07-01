@@ -18,7 +18,7 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
 
         contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/einstein_puro.txt"))
         with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
-        fewshot = "INPUT: "
+        fewshot = "\nIN: "
 
     else:
         # Leemos /resources/ctx... para tener el contexto para few-shot learning
@@ -64,17 +64,21 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
         salida_llm += "."
 
     # Comprobación de respuesta válida mediante REGEX con sintaxis ASP. Nota: REGEX en dos niveles para filtrar preámbulos y coletillas en nivel ligero y filtrar comandos erróneos en nivel estricto.
-    match_regex_ligero = re.search(ASP_REGEX_LIGERO, salida_llm, flags=0).group()
     
-    if(puzzle == "Einstein"):
-        match_regex_estricto_einstein = re.search(ASP_REGEX_ESTRICTO_EINSTEIN, match_regex_ligero, flags=0).group()
-        if match_regex_estricto_einstein == match_regex_ligero: 
-            return([0, match_regex_estricto_einstein])
-
-    elif(puzzle == "Comensales" and match_regex_ligero):
-        return([0, match_regex_ligero])
+    try:
+        match_regex_ligero = re.search(ASP_REGEX_LIGERO, salida_llm, flags=0).group()
         
-    else:
+        if(puzzle == "Einstein"):
+            match_regex_estricto_einstein = re.search(ASP_REGEX_ESTRICTO_EINSTEIN, match_regex_ligero, flags=0).group()
+            if match_regex_estricto_einstein == match_regex_ligero: 
+                return([0, match_regex_estricto_einstein])
+
+        elif(puzzle == "Comensales" and match_regex_ligero):
+            return([0, match_regex_ligero])
+            
+        else:
+            return([1, "Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. " + salida_llm])
+    except:
         return([1, "Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. " + salida_llm])
 
         

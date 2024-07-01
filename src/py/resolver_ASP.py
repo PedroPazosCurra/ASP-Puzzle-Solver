@@ -67,9 +67,9 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
         return([1, "Ha habido un problema en el proceso de grounding ASP", []])
 
     # Se devuelve el set si el programa es SAT y un error si no.
-
     try:
         solve_handle = cc.solve(yield_= True)
+        
     except:
         return([1, "Ha habido un problema en el proceso de solving ASP", []])
 
@@ -103,8 +103,9 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
 
                 case _:
                     return([1, "En resolver_ASP.py, se recibe un puzzle que no existe. Vigila que se pase bien.", []])
+        
+        break # Si se encuentra un modelo válido, no sigo explorándolos
                 
-
 
     # ¿Tiene solución?
     if (len(answer_sets) >= 1):
@@ -121,8 +122,9 @@ def resolver_ASP(modelo : str = None, puzzle : str = None, clingo_args : list = 
 
 # Debug:
 if (DEBUG):
-    modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
+    modelo_sat = "living_place(house, V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). same_place(brittish, red). same_place(brittish, 1)."
     modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
     modelo_invalido = ":-"
     status, ans_sets, args = resolver_ASP(modelo_sat, "Einstein")
+
     print(status, ans_sets, args)
