@@ -24,10 +24,14 @@ def llamada_llm(prompt : str, temperatura : float):
                         "top_k": 40,
                         "stream": False
                         })
-    headers = { 'Content-Type': 'application/json',
-                'Authorization': f"Bearer {secret_key}" }
     
-    response = requests.request("POST", url, headers=headers, data=payload)
+    try:
+        headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {secret_key}" }
+        response = requests.request("POST", url, headers=headers, data=payload)
+
+    except requests.exceptions.ConnectTimeout:
+        return [1, "Timeout por parte del servidor. Probablemente servidor caído o saturado."]
+
 
     try:
         response = response.json()

@@ -46,8 +46,12 @@ payload = json.dumps({
                         "stream": False
                     })
 
-headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {secret_key}" }
-response = requests.request("POST", url, headers=headers, data=payload)
+try:
+    headers = { 'Content-Type': 'application/json', 'Authorization': f"Bearer {secret_key}" }
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+except requests.exceptions.ConnectTimeout:
+    print("Timeout por parte del servidor. Probablemente esté caído.")
 
 try:
     #print(response.status_code)

@@ -11,10 +11,22 @@ def calcula_porcentaje(pct, tiempos):
 #  Dada una lista de tiempos (con los tiempos en segundos de cada fase del proceso), saca una gráfica tipo barra horizontal.
 #   list, int, int -> void
 #   
-def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int):
+def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int, representaciones : list = ["show_graphic", "show_description"]):
+
     num_fases = len(tiempos)
-    fases_all = ["1.- NL_to_ASP", "2.- resolver_ASP", "3.- AS_to_NL", "4.- Módulo gráfico"]
-    fases  = fases_all[ : num_fases]
+    fases_nombres = ["1.- NL_to_ASP", "2.- resolver_ASP", "3.- AS_to_NL", "4.- Módulo gráfico"]
+    fases_actuales  = fases_nombres[ : num_fases]
+
+    if num_fases <= 0 or num_fases > 4: exit()
+    elif num_fases == 3 and len(representaciones) == 1: 
+
+        if representaciones[0] == "show_graphic":
+            fases_actuales[2] = "3.- Módulo gráfico"
+        elif representaciones[0] == "show_description":
+            fases_actuales[2] = "3.- AS_to_NL"
+        
+        else: exit()
+
     colores_barra = ['#8d02ff', '#ff00c8', '#ff001e', '#ff7300']
     colores_texto = ['#490163', '#61003e', '#660000', '#663d00']
 
@@ -29,7 +41,7 @@ def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int):
                 y= " ",
                 width= tiempo,
                 left= left_count,
-                label= fases[i],
+                label= fases_actuales[i],
                 color= colores_barra[i],
                 edgecolor= colores_texto[i],
                 linewidth= 1
@@ -37,7 +49,7 @@ def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int):
 
         texto_x = left_count + tiempo / 2
         texto_y =  0.5
-        ax.text(texto_x, texto_y, fases[i], ha='center', va='bottom', fontsize=8, color=colores_texto[i])
+        ax.text(texto_x, texto_y, fases_actuales[i], ha='center', va='bottom', fontsize=8, color=colores_texto[i])
 
         left_count += tiempo
         left_sum.append(round(left_count, 2))
@@ -53,6 +65,5 @@ def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int):
     
     plt.show(block = True)
 
-
 # Debug
-#tiempos_plot([23.123, 2.3, 15.4, 8.3], 150, 3)
+# tiempos_plot([23.123, 2.3, 15.4], 150, 3, ["show_graphic", "show_description"])
