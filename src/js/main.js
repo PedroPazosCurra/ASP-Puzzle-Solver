@@ -71,6 +71,7 @@ async function chatbotEnviarMensaje(inputMsg){
   // Envía petición AJAX a backend Express
   peticionProcesaMensaje(inputMsg).then((valor) => { 
 
+    
 
     try{    // Recibe correctamente, actualiza el mensaje
       
@@ -78,10 +79,15 @@ async function chatbotEnviarMensaje(inputMsg){
 
       // Si OK, envía imágenes con la salida del módulo gráfico.
       if(valor[0] == 0){
+
+        representacion_grafica = valor[2];
+
+        if(representacion_grafica == "True\r\n"){
+          representacion_grafica_inicial = "./imagen-inicial";
+          representacion_grafica_solucion = "./imagen-final";
+          chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion); 
+        }
           
-        representacion_grafica_inicial = "./imagen-inicial";
-        representacion_grafica_solucion = "./imagen-final";
-        chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion); 
       }
 
     }catch(error){

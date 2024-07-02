@@ -45,8 +45,6 @@ dibujo_solucion = ImageDraw.Draw(fondo_solucion)
 
 # Función auxiliar que dibuja un array de texto en determinadas coordenadas y tamaño. 
 def dibuja_datos(fondo, dibujo:ImageDraw.ImageDraw, coordenadas:tuple, tamaño:float, array_datos:list):
-
-    #print(f"Coordenadas {coordenadas}, tamaño {tamaño}, array datos {array_datos}, array_rutas {array_rutas_imagenes}\n")
     
     a, b = coordenadas
     c = a + tamaño*2

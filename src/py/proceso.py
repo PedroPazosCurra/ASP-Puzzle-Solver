@@ -47,11 +47,14 @@ def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, 
         # Fin de proceso
         tiempo_total = time.perf_counter() - contador_tiempo_total
         
-        # Sal con el mensaje
-        print(f"{str(estado)}|{msg}", flush= True)
+        # Sal con el mensaje (indica si sacar o no imágenes)
+        if("show_graphic" in representaciones):
+            print(f"{str(estado)}|{msg}|True", flush= True)
+        else:
+            print(f"{str(estado)}|{msg}|False", flush= True)
         log.write(msg)
         log.close
-        tiempos_plot(tiempos, tiempo_total, intento)
+        tiempos_plot(tiempos, tiempo_total, intento, representaciones)
 
     exit(0)
 
