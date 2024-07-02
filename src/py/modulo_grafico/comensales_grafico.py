@@ -11,20 +11,22 @@ TAMAÑO_DEFAULT = 80
 TAMAÑO_FONDO = 1200
 DEBUG = False
 
-# Crea nueva imagen importándola. La imagen es 2000x2000
+# Rutas a recursos
 img_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/img"))
 tmp_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/tmp"))
 atom_imgs_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/atom_images"))
 font_path = path.abspath(path.join(path.dirname(__file__), "..", "../../resources/fonts"))
 
+fondo_estado_inicial = Image.open(img_path + '/fondo_imagen_generada.png')
+dibujo_estado_inicial = ImageDraw.Draw(fondo_estado_inicial)
+
+fondo_solucion = Image.open(img_path + '/fondo_imagen_generada.png')
+dibujo_solucion = ImageDraw.Draw(fondo_solucion)
 
 ######################################### Funciones ##############################################
 
 # Estado Inicial
 def representa_estado_inicial(array_seated, array_speaks):
-
-    fondo_estado_inicial = Image.open(img_path + '/fondo_imagen_generada.png')
-    dibujo_estado_inicial = ImageDraw.Draw(fondo_estado_inicial)
 
     num_asientos = len(array_seated)
     division_fondo = TAMAÑO_FONDO / (num_asientos + 1)
@@ -65,9 +67,6 @@ def representa_estado_inicial(array_seated, array_speaks):
 
 # Estado Final
 def representa_solucion(args):
-
-    fondo_solucion = Image.open(img_path + '/fondo_imagen_generada.png')
-    dibujo_solucion = ImageDraw.Draw(fondo_solucion)
 
     tamaño_mesa = 400
     num_asientos = len(args)
@@ -121,17 +120,11 @@ def representa_solucion(args):
 
 ## Función principal para representación gráfica de puzzle de Comensales.
 # args -> [seated_atoms] -> [[john,1], [maria,2]]
-def comensales_grafico(args):
+def comensales(args):
 
     try:
 
-        [array_seated, array_speaks] = args
-
-        tamaño_mesa = 400
-        num_asientos = len(array_seated)
-        angulo_asiento = 360 / num_asientos
-        angulo_inicial = 270
-        tamaño_texto = TAMAÑO_DEFAULT / num_asientos + 0.3*TAMAÑO_DEFAULT
+        [_, array_seated, array_speaks] = args
 
         # Ordena la lista de personas sentadas según número de asiento
         array_seated = sorted(array_seated, key=lambda d: d[1])
@@ -154,8 +147,12 @@ def comensales_grafico(args):
         return[1, traceback.format_exception(exc)]
         
 if DEBUG:
-    as_prueba = [[['juan', 1], ['jose', 2]], [['juan', 'catalan'], ['jose', 'gallego']]]
-    as_prueba2 = [[['juan', 1], ['jose', 2], ['lucia', 3], ['alba', 4], ['chemita', 5]], [['juan', 'catalan'], ['jose', 'gallego']]]
-    as_prueba3 = [[['juan', 2], ['jose', 1], ['lucia', 3], ['alba', 4], ['chemita', 5], ['abraham', 6], ['moises', 7], ['camaño', 8]], [['juan', 'catalan'], ['jose', 'gallego']]]
+    as_prueba = [["show_graphic"], [['juan', 1], ['jose', 2]], [['juan', 'catalan'], ['jose', 'gallego']]]
+    as_prueba2 = [["show_graphic"], [['juan', 1], ['jose', 2], ['lucia', 3], ['alba', 4], ['chemita', 5]], [['juan', 'catalan'], ['jose', 'gallego']]]
+    as_prueba3 = [["show_graphic"], [['juan', 2], ['jose', 1], ['lucia', 3], ['alba', 4], ['chemita', 5], ['abraham', 6], ['moises', 7], ['camaño', 8]], [['juan', 'catalan'], ['jose', 'gallego']]]
 
-    comensales_grafico(as_prueba3)
+    print(comensales(as_prueba3))
+
+    # Enseña las imgs por pantalla
+    fondo_estado_inicial.show()
+    fondo_solucion.show()

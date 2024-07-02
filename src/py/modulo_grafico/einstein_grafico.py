@@ -6,7 +6,6 @@ from webcolors import name_to_rgb
 from collections import defaultdict
 import traceback
 import os
-import sys
 from modulo_grafico.utils_graficos import busca_imagen, escala_imagen
 
 ######################################### Constantes y variables ##############################################
@@ -280,12 +279,12 @@ def representa_solucion(elemento_central, grupos):
 #   einstein_grafico(   array_has       = [['pedro', 'house', 1], ['pedro', 'drink', 'water']], 
 #                   )
 #
-def einstein_grafico(argumentos):
+def einstein(argumentos):
 
     tipo = ""
     elemento_central = "house"
     grupos = np.array([])
-    [array_has] = argumentos
+    [_, array_has] = argumentos
 
     try:
 
@@ -360,99 +359,8 @@ if DEBUG:
     # 15 casas
     as_prueba5 = [['a', 'house', 1], ['a', 'pet', 'cat'], ['a', 'drink', 'cocacola'], ['b', 'house', 2],  ['c', 'house', 3],  ['d', 'house', 4],  ['e', 'house', 5],  ['f', 'house', 6],  ['g', 'house', 7],  ['h', 'house', 8],  ['i', 'house', 9],  ['j', 'house', 10],  ['k', 'house', 11],  ['l', 'house', 12],  ['m', 'house', 13],  ['n', 'house', 14],  ['o', 'house', 15],  ['p', 'house', 16], ['q', 'house', 17], ['r', 'house', 18], ['s', 'house', 19], ['t', 'house', 20]]
 
-    print(einstein_grafico([as_prueba2]))
+    print(einstein([["show_graphic", "show_description"], as_prueba2]))
 
     # Enseña las imgs por pantalla
     fondo_estado_inicial.show()
     fondo_solucion.show()
-
-    """
-    casa1 = {
-        "house": 1,
-        "person": "brittish",
-        "color": "red",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "ducados"
-    }
-    casa2 = {
-        "house": 2,
-        "person": "norwegian",
-        "color": "blue",
-        "pet": "cat",
-        "beverage": "coffee",
-        "tobacco": "camel"
-    }
-    casa3 = {
-        "house": 3,
-        "person": "french",
-        "color": "yellow",
-        "pet": "horse",
-        "beverage": "wine",
-        "tobacco": "marlboro"
-    }
-    casa4 = {
-        "house": 4,
-        "person": "brittish",
-        "color": "white",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "ducados"
-    }
-    casa5 = {
-        "house": 5,
-        "person": "brittish",
-        "color": "purple",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "winston"
-    }
-    casa6 = {
-        "house": 6,
-        "person": "brittish",
-        "color": "pink",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "bluem"
-    }
-    casa7 = {
-        "house": 7,
-        "person": "brittish",
-        "color": "beige",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "ducados"
-    }
-    casa8 = {
-        "house": 8,
-        "person": "brittish",
-        "color": "green",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "ducados"
-    }
-    casa9 = {
-        "house": 9,
-        "person": "brittish",
-        "color": "cyan",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "ducados"
-    }
-    casa10 = {
-        "house": 10,
-        "person": "brittish",
-        "color": "black",
-        "pet": "dog",
-        "beverage": "milk",
-        "tobacco": "ducados"
-    }
-
-    #casas = [casa1, casa2, casa3]
-    #casas = [casa1, casa2, casa3, casa4, casa5, casa6]
-    #casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9, casa10]
-
-    #representa_estado_inicial(casas)
-    #representa_solucion(casas)
-    
-    """

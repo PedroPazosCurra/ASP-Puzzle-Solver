@@ -10,7 +10,7 @@ reglas_einstein = path.abspath(path.join(path.dirname(__file__), "..", "../resou
 cc = clingo.Control(["--warn=none"])
 
 try:
-    cc.add('base', [], "house(1..3). person(congolese; chinese; irish).")
+    cc.add('base', [], "house(1..3). person(congolese; chinese; irish). show_graphic. show_description.")
     cc.ground([("base",[])])
 except:
     print("Ha habido un problema en el grounding")

@@ -12,7 +12,7 @@ import time
 from NL_to_ASP import NL_to_ASP
 from AS_to_NL import AS_to_NL
 from resolver_ASP import resolver_ASP
-from modulo_grafico.modulo_grafico import modulo_grafico
+from modulo_grafico.representar_puzzle import representar
 from utils.tiempos_plot import tiempos_plot
 
 
@@ -99,37 +99,43 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
     tiempo_comienzo_resolver_asp = time.perf_counter()
 
     [estado, answer_set, salida_solver] = resolver_ASP(modelo_asp, puzzle_elegido)
+    
 
     tiempo_resolver_asp = time.perf_counter() - tiempo_comienzo_resolver_asp
     array_tiempos.append(tiempo_resolver_asp)
 
     ##   Fallo en resolver_ASP (2)
     if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
+    
+    # Fases a representar
+    representacion = salida_solver[0]
 
+    if "show_description" in representacion:
 
-    ########    3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.       ########
-    tiempo_comienzo_as_to_nl = time.perf_counter()
+        ########    3º - Pasa el Answer Set a Lenguaje Natural y lo devuelve.       ########
+        tiempo_comienzo_as_to_nl = time.perf_counter()
 
-    estado, nl_salida = AS_to_NL(answer_set, puzzle_elegido)
+        estado, nl_salida = AS_to_NL(answer_set, puzzle_elegido)
 
-    tiempo_as_to_nl = time.perf_counter() - tiempo_comienzo_as_to_nl
-    array_tiempos.append(tiempo_as_to_nl)
+        tiempo_as_to_nl = time.perf_counter() - tiempo_comienzo_as_to_nl
+        array_tiempos.append(tiempo_as_to_nl)
 
-    salida += f"# Explicación LN: {nl_salida}\n"
+        salida += f"# Explicación LN: {nl_salida}\n"
 
-    ##   Fallo en AS_to_NL (3)
-    if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
+        ##   Fallo en AS_to_NL (3)
+        if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
 
+    if "show_graphic" in representacion:
 
-    ########    4º Caso optimista: Todo OK - Representación gráfica             ########
-    tiempo_comienzo_modulo_grafico = time.perf_counter()
+        ########    4º Caso optimista: Todo OK - Representación gráfica             ########
+        tiempo_comienzo_modulo_grafico = time.perf_counter()
 
-    [estado, msg_grafico] = modulo_grafico(salida_solver, puzzle_elegido)
+        [estado, msg_grafico] = modulo_grafico(salida_solver, puzzle_elegido)
 
-    tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
-    array_tiempos.append(tiempo_grafico)
+        tiempo_grafico = time.perf_counter() - tiempo_comienzo_modulo_grafico
+        array_tiempos.append(tiempo_grafico)
 
-    if (estado != 0) : salida += f"# Módulo gráfico: {msg_grafico}\n"
+        if (estado != 0) : salida += f"# Módulo gráfico: {msg_grafico}\n"
 
     # Fin
     imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
@@ -148,7 +154,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
 
 
 # Default
-prompt = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. Represent soda with the image \"cocacola\". There's a dog, a cat and a horse. The spanish keeps the cat, while the english man has a dog. The horse is represented by the image called \"horse\". The cat is represented by \"https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg\" The spanish man has a red house. The chinese man, on the other hand, lives in a purple house."
+prompt = "There are three houses. There are a spanish, an english and a chinese. There are three drinks: tea, milk and soda. The spanish man drinks soda. There's a dog, a cat and a horse. The spanish keeps the cat, while the english man has a dog. The spanish man has a red house. The chinese man, on the other hand, lives in a purple house."
 puzzle = "Einstein"
 n_intento = 0
 
