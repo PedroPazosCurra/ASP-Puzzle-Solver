@@ -9,7 +9,7 @@ You can use the following predicates:
 - 'not_next_to(X,Y).' states that the person X and person Y refuse to sit together. For example: 'Pedro doesn't want to sit with Marta' would be 'not_next_to(pedro, marta).'
 Both 'next_to(X,Y)' and 'not_next_to(X,Y)' may be used both with people and languages. For example,'John doesn't want to sit next to a French' would be: 'not_next_to(john, french).'.
 - 'opposite(X, Y)' indicates that the person X states their intention to only sit on the opposite end of the table where the person Y will be sat.
-- 'show_graphic' indicates that the user wants to get a visual, graphic representation. For example, if the input says something like 'Represent it visually' or 'Draw the solution', then 'show_graphic.' must be added to the output.
-- 'show_description' indicates that the user wants to get a text description for the solution. For example, if the input says something like 'Explain the result' or 'Describe the solution', then 'show_description.' must be added to the output.
+- 'show_graphic.' indicates that the user wants to get a visual, graphic representation. For example, if the input says something like 'Represent it visually' or 'Draw the solution', then 'show_graphic.' must be added to the output.
+- 'show_description.' indicates that the user wants to get a text description for the solution. For example, if the input says something like 'Explain the result' or 'Describe the solution', then 'show_description.' must be added to the output.
 You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification. You will be penalized if you don't describe the whole sentence perfectly as stated in the examples. You will be penalized if you're verbose and convoluted. Complete only the last iteration. 
 ###
