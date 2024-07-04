@@ -1,0 +1,117 @@
+###################################################
+[# Entrada] - seated(antonio,1).
+[# Salida] - Antonio is seated in the first chair. 
+###################################################
+[# Entrada] - has(brittish,house,1).
+[# Salida] - The British person lives in the house number 1. 
+###################################################
+[# Entrada] - has(brittish,house,1). has(german,house,2).
+[# Salida] - There's a British person living in the house number 1, while a German person resides in the house number 2. 
+###################################################
+[# Entrada] - has(brittish,house,1). has(brittish,pet,snail). has(german,house,2). has(german,pet,zebra).
+[# Salida] - The British person lives in the house number 1 and has a snail as a pet. The German person lives in the house number 2 and has a zebra as a pet. 
+###################################################
+[# Entrada] - has(brittish,house,1). has(brittish,pet,snail). has(brittish,house,1). has(german,house,2). has(german,pet,zebra). has(swedish,house,3). has(swedish,pet,snake). has(brittish,phone,apple). has(german,phone,xiaomi). has(swedish,phone,samsung).
+[# Salida] - The British person lives in the first house and keeps a snail as a pet. The German person lives in the second house and has a zebra as a pet. The Swedish person lives in the third house and has a snake as a pet. The British person uses an Apple phone, the German person uses Xiaomi, and the Swedish person uses Samsung. 
+###################################################
+[# Entrada] - has(brittish,house,1). has(brittish,pet,snail). has(brittish,house,1). has(german,house,2). has(german,pet,zebra). has(swedish,house,3). has(swedish,pet,snake). has(brittish,phone,apple). has(german,phone,xiaomi). has(swedish,phone,samsung).
+[# Salida] - The British person lives in the house number 1 and has a snail as a pet. He also uses an Apple phone. The German person lives in the house number 2 and has a zebra as a pet, using a Xiaomi phone. The Swedish person lives in the house number 3 and has a snake as a pet, using a Samsung phone. 
+###################################################
+[# Entrada] - has(brittish,house,1). has(brittish,pet,snail). has(german,house,2). has(german,pet,zebra). has(swedish,house,3). has(swedish,pet,snake). has(brittish,phone,apple). has(german,phone,xiaomi). has(swedish,phone,samsung). has(chinese,house,4). has(chinese,pet,dog).
+[# Salida] - The British person lives in the house number 1 and has a snail as a pet. The German person lives in the house number 2 and has a zebra as a pet. The Swedish person lives in the house number 3 and has a snake as a pet. Additionally, the British person uses an Apple phone, the German person uses a Xiaomi phone, and the Swedish person uses a Samsung phone. Lastly, there is a Chinese person who lives in the house number 4 and has a dog as a pet. 
+###################################################
+[# Entrada] - has(brittish,house,1). has(brittish,pet,snail). has(german,house,2). has(german,pet,zebra). has(swedish,house,3). has(swedish,pet,snake). has(brittish,phone,apple). has(german,phone,xiaomi). has(swedish,phone,samsung). has(chinese,house,4). has(chinese,pet,dog). has(chinese,phone,huawei). has(brittish,favourite_band,rolling_stones).
+[# Salida] - The British person lives in the house number 1, keeps a snail as a pet, uses an Apple phone, and his favorite band is Rolling Stones. The German person lives in the house number 2, keeps a zebra as a pet, uses Xiaomi phone. The Swedish person lives in the house number 3, keeps a snake as a pet, uses Samsung phone. The Chinese person lives in the house number 4, keeps a dog as a pet, uses Huawei phone. 
+###################################################
+[# Entrada] - has(zimbabwean,house,16). has(zimbabwean,color,beige).
+[# Salida] - The Zimbabwean person lives in the 16th house and it's beige. 
+###################################################
+[# Entrada] - has(zimbabwean,house,16). has(zimbabwean,color,beige). has(greek,house,1). has(greek,drink,liquor).
+[# Salida] - The Zimbabwean person lives in the 16th house, which is beige. The Greek person lives in the house number 1 and drinks liquor. 
+###################################################
+[# Entrada] - has(zimbabwean,house,16). has(zimbabwean,color,beige). has(greek,house,1). has(greek,drink,liquor). has(zimbabwean,car,ford). has(greek,car,nissan).
+[# Salida] - The Zimbabwean person lives in the 16th house and their house is beige colored. On the other hand, the Greek person lives in the house number 1 and drinks liquor. Additionally, the Zimbabwean person drives a Ford car, whereas the Greek person drives a Nissan. 
+###################################################
+[# Entrada] - has(zimbabwean,house,16). has(zimbabwean,color,beige). has(greek,house,1). has(greek,drink,liquor). has(zimbabwean,car,ford). has(greek,car,nissan). has(haitian,house,5). has(haitian,drink,soda). has(haitian,pet,horse). has(haitian,car,ford_focus).
+[# Salida] - The Zimbabwean person lives in the 16th house, which is beige. The Greek person lives in the house number 1 and drinks liquor. 
+###################################################
+[# Entrada] - has(japanese,house,1092385). has(peruvian,house,123596).
+[# Salida] - The Japanese person lives in the house number 1092385. The Peruvian person resides in the house number 123596. 
+###################################################
+[# Entrada] - has(brittish,house,4). has(brittish,pet,bird). has(brittish,drink,beer). has(brittish,tobacco_brand,pall_mall). has(danish,house,2). has(danish,pet,horse). has(danish,drink,tea). has(danish,tobacco_brand,dunhill). has(german,house,1). has(german,pet,fish). has(german,drink,coffee). has(german,tobacco_brand,prince). has(norwegian,house,5). has(norwegian,pet,cat). has(norwegian,drink,water). has(norwegian,tobacco_brand,blends). has(swedish,house,3). has(swedish,pet,dog). has(swedish,drink,milk). has(swedish,tobacco_brand,blue_master).
+[# Salida] - The British person lives in the fourth house, has a bird as a pet, drinks beer and smokes Pall Mall tobacco. The Danish person lives in the second house, has a horse as a pet, drinks tea and smokes Dunhill tobacco. The German person lives in the first house, has a fish as a pet, drinks coffee and smokes Prince tobacco. The Norwegian person lives in the fifth house, has a cat as a pet, drinks water and smokes Blends tobacco. The Swedish person lives in the third house, has a dog as a pet, drinks milk and smokes Blue Master tobacco. 
+###################################################
+[# Entrada] - seated(manuela,1). seated(abdhul,2).
+[# Salida] - Manuela is seated in the first chair and Abdul is seated in the second one. 
+###################################################
+[# Entrada] - seated(martina,2). seated(claudia,3). seated(pedro,1).
+[# Salida] - Pedro is seated in the first chair, Martina in the second and Claudia is seated in the third. 
+###################################################
+[# Entrada] - seated(jose,4). seated(martina,2). seated(claudia,3). seated(pedro,1).
+[# Salida] - Pedro is seated in the first chair, Martina in the second, Claudia in the third and Jose in the number 4. 
+###################################################
+[# Entrada] - seated(marta,5). seated(mohammed,4). seated(jose,2). seated(manuel,3). seated(pedro,1).
+[# Salida] - Pedro is seated in the first chair, Manuel in the third, Jose in the second and Mohammed in the fourth, Marta is seated in the fifth. 
+###################################################
+[# Entrada] - seated(marta,5). seated(mohammed,4). seated(jose,2). seated(manuel,3). seated(pedro,1). seated(roberto,6).
+[# Salida] - Pedro is seated in the first chair, Jose in the second, Manuel in the third, Mohammed in the fourth, Marta in the fifth and Roberto is seated in the sixth seat. 
+###################################################
+[# Entrada] - seated(marta,5). seated(mohammed,4). seated(jose,2). seated(manuel,3). seated(pedro,1). seated(roberto,6).
+[# Salida] - Pedro is seated in the first chair, Manuel in the third, Jose in the second, Marta in the fifth, Mohammed in the fourth and Roberto is seated in the sixth seat. 
+###################################################
+[# Entrada] - seated(marta,5). seated(mohammed,4). seated(carolina, 7). seated(jose,2). seated(manuel,3). seated(pedro,1). seated(roberto,6).
+[# Salida] - Pedro is seated in the first chair, Manuel in the third, José in the second, Marta in the fifth, Mohammed in the fourth, Carolina is seated in the seventh and Roberto in the sixth. 
+###################################################
+[# Entrada] - seated(marta,5). seated(mohammed,4). seated(carlos,8). seated(carolina,7). seated(jose,2). seated(manuel,3). seated(pedro,1). seated(roberto,6).
+[# Salida] - Pedro is seated in the first chair, Manuel in the second, Jose in the third, Mohammed in the fourth, Marta is seated in the fifth chair, Carolina in the seventh, Roberto in the sixth and Carlos is seated in the eighth seat. 
+###################################################
+[# Entrada] - seated(marta,5). seated(mohammed,4). seated(carlos,8). seated(carolina,7). seated(maria,9). seated(jose,2). seated(manuel,3). seated(pedro,1). seated(roberto,6).
+[# Salida] - Pedro is seated in the first chair, Manuel in the second, Jose in the third, Mohammed in the fourth, Marta in the fifth, Roberto in the sixth, Carolina in the seventh and Maria is seated in the ninth position, Carlos in the eighth. 
+###################################################
+[# Entrada] - seated(alberto,1). seated(carlos,3). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(isabel,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8).
+[# Salida] - Pedro is seated in the eighth chair, Claudia in the second, Martina in the fourth, Alberto in the first, Carlos in the third, Carolina in the sixth, Lucia in the fifth, Isabel in the seventh and Jose in the ninth, Paco is seated in the tenth. 
+###################################################
+[# Entrada] - seated(alberto,1). seated(carlos,3). seated(isabel,11). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(isabel,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8).
+[# Salida] - Pedro is seated in the eighth chair, Claudia in the second, Isabel in both the eleventh and seventh seats, Lucia in the fifth, Martina in the fourth, Alberto in the first, Carlos in the third, Carolina in the sixth and Jose in the ninth, Paco is seated in the tenth seat and finally Isabel is seated in both the eleventh and seventh positions. 
+###################################################
+[# Entrada] - seated(alberto,1). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8).
+[# Salida] - Teresa is seated in the first chair, Claudia in the second, Alberto in the 1, Carlos in the 3, Isabel in the 11, Juan in the 12, Carolina in the 6, Paco in the 10, Lucia in the 5, Antia in the 7, Jose in the 9 and Martina is seated in the fourth seat. 
+###################################################
+[# Entrada] - seated(alberto,1). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Teresa is seated in the first chair, Claudia in the second one, Alberto in the third one, Martina in the fourth, Lucia in the fifth, Antia in the seventh, Jose in the ninth, Carolina in the sixth, Paco in the tenth, Isabel in the eleventh, Juan in the twelfth, Herminia in the fifteenth, Julian in the fourteenth and Javier is seated in the thirteenth. 
+###################################################
+[# Entrada] - seated(eduardo,16). seated(amelia,17). seated(alberto,1). seated(ana,18). seated(elisa,19). seated(raul,20). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Teresa is seated in the first chair, Alberto in the second, Claudia in the 3, Ana in the number 4, Martina in the 5, Lucia in the 6, Carolina in the 7, Jose in the 8, Pedro in the 9, Paco in the 10, Isabel in the 11, Juan in the 12, Javier in the 13, Julian in the 14, Herminia in the 15, Amelia in the 16, Elisa in the 17, Raul in the 18, Eduardo in the 19. 
+###################################################
+[# Entrada] - seated(eduardo,16). seated(amelia,17). seated(alberto,1). seated(ana,18). seated(elisa,19). seated(raul,20). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Teresa is seated in the first chair, Claudia in the second, Alberto in the third, Martina in the fourth, Carolina in the sixth, Lucia in the fifth, Ana in the eighteenth, Elisa in the nineteenth, Raul in the twentieth, Amelia in the seventeenth, Isabel in the eleventh, Juan in the twelfth, Paco in the tenth, Antia in the seventh, Jose in the ninth, Julian in the fourteenth, Herminia in the fifteenth and Eduardo in the sixteenth. 
+###################################################
+[# Entrada] - seated(eduardo,16). seated(amelia,17). seated(alberto,1). seated(ana,18). seated(elisa,19). seated(raul,20). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Antonio is seated in chair number 1, Claudia in the number 2, Alberto in the number 3, Carolina is seated in the number 6, Ana in number 18, Elisa in number 19, Raul in number 20, Isabel in the number 11, Juan in the number 12, Lucia in the number 5, Antia in the number 7, Jose in the number 9, Martina in the number 4, Pedro in the number 8, Javier in the number 13, Julian in the number 14 and Herminia in number 15, Eduardo is seated in the chair 16 and Amelia is in chair 17. 
+###################################################
+[# Entrada] - seated(alberto,1). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Antonia is seated in chair number 1, Claudia in the number 2, Alberto is seated in the seat number 3, Carolina in the number 6, Lucia in the number 5, Antia in the number 7, Martina is seated in the number 4, Paco in the number 10, Jose in the number 9, Julian in the number 14, Isabel in the number 11, Javier in the number 13, Pedro in the number 8 and Herminia is seated in the number 15. 
+###################################################
+[# Entrada] - seated(alberto,1). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Alberto is seated in the chair number 1, Claudia is in the number 2, Juan is in the number 12, Isabel is in the number 11, Carolina is in the number 6, Lucia is in the 5, Antia is in the 7, Jose is in the 9, Martina is seated in the 4, Paco is in the 10, Pedro is in the 8, Alberto again is in the 1, Javier is in the 13, Julian is in the 14 and Herminia is in the 15. 
+###################################################
+[# Entrada] - seated(alberto,1). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Here is the output:
+
+Alberto is seated in the first chair, Claudia is seated in the second, Martina in the fourth, Lucia in the fifth, Carolina in the sixth, Antia in the seventh, Pedro in the eighth, José in the ninth, Javier in the thirteenth and Julian in the fourteenth. Herminia is seated in the fifteenth and Carlos in the third. 
+###################################################
+[# Entrada] - seated(eduardo,16). seated(amelia,17). seated(alberto,1). seated(ana,18). seated(elisa,19). seated(raul,20). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Antonio is seated in chair number 1, Ana is in chair 2, Claudia is in chair 3, Alberto is in chair 4, Martina is in chair 5, Lucia is in chair 6, Carolina is in chair 7, Antia is in chair 8, Pedro is in chair 9, Jose is in chair 10, Paco is in chair 11, Isabel is in chair 12, Juan is in chair 13, Javier is in chair 14, Julian is in chair 15, Herminia is in chair 16, Eduardo is in chair 17, Amelia is in chair 18, Elisa is in chair 19 and Raul is in chair 20. 
+###################################################
+[# Entrada] - seated(eduardo,16). seated(amelia,17). seated(alberto,1). seated(ana,18). seated(elisa,19). seated(raul,20). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(lucia,5). seated(antia,7). seated(jose,9). seated(martina,4). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Alberto is seated in the first chair, Claudia in the second, Martina in the fourth, Lucia in the fifth, Carolina in the sixth, Antia in the seventh, Paco in the tenth, Jose in the ninth, Pedro in the eighth, Carlos in the third, Isabel in the eleventh, Juan in the twelfth, Javier in the thirteenth, Julian in the fourteenth, Herminia in the fifteenth, Eduardo in the sixteenth, Amelia in the seventeenth, Ana in the eighteenth, Elisa in the nineteenth, Raul in the twentieth. 
+###################################################
+[# Entrada] - seated(eduardo,16). seated(amelia,17). seated(alberto,1). seated(ana,18). seated(elisa,19). seated(raul,20). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(pablo,24). seated(jesus,25). seated(amable,26). seated(dolores,27). seated(guillermo,28). seated(ivan,29). seated(sonia,30). seated(lucia,5). seated(antia,7). seated(jose,9). seated(marcos,21). seated(marcelino,22). seated(martina,4). seated(gabriel,23). seated(sergio,24). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Here is the output:
+
+Alberto is seated in the first chair, Ana in the 18th, Elisa in the 19th, Raul in the 20th, Isabel in the 11th, Juan in the 12th, Carolina in the sixth, Paco in the 10th, Pablo in the 24th, Jesus in the 25th, Amable in the 26th, Dolores in the 27th, Guillermo in the 28th, Ivan in the 29th, Sonia in the 30th, Lucia in the 5th, Antia in the 7th, Jose in the 9th, Marcos in the 21st, Marcelino in the 22nd, Martina in the 4th, Gabriel in the 23rd, Sergio in the same chair as Pablo, Claudia in the 2nd, Pedro in the 8th, Javier in the 13th, Julian in the 14th, Herminia in the 15th. 
+###################################################
+[# Entrada] - seated(eduardo,16). seated(amelia,17). seated(alberto,1). seated(ana,18). seated(elisa,19). seated(raul,20). seated(carlos,3). seated(isabel,11). seated(juan,12). seated(carolina,6). seated(paco,10). seated(jesus,25). seated(amable,26). seated(dolores,27). seated(guillermo,28). seated(ivan,29). seated(sonia,30). seated(lucia,5). seated(antia,7). seated(jose,9). seated(marcos,21). seated(marcelino,22). seated(martina,4). seated(gabriel,23). seated(sergio,24). seated(claudia,2). seated(pedro,8). seated(javier,13). seated(julian,14). seated(herminia,15).
+[# Salida] - Here is the output:
+
+Alberto is seated in the first chair, Claudia is seated in the second, Martina in the fourth, Lucia in the fifth, Isabel in the eleventh, Carolina in the sixth, Paco in the tenth, Jose in the ninth, Ana in the eighteenth, Elisa in the nineteenth, Sonia in the thirtieth, Amelia in the seventeenth, Alberto again in the first, Juan in the twelfth, Raul in the twentieth, Jesus in the twenty-fifth, Amable in the twenty-sixth, Dolores in the twenty-seventh, Guillermo in the twenty-eighth, Ivan in the twenty-ninth, Carlos in the third. 

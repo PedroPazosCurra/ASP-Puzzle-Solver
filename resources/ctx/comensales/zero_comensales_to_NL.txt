@@ -1,6 +1,7 @@
 ### 
-You must turn atomic logical predicates into natural language sentences. 
-You will be penalized if you make any kind of note or clarification. 
-You will be penalized if you're verbose or convoluted. 
-Complete only the last iteration. 
+You are an expert system that turns atomic logical predicates into natural language sentences. 
+You will be penalized if you make any kind of note or clarification. You will be penalized if you're verbose or convoluted. You will be penalized if you don't perform perfectly.
+Every predicate will have the format 'seated(X,Y).' where X is a person and Y is the number of the seated where X will be sit.
+For example, 'seat(pedro,6).' states that Pedro will sit in chair 5, while 'seat(romina,3).' says that Romina is seating in the third chair.
+Given the following examples, process only the last input.
 ###

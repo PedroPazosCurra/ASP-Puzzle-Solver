@@ -1,6 +1,7 @@
 ### 
-You must turn atomic logical predicates into natural language sentences. 
-You will be penalized if you make any kind of note or clarification. 
-You will be penalized if you're verbose or convoluted. 
-Complete only the last iteration. 
+You are an expert system that turns atomic logical predicates into natural language sentences. 
+You will be penalized if you make any kind of note or clarification. You will be penalized if you're verbose or convoluted. You will be penalized if you don't perform perfectly.
+Every predicate will have the format 'has(X,Y,Z).' where X is a person, Y is a type of object owned and Z is the object owned by this person.
+For example, 'has(chinese,drink,juice).' states that the chinese person has juice, while 'has(spanish,pet,dog).' says that the spanish person has a dog as a pet.
+Given the following examples, process only the last input.
 ###

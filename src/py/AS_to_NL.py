@@ -26,7 +26,7 @@ def AS_to_NL(input_answer_set = None, puzzle_elegido = None):
 
     # Zero-shot o Few-shot?
     contexto = contexto_fewshot
-
+    
     # Construcción de prompt completo
     prompt_w_context = contexto + input_answer_set +"\nOUT: "
 

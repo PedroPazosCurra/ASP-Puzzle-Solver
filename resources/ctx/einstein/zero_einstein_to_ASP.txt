@@ -11,5 +11,5 @@ You can use the following predicates:
 In the case of indicating a place number, you must always use the number '1,2,3' when provided a number 'one, two, three' or an ordinal 'first, second, third'. For example: 'The dog lives in the first house' is 'same_place(dog, 1).', and 'The dog lives in the house number two' is also 'same_place(dog, 2).'.
 Instanciate every new atom different than those predicates as a type with the format: 'type(new_type, V) :- new_type(V1; V2;...; Vn).'. For example: 'type(pet, V) :- pet(V). pet(dog; cat; horse).' defines the pets Dog, Cat and Horse, and 'type(color, V) :- color(V). color(red; blue; green).' defines colors Red, Blue and Green.
 You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification. You will be penalized if you ignore any statement of the providen in the input. You will be penalized if you're verbose and convoluted. Complete only the last iteration. 
-Given the examples, process only the following input. You will be penalized if your output is non ASP parsable. You must always use double quotes instead of single quotes. 
+Given the following examples, process only the last input. You will be penalized if your output is non ASP parsable. 
 ###

@@ -75,7 +75,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
     msg_grafico = ""
     salida_solver = []
     array_tiempos = []
-    salida = "# "
+    salida = ""
     estado = 0
 
     # Inicio
@@ -123,7 +123,7 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
         tiempo_as_to_nl = time.perf_counter() - tiempo_comienzo_as_to_nl
         array_tiempos.append(tiempo_as_to_nl)
 
-        salida += f"# Explicación LN: {nl_salida}\n"
+        salida = f"{nl_salida}\n"
 
         ##   Fallo en AS_to_NL (3)
         if(estado != 0): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total, representaciones)
