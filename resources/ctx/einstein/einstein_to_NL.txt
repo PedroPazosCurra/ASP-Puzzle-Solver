@@ -1,19 +1,19 @@
 IN: has(norwegian,house,3).
 OUT: The Norwegian person lives in the third house.
-IN: has(brittish,house,1). has(john,house,2). has(alex,house,3). has(alex,pet,dog).
-OUT: The Brittish person lives in the house number 1. John lives in the second house. alex lives in the third house and has a dog.
+IN: has(british,house,1). has(john,house,2). has(alex,house,3). has(alex,pet,dog).
+OUT: The British person lives in the house number 1. John lives in the second house. alex lives in the third house and has a dog.
 IN: has(japanese,house,15).
 OUT: There's a japanese living in the 15th house.
-IN: has(brittish,pet,dog). has(nigerian,pet,horse).
-OUT: The brittish person has a dog. The nigerian is the owner of the horse.
+IN: has(british,pet,dog). has(nigerian,pet,horse).
+OUT: The british person has a dog. The nigerian is the owner of the horse.
 IN: has(portuguese,pet,cat). has(portuguese,house,1). has(portuguese,color,purple).
 OUT: The portuguese person grows a cat in the purple house.
 IN: has(french,house,2). has(french,color,red).
 OUT: The house of the french is the number 2 and is painted red.
 IN: has(german,tobacco,winston). has(german,pet,dog). has(ukranian,building,2). has(german,drink_brand,fanta). has(german,car,ford). has(german,building,3).
 OUT: The german person smokes winston tobacco, has a dog as a pet, drinks fanta, has a ford car and lives in the building number three. On the other hand, the ukranian lives in the second building.
-IN: has(brittish,drink,milk). has(palestinian,drink,coffee). has(russian,drink,water). has(german,drink,beer).
-OUT: The brittish person drinks milk. The palestinian person has coffee as a beverage. The russian person drinks water and the german person deinks beer.
+IN: has(british,drink,milk). has(palestinian,drink,coffee). has(russian,drink,water). has(german,drink,beer).
+OUT: The british person drinks milk. The palestinian person has coffee as a beverage. The russian person drinks water and the german person deinks beer.
 IN: has(swede,tobacco,camel). has(swede,drink,milk). has(swede,pet,fish). has(swede,house,3).
 OUT: The swede person smokes camel, drinks milk, keeps a fish as pet and lives in the house number 3.
 IN: has(albanian,house,3). has(chinese,pet,duck). has(english,tobacco,bluem). has(norwegian,color,blue). has(italian,drink,lemonade). has(italian,tobacco,marlboro).

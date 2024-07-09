@@ -8,6 +8,4 @@ IN: seated(meli,1). seated(edu,9). seated(lolo,3). seated(pablo,4).
 OUT: Meli is seated in the chair 1. Lolo is seated in the chair 2. Pablo is seated in chair 4 and Edu is in chair 9.
 IN: seated(manolo,3). seated(antonio,2). seated(joaquin,1).
 OUT: Joaquin is seated in chair number 1, Antonio is in the number 2 and Manolo is in number 3.
-IN: 
-OUT:
 IN:
