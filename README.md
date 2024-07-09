@@ -11,17 +11,17 @@ Este es el repositorio para mi Trabajo de Fin de Grado en Ingeniería Informáti
 
 
 ## ¿Qué es?
-El cometido del proyecto es el desarrollo de una **interfaz Web** que permita a un usuario **resolver diversos tipos de puzzles** interactuando con el programa a través de un cómodo **chat**.  
+El cometido del proyecto es el desarrollo de un sistema con una **interfaz Web** que permita a un usuario **resolver diversos tipos de puzzles** definiéndolo en lenguaje netural a través de un cómodo **chat**.  
 
-![enter image description here](https://cdn.kometia-static.com/blog/2017/11/06182228/chatbots.jpg)  
+![img_puzzle_1](https://cdn.kometia-static.com/blog/2017/11/06182228/chatbots.jpg)  
 
 ## ¿Cómo funciona?
 
-**El usuario debe introducir, por mensaje, el estado de un puzzle** que desee resolver, así como las diferentes restricciones y reglas aplicadas al rompecabezas en cuestión. A más específico e informativo, mejor. El mensaje es entonces procesado por un **LLM** ([Large Language Model](https://en.wikipedia.org/wiki/Large_language_model)). El modelo de lenguaje tendrá el menester de *traducir* la entrada de lenguaje natural a **ASP** ([Answer Set Programming](https://en.wikipedia.org/wiki/Answer_set_programming)). El programa ASP se encargará de resolver el problema, ya codificado, y el LLM explicará al usuario la salida del **solver**, a través de una respuesta en el chat.  
+**El usuario debe introducir, por mensaje, el estado de un puzzle** que desee resolver. ¡A más específico e informativo, mejor! El mensaje es entonces procesado por un **LLM** ([Large Language Model](https://en.wikipedia.org/wiki/Large_language_model)). El modelo de lenguaje tendrá el menester de *traducir* la entrada de lenguaje natural a **ASP** ([Answer Set Programming](https://en.wikipedia.org/wiki/Answer_set_programming)). El programa ASP se encargará de resolver el problema, ya codificado, y el LLM explicará al usuario la salida del **solver**, a través de una respuesta en el chat.
 
-Este sistema, mediante una aproximación **neuro-simbólica**, simbiotiza la ágil capacidad inferencial de un Modelo de Lenguaje Extenso con el razonamiento fuerte propio de Answer Set Programming.  
+Este sistema, mediante una aproximación **neuro-simbólica**, simbiotiza la ágil capacidad inferencial de un Modelo de Lenguaje Extenso (LLM) con el fuerte razonamiento de Answer Set Programming.  
 
-![enter image description here](https://cdn.reludi.com/media/post-images/types-of-puzzle-games.jpg)  
+![img_puzzle_2](https://cdn.reludi.com/media/post-images/types-of-puzzle-games.jpg)  
 
 ## Tecnologías Usadas
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -39,7 +39,7 @@ El programa usa [node.js](https://developer.ibm.com/tutorials/learn-nodejs-insta
 
 Primero, debes preparar el entorno haciendo doble click en **setup**
 
-Con todo listo, puedes ejecutar el servidor haciendo doble click en run_[Sistema Operativo] según el SO que estés usando.  Se abrirá la consola de comandos con el servidor ejecutándose y una ventana de tu navegador predeterminado con la página de ASP Puzzle Solver lista para que la uses.
+Con todo listo, puedes ejecutar el servidor haciendo doble click en run_windows.bat (actualmente, sistema sólo soportado en Windows).  Se abrirá la consola de comandos con el servidor ejecutándose y una ventana de tu navegador predeterminado con la página de ASP Puzzle Solver lista para que la uses.
 
 ## Documentación
 A disposición de quien lo considere de interés, dejo un enlace a la memoria del presente trabajo: (...)  
