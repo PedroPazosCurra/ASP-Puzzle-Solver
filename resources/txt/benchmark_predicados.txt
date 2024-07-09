@@ -1,7 +1,3 @@
 #################### Comienzo del log #######################
-1 muestras probadas (0 fallos). [VP FP FN VN] = [0 0 1 0]  precision: 0, recall: 0, F1: 0
-1 muestras probadas (0 fallos). [VP FP FN VN] = [0 0 1 0]  precision: 0, recall: 0, F1: 0
-1 muestras probadas (0 fallos). [VP FP FN VN] = [0 0 1 0]  precision: 0, recall: 0, F1: 0
-1 muestras probadas (0 fallos). [VP FP FN VN] = [0 0 1 0]  precision: 0, recall: 0, F1: 0
-4 muestras probadas (0 fallos). [VP FP FN VN] = [1 0 3 0]  precision: 1.0, recall: 4.0, F1: 0.4
-8 muestras probadas (0 fallos). [VP FP FN VN] = [2 0 2 4]  precision: 1.0, recall: 0.5, F1: 0.6666666666666666
+
+8 muestras probadas (0 fallos). [VP FP FN VN] = [3 0 1 4]  precision: 1.0, recall: 0.75, F1: 0.8571428571428571

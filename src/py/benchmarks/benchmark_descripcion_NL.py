@@ -1,5 +1,5 @@
-# Test de generación de hechos: método automatizado de monitorización de tiempos para comprobar la generación de predicados por parte de la primera fase del LLM.
-# Objetivo: Medir el rendimiento de la parte 
+# Test de descripción de Answer Set a NL
+# Objetivo: Medir el rendimiento de la parte que describe las soluciones en lenguaje natural.
 #
 
 # Imports

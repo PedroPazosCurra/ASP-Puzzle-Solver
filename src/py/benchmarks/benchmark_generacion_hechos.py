@@ -35,7 +35,7 @@ for line in tests.readlines():
 
     puzzle, sat,  prompt = line.split("|")
     puzzle = puzzle.strip()
-    sat_expected = (sat.strip() == "SAT")
+    unique_sat_expected = (sat.strip() == "SAT")
     prompt = prompt.strip()
 
     # Llamada LLM. Si falla, se salta la iteración
@@ -68,7 +68,7 @@ for line in tests.readlines():
     try:
         solve_handle = cc.solve(yield_= True)
     except:
-        if sat_expected:
+        if unique_sat_expected:
             fn += 1
             continue
         else:
@@ -76,23 +76,24 @@ for line in tests.readlines():
             continue
 
     # ¿Modelos? Si > 1, está mal
-    model_count = 0
+    unique_models = set()
 
     for modelo in solve_handle:
-        print(f"Modelo {model_count}: {modelo}")
-        model_count += 1
+        unique_models.add(modelo)
 
+    for i, modelo in enumerate(unique_models):
+        print(f"Modelo {i}: {modelo}")
+
+    model_count = len(unique_models)
     print(f"Numero de modelos: {model_count}")
 
-    if model_count > 1:
-        fp += 1
-    elif model_count == 1:
-        if sat_expected: 
+    if model_count == 1:        # Positivo: modelos == 1
+        if unique_sat_expected: 
             vp += 1
         else:
             fp += 1
-    else:
-        if sat_expected:
+    else:                       # Negativo: modelos != 1
+        if unique_sat_expected:
             fn += 1
         else:
             vn += 1
