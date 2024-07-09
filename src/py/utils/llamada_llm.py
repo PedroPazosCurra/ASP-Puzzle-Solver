@@ -9,9 +9,11 @@ from utils.carga_dotenv import carga_dotenv
 def llamada_llm(prompt : str, temperatura : float):
 
     # Carga variables de entorno
-    estado, mensaje, secret_key, modelo, url = carga_dotenv()
-    if estado != 0:
-        return [1, mensaje]
+    salida_env = carga_dotenv()
+    if len(salida_env) == 2:
+        raise RuntimeError(salida_env[1])
+    
+    _, _, secret_key, modelo, url = salida_env
 
     # Creación de paquete JSON
     payload = json.dumps({
