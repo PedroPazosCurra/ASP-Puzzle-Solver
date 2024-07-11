@@ -33,7 +33,8 @@ for line in tests.readlines():
         continue
 
 
-    puzzle, sat,  prompt = line.split("|")
+    num_seats, puzzle, sat,  prompt = line.split("|")
+    num_seats = int(num_seats.strip())
     puzzle = puzzle.strip()
     unique_sat_expected = (sat.strip() == "SAT")
     prompt = prompt.strip()
@@ -75,7 +76,7 @@ for line in tests.readlines():
             vn += 1
             continue
 
-    # ¿Modelos? Si > 1, está mal
+    # ¿Modelos? Si > 1 diferentes, está mal
     unique_models = set()
 
     for modelo in solve_handle:
@@ -85,6 +86,11 @@ for line in tests.readlines():
         print(f"Modelo {i}: {modelo}")
 
     model_count = len(unique_models)
+
+    # En comensales, hay num_seats modelos válidos para cada solución única.
+    if(puzzle == "Comensales" and model_count == num_seats):
+        model_count = 1
+    
     print(f"Numero de modelos: {model_count}")
 
     if model_count == 1:        # Positivo: modelos == 1
