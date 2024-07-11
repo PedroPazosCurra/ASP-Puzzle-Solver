@@ -9206,3 +9206,8 @@ house(1..5). living_place(house, V) :- house(V). person(british; danish; german;
 
 ### Intento 4 de 4  ###
 The British person lives in the third house, which is red, and has a bird as pet, drinks milk and smokes pall mall tobacco. The Danish person lives in the second house, which is blue, and has a horse as pet, drinks tea and smokes blends tobacco. The German person lives in the fourth house, which is green, and has a fish as pet, drinks coffee and smokes prince tobacco. The Norwegian person lives in the first house, which is yellow, and has a cat as pet, drinks water and smokes dunhill tobacco. The Swedish person lives in the fifth house, which is white, and has a dog as pet, drinks beer and smokes blue master tobacco.
+
+############ [13:29] LOG ############:
+
+### Intento 0 de 4  ###
+The British person lives in the house number 2, has a horse as a pet, drinks water, smokes blends tobacco, and the house is colored red. The Danish person lives in the house number 5, has a bird as a pet, drinks tea, smokes Pall Mall tobacco, and the house is colored white. The German person lives in the house number 4, has a fish as a pet, drinks coffee, smokes Prince tobacco, and the house is colored green. The Norwegian person lives in the house number 1, has a cat as a pet, drinks beer, smokes Blue Master tobacco, and the house is colored blue. The Swedish person lives in the house number 3, has a dog as a pet, drinks milk, smokes Dunhill tobacco, and the house is colored yellow.

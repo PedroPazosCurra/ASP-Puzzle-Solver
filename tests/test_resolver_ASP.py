@@ -8,7 +8,7 @@ spec.loader.exec_module(modulo)
 resolver_ASP = getattr(modulo, 'resolver_ASP')
 
 #  Variables
-modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). house(1). color(red). person(brittish). has(brittish, color, red). has(brittish, house, 1). image(dog, ruta_dog)."
+modelo_sat = "type(house,V) :- house(V). type(color,V) :- color(V). living_place(house, V) :- house(V). house(1). color(red). person(brittish)."
 modelo_unsat = "type(house, V) :- house(V). house(1..3). person(a). type(pet, V) :- pet(V). pet(dog; cat)."
 modelo_invalido = ":-"
 puzzle_valido = "Einstein"
@@ -51,7 +51,7 @@ def test_modelo_invalido():
 def test_modelo_sat():
     
     status, model, args_salida = resolver_ASP(modelo_sat, puzzle_valido)
-    has_array, imagenes_array = args_salida
+    repr_array, has_array = args_salida
 
     # Status OK
     assert (status == 0)

@@ -33,9 +33,10 @@
 %% seats_number(N) -> seat(1..N)
 seat(1..N) :- seats_number(N).
 
-neighbor(X,Y) :- person(X), person(Y), seated(X,S), seated(Y,M), X !=Y, M != S, seats_number(S), M\(S-2) == 1.
-neighbor(X,Y) :- person(X), person(Y), seated(X,N), seated(Y,S), X !=Y, N != S, seats_number(S), N\(S-2) == 1.
-neighbor(X,Y) :- person(X), person(Y), seated(X,N), seated(Y,M), X !=Y, N != S, M != S, seats_number(S), |N- M| == 1.
+neighbor(X,Y) :- person(X), person(Y), seated(X,S), seated(Y,M), seats_number(S), X !=Y, S <= 2.
+neighbor(X,Y) :- person(X), person(Y), seated(X,S), seated(Y,M), seats_number(S), X !=Y, M != S,  M\(S-2) == 1.
+neighbor(X,Y) :- person(X), person(Y), seated(X,N), seated(Y,S), seats_number(S), X !=Y, N != S,  N\(S-2) == 1.
+neighbor(X,Y) :- person(X), person(Y), seated(X,N), seated(Y,M), seats_number(S), X !=Y, N != S, M != S,  |N- M| == 1.
 neighbor(Y,X) :- neighbor(X,Y), X != Y.
 
 %% Reglas next_to(X,Y)
