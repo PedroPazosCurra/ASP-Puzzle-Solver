@@ -56,6 +56,7 @@ except requests.exceptions.ConnectTimeout:
 try:
     #print(response.status_code)
     response = response.json()
+    print(response)
     print(response['choices'][0]['message']['content'])
 except KeyError:
     print("Error en el servidor del LLM: " + response.json())
