@@ -49,7 +49,7 @@ def tiempos_plot(tiempos : list, tiempo_total : int, intentos : int, representac
 
         texto_x = left_count + tiempo / 2
         texto_y =  0.5
-        ax.text(texto_x, texto_y, fases_actuales[i], ha='center', va='bottom', fontsize=8, color=colores_texto[i])
+        ax.text(texto_x, texto_y, fases_actuales[i], ha='center', va='bottom', fontsize=15, color=colores_texto[i])
 
         left_count += tiempo
         left_sum.append(round(left_count, 2))

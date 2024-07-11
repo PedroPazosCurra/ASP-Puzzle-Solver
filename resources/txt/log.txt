@@ -9211,3 +9211,63 @@ The British person lives in the third house, which is red, and has a bird as pet
 
 ### Intento 0 de 4  ###
 The British person lives in the house number 2, has a horse as a pet, drinks water, smokes blends tobacco, and the house is colored red. The Danish person lives in the house number 5, has a bird as a pet, drinks tea, smokes Pall Mall tobacco, and the house is colored white. The German person lives in the house number 4, has a fish as a pet, drinks coffee, smokes Prince tobacco, and the house is colored green. The Norwegian person lives in the house number 1, has a cat as a pet, drinks beer, smokes Blue Master tobacco, and the house is colored blue. The Swedish person lives in the house number 3, has a dog as a pet, drinks milk, smokes Dunhill tobacco, and the house is colored yellow.
+
+############ [23:43] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:43] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:43] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:43] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:43] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:45] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:45] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:45] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:45] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500
+
+############ [23:45] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 500

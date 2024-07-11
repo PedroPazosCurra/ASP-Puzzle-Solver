@@ -36,7 +36,7 @@ for line in tests.readlines():
     num_seats, puzzle, sat,  prompt = line.split("|")
     num_seats = int(num_seats.strip())
     puzzle = puzzle.strip()
-    unique_sat_expected = (sat.strip() == "SAT")
+    unique_sat_expected = (sat.strip() == "Unique solution")
     prompt = prompt.strip()
 
     # Llamada LLM. Si falla, se salta la iteración
@@ -65,7 +65,7 @@ for line in tests.readlines():
     except:
         continue
 
-    # ¿SAT?
+    # ¿SAT único?
     try:
         solve_handle = cc.solve(yield_= True)
     except:
