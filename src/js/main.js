@@ -4,6 +4,7 @@ var sendBtn = document.getElementById('enviar_button');
 var textBox = document.getElementById('textbox'); 
 var dialogo = document.getElementById("dialogo");
 var botonCerrarDialogo = document.getElementById('btn-cerrar-dialogo');
+const dropdownButton = document.querySelector('.dropdown button');
 textBox.value = "";
 var dropdownPuzzle = document.getElementById("dropdownPuzzle");
 var chatContainer = document.getElementById('chatContainer');
@@ -13,8 +14,14 @@ var selectedPuzzle = "none";
 var num_ids = 0
 textBox.value = "";
 
-// Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
+const dropdownContext = document.getElementById('dropdownContext');
+const contextoEinstein = document.getElementById('contextoEinstein');
+const contextoComensales = document.getElementById('contextoComensales');
+contextoEinstein.value= "Sin cargar";
+contextoComensales.value= "Sin cargar";
 
+
+// Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
 setTimeout(() => {
   //chatbotEnviarImagenes(imgPrueba, imgPrueba)
   chatbotEnviarMensajeNaive("¡Hola! Soy tu asistente de resolución de puzzles. ¡Encantado!");
@@ -360,6 +367,28 @@ textBox.addEventListener("keyup", function(evento){
       evento.preventDefault();
   }
 });
+
+
+// Actualiza las areas de texto de las opciones avanzadas
+function actualizaContexto() {
+
+  fetch('/ctx', {
+    method: "GET",
+    headers: { 'Content-Type': 'application/json' },
+  })
+  .then(response =>  response.json())
+  .then(data => {
+
+    contextoEinstein.value = data.einstein;
+    contextoComensales.value = data.comensales;
+
+  }).catch(error => {   // Caso de error -> Aviso
+    mostrarDialogo("...Ha habido un error intentando obtener el contexto de comensales para las opciones avanzadas. Lo sentimos.\n\n" + error);
+  });
+
+}
+// Evento de hacer click en el dropdown de contexto
+dropdownContext.addEventListener('click', actualizaContexto);
 
 // Click opción del dropdown -> se cambia el texto y variable selectedPuzzle
 function changeSelectedPuzzle(item) {

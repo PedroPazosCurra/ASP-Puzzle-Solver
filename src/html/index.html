@@ -62,9 +62,37 @@
             <div id="caption"></div>
           </div>
 
-          <!-- Nombre de sección -->
+          <!-- Nombre de sección + opciones avanzadas -->
           <br><br><br><br><br><br><br><br>
-          <h2>Chat</h2>
+          <div class="container" style=" width: 100%; display: flex; flex-direction: row; justify-content:left; margin: auto;">
+            <h2>Chat</h2>
+          </div>
+          <div class="container" style=" width: 100%; display: flex; flex-direction: row; justify-content:flex-end; margin: auto;">
+            <div class="dropdown">
+              <button class="btn btn-light" type="button" id="dropdownContext" data-bs-toggle="dropdown" aria-expanded="false">
+                Opciones avanzadas
+              </button>
+            
+              <div class="dropdown-menu">
+                <form class="px-2 py-3;" style="min-width: 20vw;">
+                  <br>
+                  <div class="form-group">
+                    <label for="contextoEinstein">Contexto Einstein:</label>
+                    <textarea class="form-control" id="contextoEinstein" rows="10"></textarea>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="contextoComensales">Contexto Comensales:</label>
+                    <textarea class="form-control" id="contextoComensales" rows="10"></textarea>
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+                
+              </div>
+            </div>
+
+          </div>
           <hr>
 
           <!-- CHAT + INPUT -->
