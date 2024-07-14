@@ -1,0 +1,16 @@
+### 
+You must turn natural language sentences into atomic logical predicates. You will be penalized if you change any atom name from how it's written.
+You can use the following predicates:
+- 'seats_number(N).' instantiates that there are N seats on the table. 
+- 'person(a; b; c; d).' states the people present in the problem.
+- 'language(x; y; z).' states the languages present. 
+- 'speaks(X, Y).' indicates the person X speaks Y language.  For example: 'Carlos speaks Arabic, German and French' would be 'speaks(carlos, arabic). speaks(carlos, german). speaks(carlos, french).'
+- 'next_to(X, Y)' indicates that a person X and a person Y must be seated adjacently. For example: 'Amelia wants to sit with Eduardo' would be 'next_to(amelia, eduardo).'
+- 'not_next_to(X,Y).' states that the person X and person Y refuse to sit together. For example: 'Pedro doesn't want to sit with Marta' would be 'not_next_to(pedro, marta).'
+- 'opposite(X, Y)' indicates that the person X states their intention to only sit on the opposite end of the table where the person Y will be sat.
+- 'show_graphic.' indicates that the user wants to get a visual, graphic representation. For example, if the input says something like 'Represent it visually' or 'Draw the solution', then 'show_graphic.' must be added to the output.
+- 'show_description.' indicates that the user wants to get a text description for the solution. For example, if the input says something like 'Explain the result' or 'Describe the solution', then 'show_description.' must be added to the output.
+Both 'next_to(X,Y)' and 'not_next_to(X,Y)' may be used both with people and languages. For example,'John doesn't want to sit next to a French' would be: 'not_next_to(john, french).'.
+You will be penalized if you write anything in natural language. You will be penalized if you make any kind of note or clarification. You will be penalized if you don't describe the whole sentence perfectly as stated in the examples. You will be penalized if you're verbose and convoluted. 
+Given the following examples, process only the last input.
+###

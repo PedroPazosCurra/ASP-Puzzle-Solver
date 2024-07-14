@@ -19,6 +19,8 @@ const contextoEinstein = document.getElementById('contextoEinstein');
 const contextoComensales = document.getElementById('contextoComensales');
 contextoEinstein.value= "Sin cargar";
 contextoComensales.value= "Sin cargar";
+const botonGuardaCtx = document.getElementById('boton_guardar_ctx');
+
 
 
 // Código inicial. Pregunta preprogramada, ejemplo de uso, info, etc.
@@ -370,7 +372,7 @@ textBox.addEventListener("keyup", function(evento){
 
 
 // Actualiza las areas de texto de las opciones avanzadas
-function actualizaContexto() {
+async function actualizaContexto() {
 
   fetch('/ctx', {
     method: "GET",
@@ -387,10 +389,38 @@ function actualizaContexto() {
   });
 
 }
-// Evento de hacer click en el dropdown de contexto
+// Evento de click en el dropdown de ctx
 dropdownContext.addEventListener('click', actualizaContexto);
 
-// Click opción del dropdown -> se cambia el texto y variable selectedPuzzle
+
+// Guarda en resources el contexto cambiado por usuario
+async function guardaContexto() {
+
+  console.log("Button clicked!");
+  
+  return fetch('/ctx', {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      einstein : contextoEinstein.value,
+      comensales : contextoComensales.value
+    })
+  }).then(response => { // Caso exitoso
+    pass
+
+  }).catch(error => {   // Caso de error -> Aviso
+    mostrarDialogo("...Ha habido un error actualizando el contexto, lo sentimos.\n\n" + error);
+
+  });
+  
+  
+}
+
+// Evento de click en boton de guardar ctx
+botonGuardaCtx.addEventListener('click', guardaContexto);
+
+
+// Click opción del dropdown de puzzle -> se cambia el texto y variable selectedPuzzle
 function changeSelectedPuzzle(item) {
   opcion = item.textContent.trim();
   dropdownPuzzle.innerHTML = opcion;

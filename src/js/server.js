@@ -124,6 +124,29 @@ app.delete("/tmp", function (req, res) {
 
 });
 
+// Recibe POST a '/ctx'
+app.post('/ctx', (req, res) => {
+
+  // Coge mensaje del cuerpo del JSON + LOG
+  const einstein = req.body.einstein; 
+  const comensales = req.body.comensales;
+
+  // Escribe comensales
+  fs.writeFile(path.join(__dirname, '../../resources/ctx/comensales', 'zero_comensales_to_ASP.txt'), comensales, 'utf8', (err) => {
+    if (err) {
+      console.error('Error escribiendo contexto de comensales:', err);
+    }
+  });
+
+  // Escribe einstein
+  fs.writeFile(path.join(__dirname, '../../resources/ctx/einstein', 'zero_einstein_to_ASP.txt'), einstein, 'utf8', (err) => {
+    if (err) {
+      console.error('Error escribiendo contexto de einstein:', err);
+    } 
+  });
+
+});
+
 // Recibe POST a '/procesa-mensaje'
 app.post('/procesa-mensaje', (req, res) => {
 
