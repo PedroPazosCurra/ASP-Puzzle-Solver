@@ -16,9 +16,14 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
     # Flag de iteración con LLM Puro?
     if llm_puro_flag: 
 
-        contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/einstein_puro.txt"))
-        with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
-        fewshot = "\nIN: "
+        match puzzle:
+            case "Einstein":
+                contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/einstein_puro.txt"))
+                with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
+                fewshot = "\nIN: "
+            case "Comensales":
+                contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/comensales_puro.txt"))
+                with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
 
     else:
         # Leemos /resources/ctx... para tener el contexto para few-shot learning

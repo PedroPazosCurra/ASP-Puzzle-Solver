@@ -23,7 +23,6 @@ LOG_HEADER = f"\n############ {HORA_STRING} LOG ############:\n"
 MAX_REINTENTOS = 4
 
 # Flags
-USAR_LLM_PURO = False
 DEBUG = False
 
 # Variables
@@ -32,11 +31,6 @@ log = open(path.abspath(path.join(path.dirname(__file__), "..", "../resources/tx
 
 # Funcion auxiliar imprimir_salida()
 def imprimir_salida(estado, msg : str, prompt,  puzzle_elegido, tiempos : list, intento : int, contador_tiempo_total, representaciones : list = ["show_graphic", "show_description"]):
-
-    # Modo LLM puro -> Sale
-    if(USAR_LLM_PURO): 
-        log.write(msg)
-        log.close
 
     # Fallo sin máximo alcanzado -> reintento
     if(estado != 0 and intento < MAX_REINTENTOS):
@@ -87,15 +81,15 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
     ########    1º - Pasa el mensaje del usuario a declaraciones ASP.           ########
     tiempo_comienzo_nl_to_asp = time.perf_counter()
 
-    estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido, USAR_LLM_PURO)
+    estado, modelo_asp = NL_to_ASP(prompt_usuario, puzzle_elegido, False)
 
     tiempo_nl_to_asp = time.perf_counter() - tiempo_comienzo_nl_to_asp
     array_tiempos.append(tiempo_nl_to_asp)
 
     salida += f"# Modelo ASP sacado: \n\t{modelo_asp}\n"
 
-    ## Fallo en NL_to_ASP (1) o modo LLM Puro
-    if ((estado != 0) or USAR_LLM_PURO): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
+    ## Fallo en NL_to_ASP (1)
+    if ((estado != 0)): imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total)
 
 
     ########    2º - Pasa el ASP al solver para obtener el Answer Set solución. ########
@@ -143,16 +137,6 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
     # Fin
     imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total, representaciones)
 
-    if(DEBUG):
-
-        pass
-
-        # Salida
-        #msg = f"modelo nl_to_asp : {modelo_asp} >>>>>>>>\nanswer sets : {answer_set} ///\n has : {predicados_has} ///\n imgs : {rutas_imagenes} >>>>>>>\nexplicacion: {nl_salida}"
-
-        # Tiempo
-        #print(f"########### TIEMPO TOTAL ###########:      {tiempo_total}:\n\tNL_to_ASP:\t\t{tiempo_nl_to_asp}\n\tresolver_ASP:\t\t{tiempo_resolver_asp}\n\tAS_to_NL:\t\t{tiempo_as_to_nl}\n\tMódulo gráfico:\t\t{tiempo_grafico}")
-        
 ##############################################################  Ejecución  #############################################################################
 
 
