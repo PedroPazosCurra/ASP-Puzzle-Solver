@@ -17,23 +17,29 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
     if llm_puro_flag: 
 
         match puzzle:
+
             case "Einstein":
                 contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/einstein_puro.txt"))
                 with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
                 fewshot = "\nIN: "
+
             case "Comensales":
                 contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/comensales_puro.txt"))
                 with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
+                fewshot = "\nIN: "
 
     else:
         # Leemos /resources/ctx... para tener el contexto para few-shot learning
         match puzzle:
+
             case "Einstein":
                 contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/zero_einstein_to_ASP.txt"))
                 contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/einstein_to_ASP.txt"))
+            
             case "Comensales":
                 contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/comensales/zero_comensales_to_ASP.txt"))
                 contexto_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/comensales/comensales_to_ASP.txt"))
+            
             case _:
                 return([1, "En NL_to_ASP.py, se recibe un puzzle que no existe: "+ puzzle + ". Vigila que se pase bien."])
         
