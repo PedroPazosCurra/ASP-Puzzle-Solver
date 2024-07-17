@@ -24,7 +24,7 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
                 fewshot = "\nIN: "
 
             case "Comensales":
-                contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/einstein/comensales_puro.txt"))
+                contexto_zeroshot_path = path.abspath(path.join(path.dirname(__file__), "..", "../resources/ctx/comensales/comensales_puro.txt"))
                 with open(contexto_zeroshot_path, 'r') as file: zeroshot = file.read()
                 fewshot = "\nIN: "
 
