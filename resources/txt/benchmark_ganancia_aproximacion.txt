@@ -25,7 +25,7 @@ person(spanish; english; chinese). house(1..3). living_place(house, V) :- house(
 house(1..3). living_place(house, V) :- house(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). type(color, V) :- color(V). color(red; blue; purple). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; blue_master). type(drink, V) :- drink(V). drink(coffee; water; tea). same_place(spanish, red). same_place(english, blue). same_place(chinese, tea). same_place(duck, purple).
  
 [# Salida Sis. Neurosim. [2]] - has(spanish,house,3). has(spanish,pet,cat). has(spanish,color,red). has(spanish,tobacco_brand,camel). has(spanish,drink,water). has(english,house,2). has(english,pet,dog). has(english,color,blue). has(english,tobacco_brand,ducados). has(english,drink,coffee). has(chinese,house,1). has(chinese,pet,duck). has(chinese,color,purple). has(chinese,tobacco_brand,blue_master). has(chinese,drink,tea). 
-[# Salida Sis. Neurosim. [3]] - The Spanish person lives in the house number 3, has a cat as a pet, the house is red, smokes Camel tobacco, drinks water, and owns a house. The English person lives in the house number 2, has a dog as a pet, the house is blue, smokes Ducados tobacco, drinks coffee, and does not own a house. The Chinese person lives in the house number 1, has a duck as a pet, the house is purple, smokes Blue Master tobacco, and drinks tea. 
+[# Salida Sis. Neurosim. [3]] - The Spanish person lives in the house number 3, has a cat as a pet, the house is red, smokes Camel tobacco, drinks water, and owns a house. The English person lives in the house number 2, has a dog as a pet, the house is blue, smokes Ducados tobacco and drinks coffee. The Chinese person lives in the house number 1, has a duck as a pet, the house is purple, smokes Blue Master tobacco, and drinks tea. 
 
 
 ##################   Prueba 3   ##################
@@ -87,7 +87,7 @@ house(1..20). living_place(house, V) :- house(V). person(dominican; nicaraguan; 
 
 
 
-##################   Prueba 0   ##################
+##################   Prueba 8   ##################
 [# Entrada] - In this table there are 4 people sitting: Jose, Martina, Claudia and Pedro. The languages spoken in the table are German, Spanish and Arabic. Pedro and Jose speak Arabic. Claudia speaks Spanish and Martina speaks German.
 [# Salida Puro] - Pedro sits in seat 1. Jose will sit in the second seat, as he is able to communicate with Pedro speaking Arabic. Martina will sit in the third seat, being able to converse with Claudia speaking Spanish. Claudia will occupy the fourth seat, completing the circle. 
 [# Salida Sis. Neurosim. [1]] -  seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). show_description. show_graphic. 
@@ -95,7 +95,7 @@ house(1..20). living_place(house, V) :- house(V). person(dominican; nicaraguan; 
 [# Salida Sis. Neurosim. [3]] - Claudia is seated in the first chair, Martina in the second, Pedro in the third, and Jose in the fourth. 
 
 
-##################   Prueba 1   ##################
+##################   Prueba 9   ##################
 [# Entrada] - There are 3 people about to sit in a table: Juan, who speaks Spanish, Maria and Sofia. Both Maria and Sofia want to sit next to someone who speaks Spanish.
 [# Salida Puro] - Juan sits in seat 1. Maria will sit in the second seat. Sofia will sit in the third seat. 
 [# Salida Sis. Neurosim. [1]] -  seats_number(3). person(juan; maria; sofia). language(spanish). speaks(juan, spanish). next_to(maria, spanish). next_to(sofia, spanish). show_description. show_graphic. 
@@ -103,14 +103,14 @@ house(1..20). living_place(house, V) :- house(V). person(dominican; nicaraguan; 
 [# Salida Sis. Neurosim. [3]] - Juan is seated in the first chair, Maria is seated in the second and Sofia in the third. 
 
 
-##################   Prueba 2   ##################
+##################   Prueba 10   ##################
 [# Entrada] - In this table there are 4 people sitting: Jose, Martina, Claudia and Pedro. The languages spoken in the table are German, Spanish and Arabic. Pedro and Jose speak Arabic. Claudia speaks Spanish and Martina speaks German. Claudia refuses to sit next to Pedro. Pedro, on the other hand, wants to sit next to someone who speaks Arabic. Martina wants Jose to be on the opposite side of the table.
 [# Salida Puro] - Pedro sits in seat 1. Jose will sit in the fourth seat. Claudia will sit in the second seat, while Martina will occupy the third seat. 
 [# Salida Sis. Neurosim.] - OK
  seats_number(4). person(jose; martina; claudia; pedro). language(german; spanish; arabic). speaks(pedro, arabic). speaks(jose, arabic). speaks(claudia, spanish). speaks(martina, german). not_next_to(claudia, pedro). next_to(pedro, arabic). opposite(martina, jose). 
 
 
-##################   Prueba 3   ##################
+##################   Prueba 11   ##################
 [# Entrada] - In this table there are 10 people sitting: Alberto, Carlos, Carolina, Paco, Lucia, Isabel, Jose, Martina, Claudia and Pedro. The languages spoken in the table are German, Spanish, Galician, Catalan, Basque, French, English and Arabic. Pedro and Jose speak Arabic. Claudia speaks Spanish and Martina speaks German. Claudia refuses to sit next to Pedro. Pedro, on the other hand, wants to sit next to someone who speaks Arabic. Martina wants Jose to be on the opposite side of the table. Alberto only agrees to sit if Carolina is on the opposite side of the table. Isabel speaks French and wants to sit next to Pedro. Paco wants Luc�a sitting on the opposite end of the table. Claudia wants to sit next to Carlos. Carolina speaks Basque and needs to sit next to someone who speaks French.
 [# Salida Puro] - Pedro sits in seat 1. Jose will sit in the second seat, while Isabel will sit in the third seat. Claudia will sit in the fourth seat. Alberto will sit in the fifth seat. Carolina will sit in the sixth seat. Lucia will sit in the seventh seat. Martina will sit in the eighth seat. Carlos will sit in the ninth seat. Paco will sit in the tenth seat. 
 [# Salida Sis. Neurosim.] - OK
@@ -135,7 +135,7 @@ show_description.
 show_graphic. 
 
 
-##################   Prueba 4   ##################
+##################   Prueba 12   ##################
 [# Entrada] - In this table there are 25 people: A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X and Y. The languages that are spoken are Spanish, Italian, German, Esperanto, Galician, English, Brazilian, Portuguese and French. A, D and C speak Brazilian. B, T and S are Spanish speakers.
 [# Salida Puro] - I'm ready to tackle the first puzzle!
 
