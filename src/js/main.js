@@ -45,10 +45,9 @@ setTimeout(() => {
 */ 
 function userEnviarMensaje(inputMsg){
 
-  // Se coloca el mensaje en el chat
+  // Se coloca el mensaje en el chat y empieza la parte del chatbot
   var mensajeElemUser = creaMensaje("User", inputMsg);
   enviaMensaje(mensajeElemUser);
-
   chatbotEnviarMensaje(inputMsg);
 }
 
@@ -80,8 +79,6 @@ async function chatbotEnviarMensaje(inputMsg){
   // Envía petición AJAX a backend Express
   peticionProcesaMensaje(inputMsg).then((valor) => { 
 
-    
-
     try{    // Recibe correctamente, actualiza el mensaje
       
       actualizaMensaje(mensajeElem, valor[1]);
@@ -96,15 +93,12 @@ async function chatbotEnviarMensaje(inputMsg){
           representacion_grafica_solucion = "./imagen-final";
           chatbotEnviarImagenes(representacion_grafica_inicial, representacion_grafica_solucion); 
         }
-          
       }
-
     }catch(error){
 
       actualizaMensaje(mensajeElem, "Hay un problema con el servidor. Perdona, necesito un momento para pensar.");
       mostrarDialogo("El servidor no parece estar funcionando bien. ¡Sentimos las molestias!")
     }
-
   });
 }
 
