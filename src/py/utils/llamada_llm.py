@@ -18,10 +18,10 @@ def llamada_llm(prompt : str, temperatura : float):
     # Creación de paquete JSON
     payload = json.dumps({
                         "model": modelo,
-                        "messages": [{"role" : "user", "content" : prompt}],
+                        "prompt": f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nYou are an expert logical code to natural language translator.<|eot_id|><|start_header_id|>user<|end_header_id|>{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+                        "repetition_penalty": 1.1,
                         "max_tokens": 1024,
                         "temperature": temperatura,
-                        "repetition_penalty": 1.1,
                         "top_p": 0.9,
                         "top_k": 40,
                         "stream": False
@@ -37,7 +37,7 @@ def llamada_llm(prompt : str, temperatura : float):
 
     try:
         response = response.json()
-        salida_llm = response['choices'][0]['message']['content']
+        salida_llm = response['choices'][0]['text']
         return [0, salida_llm]
     
     except KeyError:

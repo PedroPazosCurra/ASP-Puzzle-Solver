@@ -51,7 +51,7 @@ def NL_to_ASP(prompt : str = None, puzzle : str = None, llm_puro_flag : bool = F
     prompt_w_context = f"{contexto_fewshot} {prompt}\nOUT: "
 
     ###  Petición a la API del LLM
-    estado_peticion, salida_llm = llamada_llm(prompt=prompt_w_context, temperatura= 0.7)
+    estado_peticion, salida_llm = llamada_llm(prompt=prompt_w_context, temperatura= 0.65)
 
     # Caso de error de peticion API LLM
     if (estado_peticion == 1): return([1, salida_llm])

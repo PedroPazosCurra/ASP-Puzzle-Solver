@@ -13,23 +13,17 @@ place_of(X,N) :- has(P,_,X), has(P,Y,N), X!=N, living_place(Y,N).
 place_of(P,N) :- has(P,Y,N), living_place(Y,N).
 type(P, V) :- living_place(P,V).
 
-% Generar soluciones
+% Generar soluciones: todos los elementos inicializados asignados a una persona
 1 { has(X,T,V): person(X) } 1 :- type(T,V).
 :- has(X,T,V), has(X,T,V'), V!=V'.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%   Interfaz de LLM   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% place_number( X, nº) para predicados numéricos
-%:- place_number(X,N), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
-%:- place_number(P,N), person(P), living_place(L,N), not has(P,L,N).
-
-%%% Predicados numéricos: 
-%same_place (X, nº) 
+% same_place (X, nº) / same_place (nº, X) 
 :- same_place(X,N), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
 :- same_place(N,X), not person(X), living_place(_,N), has(P,_,N), not has(P,_,X).
 :- same_place(P,N), person(P), living_place(L,N), not has(P,L,N).
 
-%%% Predicados de vecindario / cruzados
 % same_place(X,Y).
 :- same_place(X,Y), place_of(X,H), place_of(Y,H'), H!=H'.
 1 {has(P,T,X): person(P)} 1 :- same_place(X,Y), type(T,X).

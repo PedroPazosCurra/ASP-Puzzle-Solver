@@ -10,10 +10,10 @@ ASP cortos
 There are three houses. In them live a Spanish, an English and a Chinese.
 
   -  3 Casas, debería ir a la primera.
-There are three houses. In them live a Spanish, an English and a Chinese. There are three pets: a Dog, a Cat and a Duck. There are 3 tobacco brands: Ducados, Camel and Blue Master. There are also three drinks: Coffee, Water and Tea. The Spanish man house is painted Red, while the English man house is tainted Blue. The house of the Chinese man is Purple. The Spanish man keeps a Dog. The Chinese man loves to drink Tea. The Spanish one, on the other hand, smokes Ducados.
+There are three houses; one is Blue, other is Purple and the other is Red. In them live a Spanish, an English and a Chinese. There are three pets: a Dog, a Cat and a Duck. There are 3 tobacco brands: Ducados, Camel and Blue Master. There are also three drinks: Coffee, Water and Tea. The Spanish man house is painted Red, while the English man house is tainted Blue. The house of the Chinese man is Purple. The Spanish man keeps a Dog. The Chinese man loves to drink Tea. The Spanish one, on the other hand, smokes Ducados.
 
   -  3 Casas, una cruzada.
- There are three houses. In them live a Spanish, an English and a Chinese. There are three pets: a Dog, a Cat and a Duck. There are 3 tobacco brands: Ducados, Camel and Blue Master. There are also three drinks: Coffee, Water and Tea. The Spanish man house is painted Red, while the English house is tainted Blue. The Chinese man loves to drink Tea. The owner of the Purple house has a Duck pet. 
+ There are three houses; one is Blue, other is Purple and the other is Red. In them live a Spanish, an English and a Chinese. There are three pets: a Dog, a Cat and a Duck. There are 3 tobacco brands: Ducados, Camel and Blue Master. There are also three drinks: Coffee, Water and Tea. The Spanish man house is painted Red, while the English house is tainted Blue. The Chinese man loves to drink Tea. The owner of the Purple house has a Duck pet. 
 
   -  3 Barcos, debería funcionar perfecto
 There are three boats. There are a Spanish, an English and a Chinese. There are three drinks: Tea, Milk and Soda. The Spanish man drinks Soda. There's a Dog, a Cat and a Horse. The Spanish keeps the Cat, while the English man has a Dog. The Spanish man has a red boat. The Chinese man, on the other hand, lives in a Purple boat.
