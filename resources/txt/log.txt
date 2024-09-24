@@ -12414,3 +12414,578 @@ show_graphic.
 # Modelo ASP sacado: 
 	 person(spanish). person(english). person(chinese). house(1..3). living_place(house, V) :- house(V). type(pet, V) :- pet(V). pet(dog; cat; duck). type(color, V) :- color(V). color(blue; purple; red). same_place(spanish, 3). same_place(english, blue). same_place(chinese, purple). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; bluemaster). same_place(spanish, ducados). type(drink, V) :- drink(V). drink(tea; coffee; water). same_place(chinese, tea).
 show_graphic.
+
+############ [13:33] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 504
+
+############ [13:33] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 504
+
+############ [13:33] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	Error en servidor: 504
+
+############ [13:33] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	living_place(house, V) :- house(V). type(color, V) :- color(V). person(spanish; english; chinese). type(pet, V) :- pet(V). pet(dog; cat; duck). same_place(spanish, dog). type(drink, V) :- drink(V). drink(tea). same_place(chinese, tea). same_place(spanish, red). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados). same_place(spanish, ducados). same_place(english, blue).
+
+############ [13:33] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. I need you to tell me more about that information so I can do this translation.
+
+In particular I would like you to answer these questions:
+
+- How many houses are there?
+
+- What color is each house painted? 
+
+- Is there a specific pet per person or pets and persons are different entities?.
+
+############ [14:8] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	living_place(house). type(color, V) :- color(V). color(blue; purple; red). house(red). house(purple). house(blue). same_place(spanish, red). person(spanish; english; chinese). same_place(english, blue). same_place(chinese, purple). type(pet, V) :- pet(V). pet(dog; cat; duck). same_place(spanish, dog). type(drink, V) :- drink(V). drink(tea; water; coffee). same_place(chinese, tea). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(ducados; camel; master). same_place(spanish, ducados).
+
+############ [14:8] LOG ############:
+
+### Intento 1 de 4  ###
+The spanish person lives in the house number three and is red. He owns a dog as pet, smokes ducados tobacco and drinks water. The english person owns the second house that is blue. He keeps a cat as pet, smokes blue master and has coffee as drink. On the other hand, the chinese person owns the first house and it's purple. The person owns a duck as pet, smokes camel tobacco and drinks tea.
+
+############ [15:26] LOG ############:
+
+### Intento 0 de 4  ###
+The chinese person lives in the house number 1, which is colored purple and has a duck as pet. The english person resides in the second blue house, drinks coffee, keeps a cat as pet and smokes Blue Master cigarettes. The spanish person lives in the red third house, has water as a beverage, owns a dog as pet and is fond of smoking Ducados tobacco brand.
+
+############ [0:4] LOG ############:
+
+### Intento 0 de 4  ###
+The spanish person has the third red boat and drinks soda and has a cat. The english person lives in the first boat and is used to drinking milk and owns a dog as pet. The chinese person owns the second purple boat, tea is drank and an horse is owned as pet.
+
+############ [0:5] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). same_place(spanish, red). same_place(chinese, purple).
+show_graphic.
+
+############ [0:5] LOG ############:
+
+### Intento 1 de 4  ###
+The Spanish person has a red boat that is the third one, drinks soda and keeps a cat as pet. The English person has the first boat, that is not specified what color it is, drinks milk and keeps a dog as pet. And finally, the chinese person has the second purple boat, drinks tea and keeps a horse as pet.
+
+############ [0:7] LOG ############:
+
+### Intento 0 de 4  ###
+The Spanish person owns a boat, which is number three and red. This person's preferred drink is soda and keeps cats as pets. The english person has the first boat, drinks milk, and has dogs as pets. The chinese person owns a second purple boat, their favorite beverage is tea and they have a horse as pet
+
+############ [0:9] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	boat(1..3). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple).
+
+
+############ [0:9] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	boat(1..3). person(spanish; english; chinese). living_place(boat). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple).
+
+############ [0:9] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	living_place(boat). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple).
+
+
+############ [0:9] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. I see that you want me to provide the output for a given input. However, it seems like there was no specific input provided at the end.
+
+Could you please provide the input again, and I'll be happy to help you with the output?.
+
+############ [0:9] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	boat(1..3). living_place(boat, V) :- boat(V). person(spanish; english; chinese). type(drink, V) :- drink(V). drink(tea; milk; soda). same_place(spanish, soda). type(pet, V) :- pet(V). pet(dog; cat; horse). same_place(spanish, cat). same_place(english, dog). type(color, V) :- color(V). color(red; purple). same_place(spanish, red). same_place(chinese, purple).
+
+show_graphic.
+
+############ [0:11] LOG ############:
+
+### Intento 0 de 4  ###
+The spanish person has the third boat and is red. This spanish owns a cat as pet and drinks soda. On the other hand, The english person has the first green boat, owns a dog, drinks milk, and has one car that is number 1 in color red. There's also another, The chinese who own the second purple boat, this chinese grows horses as pets and drinks tea.
+
+############ [0:35] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. The description of the problem is:
+
+In this table there are 4 people sitting: Jose, Martina, Claudia and Pedro. The languages spoken in the table are German, Spanish and Arabic. Pedro and Jose speak Arabic. Claudia speaks Spanish and Martina speaks German.
+
+This description summarizes the key information about the seating arrangement, including the number of people, their names, and the languages they speak.
+
+############ [0:35] LOG ############:
+
+### Intento 1 de 4  ###
+Claudia is seated in chair number 1, Martina in the second one, Pedro in the third and Jose in the number 4.
+
+############ [0:49] LOG ############:
+
+### Intento 0 de 4  ###
+The Spanish person has a red boat with the number three and drinks soda. The spanish person also has a cat as a pet. The english owns the first boat which is green and they drink milk, have a dog as their companion. On the other hand, the chinese person owns the second boat colored purple who has tea as favorite drink and has a horse kept as a pet.
+
+############ [16:22] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [16:23] LOG ############:
+
+### Intento 0 de 4  ###
+
+############ [12:20] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	house(1..3). 
+
+############ [12:20] LOG ############:
+
+### Intento 1 de 4  ###
+The Spanish person lives in the third house, which is red, has a dog as a pet, smokes Ducados tobacco, and drinks water. The English person lives in the second house, which is blue, has a duck as a pet, smokes Blue Master tobacco, and drinks coffee. The Chinese person lives in the first house, which is purple, has a cat as a pet, smokes Camel tobacco, and drinks tea.
+
+############ [12:44] LOG ############:
+
+### Intento 0 de 4  ###
+The Norwegian person lives in the first house.
+
+############ [12:45] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(house, V) :- house(V). person(british; danish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(danish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(horse, dunhill). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [12:45] LOG ############:
+
+### Intento 1 de 4  ###
+The Danish person lives in the house number two and owns a horse as a pet and drinks tea. The German person resides in the fourth house and has a fish as a pet, consumes coffee and uses Prince brand tobacco, his home is painted green. The Norwegian inhabitant dwells in the house number one, has a cat as a pet, drinks water and uses Dunhill brand tobacco, his house is colored yellow. The Swedish person lives in the house number five, has a dog as a pet, consumes beer and uses Blue Master brand tobacco, their home is white.
+
+############ [12:57] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(cat, dunhill). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(blends, water).
+
+############ [12:57] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). next_to(green, white). same_place(owner_green, coffee). same_place(person_pall_mall, bird). same_place(owner_yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(smoker_blue_master, beer). same_place(german, prince). same_place(norwegian, blue). next_to(blends, water). type(group, V) :- group(V). group(gang_of_four; fugazi; golpes_bajos; steely_dan; beatles). same_place(british, gang_of_four). same_place(irish, fugazi). same_place(german, golpes_bajos). same_place(norwegian, steely_dan). same_place(swedish, beatles). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(beer, blue_master). show_graphic.
+
+############ [12:57] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(group, V) :- group(V). group(gang_of_four; fugazi; golpes_bajos; steely_dan; beatles). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [12:57] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(group, V) :- group(V). group(gang_of_four; fugazi; golpes_bajos; steely_dan; beatles). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(person_with_pall_mall, bird). same_place(owner_yellow_boat, dunhill). same_place(owner_boat_number_3, milk). same_place(norwegian, 1). next_to(man_with_blends, man_with_cat). next_to(man_with_dunhill, man_with_horse). same_place(man_with_blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(man_with_blends, man_with_water).
+
+############ [12:57] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). boat(1..5). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green, coffee). same_place(pall_mall, bird). same_place(owner_yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). right(norwegian, blue). next_to(blends, water).
+
+############ [13:2] LOG ############:
+
+### Intento 0 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:2] LOG ############:
+
+### Intento 1 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(person_with_bird, pall_mall). same_place(owner_yellow_boat, dunhill). same_place(person_living_in_boat_3, milk). same_place(norwegian, 1). next_to(man_smoking_blends, person_with_cat). next_to(person_with_horse, owner_yellow_boat). same_place(man_smoking_blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(man_smoking_blends, person_drinking_water).
+
+############ [13:2] LOG ############:
+
+### Intento 2 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(blends, water).
+
+############ [13:2] LOG ############:
+
+### Intento 3 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). right(blue, norwegian). next_to(blends, water).
+
+############ [13:2] LOG ############:
+
+### Intento 4 de 4  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:6] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(color, V) :- color(V). color(yellow; green; white; red; blue). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:6] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). next_to(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). same_place(blends, water). 
+
+############ [13:6] LOG ############:
+
+### Intento 2 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:6] LOG ############:
+
+### Intento 3 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(pall_mall_smoker, bird). same_place(owner_yellow_boat, dunhill). same_place(owner_boat_number_3, milk). same_place(norwegian, 1). next_to(blends_smoker, cat_owner). next_to(dunhill_smoker, horse_owner). same_place(blue_master_smoker, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends_smoker, water_drinker).
+
+############ [13:6] LOG ############:
+
+### Intento 4 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). boat(red). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brtish; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). same_place(brtish, red). same_place(swedish, dog). same_place(irish, tea). next_to(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(blends, water).
+
+############ [13:6] LOG ############:
+
+### Intento 5 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). right(blue, norwegian). next_to(blends, water).
+
+############ [13:6] LOG ############:
+
+### Intento 6 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(blends, water). same_place(norwegian, blue).
+
+############ [13:13] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:13] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:13] LOG ############:
+
+### Intento 2 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:13] LOG ############:
+
+### Intento 3 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). boat(red). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). next_to(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:13] LOG ############:
+
+### Intento 4 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). color(yellow; green; white; red; blue). boat(1..5). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:13] LOG ############:
+
+### Intento 5 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:13] LOG ############:
+
+### Intento 6 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:17] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(pall_mall_smoker, bird). same_place(owner_yellow_boat, dunhill). same_place(owner_boat_3, milk). same_place(norwegian, 1). next_to(blends_smoker, cat_owner). next_to(dunhill_smoker, horse_owner). same_place(blue_master_smoker, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends_smoker, water_owner).
+
+############ [13:17] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:17] LOG ############:
+
+### Intento 2 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:17] LOG ############:
+
+### Intento 3 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:17] LOG ############:
+
+### Intento 4 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(pall_mall_smoker, bird). same_place(owner_yellow_boat, dunhill). same_place(boat_number_3_owner, milk). same_place(norwegian, 1). next_to(blends_smoker, cat_owner). next_to(dunhill_smoker, horse_owner). same_place(blue_master_smoker, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends_smoker, water).
+
+############ [13:17] LOG ############:
+
+### Intento 5 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:17] LOG ############:
+
+### Intento 6 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water).
+
+############ [13:23] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	building(1..5). living_place(building, V) :- building(V). person(brtish; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(color, V) :- color(V). color(red; green; white; yellow; blue). same_place(brtish, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:23] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(blends, water). show_graphic.
+
+############ [13:23] LOG ############:
+
+### Intento 2 de 6  ###
+# Modelo ASP sacado: 
+	boat(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(person_with_pall_mall, bird). same_place(owner_yellow_boat, dunhill). same_place(owner_boat_number_three, milk). same_place(norwegian, 1). next_to(person_with_blends, cat). next_to(person_with_dunhill, horse). same_place(person_with_blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(person_with_blends, water). show_graphic.
+
+############ [13:23] LOG ############:
+
+### Intento 3 de 6  ###
+# Modelo ASP sacado: 
+	Lo siento, no soy capaz de procesar esto. Por favor, reescribe tu puzzle explicando el estado de forma precisa o usando otras palabras. building(boat, V) :- boat(V).
+type(color, V) :- color(V).
+color(yellow; green; white; red; blue).
+
+person(british; irish; german; norwegian; swedish).
+type(pet, V) :- pet(V).
+pet(dog; fish; bird; horse; cat).
+
+type(group, V) :- group(V).
+group(golpes_bajos; fugazi; beatles; police; radio_futura).
+
+type(drink, V) :- drink(V).
+drink(beer; coffee; tea; milk; water).
+
+type(tobacco_brand, V) :- tobacco_brand(V).
+tobacco_brand(blends; blue_master; dunhill; pall_mall; prince).
+
+same_place(british, red).
+same_place(swedish, dog).
+same_place(irish, tea).
+left(green, white).
+same_place(green, coffee).
+same_place(pall_mall, bird).
+same_place(yellow, dunhill).
+same_place(3, milk).
+same_place(norwegian, 1).
+next_to(blends, cat).
+next_to(dunhill, horse).
+same_place(blue_master, beer).
+same_place(german, prince).
+next_to(norwegian, blue).
+next_to(blends, water).
+show_graphic.
+
+############ [13:23] LOG ############:
+
+### Intento 4 de 6  ###
+# Modelo ASP sacado: 
+	building(1..5). living_place(building, V) :- building(V). person(brtish; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). type(color, V) :- color(V). color(red; green; white; blue; yellow). same_place(brtish, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(person_with_pall_mall, bird). same_place(owner_yellow_boat, dunhill). same_place(owner_boat_number_three, milk). same_place(norwegian, 1). next_to(person_with_blends, person_with_cat). next_to(person_with_dunhill, person_with_horse). same_place(person_with_blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(person_with_blends, person_drinking_water). show_graphic.
+
+############ [13:23] LOG ############:
+
+### Intento 5 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:23] LOG ############:
+
+### Intento 6 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; the_beatles; the_police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(coffee, green). same_place(pall_mall, bird). same_place(dunhill, yellow). same_place(milk, 3). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:27] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	boat(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(brtish; irish; german; norwegian; swedish). same_place(brtish, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:34] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:34] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:34] LOG ############:
+
+### Intento 2 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:34] LOG ############:
+
+### Intento 3 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:34] LOG ############:
+
+### Intento 4 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:34] LOG ############:
+
+### Intento 5 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(coffee, green). same_place(pall_mall, bird). same_place(dunhill, yellow). same_place(milk, 3). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(prince, german). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:34] LOG ############:
+
+### Intento 6 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). 
+
+############ [13:38] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	boat(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). person(british; irish; german; norwegian; swedish). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(person_smoking_pall_mall, bird). same_place(owner_yellow_boat, dunhill). same_place(owner_third_boat, milk). same_place(norwegian, 1). next_to(person_smoking_blends, person_with_cat). next_to(person_smoking_dunhill, person_with_horse). same_place(person_smoking_blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(person_smoking_blends, person_drinking_water). show_graphic.
+
+############ [13:38] LOG ############:
+
+### Intento 1 de 6  ###
+¡Listo! Aquí tienes las imágenes
+############ [13:42] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	Error con la peticion a API del LLM. Respuesta recibida: {'message': 'User f7129c85-8980-4a6c-a117-441936fa92c6 pedropazos11@gmail.com can only make 1 requests at a time. Please upgrade your plan!'}
+
+############ [13:42] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	Error con la peticion a API del LLM. Respuesta recibida: {'message': 'User f7129c85-8980-4a6c-a117-441936fa92c6 pedropazos11@gmail.com can only make 1 requests at a time. Please upgrade your plan!'}
+
+############ [13:42] LOG ############:
+
+### Intento 2 de 6  ###
+# Modelo ASP sacado: 
+	Error con la peticion a API del LLM. Respuesta recibida: {'message': 'User f7129c85-8980-4a6c-a117-441936fa92c6 pedropazos11@gmail.com can only make 1 requests at a time. Please upgrade your plan!'}
+
+############ [13:42] LOG ############:
+
+### Intento 3 de 6  ###
+# Modelo ASP sacado: 
+	Error con la peticion a API del LLM. Respuesta recibida: {'message': 'User f7129c85-8980-4a6c-a117-441936fa92c6 pedropazos11@gmail.com can only make 1 requests at a time. Please upgrade your plan!'}
+
+############ [13:42] LOG ############:
+
+### Intento 4 de 6  ###
+# Modelo ASP sacado: 
+	Error con la peticion a API del LLM. Respuesta recibida: {'message': 'User f7129c85-8980-4a6c-a117-441936fa92c6 pedropazos11@gmail.com can only make 1 requests at a time. Please upgrade your plan!'}
+
+############ [13:42] LOG ############:
+
+### Intento 5 de 6  ###
+# Modelo ASP sacado: 
+	Error con la peticion a API del LLM. Respuesta recibida: {'message': 'User f7129c85-8980-4a6c-a117-441936fa92c6 pedropazos11@gmail.com can only make 1 requests at a time. Please upgrade your plan!'}
+
+############ [13:42] LOG ############:
+
+### Intento 6 de 6  ###
+# Modelo ASP sacado: 
+	Error con la peticion a API del LLM. Respuesta recibida: {'message': 'User f7129c85-8980-4a6c-a117-441936fa92c6 pedropazos11@gmail.com can only make 1 requests at a time. Please upgrade your plan!'}
+
+############ [13:43] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). next_to(green, white). same_place(owner_green_boat, coffee). same_place(pall_mall_smoker, bird). same_place(owner_yellow_boat, dunhill). same_place(boat_number_3_owner, milk). same_place(norwegian, 1). next_to(blends_smoker, cat_owner). next_to(dunhill_smoker, horse_owner). same_place(blue_master_smoker, beer_drinker). same_place(german, prince). next_to(norwegian, blue). next_to(blends_smoker, water_drinker). show_graphic.
+
+############ [13:43] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	house(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(brtish; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(brtish, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:43] LOG ############:
+
+### Intento 2 de 6  ###
+Listo, adjunto el resultado:
+############ [13:47] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	building(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(green, coffee). same_place(pall_mall, bird). same_place(yellow, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:47] LOG ############:
+
+### Intento 1 de 6  ###
+Listo, adjunto el resultado:
+############ [13:49] LOG ############:
+
+### Intento 0 de 6  ###
+# Modelo ASP sacado: 
+	boat(1..5). living_place(boat, V) :- boat(V). type(color, V) :- color(V). color(yellow; green; white; red; blue). person(british; irish; german; norwegian; swedish). type(pet, V) :- pet(V). pet(dog; fish; bird; horse; cat). type(group, V) :- group(V). group(golpes_bajos; fugazi; beatles; police; radio_futura). type(drink, V) :- drink(V). drink(beer; coffee; tea; milk; water). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(blends; blue_master; dunhill; pall_mall; prince). same_place(british, red). same_place(swedish, dog). same_place(irish, tea). left(green, white). same_place(owner_green_boat, coffee). same_place(owner_yellow_boat, dunhill). same_place(3, milk). same_place(norwegian, 1). next_to(blends, cat). next_to(dunhill, horse). same_place(blue_master, beer). same_place(german, prince). next_to(norwegian, blue). next_to(blends, water). show_graphic.
+
+############ [13:49] LOG ############:
+
+### Intento 1 de 6  ###
+# Modelo ASP sacado: 
+	building(1..5). 
+
+############ [13:49] LOG ############:
+
+### Intento 2 de 6  ###
+Listo, adjunto el resultado:

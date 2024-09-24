@@ -4,7 +4,7 @@ IN: The owner of the Dog lives next to the owner of the Red house. The Red house
 OUT: living_place(house, V) :- house(V). type(pet, V) :- pet(V). pet(dog). type(color, V) :- color(V). color(red). next_to(dog, red). same_place(red, 1). house(1..9).
 IN: There are ten houses. The Swedish lives in the last one. The Spanish lives in the first one. The German lives in the third one.
 OUT: house(1..10). living_place(house, V) :- house(V). person(swedish; spanish). same_place(swedish, 10). same_place(spanish, 1). same_place(german, 3).
-IN: There is one house, where the British lives. It's painted Red. The tobacco brands are two and they are Marlboro and Dunhill. The house where the British lives is the number 1. The british lives to the left of the person who smokes Dunhill cigarettes.
+IN: There is one house, where the British lives. It's painted Red. The tobacco brands are two and they are Marlboro and Dunhill. The house where the British lives is the number 1. The British lives to the left of the person who smokes Dunhill cigarettes.
 OUT: house(1). living_place(house, V) :- house(V). person(british). type(color, V) :- color(V). color(red). same_place(british, red). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(marlboro). same_place(british, 1). left(british, dunhill).
 IN: There are two tobacco brands: Dunhill and Pall Mall. There are two drinks: Beer and Milk. The person that smokes Dunhill also drinks Beer. The Pall Mall smoker is a Milk drinker.
 OUT: type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(dunhill; pall_mall). type(drink, V) :- drink(V). drink(beer; milk). same_place(dunhill, beer). same_place(pall_mall, milk).
@@ -30,8 +30,8 @@ IN: There are three houses. An African man lives in the middle one (this is, the
 OUT: house(1..3). living_place(house, V) :- house(V). person(african). same_place(african, 2). show_description.
 IN: There is a Swedish, a Danish and a Norwegian woman. The puzzle has 3 houses. The houses are Green, Blue and Red. The drinks are Water, Wine and Beer. The Swedish lives in the second house. Beer is drinked by the owner of the Blue house. The Wine and the Red color are in the same house. The owner of the Green house drinks Water. The man who lives in the centre house (there are 3 houses, so the middle one is the number 2) drinks Coffee.
 OUT: person(swedish; danish; norwegian). house(1..3). living_place(house, V) :- house(V). type(color, V) :- color(V). color(green; blue; red). type(drink, V) :- drink(V). drink(water; wine; beer). same_place(swedish, 2). same_place(beer, blue). same_place(wine, red). same_place(green, water). same_place(coffee, 2).
-IN: The puzzle has two houses. An Italian kid and a Romanian folk live in each house. You have to depict this puzzle visually.
-OUT: house(1..2). living_place(house, V) :- house(V). person(italian; romanian). show_graphic.
+IN: The puzzle has two camping tents. An Italian kid and a Romanian folk live in each house. You have to depict this puzzle visually.
+OUT: camping_tent(1..2). living_place(camping_tent, V) :- camping_tent(V). person(italian; romanian). show_graphic.
 IN: There are three drinks: Coffee, Milk and Beer. There are four tobacco brands: Pall Mall, Dunhill, Blends and Blue Master. The owner of the house where Milk is drunk smokes Dunhill cigarettes. The Blends smoker drinks Beer.
 OUT: type(drink, V) :- drink(V). drink(coffee; milk; beer). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(pall_mall; dunhill; blends; blue_master). same_place(milk, dunhill). same_place(blends, beer).
 IN: In this Einstein puzzle there are 4 different types of beverages: water, tea, soda and whiskey. The house where Whiskey is drunk is to the right of the house where they drink Water. The Soda drinker has a neighbor that drinks Water. Water is drunk where Tea is drunk. The person who drinks Soda lives to the left of the Tea drinker.
@@ -68,8 +68,8 @@ IN: The Spanish man has a cat in his domicile, and his home is painted blue. The
 OUT: living_place(house, V) :- house(V). person(spanish). type(pet, V) :- pet(V). pet(cat). same_place(spanish, cat).  type(color, V) :- color(V). color(blue). same_place(spanish, blue). same_place(spanish, 2).
 IN: The Sudafrican smokes Camel cigarettes and drinks beer in his white house. His neighbor is a Namibian girl. She lives in a red house where he keeps a rat.
 OUT: person(sudafrican). type(tobacco_brand, V) :- tobacco_brand(V). tobacco_brand(camel). same_place(sudafrican, camel). type(drink, V) :- drink(V). drink(beer). same_place(sudafrican, beer). living_place(house, V) :- house(V). type(color, V) :- color(V). color(white; red). same_place(sudafrican, white). person(namibian). next_to(sudafrican, namibian). same_place(namibian, red). type(pet, V) :- pet(V). pet(rat). same_place(namibian, rat).
-IN: There are five houses. The European lives next to the African. The Asian lives to the right of the African. The American lives to the left of the European.
-OUT: house(1..5). living_place(house, V) :- house(V). person(european; african; asian; american). next_to(european, african). right(asian, african). left(american, european).
+IN: There are five boats. The European lives next to the African. The Asian lives to the right of the African. The American lives to the left of the European.
+OUT: boat(1..5). living_place(boat, V) :- boat(V). person(european; african; asian; american). next_to(european, african). right(asian, african). left(american, european).
 IN: The Spanish kid and the Chinese man are neighbors. The Spanish lives in the first house while the Chinese man lives in the second one. Show the result with images.
 OUT: person(spanish). person(chinese). next_to(spanish, chinese). house(1..2). living_place(house, V) :- house(V). same_place(spanish, 1). same_place(chinese, 2). show_graphic.
 IN: There are three houses. The Turkish and the Russian have adjacent residences. The man who drinks Soda lives next to the one who smokes Blends. The person who has a Dog lives to the right of the person with the Red house.

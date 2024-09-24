@@ -20,7 +20,7 @@ from utils.tiempos_plot import tiempos_plot
 AHORA = time.localtime()
 HORA_STRING = f"[{str(AHORA.tm_hour)}:{str(AHORA.tm_min)}]"
 LOG_HEADER = f"\n############ {HORA_STRING} LOG ############:\n"
-MAX_REINTENTOS = 4
+MAX_REINTENTOS = 6
 
 # Flags
 DEBUG = False
@@ -133,6 +133,9 @@ def proceso(prompt_usuario, puzzle_elegido, n_intento, contador_tiempo_total):
         array_tiempos.append(tiempo_grafico)
 
         if (estado != 0) : salida += f"# Módulo gráfico: {msg_grafico}\n"
+
+        if "show_description" not in representaciones:
+            salida = "Listo, adjunto el resultado:"
 
     # Fin
     imprimir_salida(estado, salida, prompt_usuario, puzzle_elegido, array_tiempos, n_intento, contador_tiempo_total, representaciones)
