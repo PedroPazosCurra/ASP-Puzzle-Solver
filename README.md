@@ -42,7 +42,7 @@ Primero, debes preparar el entorno haciendo doble click en **setup**
 Con todo listo, puedes ejecutar el servidor haciendo doble click en run_windows.bat (actualmente, sistema sólo soportado en Windows).  Se abrirá la consola de comandos con el servidor ejecutándose y una ventana de tu navegador predeterminado con la página de ASP Puzzle Solver lista para que la uses.
 
 ## Documentación
-A disposición de quien lo considere de interés, dejo un enlace a la memoria del presente trabajo: (...)  
+A disposición de quien lo considere de interés, dejo un [enlace a la memoria del presente trabajo](Memoria.pdf)
 
 
 
